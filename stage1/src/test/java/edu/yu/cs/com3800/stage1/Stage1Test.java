@@ -3,12 +3,9 @@ package edu.yu.cs.com3800.stage1;
 import edu.yu.cs.stage1.Client;
 import edu.yu.cs.stage1.ClientImpl;
 import edu.yu.cs.stage1.SimpleServerImpl;
-import jdk.jfr.Name;
 import org.junit.jupiter.api.*;
 
 import java.io.IOException;
-import java.lang.reflect.Field;
-import java.net.InetSocketAddress;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
