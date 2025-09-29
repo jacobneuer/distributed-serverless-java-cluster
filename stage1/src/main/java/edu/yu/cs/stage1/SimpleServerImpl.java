@@ -27,6 +27,7 @@ public class SimpleServerImpl implements SimpleServer{
         public void handle(HttpExchange exchange) throws IOException {
             // Enforce POST request
             if (!exchange.getRequestMethod().equalsIgnoreCase("POST")) {
+                exchange.getResponseHeaders().set("Allow", "POST");
                 exchange.sendResponseHeaders(405, -1); // 405 Method Not Allowed
                 return;
             }
