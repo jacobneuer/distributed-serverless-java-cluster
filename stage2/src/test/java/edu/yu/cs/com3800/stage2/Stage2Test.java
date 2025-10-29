@@ -1,8 +1,5 @@
-package edu.yu.cs.com3800.stage1;
+package edu.yu.cs.com3800.stage2;
 
-import edu.yu.cs.com3800.stage1.Client;
-import edu.yu.cs.com3800.stage1.ClientImpl;
-import edu.yu.cs.com3800.stage1.SimpleServerImpl;
 import org.junit.jupiter.api.*;
 
 import java.io.IOException;
@@ -14,7 +11,7 @@ import java.net.http.HttpResponse;
 import static org.junit.jupiter.api.Assertions.*;
 
 
-public class Stage1Test {
+public class Stage2Test {
 
     private static SimpleServerImpl server;
     private static final int port = 9000; // default port

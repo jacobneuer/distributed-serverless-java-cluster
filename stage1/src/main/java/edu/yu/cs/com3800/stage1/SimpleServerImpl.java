@@ -1,10 +1,10 @@
-package edu.yu.cs.stage1;
+package edu.yu.cs.com3800.stage1;
 
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpServer;
-import edu.yu.cs.JavaRunner;
-import edu.yu.cs.SimpleServer;
+import edu.yu.cs.com3800.JavaRunner;
+import edu.yu.cs.com3800.SimpleServer;
 
 import java.io.*;
 import java.net.InetSocketAddress;

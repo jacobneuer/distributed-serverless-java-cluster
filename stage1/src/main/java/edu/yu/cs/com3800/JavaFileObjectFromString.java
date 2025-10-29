@@ -1,4 +1,4 @@
-package edu.yu.cs;
+package edu.yu.cs.com3800;
 
 import javax.tools.SimpleJavaFileObject;
 import java.net.URI;
