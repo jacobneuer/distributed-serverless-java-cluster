@@ -1,7 +1,6 @@
 package edu.yu.cs.com3800.stage2;
 
 import edu.yu.cs.com3800.*;
-import edu.yu.cs.com3800.stage2.*;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
@@ -18,12 +17,12 @@ public class PeerServerImpl extends Thread implements PeerServer {
     private final int myPort;
     private ServerState state;
     private volatile boolean shutdown;
-    private LinkedBlockingQueue<Message> outgoingMessages;
-    private LinkedBlockingQueue<Message> incomingMessages;
-    private Long id;
+    private final LinkedBlockingQueue<Message> outgoingMessages;
+    private final LinkedBlockingQueue<Message> incomingMessages;
+    private final Long id;
     private long peerEpoch;
     private volatile Vote currentLeader;
-    private Map<Long,InetSocketAddress> peerIDtoAddress;
+    private final Map<Long,InetSocketAddress> peerIDtoAddress;
 
     private UDPMessageSender senderWorker;
     private UDPMessageReceiver receiverWorker;
@@ -56,10 +55,12 @@ public class PeerServerImpl extends Thread implements PeerServer {
             throw new RuntimeException(e);
         }
         //Step 3: main server loop
-        try{
+        try {
             while (!this.shutdown){
                 switch (getPeerState()){
                     case LOOKING:
+                        // Update peer epoch
+                        this.peerEpoch++;
                         // Run leader election and commit the result
                         LeaderElection leaderElection = new LeaderElection(this, this.incomingMessages, logger);
                         Vote vote = leaderElection.lookForLeader();
@@ -156,14 +157,14 @@ public class PeerServerImpl extends Thread implements PeerServer {
         }
         // Loop through all peers and send the message
         for (InetSocketAddress peer : this.peerIDtoAddress.values()) {
-            // If the address is localhost, skip it (don't want to send message to self)
+            // If the address is localhost, skip it (don't want to send a message to self)
             if (peer.equals(this.myAddress)) {
                 continue;
             }
             try {
                 this.sendMessage(type, messageContents, peer);
             } catch (IllegalArgumentException e) {
-                logger.log(Level.SEVERE, "Failed to send message to peer " + peer.toString(), e);
+                logger.log(Level.SEVERE, "Failed to send message to peer " + peer, e);
             }
         }
     }

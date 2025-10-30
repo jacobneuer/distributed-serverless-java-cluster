@@ -1,170 +1,173 @@
 package edu.yu.cs.com3800.stage2;
 
-import org.junit.jupiter.api.*;
+import edu.yu.cs.com3800.PeerServer;
+import edu.yu.cs.com3800.PeerServer.ServerState;
+import edu.yu.cs.com3800.stage2.PeerServerImpl;
 
-import java.io.IOException;
-import java.net.URI;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
+import org.junit.jupiter.api.*;
+import java.net.InetSocketAddress;
+import java.time.Duration;
+import java.util.*;
+import java.util.concurrent.TimeUnit;
+import java.util.logging.Logger;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-
 public class Stage2Test {
 
-    private static SimpleServerImpl server;
-    private static final int port = 9000; // default port
-    private static final HttpClient rawClient = HttpClient.newHttpClient();
+    private static final Logger LOG = Logger.getLogger(Stage2Test.class.getName());
 
-    @BeforeAll
-    static void startServer() throws Exception {
-        server = new SimpleServerImpl(9000);
-        server.start();
+    // Keep references so we always shut everything down even if a test fails
+    private final List<PeerServerImpl> servers = new ArrayList<>();
+    private final Map<Long, InetSocketAddress> peerMap = new HashMap<>();
+
+    // Tweak these if your environment is slower/faster
+    private static final int BASE_UDP_PORT = 9800;     // choose a free range
+    private static final int CLUSTER_SIZE  = 5;        // odd size for clean majority
+    private static final long ELECTION_TIMEOUT_MS = 10_000; // hard ceiling for election
+    private static final long POLL_INTERVAL_MS    = 50;
+
+    @AfterEach
+    void tearDown() {
+        // Best-effort shutdown of all servers and joining threads
+        for (PeerServerImpl s : servers) {
+            try {
+                s.shutdown();
+            } catch (Exception ignore) {}
+        }
+        for (PeerServerImpl s : servers) {
+            try {
+                s.join(TimeUnit.SECONDS.toMillis(2));
+            } catch (InterruptedException ignore) {
+                Thread.currentThread().interrupt();
+            }
+        }
+        servers.clear();
+        peerMap.clear();
     }
 
-    @AfterAll
-    static void stopServer() {
-        if (server != null) {
-            server.stop();
+    @Test
+    @DisplayName("Elects exactly one leader (highest ID) and others follow")
+    void testLeaderElectionHighestIdWins() {
+        // Create IDs and ports
+        List<Long> ids = Arrays.asList(1L, 2L, 3L, 4L, 5L); // 5 is highest -> should be leader
+        buildPeerMap(ids);
+
+        // Start servers
+        startCluster(ids);
+
+        // Wait for convergence
+        assertTimeoutPreemptively(Duration.ofMillis(ELECTION_TIMEOUT_MS), () -> {
+            waitUntil(this::clusterConverged, ELECTION_TIMEOUT_MS, POLL_INTERVAL_MS);
+        }, "Cluster did not converge to a single leader within the timeout");
+
+        // Validate exactly one leader and the rest following
+        List<PeerServerImpl> leaders = filterByState(ServerState.LEADING);
+        List<PeerServerImpl> followers = filterByState(ServerState.FOLLOWING);
+
+        assertEquals(1, leaders.size(), "There must be exactly one leader");
+        assertEquals(CLUSTER_SIZE - 1, followers.size(), "All remaining peers must be FOLLOWING");
+
+        // Validate the elected leader is the highest ID
+        PeerServerImpl leader = leaders.get(0);
+        long expectedLeaderId = ids.stream().max(Long::compareTo).orElseThrow();
+        assertEquals(expectedLeaderId, leader.getServerId(), "Highest ID should be elected leader");
+
+        // Validate that all peers agree on the current leader ID
+        long agreedLeaderId = leader.getCurrentLeader().getProposedLeaderID();
+        for (PeerServerImpl s : servers) {
+            assertNotNull(s.getCurrentLeader(), "Each peer should have a non-null currentLeader");
+            assertEquals(agreedLeaderId, s.getCurrentLeader().getProposedLeaderID(),
+                    "All peers must agree on the same leader ID");
         }
     }
 
-    private static URI endpoint() {
-        return URI.create("http://localhost:" + port + "/compileandrun");
+    @Test
+    @DisplayName("Quorum size is majority (N/2 + 1)")
+    void testQuorumSizeMajority() {
+        List<Long> ids = Arrays.asList(10L, 11L, 12L, 13L, 14L);
+        buildPeerMap(ids);
+        startCluster(ids);
+
+        // Just check the arithmetic on any one node
+        assertFalse(servers.isEmpty());
+        int expectedQuorum = (peerMap.size() / 2) + 1;
+        assertEquals(expectedQuorum, servers.get(0).getQuorumSize());
     }
 
-    @Test
-    void clientSuccessReturns200AndRunBody() throws Exception {
-        Client client = new ClientImpl("localhost", port);
+    // ----------------------
+    // Helpers
+    // ----------------------
 
-        String javaSource = """
-                public class Hello {
-                    public Hello() {}
-                    public String run() { return "Hello, world!"; }
-                }
-                """;
-
-        client.sendCompileAndRunRequest(javaSource);
-        Client.Response response = client.getResponse();
-
-        int expectedCode = 200;
-        String expectedBody = "Hello, world!";
-        int actualCode = response.getCode();
-        String actualBody = response.getBody();
-
-        // Print expected and actual responses
-        System.out.println("Expected response:");
-        System.out.println("Status code: " + expectedCode);
-        System.out.println("Body: " + expectedBody);
-        System.out.println("Actual response:");
-        System.out.println("Status code: " + actualCode);
-        System.out.println("Body: " + actualBody);
-
-        assertEquals(200, response.getCode());
-        assertEquals("Hello, world!", response.getBody());
-    }
-
-    // ---------- Failure path (JavaRunner throws) ----------
-
-    @Test
-    void clientFailureReturns400WithMessageAndStacktrace() throws Exception {
-        Client client = new ClientImpl("localhost", port);
-
-        // Wrong run() return type should trigger JavaRunner to throw
-        String badSource = """
-                public class Bad {
-                    public Bad() {}
-                    public void run() {}
-                }
-                """;
-
-        client.sendCompileAndRunRequest(badSource);
-        Client.Response response = client.getResponse();
-
-        int expectedCode = 400;
-
-        // Print expected and actual responses
-        System.out.println("Expected response:");
-        System.out.println("Status code: " + expectedCode);
-        System.out.println("Actual response:");
-        System.out.println("Status code: " + response.getCode());
-
-        // Verify response body
-        assertEquals(expectedCode, response.getCode(), "Status code mismatch");
-        assertNotNull(response.getBody());
-
-        // Must contain message + newline + stacktrace (handler formats this)
-        assertTrue(response.getBody().contains("\n"), "Body should contain newline separating message and stack trace");
-        assertTrue(response.getBody().contains("\n\tat ") || response.getBody().contains("\nat "),
-                "Body should include stack trace lines (e.g., '\\tat ...')");
-    }
-
-    @Test
-    void nonPostRequestReturns405AndAllowHeader() throws Exception {
-        // Use raw HttpClient to send GET request
-        HttpClient rawClient = HttpClient.newHttpClient();
-
-        HttpRequest req = HttpRequest.newBuilder(endpoint())
-                .GET()
-                .build();
-
-        HttpResponse<String> response = rawClient.send(req, HttpResponse.BodyHandlers.ofString());
-
-        int expectedCode = 405;
-
-        // Print expected and actual responses
-        System.out.println("Expected response:");
-        System.out.println("Status code: " + expectedCode);
-        System.out.println("Actual response:");
-        System.out.println("Status code: " + response.statusCode());
-
-        assertEquals(405, response.statusCode());
-        assertEquals("POST", response.headers().firstValue("Allow").orElse(""),
-                "Server must advertise POST as allowed");
-    }
-
-    @Test
-    void wrongContentTypeReturns400() throws Exception {
-        String okSource = """
-                public class X {
-                    public String run() { return "ok"; }
-                }
-                """;
-
-        HttpRequest req = HttpRequest.newBuilder(endpoint())
-                .POST(HttpRequest.BodyPublishers.ofString(okSource))
-                .header("Content-Type", "text/plain")
-                .build();
-
-        HttpResponse<String> response = rawClient.send(req, HttpResponse.BodyHandlers.ofString());
-
-        int expectedCode = 400;
-
-        // Print expected and actual responses
-        System.out.println("Expected response:");
-        System.out.println("Status code: " + expectedCode);
-        System.out.println("Actual response:");
-        System.out.println("Status code: " + response.statusCode());
-
-        assertEquals(400, response.statusCode(), "Server must reject non text/x-java-source content type");
-    }
-
-    // ---------- Client behavior edge case ----------
-
-    @Test
-    void getResponseWithoutSendThrowsIOException() {
-        Client client;
-        try {
-            client = new ClientImpl("localhost", port);
-        } catch (IOException e) {
-            fail("Client construction failed unexpectedly: " + e.getMessage());
-            return;
+    private void buildPeerMap(List<Long> ids) {
+        peerMap.clear();
+        for (int i = 0; i < ids.size(); i++) {
+            long id = ids.get(i);
+            int port = BASE_UDP_PORT + i;
+            peerMap.put(id, new InetSocketAddress("localhost", port));
         }
+        assertEquals(CLUSTER_SIZE, peerMap.size(), "Peer map must match cluster size");
+    }
 
-        IOException ex = assertThrows(IOException.class, client::getResponse,
-                "Calling getResponse() before send should throw IOException");
-        assertTrue(ex.getMessage() != null && ex.getMessage().toLowerCase().contains("no response"),
-                "Exception message should indicate no response is available");
+    private void startCluster(List<Long> ids) {
+        servers.clear();
+        // Same peer map passed to every server
+        for (Long id : ids) {
+            int port = peerMap.get(id).getPort();
+            PeerServerImpl peer = new PeerServerImpl(
+                    port,                  // my UDP port
+                    /* peerEpoch */ 0L,    // start at 0; election code will manage per-round semantics
+                    id,                    // my ID
+                    peerMap                // all peers
+            );
+            servers.add(peer);
+        }
+        // Start all at (roughly) the same time to trigger election
+        for (PeerServerImpl s : servers) {
+            s.start();
+        }
+    }
+
+    private boolean clusterConverged() {
+        List<PeerServerImpl> leaders = filterByState(ServerState.LEADING);
+        List<PeerServerImpl> followers = filterByState(ServerState.FOLLOWING);
+
+        // Must be exactly one leader, and all others following
+        if (leaders.size() != 1) return false;
+        if (leaders.size() + followers.size() != CLUSTER_SIZE) return false;
+
+        // Everyone must agree on the same leader ID
+        long leaderId = leaders.get(0).getServerId();
+        for (PeerServerImpl s : servers) {
+            if (s.getCurrentLeader() == null) return false;
+            if (s.getCurrentLeader().getProposedLeaderID() != leaderId) return false;
+        }
+        return true;
+    }
+
+    private List<PeerServerImpl> filterByState(ServerState state) {
+        List<PeerServerImpl> result = new ArrayList<>();
+        for (PeerServerImpl s : servers) {
+            if (s.getPeerState() == state) {
+                result.add(s);
+            }
+        }
+        return result;
+    }
+
+    private void waitUntil(SupplierWithException<Boolean> condition,
+                           long timeoutMs,
+                           long pollIntervalMs) throws Exception {
+        long deadline = System.currentTimeMillis() + timeoutMs;
+        while (System.currentTimeMillis() < deadline) {
+            if (condition.get()) return;
+            Thread.sleep(pollIntervalMs);
+        }
+        fail("Condition not met within timeout");
+    }
+
+    @FunctionalInterface
+    private interface SupplierWithException<T> {
+        T get() throws Exception;
     }
 }

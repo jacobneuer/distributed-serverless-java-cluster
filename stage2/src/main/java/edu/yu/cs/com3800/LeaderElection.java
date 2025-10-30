@@ -6,7 +6,7 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**We are implemeting a simplfied version of the election algorithm. For the complete version which covers all possible scenarios, see https://github.com/apache/zookeeper/blob/90f8d835e065ea12dddd8ed9ca20872a4412c78a/zookeeper-server/src/main/java/org/apache/zookeeper/server/quorum/FastLeaderElection.java#L913
+/**We are implemeting a simplfied version of the election algorithm. For the complete version which covers all possible scenarios, see <a href="https://github.com/apache/zookeeper/blob/90f8d835e065ea12dddd8ed9ca20872a4412c78a/zookeeper-server/src/main/java/org/apache/zookeeper/server/quorum/FastLeaderElection.java#L913">...</a>
  */
 public class LeaderElection {
     /**
@@ -68,7 +68,7 @@ public class LeaderElection {
 
             while (true) {
 
-                Message incoming = null;
+                Message incoming;
                 try {
                     // 2. Try to get the next incoming election message
                     incoming = this.incomingMessages.poll(notifsTimeout, java.util.concurrent.TimeUnit.MILLISECONDS);

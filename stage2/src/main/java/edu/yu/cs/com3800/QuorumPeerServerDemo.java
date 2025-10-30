@@ -37,7 +37,7 @@ public class QuorumPeerServerDemo {
         }
         //wait for threads to start
         try {
-            Thread.sleep(2000);
+            Thread.sleep(5000);
         }
         catch (Exception e) {
         }
