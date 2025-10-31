@@ -2,6 +2,7 @@ package edu.yu.cs.com3800.stage2;
 
 import edu.yu.cs.com3800.PeerServer;
 import edu.yu.cs.com3800.PeerServer.ServerState;
+import edu.yu.cs.com3800.Vote;
 import edu.yu.cs.com3800.stage2.PeerServerImpl;
 
 import org.junit.jupiter.api.*;
@@ -21,7 +22,6 @@ public class Stage2Test {
     private final List<PeerServerImpl> servers = new ArrayList<>();
     private final Map<Long, InetSocketAddress> peerMap = new HashMap<>();
 
-    // Tweak these if your environment is slower/faster
     private static final int BASE_UDP_PORT = 9800;     // choose a free range
     private static final int CLUSTER_SIZE  = 5;        // odd size for clean majority
     private static final long ELECTION_TIMEOUT_MS = 10_000; // hard ceiling for election
@@ -94,6 +94,99 @@ public class Stage2Test {
         int expectedQuorum = (peerMap.size() / 2) + 1;
         assertEquals(expectedQuorum, servers.get(0).getQuorumSize());
     }
+
+    @Test
+    void demoStyleElectionEightPeers() throws Exception {
+        Map<Long, InetSocketAddress> peerIDtoAddress = new HashMap<>();
+        peerIDtoAddress.put(1L, new InetSocketAddress("localhost", 8010));
+        peerIDtoAddress.put(2L, new InetSocketAddress("localhost", 8020));
+        peerIDtoAddress.put(3L, new InetSocketAddress("localhost", 8030));
+        peerIDtoAddress.put(4L, new InetSocketAddress("localhost", 8040));
+        peerIDtoAddress.put(5L, new InetSocketAddress("localhost", 8050));
+        peerIDtoAddress.put(6L, new InetSocketAddress("localhost", 8060));
+        peerIDtoAddress.put(7L, new InetSocketAddress("localhost", 8070));
+        peerIDtoAddress.put(8L, new InetSocketAddress("localhost", 8080));
+
+        // Create and start servers (each gets a copy of the map with itself removed)
+        List<PeerServerImpl> servers = new ArrayList<>();
+        for (Map.Entry<Long, InetSocketAddress> e : peerIDtoAddress.entrySet()) {
+            Map<Long, InetSocketAddress> others = new HashMap<>(peerIDtoAddress);
+            others.remove(e.getKey());
+            PeerServerImpl s = new PeerServerImpl(
+                    e.getValue().getPort(),
+                    0L,
+                     e.getKey(),
+                     others
+            );
+            servers.add(s);
+        }
+        // Start all at roughly the same time
+        for (PeerServerImpl s : servers) {
+            s.start();
+        }
+
+        // Wait for convergence (poll instead of fixed sleep)
+        long deadline = System.currentTimeMillis() + 10_000; // 10s max
+        Long agreedLeader = null;
+        while (System.currentTimeMillis() < deadline) {
+            boolean allHaveLeaders = true;
+            Long candidate = null;
+            for (PeerServerImpl s : servers) {
+                Vote v = s.getCurrentLeader();
+                if (v == null || s.getPeerState() == PeerServer.ServerState.LOOKING) {
+                    allHaveLeaders = false;
+                    break;
+                }
+                if (candidate == null) candidate = v.getProposedLeaderID();
+                if (!candidate.equals(v.getProposedLeaderID())) {
+                    allHaveLeaders = false;
+                    break;
+                }
+            }
+            if (allHaveLeaders) {
+                agreedLeader = candidate;
+                break;
+            }
+            Thread.sleep(100);
+        }
+
+        try {
+            // Assertions: must have converged
+            assertNotNull(agreedLeader, "Cluster did not converge to a leader within the timeout");
+
+            // Highest ID should win in the simplified algorithm (1..8 -> 8)
+            long expectedLeader = Collections.max(peerIDtoAddress.keySet());
+            assertEquals(expectedLeader, agreedLeader.longValue(), "Highest ID should be elected leader");
+
+            // Exactly one LEADING, rest FOLLOWING, and everyone agrees on leader ID
+            int leaders = 0;
+            for (PeerServerImpl s : servers) {
+                if (s.getPeerState() == PeerServer.ServerState.LEADING) {
+                    leaders++;
+                    assertEquals(expectedLeader, s.getServerId(), "Only the highest-ID server should be LEADING");
+                } else {
+                    assertEquals(PeerServer.ServerState.FOLLOWING, s.getPeerState(), "Non-leaders must be FOLLOWING");
+                }
+                assertNotNull(s.getCurrentLeader());
+                assertEquals(expectedLeader, s.getCurrentLeader().getProposedLeaderID(), "All peers must agree on leader ID");
+                // (Optional) print like the demo:
+                System.out.println("Server on port " + s.getAddress().getPort()
+                        + " whose ID is " + s.getServerId()
+                        + " has leader " + s.getCurrentLeader().getProposedLeaderID()
+                        + " and state " + s.getPeerState().name());
+            }
+            assertEquals(1, leaders, "There must be exactly one leader");
+        } finally {
+            // Clean shutdown and join
+            for (PeerServerImpl s : servers) {
+                try { s.shutdown(); } catch (Exception ignore) {}
+            }
+            for (PeerServerImpl s : servers) {
+                try { s.join(2000); } catch (InterruptedException ie) { Thread.currentThread().interrupt(); }
+            }
+        }
+    }
+
 
     // ----------------------
     // Helpers
