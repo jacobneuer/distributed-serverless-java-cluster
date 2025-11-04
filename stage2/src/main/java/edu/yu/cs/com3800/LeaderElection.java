@@ -105,7 +105,7 @@ public class LeaderElection {
                     continue;
                 }
 
-                // 4. We DID receive a message. Decode it.
+                // 4. We received a message. Decode it.
                 if (incoming.getMessageType() != Message.MessageType.ELECTION) {
                     // ignore non-election messages during election
                     continue;
