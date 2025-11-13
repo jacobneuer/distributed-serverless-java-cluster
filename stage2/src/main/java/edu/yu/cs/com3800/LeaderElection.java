@@ -134,6 +134,15 @@ public class LeaderElection {
                     this.proposedLeader = theirProposedLeader;
                     this.proposedEpoch = theirEpoch;
 
+                    // Update our own vote in receivedVotes
+                    ElectionNotification selfNotification = new ElectionNotification(
+                            this.proposedLeader,            // I'm proposing myself as leader
+                            server.getPeerState(),          // my current state (LOOKING)
+                            server.getServerId(),           // who is sending this notification (me)
+                            this.proposedEpoch              // current epoch
+                    );
+                    this.receivedVotes.put(server.getServerId(), selfNotification);
+
                     // rebroadcast our new vote to everyone
                     sendNotifications();
                 }

@@ -27,7 +27,7 @@ public class PeerServerImpl extends Thread implements PeerServer {
     private UDPMessageSender senderWorker;
     private UDPMessageReceiver receiverWorker;
 
-    public PeerServerImpl(int myPort, long peerEpoch, Long id, Map<Long,InetSocketAddress> peerIDtoAddress){
+    public PeerServerImpl(int myPort, long peerEpoch, Long id, Map<Long,InetSocketAddress> peerIDtoAddress) {
         this.myPort = myPort;
         this.myAddress = new InetSocketAddress("localhost", myPort);
         this.state = ServerState.LOOKING;

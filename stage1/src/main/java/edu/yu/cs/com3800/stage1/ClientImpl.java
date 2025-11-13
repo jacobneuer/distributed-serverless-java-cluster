@@ -38,7 +38,7 @@ public class ClientImpl implements Client{
                 .POST(HttpRequest.BodyPublishers.ofString(src, StandardCharsets.UTF_8))
                 .build();
 
-        // Kick off async request and store it as a future
+        // Kick off an async request and store it as a future
         pending = httpClient.sendAsync(request, HttpResponse.BodyHandlers.ofString(StandardCharsets.UTF_8));
 
         // Process response when ready

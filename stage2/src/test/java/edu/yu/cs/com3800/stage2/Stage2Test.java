@@ -22,8 +22,8 @@ public class Stage2Test {
     private final List<PeerServerImpl> servers = new ArrayList<>();
     private final Map<Long, InetSocketAddress> peerMap = new HashMap<>();
 
-    private static final int BASE_UDP_PORT = 9800;     // choose a free range
-    private static final int CLUSTER_SIZE  = 5;        // odd size for clean majority
+    private static final int BASE_UDP_PORT = 9800;
+    private static final int CLUSTER_SIZE  = 5;        // odd size for a clean majority
     private static final long ELECTION_TIMEOUT_MS = 10_000; // hard ceiling for election
     private static final long POLL_INTERVAL_MS    = 50;
 
