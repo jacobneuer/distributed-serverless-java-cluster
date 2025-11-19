@@ -6,8 +6,11 @@ import edu.yu.cs.com3800.Message.MessageType;
 import java.net.InetSocketAddress;
 import java.util.*;
 import java.util.concurrent.*;
+import java.util.logging.Logger;
 
 public class RoundRobinLeader extends Thread {
+
+    private final Logger logger = Logger.getLogger(RoundRobinLeader.class.getName());
 
     private final LinkedBlockingQueue<Message> incomingMessages;
     private final LinkedBlockingQueue<Message> outgoingMessages;
@@ -16,11 +19,10 @@ public class RoundRobinLeader extends Thread {
     // workers
     private final List<Map.Entry<Long, InetSocketAddress>> workers = new ArrayList<>();
     private int nextWorkerIndex = 0;
+    private long requestID = 1;
 
-    // requestID -> pending client callback (to be used later)
-    private final ConcurrentHashMap<Long, PendingRequest> pending = new ConcurrentHashMap<>();
-
-    private volatile boolean shutdown = false;
+    // requestID -> client’s address
+    private final ConcurrentHashMap<Long, InetSocketAddress> pendingRequests = new ConcurrentHashMap<>();
 
     public RoundRobinLeader(
             LinkedBlockingQueue<Message> incomingMessages,
@@ -45,27 +47,24 @@ public class RoundRobinLeader extends Thread {
 
     @Override
     public void run() {
-        while (!shutdown && !Thread.currentThread().isInterrupted()) {
+        while (!Thread.currentThread().isInterrupted()) {
             try {
+                // Wait for the next incoming message
                 Message msg = incomingMessages.take();
 
                 switch (msg.getMessageType()) {
-
                     case WORK:
                         handleWorkFromClient(msg);
                         break;
-
                     case COMPLETED_WORK:
                         handleWorkCompletion(msg);
                         break;
-
                     default:
                         // ignore gossip, election, etc.
                         break;
                 }
 
             } catch (InterruptedException e) {
-                shutdown = true;
                 Thread.currentThread().interrupt();
                 break;
             } catch (Exception e) {
@@ -76,17 +75,25 @@ public class RoundRobinLeader extends Thread {
 
     private void handleWorkFromClient(Message clientMsg) {
         try {
-            // Deserialize the Java source work
-            WorkMessage work = WorkMessage.deserialize(clientMsg.getMessageContents());
-            long requestID = work.getRequestID();
+            // Generate a unique request ID for this request
+            long requestID = generateNextRequestID();
 
-            // Determine next worker
+            // Extract raw Java code from the client message
+            byte[] javaCode = clientMsg.getMessageContents();
+
+            // Save the client’s address so we can return the result later
+            InetSocketAddress clientAddress = new InetSocketAddress(clientMsg.getSenderHost(), clientMsg.getSenderPort());
+
+            // Track this pending request
+            pendingRequests.put(requestID, clientAddress);
+
+            // Pick the next worker
             InetSocketAddress workerAddress = pickNextWorker();
 
-            // Build WORK message for that worker
-            Message workMsg = new Message(
-                    MessageType.WORK,
-                    clientMsg.getMessageContents(),
+            // Forward work to that worker
+            Message workerMsg = new Message(
+                    Message.MessageType.WORK,
+                    javaCode,
                     myAddress.getHostString(),
                     myAddress.getPort(),
                     workerAddress.getHostString(),
@@ -94,21 +101,31 @@ public class RoundRobinLeader extends Thread {
                     requestID
             );
 
-            // Save the pending request (HTTP linkage added later)
-            pending.put(requestID, new PendingRequest(null));
+            // Send work out
+            outgoingMessages.add(workerMsg);
 
-            // Send it to the outgoing queue
-            outgoingMessages.add(workMsg);
-
-        } catch (Exception ex) {
-            ex.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
     private void handleWorkCompletion(Message msg) {
         try {
+            // Extract request ID from the message
+            long requestID = msg.getRequestID();
+
+            // Look up which client originally sent this request
+            InetSocketAddress clientAddr = pendingRequests.remove(requestID);
+            if (clientAddr == null) {
+                // Log that we got an unknown request ID
+                logger.warning("Received COMPLETED_WORK message for unknown request ID: " + requestID);
+                return;
+            }
+
+            // Worker sends the raw result string in the message contents
             String output = new String(msg.getMessageContents());
 
+            // Build COMPLETED_WORK message to send back to the client
             Message reply = new Message(
                     MessageType.COMPLETED_WORK,
                     output.getBytes(),
@@ -118,15 +135,16 @@ public class RoundRobinLeader extends Thread {
                     clientAddr.getPort(),
                     requestID
             );
-            outgoingMessages.add(reply);
 
+            // Send the result to the client
+            outgoingMessages.add(reply);
 
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    private InetSocketAddress pickNextWorker() {
+    private synchronized InetSocketAddress pickNextWorker() {
         // Make sure there are workers available
         if (workers.isEmpty()) {
             throw new IllegalStateException("No workers available!");
@@ -138,8 +156,7 @@ public class RoundRobinLeader extends Thread {
         return worker;
     }
 
-    private static class PendingRequest {
-        // add HttpExchange or client session info here later
-        public PendingRequest(Object o) { }
+    private synchronized long generateNextRequestID() {
+        return requestID++;
     }
 }

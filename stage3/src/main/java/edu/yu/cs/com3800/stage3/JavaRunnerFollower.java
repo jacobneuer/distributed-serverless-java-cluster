@@ -13,7 +13,6 @@ public class JavaRunnerFollower extends Thread {
     private final LinkedBlockingQueue<Message> incomingMessages;
     private final LinkedBlockingQueue<Message> outgoingMessages;
     private final InetSocketAddress myAddress;
-    private volatile boolean shutdown = false;
 
     public JavaRunnerFollower(LinkedBlockingQueue<Message> incomingMessages, LinkedBlockingQueue<Message> outgoingMessages, Long id, InetSocketAddress myAddress) {
         this.incomingMessages = incomingMessages;
@@ -24,7 +23,7 @@ public class JavaRunnerFollower extends Thread {
 
     @Override
     public void run() {
-        while (!shutdown && !Thread.currentThread().isInterrupted()) {
+        while (!Thread.currentThread().isInterrupted()) {
             try {
                 // Wait for the next incoming message
                 Message msg = incomingMessages.take();
@@ -35,9 +34,8 @@ public class JavaRunnerFollower extends Thread {
                 }
 
                 // Parse the work payload
-                WorkMessage payload = WorkMessage.deserialize(msg.getMessageContents());
-                long requestID = payload.getRequestID();
-                byte[] javaCode = payload.getJavaCode();
+                long requestID = msg.getRequestID();
+                byte[] javaCode = msg.getMessageContents();
 
                 InetSocketAddress leaderAddress = new InetSocketAddress(msg.getSenderHost(), msg.getSenderPort());
 
@@ -47,7 +45,6 @@ public class JavaRunnerFollower extends Thread {
                 outgoingMessages.add(response);
 
             } catch (InterruptedException e) {
-                shutdown = true;
                 Thread.currentThread().interrupt();
                 break;
             } catch (Exception e) {
@@ -60,7 +57,6 @@ public class JavaRunnerFollower extends Thread {
         JavaRunner runner = new JavaRunner();
 
         String resultString;
-        boolean error = false;
 
         try {
             // Convert javaCode into InputStream
@@ -72,26 +68,17 @@ public class JavaRunnerFollower extends Thread {
         } catch (IllegalArgumentException | ReflectiveOperationException e) {
             // JavaRunner signals ALL compilation/runtime errors through exceptions
             resultString = e.getMessage();
-            error = true;
         }
-
-        // Serialize CompletedWorkMessage to pass back to the leader
-        CompletedWorkMessage done = new CompletedWorkMessage(
-                requestID,
-                resultString,
-                error
-        );
 
         // Build the message to send back to the leader
         return new Message(
                 MessageType.COMPLETED_WORK,
-                done.serialize(),
+                resultString.getBytes(),
                 myAddress.getHostString(),
                 myAddress.getPort(),
                 leaderAddress.getHostString(),
                 leaderAddress.getPort(),
-                requestID,
-                error
+                requestID
         );
     }
 
