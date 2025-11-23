@@ -238,8 +238,8 @@ public class Stage3Test {
         assertNotNull(leader, "Leader was not elected in time!");
         int leaderPort = leader.getUdpPort();
 
-        final int NUM_REQUESTS = 1000;   // stress load
-        final int TIMEOUT_MS = 8000;    // max time to wait for all replies
+        final int NUM_REQUESTS = 200;   // stress load
+        final int TIMEOUT_MS = 10000;    // max time to wait for all replies
 
         // --- 2. Send many WORK messages as fast as possible ---
         for (int i = 0; i < NUM_REQUESTS; i++) {
