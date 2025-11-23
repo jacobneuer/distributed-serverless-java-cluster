@@ -1,0 +1,43 @@
+Nov 21, 2025 10:40:50 AM edu.yu.cs.com3800.UDPMessageReceiver run
+FINE: Waiting for packet
+Nov 21, 2025 10:40:51 AM edu.yu.cs.com3800.UDPMessageReceiver run
+FINE: UDP packet received:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8040
+Receiver Host: localhost
+Receiver port: 13100
+Request ID: 1
+Error Occurred: false
+Message Contents: 
+Code did not compile:
+Error on line 1, column 47 in string:///X.java
+
+Nov 21, 2025 10:40:51 AM edu.yu.cs.com3800.UDPMessageReceiver run
+FINE: Waiting for packet
+Nov 21, 2025 10:40:54 AM edu.yu.cs.com3800.UDPMessageReceiver run
+FINE: Waiting for packet
+Nov 21, 2025 10:40:57 AM edu.yu.cs.com3800.UDPMessageReceiver run
+FINE: Waiting for packet
+Nov 21, 2025 10:41:00 AM edu.yu.cs.com3800.UDPMessageReceiver run
+FINE: Waiting for packet
+Nov 21, 2025 10:41:03 AM edu.yu.cs.com3800.UDPMessageReceiver run
+FINE: Waiting for packet
+Nov 21, 2025 10:41:06 AM edu.yu.cs.com3800.UDPMessageReceiver run
+FINE: Waiting for packet
+Nov 21, 2025 10:41:09 AM edu.yu.cs.com3800.UDPMessageReceiver run
+FINE: Waiting for packet
+Nov 21, 2025 10:41:12 AM edu.yu.cs.com3800.UDPMessageReceiver run
+FINE: Waiting for packet
+Nov 21, 2025 10:41:15 AM edu.yu.cs.com3800.UDPMessageReceiver run
+FINE: Waiting for packet
+Nov 21, 2025 10:41:18 AM edu.yu.cs.com3800.UDPMessageReceiver run
+FINE: Waiting for packet
+Nov 21, 2025 10:41:21 AM edu.yu.cs.com3800.UDPMessageReceiver run
+FINE: Waiting for packet
+Nov 21, 2025 10:41:24 AM edu.yu.cs.com3800.UDPMessageReceiver run
+FINE: Waiting for packet
+Nov 21, 2025 10:41:27 AM edu.yu.cs.com3800.UDPMessageReceiver run
+FINE: Waiting for packet
+Nov 21, 2025 10:41:30 AM edu.yu.cs.com3800.UDPMessageReceiver run
+FINE: Waiting for packet

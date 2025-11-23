@@ -1,0 +1,11 @@
+Nov 21, 2025 10:40:51 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: WORK
+Sender Host: localhost
+Sender port: 13100
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+public class X { public String run() { return 123; } }

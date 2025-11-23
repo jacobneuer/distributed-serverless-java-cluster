@@ -1,0 +1,70 @@
+Nov 21, 2025 10:41:08 AM edu.yu.cs.com3800.UDPMessageReceiver run
+FINE: Waiting for packet
+Nov 21, 2025 10:41:08 AM edu.yu.cs.com3800.UDPMessageReceiver run
+FINE: UDP packet received:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8040
+Receiver Host: localhost
+Receiver port: 12359
+Request ID: 1
+Error Occurred: false
+Message Contents: 
+Hello request 0
+Nov 21, 2025 10:41:08 AM edu.yu.cs.com3800.UDPMessageReceiver run
+FINE: Waiting for packet
+Nov 21, 2025 10:41:08 AM edu.yu.cs.com3800.UDPMessageReceiver run
+FINE: UDP packet received:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8040
+Receiver Host: localhost
+Receiver port: 12359
+Request ID: 4
+Error Occurred: false
+Message Contents: 
+Hello request 3
+Nov 21, 2025 10:41:08 AM edu.yu.cs.com3800.UDPMessageReceiver run
+FINE: Waiting for packet
+Nov 21, 2025 10:41:08 AM edu.yu.cs.com3800.UDPMessageReceiver run
+FINE: UDP packet received:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8040
+Receiver Host: localhost
+Receiver port: 12359
+Request ID: 3
+Error Occurred: false
+Message Contents: 
+Hello request 2
+Nov 21, 2025 10:41:08 AM edu.yu.cs.com3800.UDPMessageReceiver run
+FINE: Waiting for packet
+Nov 21, 2025 10:41:08 AM edu.yu.cs.com3800.UDPMessageReceiver run
+FINE: UDP packet received:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8040
+Receiver Host: localhost
+Receiver port: 12359
+Request ID: 2
+Error Occurred: false
+Message Contents: 
+Hello request 1
+Nov 21, 2025 10:41:08 AM edu.yu.cs.com3800.UDPMessageReceiver run
+FINE: Waiting for packet
+Nov 21, 2025 10:41:11 AM edu.yu.cs.com3800.UDPMessageReceiver run
+FINE: Waiting for packet
+Nov 21, 2025 10:41:14 AM edu.yu.cs.com3800.UDPMessageReceiver run
+FINE: Waiting for packet
+Nov 21, 2025 10:41:17 AM edu.yu.cs.com3800.UDPMessageReceiver run
+FINE: Waiting for packet
+Nov 21, 2025 10:41:20 AM edu.yu.cs.com3800.UDPMessageReceiver run
+FINE: Waiting for packet
+Nov 21, 2025 10:41:23 AM edu.yu.cs.com3800.UDPMessageReceiver run
+FINE: Waiting for packet
+Nov 21, 2025 10:41:26 AM edu.yu.cs.com3800.UDPMessageReceiver run
+FINE: Waiting for packet
+Nov 21, 2025 10:41:29 AM edu.yu.cs.com3800.UDPMessageReceiver run
+FINE: Waiting for packet
+Nov 21, 2025 10:41:32 AM edu.yu.cs.com3800.UDPMessageReceiver run
+FINE: Waiting for packet

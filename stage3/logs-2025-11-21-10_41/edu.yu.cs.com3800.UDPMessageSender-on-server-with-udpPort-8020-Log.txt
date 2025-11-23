@@ -1,0 +1,5152 @@
+Nov 21, 2025 10:41:03 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8010
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 1
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:03 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8030
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 1
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:03 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 1
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:03 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8010
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 3
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:03 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8030
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 3
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:03 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 3
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:03 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8010
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 3
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:03 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8030
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 3
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:03 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 3
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:03 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8010
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 3
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:03 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8030
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 3
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:03 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 3
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:03 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8010
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 3
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:03 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8030
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 3
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:03 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 3
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:04 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8010
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 3
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:04 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8030
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 3
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:04 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 3
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:04 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8010
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 3
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:04 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8030
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 3
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:04 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 3
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:04 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8010
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 3
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:04 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8030
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 3
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:04 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 3
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:05 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8010
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 3
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:05 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8030
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 3
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:05 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 3
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:05 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8010
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 3
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:05 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8030
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 3
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:05 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 3
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:06 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8010
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 3
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:06 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8030
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 3
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:06 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 3
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:08 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 2
+Error Occurred: false
+Message Contents: 
+Hello request 1
+Nov 21, 2025 10:41:08 AM edu.yu.cs.com3800.UDPMessageSender run
+SEVERE: Exiting UDPMessageSender.run()
+Nov 21, 2025 10:41:11 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8010
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 1
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:11 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8030
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 1
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:11 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 1
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:11 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8010
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 3
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:11 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8030
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 3
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:11 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 3
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:11 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8010
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 3
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:11 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8030
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 3
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:11 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 3
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:12 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8010
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 3
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:12 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8030
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 3
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:12 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 3
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:12 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8010
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 3
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:12 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8030
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 3
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:12 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 3
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:12 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8010
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 3
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:12 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8030
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 3
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:12 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 3
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:12 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8010
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 3
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:12 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8030
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 3
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:12 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 3
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:13 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8010
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 3
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:13 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8030
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 3
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:13 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 3
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:13 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8010
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 3
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:13 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8030
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 3
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:13 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 3
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:14 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8010
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 3
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:14 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8030
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 3
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:14 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 3
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:14 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8010
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 3
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:14 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8030
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 3
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:14 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 3
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:14 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8010
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 3
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:14 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8030
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 3
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:14 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 3
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:16 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 2
+Error Occurred: false
+Message Contents: 
+RR 1
+Nov 21, 2025 10:41:16 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 5
+Error Occurred: false
+Message Contents: 
+RR 4
+Nov 21, 2025 10:41:16 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 8
+Error Occurred: false
+Message Contents: 
+RR 7
+Nov 21, 2025 10:41:16 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 11
+Error Occurred: false
+Message Contents: 
+RR 10
+Nov 21, 2025 10:41:16 AM edu.yu.cs.com3800.UDPMessageSender run
+SEVERE: Exiting UDPMessageSender.run()
+Nov 21, 2025 10:41:19 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8010
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 1
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:19 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8030
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 1
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:19 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 1
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:19 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8010
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 2
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:19 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8030
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 2
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:19 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 2
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:19 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8010
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 3
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:19 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8030
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 3
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:19 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 3
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:20 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8010
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 3
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:20 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8030
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 3
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:20 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 3
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:20 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8010
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 3
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:20 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8030
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 3
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:20 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 3
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:20 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8010
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 3
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:20 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8030
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 3
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:20 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 3
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:21 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8010
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 3
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:21 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8030
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 3
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:21 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 3
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:21 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8010
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 3
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:21 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8030
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 3
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:21 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 3
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:21 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8010
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 3
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:21 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8030
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 3
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:21 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 3
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:22 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8010
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 3
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:22 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8030
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 3
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:22 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 3
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:22 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8010
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 3
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:22 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8030
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 3
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:22 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: ELECTION
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+	Leader voted for: 3
+	Sender server state: O
+	Sender server ID: 1
+	Sender peer epoch: 1
+Nov 21, 2025 10:41:25 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 2
+Error Occurred: false
+Message Contents: 
+Stress_1
+Nov 21, 2025 10:41:25 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 5
+Error Occurred: false
+Message Contents: 
+Stress_4
+Nov 21, 2025 10:41:25 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 8
+Error Occurred: false
+Message Contents: 
+Stress_7
+Nov 21, 2025 10:41:25 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 11
+Error Occurred: false
+Message Contents: 
+Stress_10
+Nov 21, 2025 10:41:25 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 14
+Error Occurred: false
+Message Contents: 
+Stress_13
+Nov 21, 2025 10:41:25 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 17
+Error Occurred: false
+Message Contents: 
+Stress_16
+Nov 21, 2025 10:41:25 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 20
+Error Occurred: false
+Message Contents: 
+Stress_19
+Nov 21, 2025 10:41:25 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 23
+Error Occurred: false
+Message Contents: 
+Stress_22
+Nov 21, 2025 10:41:25 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 26
+Error Occurred: false
+Message Contents: 
+Stress_25
+Nov 21, 2025 10:41:25 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 29
+Error Occurred: false
+Message Contents: 
+Stress_28
+Nov 21, 2025 10:41:25 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 32
+Error Occurred: false
+Message Contents: 
+Stress_31
+Nov 21, 2025 10:41:25 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 35
+Error Occurred: false
+Message Contents: 
+Stress_34
+Nov 21, 2025 10:41:25 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 38
+Error Occurred: false
+Message Contents: 
+Stress_37
+Nov 21, 2025 10:41:25 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 41
+Error Occurred: false
+Message Contents: 
+Stress_40
+Nov 21, 2025 10:41:25 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 44
+Error Occurred: false
+Message Contents: 
+Stress_43
+Nov 21, 2025 10:41:25 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 47
+Error Occurred: false
+Message Contents: 
+Stress_46
+Nov 21, 2025 10:41:25 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 50
+Error Occurred: false
+Message Contents: 
+Stress_49
+Nov 21, 2025 10:41:25 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 53
+Error Occurred: false
+Message Contents: 
+Stress_52
+Nov 21, 2025 10:41:25 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 56
+Error Occurred: false
+Message Contents: 
+Stress_55
+Nov 21, 2025 10:41:25 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 59
+Error Occurred: false
+Message Contents: 
+Stress_58
+Nov 21, 2025 10:41:25 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 62
+Error Occurred: false
+Message Contents: 
+Stress_61
+Nov 21, 2025 10:41:25 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 65
+Error Occurred: false
+Message Contents: 
+Stress_64
+Nov 21, 2025 10:41:25 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 68
+Error Occurred: false
+Message Contents: 
+Stress_67
+Nov 21, 2025 10:41:25 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 71
+Error Occurred: false
+Message Contents: 
+Stress_70
+Nov 21, 2025 10:41:25 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 74
+Error Occurred: false
+Message Contents: 
+Stress_73
+Nov 21, 2025 10:41:25 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 77
+Error Occurred: false
+Message Contents: 
+Stress_76
+Nov 21, 2025 10:41:25 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 80
+Error Occurred: false
+Message Contents: 
+Stress_79
+Nov 21, 2025 10:41:25 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 83
+Error Occurred: false
+Message Contents: 
+Stress_82
+Nov 21, 2025 10:41:25 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 86
+Error Occurred: false
+Message Contents: 
+Stress_85
+Nov 21, 2025 10:41:25 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 89
+Error Occurred: false
+Message Contents: 
+Stress_88
+Nov 21, 2025 10:41:25 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 92
+Error Occurred: false
+Message Contents: 
+Stress_91
+Nov 21, 2025 10:41:25 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 95
+Error Occurred: false
+Message Contents: 
+Stress_94
+Nov 21, 2025 10:41:25 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 98
+Error Occurred: false
+Message Contents: 
+Stress_97
+Nov 21, 2025 10:41:25 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 101
+Error Occurred: false
+Message Contents: 
+Stress_100
+Nov 21, 2025 10:41:25 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 104
+Error Occurred: false
+Message Contents: 
+Stress_103
+Nov 21, 2025 10:41:25 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 107
+Error Occurred: false
+Message Contents: 
+Stress_106
+Nov 21, 2025 10:41:25 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 110
+Error Occurred: false
+Message Contents: 
+Stress_109
+Nov 21, 2025 10:41:25 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 113
+Error Occurred: false
+Message Contents: 
+Stress_112
+Nov 21, 2025 10:41:25 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 116
+Error Occurred: false
+Message Contents: 
+Stress_115
+Nov 21, 2025 10:41:25 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 119
+Error Occurred: false
+Message Contents: 
+Stress_118
+Nov 21, 2025 10:41:25 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 122
+Error Occurred: false
+Message Contents: 
+Stress_121
+Nov 21, 2025 10:41:25 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 125
+Error Occurred: false
+Message Contents: 
+Stress_124
+Nov 21, 2025 10:41:25 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 128
+Error Occurred: false
+Message Contents: 
+Stress_127
+Nov 21, 2025 10:41:25 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 131
+Error Occurred: false
+Message Contents: 
+Stress_130
+Nov 21, 2025 10:41:25 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 134
+Error Occurred: false
+Message Contents: 
+Stress_133
+Nov 21, 2025 10:41:25 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 137
+Error Occurred: false
+Message Contents: 
+Stress_136
+Nov 21, 2025 10:41:25 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 140
+Error Occurred: false
+Message Contents: 
+Stress_139
+Nov 21, 2025 10:41:25 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 143
+Error Occurred: false
+Message Contents: 
+Stress_142
+Nov 21, 2025 10:41:26 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 146
+Error Occurred: false
+Message Contents: 
+Stress_145
+Nov 21, 2025 10:41:26 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 149
+Error Occurred: false
+Message Contents: 
+Stress_148
+Nov 21, 2025 10:41:26 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 152
+Error Occurred: false
+Message Contents: 
+Stress_151
+Nov 21, 2025 10:41:26 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 155
+Error Occurred: false
+Message Contents: 
+Stress_154
+Nov 21, 2025 10:41:26 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 158
+Error Occurred: false
+Message Contents: 
+Stress_157
+Nov 21, 2025 10:41:26 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 161
+Error Occurred: false
+Message Contents: 
+Stress_160
+Nov 21, 2025 10:41:26 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 164
+Error Occurred: false
+Message Contents: 
+Stress_163
+Nov 21, 2025 10:41:26 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 167
+Error Occurred: false
+Message Contents: 
+Stress_166
+Nov 21, 2025 10:41:26 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 170
+Error Occurred: false
+Message Contents: 
+Stress_169
+Nov 21, 2025 10:41:26 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 173
+Error Occurred: false
+Message Contents: 
+Stress_172
+Nov 21, 2025 10:41:26 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 176
+Error Occurred: false
+Message Contents: 
+Stress_175
+Nov 21, 2025 10:41:26 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 179
+Error Occurred: false
+Message Contents: 
+Stress_178
+Nov 21, 2025 10:41:26 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 182
+Error Occurred: false
+Message Contents: 
+Stress_181
+Nov 21, 2025 10:41:26 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 185
+Error Occurred: false
+Message Contents: 
+Stress_184
+Nov 21, 2025 10:41:26 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 188
+Error Occurred: false
+Message Contents: 
+Stress_187
+Nov 21, 2025 10:41:26 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 191
+Error Occurred: false
+Message Contents: 
+Stress_190
+Nov 21, 2025 10:41:26 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 194
+Error Occurred: false
+Message Contents: 
+Stress_193
+Nov 21, 2025 10:41:26 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 197
+Error Occurred: false
+Message Contents: 
+Stress_196
+Nov 21, 2025 10:41:26 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 200
+Error Occurred: false
+Message Contents: 
+Stress_199
+Nov 21, 2025 10:41:26 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 203
+Error Occurred: false
+Message Contents: 
+Stress_202
+Nov 21, 2025 10:41:26 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 206
+Error Occurred: false
+Message Contents: 
+Stress_205
+Nov 21, 2025 10:41:26 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 209
+Error Occurred: false
+Message Contents: 
+Stress_208
+Nov 21, 2025 10:41:26 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 212
+Error Occurred: false
+Message Contents: 
+Stress_211
+Nov 21, 2025 10:41:26 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 215
+Error Occurred: false
+Message Contents: 
+Stress_214
+Nov 21, 2025 10:41:26 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 218
+Error Occurred: false
+Message Contents: 
+Stress_217
+Nov 21, 2025 10:41:26 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 221
+Error Occurred: false
+Message Contents: 
+Stress_220
+Nov 21, 2025 10:41:26 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 224
+Error Occurred: false
+Message Contents: 
+Stress_223
+Nov 21, 2025 10:41:26 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 227
+Error Occurred: false
+Message Contents: 
+Stress_226
+Nov 21, 2025 10:41:26 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 230
+Error Occurred: false
+Message Contents: 
+Stress_229
+Nov 21, 2025 10:41:26 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 233
+Error Occurred: false
+Message Contents: 
+Stress_232
+Nov 21, 2025 10:41:26 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 236
+Error Occurred: false
+Message Contents: 
+Stress_235
+Nov 21, 2025 10:41:26 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 239
+Error Occurred: false
+Message Contents: 
+Stress_238
+Nov 21, 2025 10:41:26 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 242
+Error Occurred: false
+Message Contents: 
+Stress_241
+Nov 21, 2025 10:41:26 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 245
+Error Occurred: false
+Message Contents: 
+Stress_244
+Nov 21, 2025 10:41:26 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 248
+Error Occurred: false
+Message Contents: 
+Stress_247
+Nov 21, 2025 10:41:26 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 251
+Error Occurred: false
+Message Contents: 
+Stress_250
+Nov 21, 2025 10:41:26 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 254
+Error Occurred: false
+Message Contents: 
+Stress_253
+Nov 21, 2025 10:41:26 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 257
+Error Occurred: false
+Message Contents: 
+Stress_256
+Nov 21, 2025 10:41:26 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 260
+Error Occurred: false
+Message Contents: 
+Stress_259
+Nov 21, 2025 10:41:26 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 263
+Error Occurred: false
+Message Contents: 
+Stress_262
+Nov 21, 2025 10:41:26 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 266
+Error Occurred: false
+Message Contents: 
+Stress_265
+Nov 21, 2025 10:41:26 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 269
+Error Occurred: false
+Message Contents: 
+Stress_268
+Nov 21, 2025 10:41:26 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 272
+Error Occurred: false
+Message Contents: 
+Stress_271
+Nov 21, 2025 10:41:26 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 275
+Error Occurred: false
+Message Contents: 
+Stress_274
+Nov 21, 2025 10:41:26 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 278
+Error Occurred: false
+Message Contents: 
+Stress_277
+Nov 21, 2025 10:41:26 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 281
+Error Occurred: false
+Message Contents: 
+Stress_280
+Nov 21, 2025 10:41:26 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 284
+Error Occurred: false
+Message Contents: 
+Stress_283
+Nov 21, 2025 10:41:26 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 287
+Error Occurred: false
+Message Contents: 
+Stress_286
+Nov 21, 2025 10:41:26 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 290
+Error Occurred: false
+Message Contents: 
+Stress_289
+Nov 21, 2025 10:41:26 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 293
+Error Occurred: false
+Message Contents: 
+Stress_292
+Nov 21, 2025 10:41:26 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 296
+Error Occurred: false
+Message Contents: 
+Stress_295
+Nov 21, 2025 10:41:26 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 299
+Error Occurred: false
+Message Contents: 
+Stress_298
+Nov 21, 2025 10:41:26 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 302
+Error Occurred: false
+Message Contents: 
+Stress_301
+Nov 21, 2025 10:41:26 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 305
+Error Occurred: false
+Message Contents: 
+Stress_304
+Nov 21, 2025 10:41:26 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 308
+Error Occurred: false
+Message Contents: 
+Stress_307
+Nov 21, 2025 10:41:26 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 311
+Error Occurred: false
+Message Contents: 
+Stress_310
+Nov 21, 2025 10:41:26 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 314
+Error Occurred: false
+Message Contents: 
+Stress_313
+Nov 21, 2025 10:41:26 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 317
+Error Occurred: false
+Message Contents: 
+Stress_316
+Nov 21, 2025 10:41:26 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 320
+Error Occurred: false
+Message Contents: 
+Stress_319
+Nov 21, 2025 10:41:26 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 323
+Error Occurred: false
+Message Contents: 
+Stress_322
+Nov 21, 2025 10:41:26 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 326
+Error Occurred: false
+Message Contents: 
+Stress_325
+Nov 21, 2025 10:41:26 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 329
+Error Occurred: false
+Message Contents: 
+Stress_328
+Nov 21, 2025 10:41:26 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 332
+Error Occurred: false
+Message Contents: 
+Stress_331
+Nov 21, 2025 10:41:27 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 335
+Error Occurred: false
+Message Contents: 
+Stress_334
+Nov 21, 2025 10:41:27 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 338
+Error Occurred: false
+Message Contents: 
+Stress_337
+Nov 21, 2025 10:41:27 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 341
+Error Occurred: false
+Message Contents: 
+Stress_340
+Nov 21, 2025 10:41:27 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 344
+Error Occurred: false
+Message Contents: 
+Stress_343
+Nov 21, 2025 10:41:27 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 347
+Error Occurred: false
+Message Contents: 
+Stress_346
+Nov 21, 2025 10:41:27 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 350
+Error Occurred: false
+Message Contents: 
+Stress_349
+Nov 21, 2025 10:41:27 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 353
+Error Occurred: false
+Message Contents: 
+Stress_352
+Nov 21, 2025 10:41:27 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 356
+Error Occurred: false
+Message Contents: 
+Stress_355
+Nov 21, 2025 10:41:27 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 359
+Error Occurred: false
+Message Contents: 
+Stress_358
+Nov 21, 2025 10:41:27 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 362
+Error Occurred: false
+Message Contents: 
+Stress_361
+Nov 21, 2025 10:41:27 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 365
+Error Occurred: false
+Message Contents: 
+Stress_364
+Nov 21, 2025 10:41:27 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 368
+Error Occurred: false
+Message Contents: 
+Stress_367
+Nov 21, 2025 10:41:27 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 371
+Error Occurred: false
+Message Contents: 
+Stress_370
+Nov 21, 2025 10:41:27 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 374
+Error Occurred: false
+Message Contents: 
+Stress_373
+Nov 21, 2025 10:41:27 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 377
+Error Occurred: false
+Message Contents: 
+Stress_376
+Nov 21, 2025 10:41:27 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 380
+Error Occurred: false
+Message Contents: 
+Stress_379
+Nov 21, 2025 10:41:27 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 383
+Error Occurred: false
+Message Contents: 
+Stress_382
+Nov 21, 2025 10:41:27 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 386
+Error Occurred: false
+Message Contents: 
+Stress_385
+Nov 21, 2025 10:41:27 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 389
+Error Occurred: false
+Message Contents: 
+Stress_388
+Nov 21, 2025 10:41:27 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 392
+Error Occurred: false
+Message Contents: 
+Stress_391
+Nov 21, 2025 10:41:27 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 395
+Error Occurred: false
+Message Contents: 
+Stress_394
+Nov 21, 2025 10:41:27 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 398
+Error Occurred: false
+Message Contents: 
+Stress_397
+Nov 21, 2025 10:41:27 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 401
+Error Occurred: false
+Message Contents: 
+Stress_400
+Nov 21, 2025 10:41:27 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 404
+Error Occurred: false
+Message Contents: 
+Stress_403
+Nov 21, 2025 10:41:27 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 407
+Error Occurred: false
+Message Contents: 
+Stress_406
+Nov 21, 2025 10:41:27 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 410
+Error Occurred: false
+Message Contents: 
+Stress_409
+Nov 21, 2025 10:41:27 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 413
+Error Occurred: false
+Message Contents: 
+Stress_412
+Nov 21, 2025 10:41:27 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 416
+Error Occurred: false
+Message Contents: 
+Stress_415
+Nov 21, 2025 10:41:27 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 419
+Error Occurred: false
+Message Contents: 
+Stress_418
+Nov 21, 2025 10:41:27 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 422
+Error Occurred: false
+Message Contents: 
+Stress_421
+Nov 21, 2025 10:41:27 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 425
+Error Occurred: false
+Message Contents: 
+Stress_424
+Nov 21, 2025 10:41:27 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 428
+Error Occurred: false
+Message Contents: 
+Stress_427
+Nov 21, 2025 10:41:27 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 431
+Error Occurred: false
+Message Contents: 
+Stress_430
+Nov 21, 2025 10:41:27 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 434
+Error Occurred: false
+Message Contents: 
+Stress_433
+Nov 21, 2025 10:41:27 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 437
+Error Occurred: false
+Message Contents: 
+Stress_436
+Nov 21, 2025 10:41:27 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 440
+Error Occurred: false
+Message Contents: 
+Stress_439
+Nov 21, 2025 10:41:27 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 443
+Error Occurred: false
+Message Contents: 
+Stress_442
+Nov 21, 2025 10:41:27 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 446
+Error Occurred: false
+Message Contents: 
+Stress_445
+Nov 21, 2025 10:41:27 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 449
+Error Occurred: false
+Message Contents: 
+Stress_448
+Nov 21, 2025 10:41:27 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 452
+Error Occurred: false
+Message Contents: 
+Stress_451
+Nov 21, 2025 10:41:27 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 455
+Error Occurred: false
+Message Contents: 
+Stress_454
+Nov 21, 2025 10:41:27 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 458
+Error Occurred: false
+Message Contents: 
+Stress_457
+Nov 21, 2025 10:41:27 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 461
+Error Occurred: false
+Message Contents: 
+Stress_460
+Nov 21, 2025 10:41:27 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 464
+Error Occurred: false
+Message Contents: 
+Stress_463
+Nov 21, 2025 10:41:27 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 467
+Error Occurred: false
+Message Contents: 
+Stress_466
+Nov 21, 2025 10:41:27 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 470
+Error Occurred: false
+Message Contents: 
+Stress_469
+Nov 21, 2025 10:41:27 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 473
+Error Occurred: false
+Message Contents: 
+Stress_472
+Nov 21, 2025 10:41:27 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 476
+Error Occurred: false
+Message Contents: 
+Stress_475
+Nov 21, 2025 10:41:27 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 479
+Error Occurred: false
+Message Contents: 
+Stress_478
+Nov 21, 2025 10:41:27 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 482
+Error Occurred: false
+Message Contents: 
+Stress_481
+Nov 21, 2025 10:41:27 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 485
+Error Occurred: false
+Message Contents: 
+Stress_484
+Nov 21, 2025 10:41:27 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 488
+Error Occurred: false
+Message Contents: 
+Stress_487
+Nov 21, 2025 10:41:27 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 491
+Error Occurred: false
+Message Contents: 
+Stress_490
+Nov 21, 2025 10:41:27 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 494
+Error Occurred: false
+Message Contents: 
+Stress_493
+Nov 21, 2025 10:41:27 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 497
+Error Occurred: false
+Message Contents: 
+Stress_496
+Nov 21, 2025 10:41:27 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 500
+Error Occurred: false
+Message Contents: 
+Stress_499
+Nov 21, 2025 10:41:27 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 503
+Error Occurred: false
+Message Contents: 
+Stress_502
+Nov 21, 2025 10:41:27 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 506
+Error Occurred: false
+Message Contents: 
+Stress_505
+Nov 21, 2025 10:41:27 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 509
+Error Occurred: false
+Message Contents: 
+Stress_508
+Nov 21, 2025 10:41:27 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 512
+Error Occurred: false
+Message Contents: 
+Stress_511
+Nov 21, 2025 10:41:27 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 515
+Error Occurred: false
+Message Contents: 
+Stress_514
+Nov 21, 2025 10:41:27 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 518
+Error Occurred: false
+Message Contents: 
+Stress_517
+Nov 21, 2025 10:41:27 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 521
+Error Occurred: false
+Message Contents: 
+Stress_520
+Nov 21, 2025 10:41:27 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 524
+Error Occurred: false
+Message Contents: 
+Stress_523
+Nov 21, 2025 10:41:27 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 527
+Error Occurred: false
+Message Contents: 
+Stress_526
+Nov 21, 2025 10:41:27 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 530
+Error Occurred: false
+Message Contents: 
+Stress_529
+Nov 21, 2025 10:41:27 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 533
+Error Occurred: false
+Message Contents: 
+Stress_532
+Nov 21, 2025 10:41:27 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 536
+Error Occurred: false
+Message Contents: 
+Stress_535
+Nov 21, 2025 10:41:27 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 539
+Error Occurred: false
+Message Contents: 
+Stress_538
+Nov 21, 2025 10:41:27 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 542
+Error Occurred: false
+Message Contents: 
+Stress_541
+Nov 21, 2025 10:41:27 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 545
+Error Occurred: false
+Message Contents: 
+Stress_544
+Nov 21, 2025 10:41:28 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 548
+Error Occurred: false
+Message Contents: 
+Stress_547
+Nov 21, 2025 10:41:28 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 551
+Error Occurred: false
+Message Contents: 
+Stress_550
+Nov 21, 2025 10:41:28 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 554
+Error Occurred: false
+Message Contents: 
+Stress_553
+Nov 21, 2025 10:41:28 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 557
+Error Occurred: false
+Message Contents: 
+Stress_556
+Nov 21, 2025 10:41:28 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 560
+Error Occurred: false
+Message Contents: 
+Stress_559
+Nov 21, 2025 10:41:28 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 563
+Error Occurred: false
+Message Contents: 
+Stress_562
+Nov 21, 2025 10:41:28 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 566
+Error Occurred: false
+Message Contents: 
+Stress_565
+Nov 21, 2025 10:41:28 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 569
+Error Occurred: false
+Message Contents: 
+Stress_568
+Nov 21, 2025 10:41:28 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 572
+Error Occurred: false
+Message Contents: 
+Stress_571
+Nov 21, 2025 10:41:28 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 575
+Error Occurred: false
+Message Contents: 
+Stress_574
+Nov 21, 2025 10:41:28 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 578
+Error Occurred: false
+Message Contents: 
+Stress_577
+Nov 21, 2025 10:41:28 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 581
+Error Occurred: false
+Message Contents: 
+Stress_580
+Nov 21, 2025 10:41:28 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 584
+Error Occurred: false
+Message Contents: 
+Stress_583
+Nov 21, 2025 10:41:28 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 587
+Error Occurred: false
+Message Contents: 
+Stress_586
+Nov 21, 2025 10:41:28 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 590
+Error Occurred: false
+Message Contents: 
+Stress_589
+Nov 21, 2025 10:41:28 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 593
+Error Occurred: false
+Message Contents: 
+Stress_592
+Nov 21, 2025 10:41:28 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 596
+Error Occurred: false
+Message Contents: 
+Stress_595
+Nov 21, 2025 10:41:28 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 599
+Error Occurred: false
+Message Contents: 
+Stress_598
+Nov 21, 2025 10:41:28 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 602
+Error Occurred: false
+Message Contents: 
+Stress_601
+Nov 21, 2025 10:41:28 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 605
+Error Occurred: false
+Message Contents: 
+Stress_604
+Nov 21, 2025 10:41:28 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 608
+Error Occurred: false
+Message Contents: 
+Stress_607
+Nov 21, 2025 10:41:28 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 611
+Error Occurred: false
+Message Contents: 
+Stress_610
+Nov 21, 2025 10:41:28 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 614
+Error Occurred: false
+Message Contents: 
+Stress_613
+Nov 21, 2025 10:41:28 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 617
+Error Occurred: false
+Message Contents: 
+Stress_616
+Nov 21, 2025 10:41:28 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 620
+Error Occurred: false
+Message Contents: 
+Stress_619
+Nov 21, 2025 10:41:28 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 623
+Error Occurred: false
+Message Contents: 
+Stress_622
+Nov 21, 2025 10:41:28 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 626
+Error Occurred: false
+Message Contents: 
+Stress_625
+Nov 21, 2025 10:41:28 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 629
+Error Occurred: false
+Message Contents: 
+Stress_628
+Nov 21, 2025 10:41:28 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 632
+Error Occurred: false
+Message Contents: 
+Stress_631
+Nov 21, 2025 10:41:28 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 635
+Error Occurred: false
+Message Contents: 
+Stress_634
+Nov 21, 2025 10:41:28 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 638
+Error Occurred: false
+Message Contents: 
+Stress_637
+Nov 21, 2025 10:41:28 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 641
+Error Occurred: false
+Message Contents: 
+Stress_640
+Nov 21, 2025 10:41:28 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 644
+Error Occurred: false
+Message Contents: 
+Stress_643
+Nov 21, 2025 10:41:28 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 647
+Error Occurred: false
+Message Contents: 
+Stress_646
+Nov 21, 2025 10:41:28 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 650
+Error Occurred: false
+Message Contents: 
+Stress_649
+Nov 21, 2025 10:41:28 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 653
+Error Occurred: false
+Message Contents: 
+Stress_652
+Nov 21, 2025 10:41:28 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 656
+Error Occurred: false
+Message Contents: 
+Stress_655
+Nov 21, 2025 10:41:28 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 659
+Error Occurred: false
+Message Contents: 
+Stress_658
+Nov 21, 2025 10:41:28 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 662
+Error Occurred: false
+Message Contents: 
+Stress_661
+Nov 21, 2025 10:41:28 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 665
+Error Occurred: false
+Message Contents: 
+Stress_664
+Nov 21, 2025 10:41:28 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 668
+Error Occurred: false
+Message Contents: 
+Stress_667
+Nov 21, 2025 10:41:28 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 671
+Error Occurred: false
+Message Contents: 
+Stress_670
+Nov 21, 2025 10:41:28 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 674
+Error Occurred: false
+Message Contents: 
+Stress_673
+Nov 21, 2025 10:41:28 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 677
+Error Occurred: false
+Message Contents: 
+Stress_676
+Nov 21, 2025 10:41:28 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 680
+Error Occurred: false
+Message Contents: 
+Stress_679
+Nov 21, 2025 10:41:28 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 683
+Error Occurred: false
+Message Contents: 
+Stress_682
+Nov 21, 2025 10:41:28 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 686
+Error Occurred: false
+Message Contents: 
+Stress_685
+Nov 21, 2025 10:41:28 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 689
+Error Occurred: false
+Message Contents: 
+Stress_688
+Nov 21, 2025 10:41:28 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 692
+Error Occurred: false
+Message Contents: 
+Stress_691
+Nov 21, 2025 10:41:28 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 695
+Error Occurred: false
+Message Contents: 
+Stress_694
+Nov 21, 2025 10:41:28 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 698
+Error Occurred: false
+Message Contents: 
+Stress_697
+Nov 21, 2025 10:41:28 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 701
+Error Occurred: false
+Message Contents: 
+Stress_700
+Nov 21, 2025 10:41:28 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 704
+Error Occurred: false
+Message Contents: 
+Stress_703
+Nov 21, 2025 10:41:28 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 707
+Error Occurred: false
+Message Contents: 
+Stress_706
+Nov 21, 2025 10:41:28 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 710
+Error Occurred: false
+Message Contents: 
+Stress_709
+Nov 21, 2025 10:41:28 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 713
+Error Occurred: false
+Message Contents: 
+Stress_712
+Nov 21, 2025 10:41:28 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 716
+Error Occurred: false
+Message Contents: 
+Stress_715
+Nov 21, 2025 10:41:28 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 719
+Error Occurred: false
+Message Contents: 
+Stress_718
+Nov 21, 2025 10:41:28 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 722
+Error Occurred: false
+Message Contents: 
+Stress_721
+Nov 21, 2025 10:41:28 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 725
+Error Occurred: false
+Message Contents: 
+Stress_724
+Nov 21, 2025 10:41:28 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 728
+Error Occurred: false
+Message Contents: 
+Stress_727
+Nov 21, 2025 10:41:28 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 731
+Error Occurred: false
+Message Contents: 
+Stress_730
+Nov 21, 2025 10:41:28 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 734
+Error Occurred: false
+Message Contents: 
+Stress_733
+Nov 21, 2025 10:41:28 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 737
+Error Occurred: false
+Message Contents: 
+Stress_736
+Nov 21, 2025 10:41:28 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 740
+Error Occurred: false
+Message Contents: 
+Stress_739
+Nov 21, 2025 10:41:28 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 743
+Error Occurred: false
+Message Contents: 
+Stress_742
+Nov 21, 2025 10:41:28 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 746
+Error Occurred: false
+Message Contents: 
+Stress_745
+Nov 21, 2025 10:41:28 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 749
+Error Occurred: false
+Message Contents: 
+Stress_748
+Nov 21, 2025 10:41:28 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 752
+Error Occurred: false
+Message Contents: 
+Stress_751
+Nov 21, 2025 10:41:28 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 755
+Error Occurred: false
+Message Contents: 
+Stress_754
+Nov 21, 2025 10:41:28 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 758
+Error Occurred: false
+Message Contents: 
+Stress_757
+Nov 21, 2025 10:41:29 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 761
+Error Occurred: false
+Message Contents: 
+Stress_760
+Nov 21, 2025 10:41:29 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 764
+Error Occurred: false
+Message Contents: 
+Stress_763
+Nov 21, 2025 10:41:29 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 767
+Error Occurred: false
+Message Contents: 
+Stress_766
+Nov 21, 2025 10:41:29 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 770
+Error Occurred: false
+Message Contents: 
+Stress_769
+Nov 21, 2025 10:41:29 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 773
+Error Occurred: false
+Message Contents: 
+Stress_772
+Nov 21, 2025 10:41:29 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 776
+Error Occurred: false
+Message Contents: 
+Stress_775
+Nov 21, 2025 10:41:29 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 779
+Error Occurred: false
+Message Contents: 
+Stress_778
+Nov 21, 2025 10:41:29 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 782
+Error Occurred: false
+Message Contents: 
+Stress_781
+Nov 21, 2025 10:41:29 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 785
+Error Occurred: false
+Message Contents: 
+Stress_784
+Nov 21, 2025 10:41:29 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 788
+Error Occurred: false
+Message Contents: 
+Stress_787
+Nov 21, 2025 10:41:29 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 791
+Error Occurred: false
+Message Contents: 
+Stress_790
+Nov 21, 2025 10:41:29 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 794
+Error Occurred: false
+Message Contents: 
+Stress_793
+Nov 21, 2025 10:41:29 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 797
+Error Occurred: false
+Message Contents: 
+Stress_796
+Nov 21, 2025 10:41:29 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 800
+Error Occurred: false
+Message Contents: 
+Stress_799
+Nov 21, 2025 10:41:29 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 803
+Error Occurred: false
+Message Contents: 
+Stress_802
+Nov 21, 2025 10:41:29 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 806
+Error Occurred: false
+Message Contents: 
+Stress_805
+Nov 21, 2025 10:41:29 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 809
+Error Occurred: false
+Message Contents: 
+Stress_808
+Nov 21, 2025 10:41:29 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 812
+Error Occurred: false
+Message Contents: 
+Stress_811
+Nov 21, 2025 10:41:29 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 815
+Error Occurred: false
+Message Contents: 
+Stress_814
+Nov 21, 2025 10:41:29 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 818
+Error Occurred: false
+Message Contents: 
+Stress_817
+Nov 21, 2025 10:41:29 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 821
+Error Occurred: false
+Message Contents: 
+Stress_820
+Nov 21, 2025 10:41:29 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 824
+Error Occurred: false
+Message Contents: 
+Stress_823
+Nov 21, 2025 10:41:29 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 827
+Error Occurred: false
+Message Contents: 
+Stress_826
+Nov 21, 2025 10:41:29 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 830
+Error Occurred: false
+Message Contents: 
+Stress_829
+Nov 21, 2025 10:41:29 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 833
+Error Occurred: false
+Message Contents: 
+Stress_832
+Nov 21, 2025 10:41:29 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 836
+Error Occurred: false
+Message Contents: 
+Stress_835
+Nov 21, 2025 10:41:29 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 839
+Error Occurred: false
+Message Contents: 
+Stress_838
+Nov 21, 2025 10:41:29 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 842
+Error Occurred: false
+Message Contents: 
+Stress_841
+Nov 21, 2025 10:41:29 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 845
+Error Occurred: false
+Message Contents: 
+Stress_844
+Nov 21, 2025 10:41:29 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 848
+Error Occurred: false
+Message Contents: 
+Stress_847
+Nov 21, 2025 10:41:29 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 851
+Error Occurred: false
+Message Contents: 
+Stress_850
+Nov 21, 2025 10:41:29 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 854
+Error Occurred: false
+Message Contents: 
+Stress_853
+Nov 21, 2025 10:41:29 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 857
+Error Occurred: false
+Message Contents: 
+Stress_856
+Nov 21, 2025 10:41:29 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 860
+Error Occurred: false
+Message Contents: 
+Stress_859
+Nov 21, 2025 10:41:29 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 863
+Error Occurred: false
+Message Contents: 
+Stress_862
+Nov 21, 2025 10:41:29 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 866
+Error Occurred: false
+Message Contents: 
+Stress_865
+Nov 21, 2025 10:41:29 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 869
+Error Occurred: false
+Message Contents: 
+Stress_868
+Nov 21, 2025 10:41:29 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 872
+Error Occurred: false
+Message Contents: 
+Stress_871
+Nov 21, 2025 10:41:29 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 875
+Error Occurred: false
+Message Contents: 
+Stress_874
+Nov 21, 2025 10:41:29 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 878
+Error Occurred: false
+Message Contents: 
+Stress_877
+Nov 21, 2025 10:41:29 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 881
+Error Occurred: false
+Message Contents: 
+Stress_880
+Nov 21, 2025 10:41:29 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 884
+Error Occurred: false
+Message Contents: 
+Stress_883
+Nov 21, 2025 10:41:29 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 887
+Error Occurred: false
+Message Contents: 
+Stress_886
+Nov 21, 2025 10:41:29 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 890
+Error Occurred: false
+Message Contents: 
+Stress_889
+Nov 21, 2025 10:41:29 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 893
+Error Occurred: false
+Message Contents: 
+Stress_892
+Nov 21, 2025 10:41:29 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 896
+Error Occurred: false
+Message Contents: 
+Stress_895
+Nov 21, 2025 10:41:29 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 899
+Error Occurred: false
+Message Contents: 
+Stress_898
+Nov 21, 2025 10:41:29 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 902
+Error Occurred: false
+Message Contents: 
+Stress_901
+Nov 21, 2025 10:41:29 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 905
+Error Occurred: false
+Message Contents: 
+Stress_904
+Nov 21, 2025 10:41:29 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 908
+Error Occurred: false
+Message Contents: 
+Stress_907
+Nov 21, 2025 10:41:29 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 911
+Error Occurred: false
+Message Contents: 
+Stress_910
+Nov 21, 2025 10:41:29 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 914
+Error Occurred: false
+Message Contents: 
+Stress_913
+Nov 21, 2025 10:41:29 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 917
+Error Occurred: false
+Message Contents: 
+Stress_916
+Nov 21, 2025 10:41:29 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 920
+Error Occurred: false
+Message Contents: 
+Stress_919
+Nov 21, 2025 10:41:29 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 923
+Error Occurred: false
+Message Contents: 
+Stress_922
+Nov 21, 2025 10:41:29 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 926
+Error Occurred: false
+Message Contents: 
+Stress_925
+Nov 21, 2025 10:41:29 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 929
+Error Occurred: false
+Message Contents: 
+Stress_928
+Nov 21, 2025 10:41:29 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 932
+Error Occurred: false
+Message Contents: 
+Stress_931
+Nov 21, 2025 10:41:29 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 935
+Error Occurred: false
+Message Contents: 
+Stress_934
+Nov 21, 2025 10:41:29 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 938
+Error Occurred: false
+Message Contents: 
+Stress_937
+Nov 21, 2025 10:41:29 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 941
+Error Occurred: false
+Message Contents: 
+Stress_940
+Nov 21, 2025 10:41:29 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 944
+Error Occurred: false
+Message Contents: 
+Stress_943
+Nov 21, 2025 10:41:29 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 947
+Error Occurred: false
+Message Contents: 
+Stress_946
+Nov 21, 2025 10:41:29 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 950
+Error Occurred: false
+Message Contents: 
+Stress_949
+Nov 21, 2025 10:41:29 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 953
+Error Occurred: false
+Message Contents: 
+Stress_952
+Nov 21, 2025 10:41:29 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 956
+Error Occurred: false
+Message Contents: 
+Stress_955
+Nov 21, 2025 10:41:29 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 959
+Error Occurred: false
+Message Contents: 
+Stress_958
+Nov 21, 2025 10:41:29 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 962
+Error Occurred: false
+Message Contents: 
+Stress_961
+Nov 21, 2025 10:41:29 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 965
+Error Occurred: false
+Message Contents: 
+Stress_964
+Nov 21, 2025 10:41:29 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 968
+Error Occurred: false
+Message Contents: 
+Stress_967
+Nov 21, 2025 10:41:29 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 971
+Error Occurred: false
+Message Contents: 
+Stress_970
+Nov 21, 2025 10:41:29 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 974
+Error Occurred: false
+Message Contents: 
+Stress_973
+Nov 21, 2025 10:41:29 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 977
+Error Occurred: false
+Message Contents: 
+Stress_976
+Nov 21, 2025 10:41:29 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 980
+Error Occurred: false
+Message Contents: 
+Stress_979
+Nov 21, 2025 10:41:29 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 983
+Error Occurred: false
+Message Contents: 
+Stress_982
+Nov 21, 2025 10:41:29 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 986
+Error Occurred: false
+Message Contents: 
+Stress_985
+Nov 21, 2025 10:41:29 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 989
+Error Occurred: false
+Message Contents: 
+Stress_988
+Nov 21, 2025 10:41:29 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 992
+Error Occurred: false
+Message Contents: 
+Stress_991
+Nov 21, 2025 10:41:29 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 995
+Error Occurred: false
+Message Contents: 
+Stress_994
+Nov 21, 2025 10:41:30 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: COMPLETED_WORK
+Sender Host: localhost
+Sender port: 8020
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: 998
+Error Occurred: false
+Message Contents: 
+Stress_997
+Nov 21, 2025 10:41:30 AM edu.yu.cs.com3800.UDPMessageSender run
+SEVERE: Exiting UDPMessageSender.run()

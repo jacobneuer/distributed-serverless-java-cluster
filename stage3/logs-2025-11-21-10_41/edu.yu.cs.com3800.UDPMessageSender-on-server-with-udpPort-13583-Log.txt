@@ -1,0 +1,132 @@
+Nov 21, 2025 10:41:16 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: WORK
+Sender Host: localhost
+Sender port: 13583
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+public class HW { public String run(){ return "RR 0"; }}
+Nov 21, 2025 10:41:16 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: WORK
+Sender Host: localhost
+Sender port: 13583
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+public class HW { public String run(){ return "RR 1"; }}
+Nov 21, 2025 10:41:16 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: WORK
+Sender Host: localhost
+Sender port: 13583
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+public class HW { public String run(){ return "RR 2"; }}
+Nov 21, 2025 10:41:16 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: WORK
+Sender Host: localhost
+Sender port: 13583
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+public class HW { public String run(){ return "RR 3"; }}
+Nov 21, 2025 10:41:16 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: WORK
+Sender Host: localhost
+Sender port: 13583
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+public class HW { public String run(){ return "RR 4"; }}
+Nov 21, 2025 10:41:16 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: WORK
+Sender Host: localhost
+Sender port: 13583
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+public class HW { public String run(){ return "RR 5"; }}
+Nov 21, 2025 10:41:16 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: WORK
+Sender Host: localhost
+Sender port: 13583
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+public class HW { public String run(){ return "RR 6"; }}
+Nov 21, 2025 10:41:16 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: WORK
+Sender Host: localhost
+Sender port: 13583
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+public class HW { public String run(){ return "RR 7"; }}
+Nov 21, 2025 10:41:16 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: WORK
+Sender Host: localhost
+Sender port: 13583
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+public class HW { public String run(){ return "RR 8"; }}
+Nov 21, 2025 10:41:16 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: WORK
+Sender Host: localhost
+Sender port: 13583
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+public class HW { public String run(){ return "RR 9"; }}
+Nov 21, 2025 10:41:16 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: WORK
+Sender Host: localhost
+Sender port: 13583
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+public class HW { public String run(){ return "RR 10"; }}
+Nov 21, 2025 10:41:16 AM edu.yu.cs.com3800.UDPMessageSender run
+FINE: Message sent:
+Message Type: WORK
+Sender Host: localhost
+Sender port: 13583
+Receiver Host: localhost
+Receiver port: 8040
+Request ID: -1
+Error Occurred: false
+Message Contents: 
+public class HW { public String run(){ return "RR 11"; }}
