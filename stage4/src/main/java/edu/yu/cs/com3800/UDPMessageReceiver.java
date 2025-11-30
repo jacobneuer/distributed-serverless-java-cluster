@@ -18,7 +18,7 @@ public class UDPMessageReceiver extends Thread implements LoggingServer {
         this.incomingMessages = incomingMessages;
         this.myAddress = myAddress;
         this.myPort = myPort;
-        this.logger = initializeLogging(UDPMessageReceiver.class.getCanonicalName() + "-on-port-" + this.myPort);
+        logger = initializeLogging("UDPMessageReceiver-on-" + myPort);
         this.setDaemon(true);
         this.peerServer = peerServer;
         setName("UDPMessageReceiver-port-" + this.myPort);
@@ -85,7 +85,7 @@ public class UDPMessageReceiver extends Thread implements LoggingServer {
         if (socket != null) {
             socket.close();
         }
-        this.logger.log(Level.SEVERE,"Exiting UDPMessageReceiver.run()");
+        this.logger.log(Level.INFO,"Exiting UDPMessageReceiver.run()");
     }
 
     private void sendElectionReply(byte[] msgContent, InetSocketAddress target) {

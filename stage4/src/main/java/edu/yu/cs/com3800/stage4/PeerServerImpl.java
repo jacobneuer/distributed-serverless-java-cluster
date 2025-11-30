@@ -9,9 +9,9 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class PeerServerImpl extends Thread implements PeerServer {
+public class PeerServerImpl extends Thread implements PeerServer, LoggingServer {
 
-    private static final Logger logger = Logger.getLogger(PeerServerImpl.class.getName());
+    private Logger logger;
 
     //Ports
     private final int udpPort;
@@ -45,6 +45,10 @@ public class PeerServerImpl extends Thread implements PeerServer {
     public PeerServerImpl(int udpPort, long peerEpoch, Long serverID,
                           Map<Long, InetSocketAddress> peerIDtoAddress,
                           Long gatewayID, int numberOfObservers) throws IOException {
+        this.logger = initializeLogging(
+                "PeerServerImpl-on-" + serverID + "-on-" + udpPort);
+        logger.info("PeerServer " + serverID + " constructed");
+
         this.udpPort = udpPort;
         this.tcpPort = udpPort + 2;
 
@@ -191,7 +195,7 @@ public class PeerServerImpl extends Thread implements PeerServer {
 
             // Start the TCPServer to listen for new requests
             // Pass the queue so it can deposit requests for the leader to process
-            this.tcpServer = new TCPServer(this.tcpPort, this.tcpWorkQueue, logger);
+            this.tcpServer = new TCPServer(this.tcpPort, this.tcpWorkQueue);
             this.tcpServer.start();
 
             logger.info("Server " + this.id + " started TCPServer.");
@@ -228,15 +232,14 @@ public class PeerServerImpl extends Thread implements PeerServer {
         this.tcpWorkQueue = null;
     }
 
-    private synchronized void startFollowerThread() {
+    private synchronized void startFollowerThread() throws IOException {
         // Stop the leader thread if running
         stopLeaderThread();
 
         if (this.followerWorker == null) {
             this.followerWorker = new JavaRunnerFollower(
                     this.udpPort,
-                    this.myAddress,
-                    logger
+                    this.myAddress
             );
             this.followerWorker.start();
             logger.info("Server " + this.id + ": Started JavaRunnerFollower thread.");

@@ -1,0 +1,16 @@
+Nov 30, 2025 2:26:49 PM edu.yu.cs.com3800.stage4.RoundRobinLeader <init>
+INFO: RoundRobinLeader initialized.
+Nov 30, 2025 2:26:49 PM edu.yu.cs.com3800.stage4.RoundRobinLeader <init>
+INFO: Adding worker 1 at localhost/127.0.0.1:8010
+Nov 30, 2025 2:26:49 PM edu.yu.cs.com3800.stage4.RoundRobinLeader <init>
+INFO: Adding worker 2 at localhost/127.0.0.1:8020
+Nov 30, 2025 2:26:52 PM edu.yu.cs.com3800.stage4.RoundRobinLeader run
+INFO: Leader received request from gateway at port 8888.
+Nov 30, 2025 2:26:52 PM edu.yu.cs.com3800.stage4.RoundRobinLeader processRequest
+INFO: Picked worker localhost:8012
+Nov 30, 2025 2:26:52 PM edu.yu.cs.com3800.stage4.RoundRobinLeader processRequest
+INFO: Connecting to worker at localhost:8012
+Nov 30, 2025 2:26:52 PM edu.yu.cs.com3800.stage4.RoundRobinLeader processRequest
+INFO: Sending message from leader to localhost
+Nov 30, 2025 2:26:53 PM edu.yu.cs.com3800.stage4.RoundRobinLeader processRequest
+INFO: Received result from worker. Sending to Gateway.

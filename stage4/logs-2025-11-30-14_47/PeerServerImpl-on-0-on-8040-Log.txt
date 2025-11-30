@@ -1,0 +1,10 @@
+Nov 30, 2025 2:47:02 PM edu.yu.cs.com3800.stage4.PeerServerImpl <init>
+INFO: PeerServer 0 constructed
+Nov 30, 2025 2:47:02 PM edu.yu.cs.com3800.LeaderElection observeElectionAsGateway
+INFO: Observer: watching election traffic…
+Nov 30, 2025 2:47:05 PM edu.yu.cs.com3800.LeaderElection observeElectionAsGateway
+INFO: Observer: saw LEADING message from 3
+Nov 30, 2025 2:47:05 PM edu.yu.cs.com3800.LeaderElection finalizeObserverVote
+INFO: Observer has learned the leader: 3 (epoch 1)
+Nov 30, 2025 2:47:09 PM edu.yu.cs.com3800.stage4.PeerServerImpl shutdown
+INFO: Server 0 shutting down.

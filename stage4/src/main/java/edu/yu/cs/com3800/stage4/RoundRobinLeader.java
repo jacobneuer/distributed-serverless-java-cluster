@@ -12,9 +12,9 @@ import java.util.*;
 import java.util.concurrent.*;
 import java.util.logging.Logger;
 
-public class RoundRobinLeader extends Thread {
+public class RoundRobinLeader extends Thread implements LoggingServer {
 
-    private final Logger logger = Logger.getLogger(RoundRobinLeader.class.getName());
+    private final Logger logger;
 
     private final LinkedBlockingQueue<TCPMessage> tcpWorkQueue;
     private final InetSocketAddress myAddress;
@@ -33,7 +33,11 @@ public class RoundRobinLeader extends Thread {
             Long id,
             InetSocketAddress myAddress,
             Long gatewayID
-    ) {
+    ) throws IOException {
+        this.logger = initializeLogging(
+                "RoundRobinLeader-on-" + id + "-on-" + (myAddress.getPort() + 2));
+        logger.info("RoundRobinLeader initialized.");
+
         this.tcpWorkQueue = tcpWorkQueue;
         this.myAddress = myAddress;
 

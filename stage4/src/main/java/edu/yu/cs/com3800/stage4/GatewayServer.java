@@ -1,6 +1,7 @@
 package edu.yu.cs.com3800.stage4;
 
 import com.sun.net.httpserver.HttpServer;
+import edu.yu.cs.com3800.LoggingServer;
 import edu.yu.cs.com3800.Message;
 
 import java.io.IOException;
@@ -12,7 +13,7 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class GatewayServer {
+public class GatewayServer implements LoggingServer {
 
     private final Logger logger;
 
@@ -29,7 +30,7 @@ public class GatewayServer {
 
     private final AtomicLong requestID = new AtomicLong(1);
 
-    // Shared cache: hash(requestBody) -> raw response bytes
+    // Shared cache: hash(requestBody) -> Message returned
     private final ConcurrentHashMap<Integer, Message> cache = new ConcurrentHashMap<>();
 
     public GatewayServer(int httpPort, int peerPort, long peerEpoch, Long serverID,
@@ -42,7 +43,8 @@ public class GatewayServer {
         this.peerIDtoAddress = peerIDtoAddress;
         this.numberOfObservers = numberOfObservers;
 
-        this.logger = Logger.getLogger("GatewayServer-" + serverID);
+        this.logger = initializeLogging(
+                "GatewayServer-on-" + serverID + "-on-" + httpPort);
 
         logger.info("Initializing GatewayServer...");
 

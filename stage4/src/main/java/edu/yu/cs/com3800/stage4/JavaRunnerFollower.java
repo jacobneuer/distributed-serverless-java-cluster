@@ -12,18 +12,18 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class JavaRunnerFollower extends Thread {
+public class JavaRunnerFollower extends Thread implements LoggingServer {
 
     private final int tcpPort;
     private final InetSocketAddress myAddress;
     private final Logger logger;
     private final JavaRunner runner;
 
-    public JavaRunnerFollower(int udpPort, InetSocketAddress myAddress, Logger logger) {
+    public JavaRunnerFollower(int udpPort, InetSocketAddress myAddress) throws IOException {
         // TCP port is UDP port + 2
         this.tcpPort = udpPort + 2;
         this.myAddress = myAddress;
-        this.logger = logger;
+        logger = initializeLogging("JavaRunnerFollower-on-" + myAddress.getPort());
 
         // We can reuse the same JavaRunner instance (it is stateless/thread-safe enough for this)
         try {

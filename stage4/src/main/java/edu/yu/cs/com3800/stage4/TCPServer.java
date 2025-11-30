@@ -10,16 +10,16 @@ import java.util.concurrent.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class TCPServer extends Thread {
+public class TCPServer extends Thread implements LoggingServer{
     private final int tcpPort;
     private final LinkedBlockingQueue<TCPMessage> leaderIncomingWorkQueue;
     private volatile boolean shutdown = false;
     private final Logger logger;
 
-    public TCPServer(int tcpPort, LinkedBlockingQueue<TCPMessage> queue, Logger logger) {
+    public TCPServer(int tcpPort, LinkedBlockingQueue<TCPMessage> queue) throws IOException {
         this.tcpPort = tcpPort;
         this.leaderIncomingWorkQueue = queue;
-        this.logger = logger;
+        logger = initializeLogging("TCPServer-on-" + tcpPort);
         setDaemon(true);
         setName("TCPServer-port-" + tcpPort);
         logger.info("TCPServer initialized.");
