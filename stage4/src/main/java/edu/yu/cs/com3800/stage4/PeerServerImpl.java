@@ -13,12 +13,20 @@ public class PeerServerImpl extends Thread implements PeerServer {
 
     private static final Logger logger = Logger.getLogger(PeerServerImpl.class.getName());
 
-    private final InetSocketAddress myAddress;
+    //Ports
     private final int udpPort;
-    private ServerState state;
-    private volatile boolean shutdown;
+    private final int tcpPort;
+
+    // UDP Election/Gossip message queues
     private final LinkedBlockingQueue<Message> outgoingMessages;
     private final LinkedBlockingQueue<Message> incomingMessages;
+
+    // Work Queue (TCP) - Only used when LEADING
+    private LinkedBlockingQueue<TCPMessage> tcpWorkQueue;
+
+    private final InetSocketAddress myAddress;
+    private ServerState state;
+    private volatile boolean shutdown;
     private final Long id;
     private long peerEpoch;
     private volatile Vote currentLeader;
@@ -27,9 +35,10 @@ public class PeerServerImpl extends Thread implements PeerServer {
     private final int numberOfObservers;
     private final int votingPeersCount;
 
+    // Worker threads
+    private TCPServer tcpServer;
     private RoundRobinLeader leaderWorker;
     private JavaRunnerFollower followerWorker;
-
     private UDPMessageSender senderWorker;
     private UDPMessageReceiver receiverWorker;
 
@@ -37,8 +46,11 @@ public class PeerServerImpl extends Thread implements PeerServer {
                           Map<Long, InetSocketAddress> peerIDtoAddress,
                           Long gatewayID, int numberOfObservers) throws IOException {
         this.udpPort = udpPort;
+        this.tcpPort = udpPort + 2;
+
         this.myAddress = new InetSocketAddress("localhost", udpPort);
 
+        // Default state is LOOKING
         this.state = ServerState.LOOKING;
         this.shutdown = false;
 
@@ -62,10 +74,17 @@ public class PeerServerImpl extends Thread implements PeerServer {
 
     @Override
     public void run() {
-        //Step 1: create and run a thread that sends broadcast messages
-        this.senderWorker = new UDPMessageSender(this.outgoingMessages, getUdpPort());
-        this.senderWorker.start();
-        //Step 2: create and run a thread that listens for messages sent to this server
+        //Create and run a thread that sends broadcast messages
+        try {
+            this.senderWorker = new UDPMessageSender(this.outgoingMessages, getUdpPort());
+            this.senderWorker.start();
+        } catch (Exception e) {
+            logger.log(Level.SEVERE, "Failed to start sender thread", e);
+            this.shutdown = true;
+            throw new RuntimeException(e);
+        }
+
+        //Create and run a thread that listens for messages sent to this server
         try {
             this.receiverWorker = new UDPMessageReceiver(this.incomingMessages, getAddress(), getUdpPort(), this);
             this.receiverWorker.start();
@@ -74,7 +93,8 @@ public class PeerServerImpl extends Thread implements PeerServer {
             this.shutdown = true;
             throw new RuntimeException(e);
         }
-        //Step 3: main server loop
+
+        //Main server loop
         try {
             while (!this.shutdown){
                 switch (getPeerState()){
@@ -87,33 +107,50 @@ public class PeerServerImpl extends Thread implements PeerServer {
                         setCurrentLeader(vote);
                         break;
                     case LEADING:
-                        // I'm the leader
                         try {
-                            // Start the leader thread (if not already running)
-                            startLeaderThread();
+                            // Ensure follower thread is off
+                            stopFollowerThread();
+                            // Start Leader threads (TCPServer + RoundRobinLeader)
+                            if (this.leaderWorker == null) {
+                                startLeaderThread();
+                            }
                             // Idle lightly
                             Thread.sleep(50);
                         } catch (InterruptedException ie) {
-                            // respect shutdown if we're asked to stop
                             this.shutdown = true;
                         }
                         break;
                     case FOLLOWING:
                         // I'm following someone else
                         try {
-                            // Start follower thread (if not already running)
-                            startFollowerThread();
+                            // Ensure leader threads are off
+                            stopLeaderThread();
+                            // Start Follower thread
+                            if (this.followerWorker == null) {
+                                startFollowerThread();
+                            }
                             // Idle lightly
                             Thread.sleep(50);
                         } catch (InterruptedException ie) {
                             this.shutdown = true;
                         }
                         break;
+                    case OBSERVER:
+                        if (this.getCurrentLeader() == null) {
+                            // If the observer doesn't know who the leader is, start an election
+                            LeaderElection election = new LeaderElection(this, incomingMessages, logger);
+                            Vote v = election.lookForLeader();
+                            setCurrentLeader(v);
+                        }
+
+                        // After learning who the leader is just idle and wait for messages (in case of leader death)
+                        Thread.sleep(50);
+                        break;
                 }
             }
         }
         catch (Exception e) {
-            // If something unexpected happens in the main loop, log it and shut down.
+            // If something unexpected happens in the main loop, log it and shut down
             logger.log(Level.SEVERE, "Uncaught exception in PeerServerImpl main loop for server " + this.id, e);
             this.shutdown = true;
         }
@@ -148,16 +185,32 @@ public class PeerServerImpl extends Thread implements PeerServer {
         // Stop follower thread if running
         stopFollowerThread();
 
-        if (this.leaderWorker == null) {
+        try {
+            // Create the Shared Queue for TCP requests
+            this.tcpWorkQueue = new LinkedBlockingQueue<>();
+
+            // Start the TCPServer to listen for new requests
+            // Pass the queue so it can deposit requests for the leader to process
+            this.tcpServer = new TCPServer(this.tcpPort, this.tcpWorkQueue, logger);
+            this.tcpServer.start();
+
+            logger.info("Server " + this.id + " started TCPServer.");
+
+            // Start the RoundRobinLeader to send off requests to workers
+            // Pass the same queue so it can process requests from the TCPServer
             this.leaderWorker = new RoundRobinLeader(
-                    this.incomingMessages,
-                    this.outgoingMessages,
+                    this.tcpWorkQueue,
                     this.peerIDtoAddress,
                     this.id,
-                    this.myAddress
+                    this.myAddress,
+                    this.gatewayID
             );
             this.leaderWorker.start();
-            logger.info("Server " + this.id + ": Started RoundRobinLeader thread.");
+
+            logger.info("Server " + this.id + " started Leader workers (TCPServer + RoundRobinLeader)");
+
+        } catch (Exception e) {
+            logger.log(Level.SEVERE, "Failed to start leader threads", e);
         }
     }
 
@@ -167,6 +220,12 @@ public class PeerServerImpl extends Thread implements PeerServer {
             this.leaderWorker = null;
             logger.info("Server " + this.id + ": Stopped RoundRobinLeader thread.");
         }
+        if (this.tcpServer != null) {
+            this.tcpServer.shutdown();
+            this.tcpServer.interrupt();
+            this.tcpServer = null;
+        }
+        this.tcpWorkQueue = null;
     }
 
     private synchronized void startFollowerThread() {
@@ -175,10 +234,9 @@ public class PeerServerImpl extends Thread implements PeerServer {
 
         if (this.followerWorker == null) {
             this.followerWorker = new JavaRunnerFollower(
-                    this.incomingMessages,
-                    this.outgoingMessages,
-                    this.id,
-                    this.myAddress
+                    this.udpPort,
+                    this.myAddress,
+                    logger
             );
             this.followerWorker.start();
             logger.info("Server " + this.id + ": Started JavaRunnerFollower thread.");
@@ -201,14 +259,6 @@ public class PeerServerImpl extends Thread implements PeerServer {
         }
 
         this.currentLeader = v;
-
-        logger.info(String.format(
-                "Server %d recorded current leader as %d (epoch %d); state is now %s",
-                this.id,
-                v.getProposedLeaderID(),
-                v.getPeerEpoch(),
-                this.state
-        ));
     }
 
     @Override

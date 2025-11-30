@@ -3,83 +3,130 @@ package edu.yu.cs.com3800.stage4;
 import edu.yu.cs.com3800.*;
 import edu.yu.cs.com3800.Message.MessageType;
 
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
+import java.io.*;
 import java.net.InetSocketAddress;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.nio.charset.StandardCharsets;
 import java.util.concurrent.LinkedBlockingQueue;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class JavaRunnerFollower extends Thread {
 
-    private final LinkedBlockingQueue<Message> incomingMessages;
-    private final LinkedBlockingQueue<Message> outgoingMessages;
+    private final int tcpPort;
     private final InetSocketAddress myAddress;
+    private final Logger logger;
+    private final JavaRunner runner;
 
-    public JavaRunnerFollower(LinkedBlockingQueue<Message> incomingMessages, LinkedBlockingQueue<Message> outgoingMessages, Long id, InetSocketAddress myAddress) {
-        this.incomingMessages = incomingMessages;
-        this.outgoingMessages = outgoingMessages;
+    public JavaRunnerFollower(int udpPort, InetSocketAddress myAddress, Logger logger) {
+        // TCP port is UDP port + 2
+        this.tcpPort = udpPort + 2;
         this.myAddress = myAddress;
-        setName("JavaRunnerFollower-" + id);
+        this.logger = logger;
+
+        // We can reuse the same JavaRunner instance (it is stateless/thread-safe enough for this)
+        try {
+            this.runner = new JavaRunner();
+        } catch (Exception e) {
+            throw new RuntimeException("Failed to initialize JavaRunner", e);
+        }
+
+        setDaemon(true);
+        setName("JavaRunnerFollower-port-" + this.tcpPort);
     }
 
     @Override
     public void run() {
-        while (!Thread.currentThread().isInterrupted()) {
-            try {
-                // Wait for the next incoming message
-                Message msg = incomingMessages.take();
+        try (ServerSocket serverSocket = new ServerSocket(this.tcpPort)) {
+            logger.info("JavaRunnerFollower started. Listening on TCP port " + this.tcpPort);
 
-                // Only respond to WORK messages
-                if (msg.getMessageType() != MessageType.WORK) {
-                    continue;
+            while (!this.isInterrupted()) {
+                Socket leaderSocket = null;
+                try {
+                    // Accept connection from Leader
+                    leaderSocket = serverSocket.accept();
+
+                    // Read the Work Payload
+                    InputStream in = leaderSocket.getInputStream();
+                    byte[] payload = Util.readAllBytesFromNetwork(in);
+
+                    if (payload.length == 0) {
+                        logger.warning("Received empty payload from leader. Closing connection.");
+                        leaderSocket.close();
+                        continue;
+                    }
+
+                    Message msg = new Message(payload);
+
+                    // Process Logic
+                    if (msg.getMessageType() == MessageType.WORK) {
+                        logger.fine("Received WORK request ID " + msg.getRequestID() + " from Leader");
+
+                        byte[] javaCode = msg.getMessageContents();
+                        WorkResult wr = processCode(javaCode);
+
+                        // Send Response back over the SAME socket
+                        Message response = new Message(
+                                MessageType.COMPLETED_WORK,
+                                wr.output.getBytes(),
+                                myAddress.getHostString(),
+                                myAddress.getPort(),
+                                msg.getSenderHost(),
+                                msg.getSenderPort(),
+                                msg.getRequestID(),
+                                wr.error
+                        );
+
+                        OutputStream out = leaderSocket.getOutputStream();
+                        out.write(response.getNetworkPayload());
+                        out.flush();
+                    }
+                } catch (Exception e) {
+                    logger.log(Level.WARNING, "Error processing work connection", e);
+                } finally {
+                    // Ensure the socket is closed after processing
+                    if (leaderSocket != null && !leaderSocket.isClosed()) {
+                        try {
+                            leaderSocket.close();
+                        } catch (Exception ignored) {}
+                    }
                 }
-
-                // Parse the work payload
-                long requestID = msg.getRequestID();
-                byte[] javaCode = msg.getMessageContents();
-
-                InetSocketAddress leaderAddress = new InetSocketAddress(msg.getSenderHost(), msg.getSenderPort());
-
-                // Execute the code and send the message result back
-                Message response = executeCode(javaCode, requestID, leaderAddress);
-
-                outgoingMessages.add(response);
-
-            } catch (InterruptedException e) {
-                Thread.currentThread().interrupt();
-                break;
-            } catch (Exception e) {
-                e.printStackTrace();
             }
+        } catch (Exception e) {
+            logger.log(Level.SEVERE, "JavaRunnerFollower server socket failed", e);
         }
     }
 
-    private Message executeCode(byte[] javaCode, long requestID, InetSocketAddress leaderAddress) throws IOException {
-        JavaRunner runner = new JavaRunner();
-
-        String resultString;
-
+    private WorkResult processCode(byte[] javaCode) {
         try {
-            // Convert javaCode into InputStream
-            ByteArrayInputStream in = new ByteArrayInputStream(javaCode);
-
-            // JavaRunner.compileAndRun returns a String (SUCCESS)
-            resultString = runner.compileAndRun(in);
-
-        } catch (IllegalArgumentException | ReflectiveOperationException e) {
-            // JavaRunner signals ALL compilation/runtime errors through exceptions
-            resultString = e.getMessage();
+            ByteArrayInputStream codeStream = new ByteArrayInputStream(javaCode);
+            String result = runner.compileAndRun(codeStream);
+            return new WorkResult(result, false);
         }
+        catch (Exception e) {
+            String output = exceptionPayload(e);
+            return new WorkResult(output, true);
+        }
+    }
 
-        // Build the message to send back to the leader
-        return new Message(
-                MessageType.COMPLETED_WORK,
-                resultString.getBytes(),
-                myAddress.getHostString(),
-                myAddress.getPort(),
-                leaderAddress.getHostString(),
-                leaderAddress.getPort(),
-                requestID
-        );
+    private static class WorkResult {
+        final String output;
+        final boolean error;
+        WorkResult(String output, boolean error) {
+            this.output = output;
+            this.error = error;
+        }
+    }
+
+    private static String exceptionPayload(Exception e) {
+        String errorMessage = (e.getMessage() == null) ? "" : e.getMessage();
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        try (PrintStream ps = new PrintStream(outputStream, true, StandardCharsets.UTF_8)) {
+            e.printStackTrace(ps);
+        }
+        String stack = outputStream.toString(StandardCharsets.UTF_8);
+        return errorMessage + "\n" + stack;
     }
 
 }

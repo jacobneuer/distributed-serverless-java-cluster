@@ -1,5 +1,6 @@
 package edu.yu.cs.com3800;
 
+import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.Map;
@@ -59,6 +60,11 @@ public class LeaderElection {
      */
     public synchronized Vote lookForLeader() {
         try {
+            // If the server is in the OBSERVER state, we don't need to run the election algorithm.
+            if (server.getPeerState() == PeerServer.ServerState.OBSERVER) {
+                return observeElectionAsGateway();
+            }
+
             // 1. Start by announcing our current vote (we initially vote for ourselves)
             sendNotifications();
 
@@ -89,7 +95,7 @@ public class LeaderElection {
                     // check if enough time has passed to accept that quorum.
                     if (startOfQuorumWait > 0 && (System.currentTimeMillis() - startOfQuorumWait) >= finalizeWait) {
 
-                        // We already decided we have enough votes for proposedLeader.
+                        // We already decided we have enough votes for the proposedLeader.
                         // Build a synthetic ElectionNotification for that leader
                         ElectionNotification winnerNotification = new ElectionNotification(
                                 this.proposedLeader,
@@ -113,12 +119,11 @@ public class LeaderElection {
 
                 ElectionNotification received = getNotificationFromMessage(incoming);
 
-                // Ignore notifications from observers or from non-LOOKING peers:
-                // Only LOOKING servers are participating in an active election.
+                // Ignore notifications in unknown states (including OBSERVER).
+                // We only care about LOOKING/LEADING/FOLLOWING in the election algorithm.
                 if (received.getState() != PeerServer.ServerState.LOOKING
                         && received.getState() != PeerServer.ServerState.LEADING
                         && received.getState() != PeerServer.ServerState.FOLLOWING) {
-                    // in this simplified version we just won't consider any unknown state
                     continue;
                 }
 
@@ -199,10 +204,13 @@ public class LeaderElection {
 
     private void sendNotifications() {
         try {
+            // Get the current state of the election
+            PeerServer.ServerState state = server.getPeerState();
+
             // Build an ElectionNotification for my current proposal
             ElectionNotification notification = new ElectionNotification(
                     this.proposedLeader,
-                    PeerServer.ServerState.LOOKING,
+                    state,
                     this.server.getServerId(),
                     this.proposedEpoch
             );
@@ -245,7 +253,10 @@ public class LeaderElection {
                 server.getServerId(), n.getProposedLeaderID(), n.getPeerEpoch(), server.getPeerState()
         ));
 
-        // 5. Return the result so lookForLeader() can pass it back
+        // 5. Send notification of our final vote
+        sendNotifications();
+
+        // 6. Return the result so lookForLeader() can pass it back
         return finalVote;
     }
 
@@ -330,4 +341,68 @@ public class LeaderElection {
 
         return buffer.array();
     }
+
+    /**
+     * This method is used ONLY by an OBSERVER (the gateway).
+     * It never sends votes, never counts toward quorum, and never becomes leader.
+     * Instead, it passively watches election traffic until it identifies the leader.
+     *
+     * @return Vote containing the elected leader's ID and epoch
+     */
+    private Vote observeElectionAsGateway() {
+
+        logger.info("Observer: watching election traffic…");
+
+        while (!Thread.currentThread().isInterrupted()) {
+
+            Message msg;
+            try {
+                msg = incomingMessages.poll(200, java.util.concurrent.TimeUnit.MILLISECONDS);
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+                return null;
+            }
+
+            if (msg == null) {
+                continue;
+            }
+
+            // Ignore non election messages
+            if (msg.getMessageType() != Message.MessageType.ELECTION) {
+                continue;
+            }
+
+            ElectionNotification notif = getNotificationFromMessage(msg);
+
+            long proposed = notif.getProposedLeaderID();
+            long epoch = notif.getPeerEpoch();
+
+            switch (notif.getState()) {
+                case LEADING:
+                    logger.info("Observer: saw LEADING message from " + proposed);
+                    return finalizeObserverVote(proposed, epoch);
+
+                case FOLLOWING:
+                    logger.info("Observer: saw FOLLOWING message indicating leader " + proposed);
+                    return finalizeObserverVote(proposed, epoch);
+
+                // Still mid-election — just keep watching
+            }
+        }
+
+        return null;
+    }
+
+    private Vote finalizeObserverVote(long leaderID, long epoch) {
+        Vote v = new Vote(leaderID, epoch);
+        try {
+            server.setCurrentLeader(v);
+        } catch (IOException e) {
+            logger.severe("Failed to record leader in observer: " + e.getMessage());
+        }
+        server.setPeerState(PeerServer.ServerState.OBSERVER); // remain observer
+        logger.info("Observer has learned the leader: " + leaderID + " (epoch " + epoch + ")");
+        return v;
+    }
+
 }
