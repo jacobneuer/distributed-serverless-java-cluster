@@ -6,7 +6,9 @@ import org.junit.jupiter.api.*;
 import java.io.*;
 import java.net.*;
 import java.nio.charset.StandardCharsets;
-import java.util.concurrent.ConcurrentHashMap;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -113,6 +115,70 @@ public class GatewayServerTest {
         String r2 = read(conn2.getInputStream());
         assertEquals("CacheTest", r2.trim());
     }
+
+    @Test
+    @Order(4)
+    void testRejectNonPostRequest() throws Exception {
+        URL url = new URL("http://localhost:" + httpPort + "/compileandrun");
+        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+
+        conn.setRequestMethod("GET"); // <-- illegal
+        conn.connect();
+
+        assertEquals(405, conn.getResponseCode());
+    }
+
+    @Test
+    @Order(5)
+    void testRejectWrongContentType() throws Exception {
+        URL url = new URL("http://localhost:" + httpPort + "/compileandrun");
+        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+
+        conn.setRequestMethod("POST");
+        conn.setDoOutput(true);
+
+        conn.setRequestProperty("Content-Type", "text/plain"); // <-- wrong type
+
+        try (OutputStream os = conn.getOutputStream()) {
+            os.write("hello".getBytes(StandardCharsets.UTF_8));
+        }
+
+        assertEquals(400, conn.getResponseCode());
+    }
+
+    @Test
+    @Order(6)
+    void testGatewayRemainsObserver() {
+        assertEquals(PeerServer.ServerState.OBSERVER,
+                gateway.getPeerServer().getPeerState());
+    }
+
+    @Test
+    @Order(7)
+    void testConcurrentRequests() throws Exception {
+        int N = 10;
+        ExecutorService pool = Executors.newFixedThreadPool(N);
+        List<Future<String>> futures = new ArrayList<>();
+
+        String code = "public class HW { public String run(){ return \"X\"; }}";
+
+        for (int i = 0; i < N; i++) {
+            futures.add(pool.submit(() -> {
+                HttpURLConnection conn = post(code);
+                assertEquals(200, conn.getResponseCode());
+                return read(conn.getInputStream()).trim();
+            }));
+        }
+
+        for (Future<String> f : futures) {
+            assertEquals("X", f.get(3, TimeUnit.SECONDS));
+        }
+
+        pool.shutdown();
+    }
+
+
+
 
     private HttpURLConnection post(String body) throws Exception {
         URL url = new URL("http://localhost:" + httpPort + "/compileandrun");

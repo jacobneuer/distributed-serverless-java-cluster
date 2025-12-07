@@ -30,7 +30,7 @@ public class UDPMessageSender extends Thread implements LoggingServer {
         while (!this.isInterrupted()) {
             try {
                 if(this.logger == null){
-                    logger = initializeLogging("UDPMessageSender-on-" + serverUdpPort);
+                    this.logger = initializeLogging(UDPMessageSender.class.getCanonicalName() + "-on-server-with-udpPort-" + this.serverUdpPort);
                 }
                 Message messageToSend = this.outgoingMessages.poll();
                 if (messageToSend != null) {
@@ -46,6 +46,6 @@ public class UDPMessageSender extends Thread implements LoggingServer {
                 this.logger.log(Level.WARNING,"failed to send packet", e);
             }
         }
-        this.logger.log(Level.INFO,"Exiting UDPMessageSender.run()");
+        this.logger.log(Level.SEVERE,"Exiting UDPMessageSender.run()");
     }
 }
