@@ -177,9 +177,6 @@ public class GatewayServerTest {
         pool.shutdown();
     }
 
-
-
-
     private HttpURLConnection post(String body) throws Exception {
         URL url = new URL("http://localhost:" + httpPort + "/compileandrun");
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
