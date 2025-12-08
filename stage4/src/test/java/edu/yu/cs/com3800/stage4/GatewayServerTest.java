@@ -51,6 +51,8 @@ public class GatewayServerTest {
                 1                  // number of observers
         );
 
+        gateway.start();
+
         Thread.sleep(6000);
     }
 

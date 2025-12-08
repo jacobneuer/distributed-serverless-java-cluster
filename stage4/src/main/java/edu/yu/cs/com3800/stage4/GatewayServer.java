@@ -13,7 +13,7 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class GatewayServer implements LoggingServer {
+public class GatewayServer extends Thread implements LoggingServer {
 
     private final Logger logger;
 
@@ -36,6 +36,7 @@ public class GatewayServer implements LoggingServer {
     public GatewayServer(int httpPort, int peerPort, long peerEpoch, Long serverID,
                          ConcurrentHashMap<Long, InetSocketAddress> peerIDtoAddress,
                          int numberOfObservers) throws IOException {
+
         this.httpPort = httpPort;
         this.peerPort = peerPort;
         this.peerEpoch = peerEpoch;
@@ -46,9 +47,8 @@ public class GatewayServer implements LoggingServer {
         this.logger = initializeLogging(
                 "GatewayServer-on-" + serverID + "-on-" + httpPort);
 
-        logger.info("Initializing GatewayServer...");
+        logger.info("Constructing GatewayServer...");
 
-        // Start the observer PeerServer
         gatewayPeer = new GatewayPeerServerImpl(
                 peerPort,
                 peerEpoch,
@@ -59,19 +59,15 @@ public class GatewayServer implements LoggingServer {
         );
 
         gatewayPeer.setName("GatewayPeerServerImpl-" + serverID);
-        gatewayPeer.start();
 
-        // Create the HTTP server
         httpServer = HttpServer.create(new InetSocketAddress(httpPort), 0);
 
-        // Use a thread pool for HTTP requests
-        httpThreadPool = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors() * 2);
+        httpThreadPool = Executors.newFixedThreadPool(
+                Runtime.getRuntime().availableProcessors() * 2);
+
         httpServer.setExecutor(httpThreadPool);
 
-        // Register the /compileandrun endpoint
         httpServer.createContext("/compileandrun", exchange -> {
-            // Handler MUST be stateless → do not store anything in it
-            // Pass all required state via local variables
             new CompileAndRunHandler(
                     exchange,
                     gatewayPeer,
@@ -79,21 +75,47 @@ public class GatewayServer implements LoggingServer {
                     requestID.get()
             ).handle();
         });
+    }
 
-        // Start the HTTP server
+    /**
+     * The main thread lifecycle.
+     * When gateway.start() is called, THIS method runs in its own thread.
+     */
+    @Override
+    public void run() {
+        logger.info("GatewayServer thread started.");
+
+        // Start observer peer server (thread)
+        gatewayPeer.start();
+        logger.info("Started GatewayPeerServerImpl.");
+
+        // Start HTTP server (non-blocking)
         httpServer.start();
-
         logger.info("HTTP Server listening on port " + httpPort);
+
+        // Run until interrupted
+        try {
+            while (!Thread.currentThread().isInterrupted()) {
+                Thread.sleep(200);
+            }
+        }
+        catch (InterruptedException e) {
+            logger.info("GatewayServer thread interrupted.");
+        }
+
+        shutdown();  // perform clean shutdown
     }
 
     public GatewayPeerServerImpl getPeerServer() {
         return gatewayPeer;
     }
-    
+
+    /**
+     * Cleanly shut down both HTTP and PeerServer threads.
+     */
     public void shutdown() {
         logger.info("Shutting down GatewayServer...");
 
-        // Stop the HTTP server immediately (close all handlers)
         try {
             httpServer.stop(0);
             logger.info("HTTP server stopped.");
@@ -101,7 +123,6 @@ public class GatewayServer implements LoggingServer {
             logger.log(Level.WARNING, "Error stopping HTTP server", e);
         }
 
-        // Shut down HTTP thread pool
         try {
             httpThreadPool.shutdownNow();
             logger.info("HTTP thread pool shut down.");
@@ -109,7 +130,6 @@ public class GatewayServer implements LoggingServer {
             logger.log(Level.WARNING, "Error shutting down thread pool", e);
         }
 
-        // Stop GatewayPeerServerImpl
         try {
             gatewayPeer.shutdown();
             logger.info("GatewayPeerServerImpl shut down.");
@@ -119,5 +139,4 @@ public class GatewayServer implements LoggingServer {
 
         logger.info("GatewayServer shutdown complete.");
     }
-
 }
