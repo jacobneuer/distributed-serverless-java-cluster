@@ -3,6 +3,7 @@ package edu.yu.cs.com3800.stage5;
 import com.sun.net.httpserver.HttpServer;
 import edu.yu.cs.com3800.LoggingServer;
 import edu.yu.cs.com3800.Message;
+import edu.yu.cs.com3800.Vote;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
@@ -74,6 +75,51 @@ public class GatewayServer extends Thread implements LoggingServer {
                     cache,
                     requestID.get()
             ).handle();
+        });
+
+        // Create /leader endpoint to report who the gateway believes the current leader is
+        httpServer.createContext("/leader", exchange -> {
+            String response;
+
+            Vote leader = gatewayPeer.getCurrentLeader();
+
+            if (leader == null) {
+                response = "UNKNOWN\n";
+            } else {
+                response = leader.getProposedLeaderID() + "\n";
+            }
+
+            byte[] bytes = response.getBytes();
+            exchange.sendResponseHeaders(200, bytes.length);
+            exchange.getResponseBody().write(bytes);
+            exchange.getResponseBody().close();
+        });
+
+        httpServer.createContext("/cluster", exchange -> {
+            StringBuilder response = new StringBuilder();
+
+            // Leader
+            Vote leader = gatewayPeer.getCurrentLeader();
+            if (leader == null) {
+                response.append("Leader: UNKNOWN\n");
+            } else {
+                response.append("Leader: ")
+                        .append(leader.getProposedLeaderID())
+                        .append("\n");
+            }
+
+            // Live nodes
+            response.append("Live nodes:\n");
+            for (Long id : peerIDtoAddress.keySet()) {
+                if (!gatewayPeer.isFailed(id)) {
+                    response.append(id).append("\n");
+                }
+            }
+
+            byte[] bytes = response.toString().getBytes();
+            exchange.sendResponseHeaders(200, bytes.length);
+            exchange.getResponseBody().write(bytes);
+            exchange.close();
         });
     }
 

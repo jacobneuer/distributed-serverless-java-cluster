@@ -1,5 +1,7 @@
 package edu.yu.cs.com3800;
 
+import edu.yu.cs.com3800.stage5.PeerServerImpl;
+
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.concurrent.LinkedBlockingQueue;
@@ -21,7 +23,7 @@ public class LeaderElection {
      */
     private final static int maxNotificationInterval = 30000;
 
-    private final PeerServer server;
+    private final PeerServerImpl server;
     private final LinkedBlockingQueue<Message> incomingMessages;
     private final Logger logger;
 
@@ -32,7 +34,7 @@ public class LeaderElection {
     private final Map<Long, ElectionNotification> receivedVotes;
 
     public LeaderElection(PeerServer server, LinkedBlockingQueue<Message> incomingMessages, Logger logger) {
-        this.server = server;
+        this.server = (PeerServerImpl) server;
         this.incomingMessages = incomingMessages;
         this.logger = logger;
 
@@ -113,7 +115,8 @@ public class LeaderElection {
 
                 // 4. We received a message. Decode it.
                 if (incoming.getMessageType() != Message.MessageType.ELECTION) {
-                    // ignore non-election messages during election
+                    // If it's not an ELECTION message, put it back in the queue and continue.
+                    this.incomingMessages.offer(incoming);
                     continue;
                 }
 
@@ -124,6 +127,11 @@ public class LeaderElection {
                 if (received.getState() != PeerServer.ServerState.LOOKING
                         && received.getState() != PeerServer.ServerState.LEADING
                         && received.getState() != PeerServer.ServerState.FOLLOWING) {
+                    continue;
+                }
+
+                // Also ignore notifications from failed servers
+                if (this.server.isFailed(received.getSenderID())) {
                     continue;
                 }
 

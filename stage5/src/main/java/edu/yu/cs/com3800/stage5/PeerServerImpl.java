@@ -5,6 +5,7 @@ import edu.yu.cs.com3800.*;
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -12,6 +13,7 @@ import java.util.logging.Logger;
 public class PeerServerImpl extends Thread implements PeerServer, LoggingServer {
 
     private Logger logger;
+    private Logger summaryLogger;
 
     //Ports
     private final int udpPort;
@@ -31,9 +33,11 @@ public class PeerServerImpl extends Thread implements PeerServer, LoggingServer 
     private long peerEpoch;
     private volatile Vote currentLeader;
     private final Map<Long,InetSocketAddress> peerIDtoAddress;
+    private final Map<Integer, Long> portToID;
     private final Long gatewayID;
     private final int numberOfObservers;
     private final int votingPeersCount;
+    private final Set<Long> failedNodes;
 
     // Worker threads
     private TCPServer tcpServer;
@@ -41,6 +45,16 @@ public class PeerServerImpl extends Thread implements PeerServer, LoggingServer 
     private JavaRunnerFollower followerWorker;
     private UDPMessageSender senderWorker;
     private UDPMessageReceiver receiverWorker;
+    private final ConcurrentHashMap<Long, HeartbeatEntry> heartbeatTable;
+
+    // Gossip + failure detection threads
+    private GossipSenderThread gossipSender;
+    private GossipReceiverThread gossipReceiver;
+    private FailureDetectorThread failureDetector;
+
+    static final int GOSSIP  = 1000;
+    static final int FAIL    = GOSSIP * 10;   // 30s
+    static final int CLEANUP = FAIL * 2;      // 60s
 
     public PeerServerImpl(int udpPort, long peerEpoch, Long serverID,
                           Map<Long, InetSocketAddress> peerIDtoAddress,
@@ -48,6 +62,9 @@ public class PeerServerImpl extends Thread implements PeerServer, LoggingServer 
         this.logger = initializeLogging(
                 "PeerServerImpl-on-" + serverID + "-on-" + udpPort);
         logger.info("PeerServer " + serverID + " constructed");
+
+        this.summaryLogger = initializeLogging(
+                "PeerServerSummary-on-" + serverID + "-on-" + udpPort);
 
         this.udpPort = udpPort;
         this.tcpPort = udpPort + 2;
@@ -66,6 +83,14 @@ public class PeerServerImpl extends Thread implements PeerServer, LoggingServer 
         this.currentLeader = null;
         this.peerIDtoAddress = peerIDtoAddress;
 
+        // Reverse lookup: port → ID
+        this.portToID = new HashMap<>();
+        for (Map.Entry<Long, InetSocketAddress> entry : peerIDtoAddress.entrySet()) {
+            this.portToID.put(entry.getValue().getPort(), entry.getKey());
+        }
+        // Add myself too
+        this.portToID.put(this.udpPort, this.id);
+
         this.gatewayID = gatewayID;
         this.numberOfObservers = numberOfObservers;
 
@@ -74,10 +99,71 @@ public class PeerServerImpl extends Thread implements PeerServer, LoggingServer 
 
         // observers do NOT vote
         this.votingPeersCount = totalPeers - numberOfObservers;
+
+        // Initialize the heartbeat table
+        this.heartbeatTable = new ConcurrentHashMap<>();
+        // Initialize the set of failed nodes
+        this.failedNodes = ConcurrentHashMap.newKeySet();
+
+        // Initialize the heartbeat table with all peers
+        long now = System.currentTimeMillis();
+        // Add myself to the heartbeat table
+        heartbeatTable.put(this.id, new HeartbeatEntry(0L, now));
+        // Add all peers to the heartbeat table
+        for (Long peerId : peerIDtoAddress.keySet()) {
+            heartbeatTable.put(peerId, new HeartbeatEntry(0L, now));
+        }
     }
 
     @Override
     public void run() {
+        // Start the gossip sender thread
+        try {
+            this.gossipSender = new GossipSenderThread(
+                    this,
+                    this.id,
+                    this.heartbeatTable,
+                    this.outgoingMessages,
+                    GOSSIP
+            );
+        } catch (IOException e) {
+            logger.log(Level.SEVERE, "Failed to start gossip sending thread", e);
+            this.shutdown = true;
+            throw new RuntimeException(e);
+        }
+        this.gossipSender.start();
+
+        // Start the gossip receiver thread
+        try {
+            this.gossipReceiver = new GossipReceiverThread(
+                    this,
+                    this.summaryLogger,
+                    this.id,
+                    this.incomingMessages,
+                    this.heartbeatTable
+            );
+        } catch (IOException e) {
+            logger.log(Level.SEVERE, "Failed to start gossip receiving thread", e);
+            this.shutdown = true;
+            throw new RuntimeException(e);
+        }
+        this.gossipReceiver.start();
+
+        // Start the failure detector thread
+        try {
+            this.failureDetector = new FailureDetectorThread(
+                    this,
+                    this.summaryLogger,
+                    this.id,
+                    this.heartbeatTable,
+                    FAIL,
+                    CLEANUP
+            );
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        this.failureDetector.start();
+
         //Create and run a thread that sends broadcast messages
         try {
             this.senderWorker = new UDPMessageSender(this.outgoingMessages, getUdpPort());
@@ -158,12 +244,20 @@ public class PeerServerImpl extends Thread implements PeerServer, LoggingServer 
             logger.log(Level.SEVERE, "Uncaught exception in PeerServerImpl main loop for server " + this.id, e);
             this.shutdown = true;
         }
+        finally {
+            shutdown();
+        }
     }
 
     @Override
     public void shutdown() {
         // Signal to the rest of the server that we are shutting down
         this.shutdown = true;
+
+        // Shutdown the gossip and failure detector threads
+        if (gossipSender != null) gossipSender.shutdown();
+        if (gossipReceiver != null) gossipReceiver.shutdown();
+        if (failureDetector != null) failureDetector.shutdown();
 
         // Shutdown the leader and follower threads
         stopLeaderThread();
@@ -308,6 +402,11 @@ public class PeerServerImpl extends Thread implements PeerServer, LoggingServer 
 
     @Override
     public void setPeerState(ServerState newState) {
+        String msg = this.id + ": switching from " + this.state + " to " + newState;
+
+        System.out.println(msg);
+        summaryLogger.info(msg);
+
         this.state = newState;
     }
 
@@ -340,4 +439,36 @@ public class PeerServerImpl extends Thread implements PeerServer, LoggingServer 
     public int getQuorumSize() {
         return (this.votingPeersCount / 2) + 1;
     }
+
+    public boolean isFailed(long nodeId) {
+        return this.failedNodes.contains(nodeId);
+    }
+
+    public void markFailed(long nodeId) {
+        this.failedNodes.add(nodeId);
+    }
+
+    public Long getServerIdByPort(int port) {
+        return this.portToID.get(port);
+    }
+
+    public void handleFailedWorker(long workerId) {
+        // If I'm the leader, remove the worker from my leaderWorker and reassign its work
+        if (leaderWorker != null) {
+            leaderWorker.removeWorker(workerId);
+            leaderWorker.reassignWorkFrom(workerId);
+        }
+    }
+
+    // Package-private - DELETE LATER
+    RoundRobinLeader getLeaderWorker() {
+        return leaderWorker;
+    }
+
+    public Long getCurrentLeaderId() {
+        Vote v = this.currentLeader;
+        return (v == null) ? null : v.getProposedLeaderID();
+    }
+
+
 }
