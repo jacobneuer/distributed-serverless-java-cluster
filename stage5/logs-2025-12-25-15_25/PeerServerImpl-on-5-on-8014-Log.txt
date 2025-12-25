@@ -1,0 +1,16 @@
+Dec 25, 2025 3:25:46 PM edu.yu.cs.com3800.stage5.PeerServerImpl <init>
+INFO: PeerServer 5 constructed
+Dec 25, 2025 3:25:46 PM edu.yu.cs.com3800.stage5.PeerServerImpl startHttpStatusServer
+INFO: Peer 5 HTTP status server started on port 9014
+Dec 25, 2025 3:25:46 PM edu.yu.cs.com3800.LeaderElection sendNotifications
+FINE: Server 5 sending election notification: leader=5, epoch=0
+Dec 25, 2025 3:25:46 PM edu.yu.cs.com3800.LeaderElection sendNotifications
+FINE: Server 5 sending election notification: leader=5, epoch=0
+Dec 25, 2025 3:25:47 PM edu.yu.cs.com3800.LeaderElection sendNotifications
+FINE: Server 5 sending election notification: leader=5, epoch=0
+Dec 25, 2025 3:25:48 PM edu.yu.cs.com3800.LeaderElection sendNotifications
+FINE: Server 5 sending election notification: leader=5, epoch=0
+Dec 25, 2025 3:25:49 PM edu.yu.cs.com3800.LeaderElection sendNotifications
+FINE: Server 5 sending election notification: leader=5, epoch=0
+Dec 25, 2025 3:25:52 PM edu.yu.cs.com3800.LeaderElection sendNotifications
+FINE: Server 5 sending election notification: leader=5, epoch=0

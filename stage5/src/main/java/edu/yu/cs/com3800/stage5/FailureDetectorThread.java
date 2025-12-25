@@ -68,7 +68,7 @@ public class FailureDetectorThread extends Thread implements LoggingServer {
                         System.out.println(msg);
                         summaryLogger.info(msg);
 
-                        handleNodeFailure(peerId);
+                        peerServer.reportFailedNode(peerId);
                     }
 
                     //  CLEANUP: remove entry
@@ -95,32 +95,5 @@ public class FailureDetectorThread extends Thread implements LoggingServer {
     public void shutdown() {
         this.shutdown = true;
         this.interrupt();
-    }
-
-    // Handle consequences of failure
-    private void handleNodeFailure(long failedId) {
-        // Mark the peer as failed in the PeerServer
-        // This will prevent all further communication (messages/votes) with the failed node
-        peerServer.markFailed(failedId);
-
-        Vote leader = peerServer.getCurrentLeader();
-        Long leaderId = (leader == null) ? null : leader.getProposedLeaderID();
-
-        // Leader failure
-        if (leaderId != null && leaderId == failedId) {
-            PeerServer.ServerState old = peerServer.getPeerState();
-
-            // No matter what state we're in, if the leader failed we go to LOOKING
-            if (old != PeerServer.ServerState.LOOKING) {
-                // Switching to LOOKING will trigger a new election and increment the epoch
-                peerServer.setPeerState(PeerServer.ServerState.LOOKING);
-            }
-        }
-
-        // Follower failure
-        // The leader needs to make sure to handle failed workers
-        if (peerServer.getPeerState() == PeerServer.ServerState.LEADING) {
-            peerServer.handleFailedWorker(failedId);
-        }
     }
 }

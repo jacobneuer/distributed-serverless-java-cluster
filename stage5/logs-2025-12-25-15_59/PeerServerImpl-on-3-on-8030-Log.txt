@@ -1,0 +1,40 @@
+Dec 25, 2025 3:59:45 PM edu.yu.cs.com3800.stage5.PeerServerImpl <init>
+INFO: PeerServer 3 constructed
+Dec 25, 2025 3:59:45 PM edu.yu.cs.com3800.stage5.PeerServerImpl startHttpStatusServer
+INFO: Peer 3 HTTP status server started on port 8135
+Dec 25, 2025 3:59:45 PM edu.yu.cs.com3800.LeaderElection sendNotifications
+FINE: Server 3 sending election notification: leader=3, epoch=0
+Dec 25, 2025 3:59:46 PM edu.yu.cs.com3800.LeaderElection sendNotifications
+FINE: Server 3 sending election notification: leader=3, epoch=0
+Dec 25, 2025 3:59:46 PM edu.yu.cs.com3800.LeaderElection sendNotifications
+FINE: Server 3 sending election notification: leader=3, epoch=0
+Dec 25, 2025 3:59:46 PM edu.yu.cs.com3800.LeaderElection sendNotifications
+FINE: Server 3 sending election notification: leader=3, epoch=0
+Dec 25, 2025 3:59:46 PM edu.yu.cs.com3800.LeaderElection sendNotifications
+FINE: Server 3 sending election notification: leader=3, epoch=0
+Dec 25, 2025 3:59:47 PM edu.yu.cs.com3800.LeaderElection sendNotifications
+FINE: Server 3 sending election notification: leader=3, epoch=0
+Dec 25, 2025 3:59:47 PM edu.yu.cs.com3800.LeaderElection sendNotifications
+FINE: Server 3 sending election notification: leader=3, epoch=0
+Dec 25, 2025 3:59:47 PM edu.yu.cs.com3800.LeaderElection sendNotifications
+FINE: Server 3 sending election notification: leader=3, epoch=0
+Dec 25, 2025 3:59:48 PM edu.yu.cs.com3800.LeaderElection sendNotifications
+FINE: Server 3 sending election notification: leader=3, epoch=0
+Dec 25, 2025 3:59:48 PM edu.yu.cs.com3800.LeaderElection sendNotifications
+FINE: Server 3 sending election notification: leader=3, epoch=0
+Dec 25, 2025 3:59:49 PM edu.yu.cs.com3800.LeaderElection sendNotifications
+FINE: Server 3 sending election notification: leader=3, epoch=0
+Dec 25, 2025 3:59:49 PM edu.yu.cs.com3800.LeaderElection acceptElectionWinner
+INFO: Server 3 accepted election winner: leader=3, epoch=0, state=LEADING
+Dec 25, 2025 3:59:49 PM edu.yu.cs.com3800.LeaderElection sendNotifications
+FINE: Server 3 sending election notification: leader=3, epoch=0
+Dec 25, 2025 3:59:49 PM edu.yu.cs.com3800.stage5.PeerServerImpl startLeaderThread
+INFO: Server 3 started TCPServer.
+Dec 25, 2025 3:59:49 PM edu.yu.cs.com3800.stage5.PeerServerImpl startLeaderThread
+INFO: Server 3 started Leader workers (TCPServer + RoundRobinLeader)
+Dec 25, 2025 3:59:53 PM edu.yu.cs.com3800.stage5.PeerServerImpl stopLeaderThread
+INFO: Server 3: Stopped RoundRobinLeader thread.
+Dec 25, 2025 3:59:53 PM edu.yu.cs.com3800.stage5.PeerServerImpl shutdown
+INFO: Server 3 shutting down.
+Dec 25, 2025 3:59:53 PM edu.yu.cs.com3800.stage5.PeerServerImpl shutdown
+INFO: Server 3 shutting down.

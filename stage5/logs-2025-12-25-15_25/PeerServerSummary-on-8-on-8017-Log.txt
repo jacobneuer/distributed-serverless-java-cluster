@@ -1,0 +1,18 @@
+Dec 25, 2025 3:25:46 PM edu.yu.cs.com3800.stage5.PeerServerImpl setPeerState
+INFO: 8: switching from LOOKING to OBSERVER
+Dec 25, 2025 3:25:52 PM edu.yu.cs.com3800.stage5.GossipReceiverThread mergeHeartbeatInfo
+INFO: 8: updated 5's heartbeat sequence to 7 based on message from 5 at node time 1766694352622
+Dec 25, 2025 3:25:56 PM edu.yu.cs.com3800.stage5.FailureDetectorThread run
+INFO: 8: no heartbeat from server 1 - SERVER FAILED
+Dec 25, 2025 3:25:56 PM edu.yu.cs.com3800.stage5.FailureDetectorThread run
+INFO: 8: no heartbeat from server 2 - SERVER FAILED
+Dec 25, 2025 3:25:56 PM edu.yu.cs.com3800.stage5.FailureDetectorThread run
+INFO: 8: no heartbeat from server 3 - SERVER FAILED
+Dec 25, 2025 3:25:56 PM edu.yu.cs.com3800.stage5.FailureDetectorThread run
+INFO: 8: no heartbeat from server 4 - SERVER FAILED
+Dec 25, 2025 3:25:56 PM edu.yu.cs.com3800.stage5.FailureDetectorThread run
+INFO: 8: no heartbeat from server 6 - SERVER FAILED
+Dec 25, 2025 3:25:56 PM edu.yu.cs.com3800.stage5.FailureDetectorThread run
+INFO: 8: no heartbeat from server 7 - SERVER FAILED
+Dec 25, 2025 3:25:56 PM edu.yu.cs.com3800.stage5.GossipReceiverThread mergeHeartbeatInfo
+INFO: 8: updated 5's heartbeat sequence to 11 based on message from 5 at node time 1766694356634

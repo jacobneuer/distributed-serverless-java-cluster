@@ -23,7 +23,7 @@ public class GatewayServerRunner {
 
         long gatewayId = ClusterConfig.gatewayId(numVotingPeers);
 
-        GatewayServer gateway = new GatewayServer(
+        NewGatewayServer gateway = new NewGatewayServer(
                 httpPort,
                 membership.get(gatewayId).getPort(), // gateway UDP port
                 0L,

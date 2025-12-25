@@ -1,0 +1,58 @@
+Dec 25, 2025 3:29:58 PM edu.yu.cs.com3800.stage5.PeerServerImpl <init>
+INFO: PeerServer 2 constructed
+Dec 25, 2025 3:29:59 PM edu.yu.cs.com3800.stage5.PeerServerImpl startHttpStatusServer
+INFO: Peer 2 HTTP status server started on port 8116
+Dec 25, 2025 3:29:59 PM edu.yu.cs.com3800.LeaderElection sendNotifications
+FINE: Server 2 sending election notification: leader=2, epoch=0
+Dec 25, 2025 3:29:59 PM edu.yu.cs.com3800.LeaderElection sendNotifications
+FINE: Server 2 sending election notification: leader=6, epoch=0
+Dec 25, 2025 3:29:59 PM edu.yu.cs.com3800.LeaderElection sendNotifications
+FINE: Server 2 sending election notification: leader=7, epoch=0
+Dec 25, 2025 3:29:59 PM edu.yu.cs.com3800.LeaderElection sendNotifications
+FINE: Server 2 sending election notification: leader=7, epoch=0
+Dec 25, 2025 3:30:00 PM edu.yu.cs.com3800.LeaderElection sendNotifications
+FINE: Server 2 sending election notification: leader=7, epoch=0
+Dec 25, 2025 3:30:00 PM edu.yu.cs.com3800.LeaderElection sendNotifications
+FINE: Server 2 sending election notification: leader=7, epoch=0
+Dec 25, 2025 3:30:00 PM edu.yu.cs.com3800.LeaderElection sendNotifications
+FINE: Server 2 sending election notification: leader=7, epoch=0
+Dec 25, 2025 3:30:01 PM edu.yu.cs.com3800.LeaderElection sendNotifications
+FINE: Server 2 sending election notification: leader=7, epoch=0
+Dec 25, 2025 3:30:01 PM edu.yu.cs.com3800.LeaderElection sendNotifications
+FINE: Server 2 sending election notification: leader=7, epoch=0
+Dec 25, 2025 3:30:01 PM edu.yu.cs.com3800.LeaderElection sendNotifications
+FINE: Server 2 sending election notification: leader=7, epoch=0
+Dec 25, 2025 3:30:02 PM edu.yu.cs.com3800.LeaderElection sendNotifications
+FINE: Server 2 sending election notification: leader=7, epoch=0
+Dec 25, 2025 3:30:02 PM edu.yu.cs.com3800.LeaderElection acceptElectionWinner
+INFO: Server 2 accepted election winner: leader=7, epoch=0, state=FOLLOWING
+Dec 25, 2025 3:30:02 PM edu.yu.cs.com3800.LeaderElection sendNotifications
+FINE: Server 2 sending election notification: leader=7, epoch=0
+Dec 25, 2025 3:30:02 PM edu.yu.cs.com3800.stage5.PeerServerImpl startFollowerThread
+INFO: Server 2: Started JavaRunnerFollower thread.
+Dec 25, 2025 3:30:49 PM edu.yu.cs.com3800.stage5.PeerServerImpl stopFollowerThread
+INFO: Server 2: Stopped JavaRunnerFollower thread.
+Dec 25, 2025 3:30:49 PM edu.yu.cs.com3800.LeaderElection sendNotifications
+FINE: Server 2 sending election notification: leader=2, epoch=1
+Dec 25, 2025 3:30:49 PM edu.yu.cs.com3800.LeaderElection sendNotifications
+FINE: Server 2 sending election notification: leader=4, epoch=1
+Dec 25, 2025 3:30:49 PM edu.yu.cs.com3800.LeaderElection sendNotifications
+FINE: Server 2 sending election notification: leader=6, epoch=1
+Dec 25, 2025 3:30:50 PM edu.yu.cs.com3800.LeaderElection sendNotifications
+FINE: Server 2 sending election notification: leader=6, epoch=1
+Dec 25, 2025 3:30:50 PM edu.yu.cs.com3800.LeaderElection sendNotifications
+FINE: Server 2 sending election notification: leader=6, epoch=1
+Dec 25, 2025 3:30:50 PM edu.yu.cs.com3800.LeaderElection sendNotifications
+FINE: Server 2 sending election notification: leader=6, epoch=1
+Dec 25, 2025 3:30:51 PM edu.yu.cs.com3800.LeaderElection sendNotifications
+FINE: Server 2 sending election notification: leader=6, epoch=1
+Dec 25, 2025 3:30:52 PM edu.yu.cs.com3800.LeaderElection sendNotifications
+FINE: Server 2 sending election notification: leader=6, epoch=1
+Dec 25, 2025 3:30:52 PM edu.yu.cs.com3800.LeaderElection sendNotifications
+FINE: Server 2 sending election notification: leader=6, epoch=1
+Dec 25, 2025 3:30:52 PM edu.yu.cs.com3800.LeaderElection acceptElectionWinner
+INFO: Server 2 accepted election winner: leader=6, epoch=1, state=FOLLOWING
+Dec 25, 2025 3:30:52 PM edu.yu.cs.com3800.LeaderElection sendNotifications
+FINE: Server 2 sending election notification: leader=6, epoch=1
+Dec 25, 2025 3:30:52 PM edu.yu.cs.com3800.stage5.PeerServerImpl startFollowerThread
+INFO: Server 2: Started JavaRunnerFollower thread.

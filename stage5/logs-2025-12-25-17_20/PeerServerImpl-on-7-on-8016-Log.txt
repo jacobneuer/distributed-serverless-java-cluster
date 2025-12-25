@@ -1,0 +1,34 @@
+Dec 25, 2025 5:20:29 PM edu.yu.cs.com3800.stage5.PeerServerImpl <init>
+INFO: PeerServer 7 constructed
+Dec 25, 2025 5:20:29 PM edu.yu.cs.com3800.stage5.PeerServerImpl startHttpStatusServer
+INFO: Peer 7 HTTP status server started on port 8121
+Dec 25, 2025 5:20:29 PM edu.yu.cs.com3800.LeaderElection sendNotifications
+FINE: Server 7 sending election notification: leader=7, epoch=0
+Dec 25, 2025 5:20:30 PM edu.yu.cs.com3800.LeaderElection sendNotifications
+FINE: Server 7 sending election notification: leader=7, epoch=0
+Dec 25, 2025 5:20:30 PM edu.yu.cs.com3800.LeaderElection sendNotifications
+FINE: Server 7 sending election notification: leader=7, epoch=0
+Dec 25, 2025 5:20:30 PM edu.yu.cs.com3800.LeaderElection sendNotifications
+FINE: Server 7 sending election notification: leader=7, epoch=0
+Dec 25, 2025 5:20:31 PM edu.yu.cs.com3800.LeaderElection sendNotifications
+FINE: Server 7 sending election notification: leader=7, epoch=0
+Dec 25, 2025 5:20:31 PM edu.yu.cs.com3800.LeaderElection sendNotifications
+FINE: Server 7 sending election notification: leader=7, epoch=0
+Dec 25, 2025 5:20:31 PM edu.yu.cs.com3800.LeaderElection sendNotifications
+FINE: Server 7 sending election notification: leader=7, epoch=0
+Dec 25, 2025 5:20:32 PM edu.yu.cs.com3800.LeaderElection sendNotifications
+FINE: Server 7 sending election notification: leader=7, epoch=0
+Dec 25, 2025 5:20:32 PM edu.yu.cs.com3800.LeaderElection sendNotifications
+FINE: Server 7 sending election notification: leader=7, epoch=0
+Dec 25, 2025 5:20:32 PM edu.yu.cs.com3800.LeaderElection sendNotifications
+FINE: Server 7 sending election notification: leader=7, epoch=0
+Dec 25, 2025 5:20:33 PM edu.yu.cs.com3800.LeaderElection sendNotifications
+FINE: Server 7 sending election notification: leader=7, epoch=0
+Dec 25, 2025 5:20:33 PM edu.yu.cs.com3800.LeaderElection acceptElectionWinner
+INFO: Server 7 accepted election winner: leader=7, epoch=0, state=LEADING
+Dec 25, 2025 5:20:33 PM edu.yu.cs.com3800.LeaderElection sendNotifications
+FINE: Server 7 sending election notification: leader=7, epoch=0
+Dec 25, 2025 5:20:33 PM edu.yu.cs.com3800.stage5.PeerServerImpl startLeaderThread
+INFO: Server 7 started TCPServer.
+Dec 25, 2025 5:20:33 PM edu.yu.cs.com3800.stage5.PeerServerImpl startLeaderThread
+INFO: Server 7 started Leader workers (TCPServer + RoundRobinLeader)

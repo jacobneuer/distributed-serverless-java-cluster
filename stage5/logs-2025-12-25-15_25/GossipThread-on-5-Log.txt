@@ -1,0 +1,24 @@
+Dec 25, 2025 3:25:46 PM edu.yu.cs.com3800.stage5.GossipSenderThread run
+INFO: GossipThread for 5 started.
+Dec 25, 2025 3:25:46 PM edu.yu.cs.com3800.stage5.GossipSenderThread run
+INFO: 5: GOSSIP → 2 (table size = 8)
+Dec 25, 2025 3:25:47 PM edu.yu.cs.com3800.stage5.GossipSenderThread run
+INFO: 5: GOSSIP → 2 (table size = 8)
+Dec 25, 2025 3:25:48 PM edu.yu.cs.com3800.stage5.GossipSenderThread run
+INFO: 5: GOSSIP → 6 (table size = 8)
+Dec 25, 2025 3:25:49 PM edu.yu.cs.com3800.stage5.GossipSenderThread run
+INFO: 5: GOSSIP → 3 (table size = 8)
+Dec 25, 2025 3:25:50 PM edu.yu.cs.com3800.stage5.GossipSenderThread run
+INFO: 5: GOSSIP → 2 (table size = 8)
+Dec 25, 2025 3:25:51 PM edu.yu.cs.com3800.stage5.GossipSenderThread run
+INFO: 5: GOSSIP → 3 (table size = 8)
+Dec 25, 2025 3:25:52 PM edu.yu.cs.com3800.stage5.GossipSenderThread run
+INFO: 5: GOSSIP → 8 (table size = 8)
+Dec 25, 2025 3:25:53 PM edu.yu.cs.com3800.stage5.GossipSenderThread run
+INFO: 5: GOSSIP → 3 (table size = 8)
+Dec 25, 2025 3:25:54 PM edu.yu.cs.com3800.stage5.GossipSenderThread run
+INFO: 5: GOSSIP → 6 (table size = 8)
+Dec 25, 2025 3:25:55 PM edu.yu.cs.com3800.stage5.GossipSenderThread run
+INFO: 5: GOSSIP → 6 (table size = 8)
+Dec 25, 2025 3:25:56 PM edu.yu.cs.com3800.stage5.GossipSenderThread run
+INFO: 5: GOSSIP → 8 (table size = 8)

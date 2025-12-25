@@ -7,6 +7,7 @@ import java.io.*;
 import java.net.InetSocketAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.net.SocketException;
 import java.nio.charset.StandardCharsets;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -17,6 +18,7 @@ public class JavaRunnerFollower extends Thread implements LoggingServer {
     private final InetSocketAddress myAddress;
     private final Logger logger;
     private final JavaRunner runner;
+    private ServerSocket serverSocket;
 
     public JavaRunnerFollower(int udpPort, InetSocketAddress myAddress) throws IOException {
         // TCP port is UDP port + 2
@@ -38,6 +40,7 @@ public class JavaRunnerFollower extends Thread implements LoggingServer {
     @Override
     public void run() {
         try (ServerSocket serverSocket = new ServerSocket(this.tcpPort)) {
+            this.serverSocket = serverSocket;
             logger.info("JavaRunnerFollower started. Listening on TCP port " + this.tcpPort);
 
             while (!this.isInterrupted()) {
@@ -81,6 +84,12 @@ public class JavaRunnerFollower extends Thread implements LoggingServer {
                         out.write(response.getNetworkPayload());
                         out.flush();
                     }
+                } catch (SocketException e) {
+                    if (isInterrupted()) {
+                        logger.fine("JavaRunnerFollower shutting down cleanly.");
+                    } else {
+                        logger.log(Level.WARNING, "Socket error", e);
+                    }
                 } catch (Exception e) {
                     logger.log(Level.WARNING, "Error processing work connection", e);
                 } finally {
@@ -95,6 +104,17 @@ public class JavaRunnerFollower extends Thread implements LoggingServer {
         } catch (Exception e) {
             logger.log(Level.SEVERE, "JavaRunnerFollower server socket failed", e);
         }
+    }
+
+    @Override
+    public void interrupt() {
+        try {
+            // Close the server socket to unblock accept()
+            if (serverSocket != null && !serverSocket.isClosed()) {
+                serverSocket.close(); // unblocks accept()
+            }
+        } catch (IOException ignored) {}
+        super.interrupt();
     }
 
     private WorkResult processCode(byte[] javaCode) {

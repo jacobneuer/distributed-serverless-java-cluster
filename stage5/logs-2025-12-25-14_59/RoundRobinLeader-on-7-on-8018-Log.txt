@@ -1,0 +1,106 @@
+Dec 25, 2025 2:59:33 PM edu.yu.cs.com3800.stage5.RoundRobinLeader <init>
+INFO: RoundRobinLeader initialized.
+Dec 25, 2025 2:59:33 PM edu.yu.cs.com3800.stage5.RoundRobinLeader <init>
+INFO: Adding worker 1 at localhost/127.0.0.1:8010
+Dec 25, 2025 2:59:33 PM edu.yu.cs.com3800.stage5.RoundRobinLeader <init>
+INFO: Adding worker 2 at localhost/127.0.0.1:8011
+Dec 25, 2025 2:59:33 PM edu.yu.cs.com3800.stage5.RoundRobinLeader <init>
+INFO: Adding worker 3 at localhost/127.0.0.1:8012
+Dec 25, 2025 2:59:33 PM edu.yu.cs.com3800.stage5.RoundRobinLeader <init>
+INFO: Adding worker 4 at localhost/127.0.0.1:8013
+Dec 25, 2025 2:59:33 PM edu.yu.cs.com3800.stage5.RoundRobinLeader <init>
+INFO: Adding worker 5 at localhost/127.0.0.1:8014
+Dec 25, 2025 2:59:33 PM edu.yu.cs.com3800.stage5.RoundRobinLeader <init>
+INFO: Adding worker 6 at localhost/127.0.0.1:8015
+Dec 25, 2025 2:59:33 PM edu.yu.cs.com3800.stage5.RoundRobinLeader run
+INFO: Leader received request from gateway at port 8888.
+Dec 25, 2025 2:59:33 PM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Picked worker localhost:8012
+Dec 25, 2025 2:59:33 PM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Connecting to worker at localhost:8012
+Dec 25, 2025 2:59:33 PM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Sending message from leader to localhost
+Dec 25, 2025 2:59:34 PM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Received result from worker. Sending to Gateway.
+Dec 25, 2025 2:59:35 PM edu.yu.cs.com3800.stage5.RoundRobinLeader run
+INFO: Leader received request from gateway at port 8888.
+Dec 25, 2025 2:59:35 PM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Picked worker localhost:8013
+Dec 25, 2025 2:59:35 PM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Connecting to worker at localhost:8013
+Dec 25, 2025 2:59:35 PM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Sending message from leader to localhost
+Dec 25, 2025 2:59:35 PM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Received result from worker. Sending to Gateway.
+Dec 25, 2025 2:59:36 PM edu.yu.cs.com3800.stage5.RoundRobinLeader run
+INFO: Leader received request from gateway at port 8888.
+Dec 25, 2025 2:59:36 PM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Picked worker localhost:8014
+Dec 25, 2025 2:59:36 PM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Connecting to worker at localhost:8014
+Dec 25, 2025 2:59:36 PM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Sending message from leader to localhost
+Dec 25, 2025 2:59:37 PM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Received result from worker. Sending to Gateway.
+Dec 25, 2025 2:59:37 PM edu.yu.cs.com3800.stage5.RoundRobinLeader run
+INFO: Leader received request from gateway at port 8888.
+Dec 25, 2025 2:59:37 PM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Picked worker localhost:8015
+Dec 25, 2025 2:59:37 PM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Connecting to worker at localhost:8015
+Dec 25, 2025 2:59:37 PM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Sending message from leader to localhost
+Dec 25, 2025 2:59:37 PM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Received result from worker. Sending to Gateway.
+Dec 25, 2025 2:59:38 PM edu.yu.cs.com3800.stage5.RoundRobinLeader run
+INFO: Leader received request from gateway at port 8888.
+Dec 25, 2025 2:59:38 PM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Picked worker localhost:8016
+Dec 25, 2025 2:59:38 PM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Connecting to worker at localhost:8016
+Dec 25, 2025 2:59:38 PM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Sending message from leader to localhost
+Dec 25, 2025 2:59:38 PM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Received result from worker. Sending to Gateway.
+Dec 25, 2025 2:59:39 PM edu.yu.cs.com3800.stage5.RoundRobinLeader run
+INFO: Leader received request from gateway at port 8888.
+Dec 25, 2025 2:59:39 PM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Picked worker localhost:8017
+Dec 25, 2025 2:59:39 PM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Connecting to worker at localhost:8017
+Dec 25, 2025 2:59:39 PM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Sending message from leader to localhost
+Dec 25, 2025 2:59:39 PM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Received result from worker. Sending to Gateway.
+Dec 25, 2025 2:59:40 PM edu.yu.cs.com3800.stage5.RoundRobinLeader run
+INFO: Leader received request from gateway at port 8888.
+Dec 25, 2025 2:59:40 PM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Picked worker localhost:8012
+Dec 25, 2025 2:59:40 PM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Connecting to worker at localhost:8012
+Dec 25, 2025 2:59:40 PM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Sending message from leader to localhost
+Dec 25, 2025 2:59:41 PM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Received result from worker. Sending to Gateway.
+Dec 25, 2025 2:59:41 PM edu.yu.cs.com3800.stage5.RoundRobinLeader run
+INFO: Leader received request from gateway at port 8888.
+Dec 25, 2025 2:59:41 PM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Picked worker localhost:8013
+Dec 25, 2025 2:59:41 PM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Connecting to worker at localhost:8013
+Dec 25, 2025 2:59:41 PM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Sending message from leader to localhost
+Dec 25, 2025 2:59:42 PM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Received result from worker. Sending to Gateway.
+Dec 25, 2025 2:59:43 PM edu.yu.cs.com3800.stage5.RoundRobinLeader run
+INFO: Leader received request from gateway at port 8888.
+Dec 25, 2025 2:59:43 PM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Picked worker localhost:8014
+Dec 25, 2025 2:59:43 PM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Connecting to worker at localhost:8014
+Dec 25, 2025 2:59:43 PM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Sending message from leader to localhost
+Dec 25, 2025 2:59:44 PM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Received result from worker. Sending to Gateway.
+Dec 25, 2025 2:59:57 PM edu.yu.cs.com3800.stage5.RoundRobinLeader removeWorker
+INFO: Removed failed worker 1

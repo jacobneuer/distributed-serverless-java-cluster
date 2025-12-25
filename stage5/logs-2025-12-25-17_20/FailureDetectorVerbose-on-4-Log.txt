@@ -1,0 +1,4 @@
+Dec 25, 2025 5:21:07 PM edu.yu.cs.com3800.stage5.FailureDetectorThread run
+INFO: 4: removing server 1 from heartbeat table after cleanup
+Dec 25, 2025 5:21:29 PM edu.yu.cs.com3800.stage5.FailureDetectorThread run
+INFO: 4: removing server 7 from heartbeat table after cleanup

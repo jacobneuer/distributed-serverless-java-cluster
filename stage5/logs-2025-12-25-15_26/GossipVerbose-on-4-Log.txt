@@ -1,0 +1,110 @@
+Dec 25, 2025 3:27:00 PM edu.yu.cs.com3800.stage5.GossipReceiverThread handleGossip
+INFO: 4: Received gossip from 3 at time 1766694420032 contents={1=0, 2=0, 3=1, 4=0, 5=0, 6=0, 7=0, 8=0}
+Dec 25, 2025 3:27:02 PM edu.yu.cs.com3800.stage5.GossipReceiverThread handleGossip
+INFO: 4: Received gossip from 3 at time 1766694422055 contents={1=3, 2=0, 3=3, 4=2, 5=2, 6=0, 7=1, 8=0}
+Dec 25, 2025 3:27:02 PM edu.yu.cs.com3800.stage5.GossipReceiverThread handleGossip
+INFO: 4: Received gossip from 1 at time 1766694422991 contents={1=4, 2=2, 3=2, 4=3, 5=4, 6=3, 7=1, 8=0}
+Dec 25, 2025 3:27:02 PM edu.yu.cs.com3800.stage5.GossipReceiverThread handleGossip
+INFO: 4: Received gossip from 6 at time 1766694422993 contents={1=0, 2=0, 3=0, 4=0, 5=0, 6=4, 7=3, 8=0}
+Dec 25, 2025 3:27:04 PM edu.yu.cs.com3800.stage5.GossipReceiverThread handleGossip
+INFO: 4: Received gossip from 6 at time 1766694424962 contents={1=3, 2=4, 3=4, 4=3, 5=5, 6=6, 7=3, 8=4}
+Dec 25, 2025 3:27:04 PM edu.yu.cs.com3800.stage5.GossipReceiverThread handleGossip
+INFO: 4: Received gossip from 8 at time 1766694424989 contents={1=4, 2=2, 3=3, 4=5, 5=4, 6=4, 7=3, 8=6}
+Dec 25, 2025 3:27:06 PM edu.yu.cs.com3800.stage5.GossipReceiverThread handleGossip
+INFO: 4: Received gossip from 5 at time 1766694426927 contents={1=6, 2=7, 3=7, 4=7, 5=8, 6=6, 7=6, 8=6}
+Dec 25, 2025 3:27:07 PM edu.yu.cs.com3800.stage5.GossipReceiverThread handleGossip
+INFO: 4: Received gossip from 5 at time 1766694427937 contents={1=6, 2=7, 3=7, 4=8, 5=9, 6=6, 7=6, 8=6}
+Dec 25, 2025 3:27:07 PM edu.yu.cs.com3800.stage5.GossipReceiverThread handleGossip
+INFO: 4: Received gossip from 7 at time 1766694427975 contents={1=6, 2=5, 3=6, 4=6, 5=7, 6=4, 7=9, 8=7}
+Dec 25, 2025 3:27:07 PM edu.yu.cs.com3800.stage5.GossipReceiverThread handleGossip
+INFO: 4: Received gossip from 2 at time 1766694427982 contents={1=6, 2=9, 3=7, 4=9, 5=9, 6=6, 7=8, 8=7}
+Dec 25, 2025 3:27:07 PM edu.yu.cs.com3800.stage5.GossipReceiverThread handleGossip
+INFO: 4: Received gossip from 1 at time 1766694427983 contents={1=9, 2=8, 3=6, 4=6, 5=7, 6=8, 7=8, 8=8}
+Dec 25, 2025 3:27:09 PM edu.yu.cs.com3800.stage5.GossipReceiverThread handleGossip
+INFO: 4: Received gossip from 7 at time 1766694429977 contents={1=8, 2=7, 3=8, 4=6, 5=7, 6=7, 7=11, 8=9}
+Dec 25, 2025 3:27:09 PM edu.yu.cs.com3800.stage5.GossipReceiverThread handleGossip
+INFO: 4: Received gossip from 2 at time 1766694429982 contents={1=6, 2=11, 3=7, 4=9, 5=9, 6=6, 7=8, 8=7}
+Dec 25, 2025 3:27:10 PM edu.yu.cs.com3800.stage5.GossipReceiverThread handleGossip
+INFO: 4: Received gossip from 8 at time 1766694430011 contents={1=8, 2=7, 3=8, 4=6, 5=6, 6=10, 7=5, 8=11}
+Dec 25, 2025 3:27:10 PM edu.yu.cs.com3800.stage5.GossipReceiverThread handleGossip
+INFO: 4: Received gossip from 6 at time 1766694430996 contents={1=8, 2=7, 3=8, 4=6, 5=6, 6=12, 7=5, 8=10}
+Dec 25, 2025 3:27:13 PM edu.yu.cs.com3800.stage5.GossipReceiverThread handleGossip
+INFO: 4: Received gossip from 5 at time 1766694433952 contents={1=14, 2=14, 3=13, 4=13, 5=15, 6=12, 7=13, 8=12}
+Dec 25, 2025 3:27:14 PM edu.yu.cs.com3800.stage5.GossipReceiverThread handleGossip
+INFO: 4: Received gossip from 2 at time 1766694434001 contents={1=13, 2=15, 3=14, 4=13, 5=14, 6=13, 7=14, 8=14}
+Dec 25, 2025 3:27:17 PM edu.yu.cs.com3800.stage5.GossipReceiverThread handleGossip
+INFO: 4: Received gossip from 8 at time 1766694437044 contents={1=15, 2=13, 3=15, 4=14, 5=14, 6=16, 7=14, 8=18}
+Dec 25, 2025 3:27:17 PM edu.yu.cs.com3800.stage5.GossipReceiverThread handleGossip
+INFO: 4: Received gossip from 3 at time 1766694437097 contents={1=15, 2=17, 3=18, 4=17, 5=18, 6=17, 7=17, 8=16}
+Dec 25, 2025 3:27:19 PM edu.yu.cs.com3800.stage5.GossipReceiverThread handleGossip
+INFO: 4: Received gossip from 6 at time 1766694439019 contents={1=15, 2=19, 3=19, 4=17, 5=18, 6=20, 7=18, 8=17}
+Dec 25, 2025 3:27:22 PM edu.yu.cs.com3800.stage5.GossipReceiverThread handleGossip
+INFO: 4: Received gossip from 3 at time 1766694442118 contents={1=15, 2=22, 3=23, 4=20, 5=22, 6=23, 7=22, 8=21}
+Dec 25, 2025 3:27:23 PM edu.yu.cs.com3800.stage5.GossipReceiverThread handleGossip
+INFO: 4: Received gossip from 7 at time 1766694443041 contents={1=15, 2=21, 3=20, 4=22, 5=23, 6=22, 7=24, 8=19}
+Dec 25, 2025 3:27:24 PM edu.yu.cs.com3800.stage5.GossipReceiverThread handleGossip
+INFO: 4: Received gossip from 7 at time 1766694444045 contents={1=15, 2=22, 3=23, 4=24, 5=25, 6=23, 7=25, 8=23}
+Dec 25, 2025 3:27:25 PM edu.yu.cs.com3800.stage5.GossipReceiverThread handleGossip
+INFO: 4: Received gossip from 6 at time 1766694445049 contents={1=15, 2=22, 3=25, 4=25, 5=23, 6=26, 7=24, 8=21}
+Dec 25, 2025 3:27:25 PM edu.yu.cs.com3800.stage5.GossipReceiverThread handleGossip
+INFO: 4: Received gossip from 8 at time 1766694445074 contents={1=15, 2=24, 3=21, 4=23, 5=21, 6=21, 7=21, 8=26}
+Dec 25, 2025 3:27:26 PM edu.yu.cs.com3800.stage5.GossipReceiverThread handleGossip
+INFO: 4: Received gossip from 3 at time 1766694446135 contents={1=15, 2=27, 3=27, 4=27, 5=27, 6=26, 7=25, 8=26}
+Dec 25, 2025 3:27:27 PM edu.yu.cs.com3800.stage5.GossipReceiverThread handleGossip
+INFO: 4: Received gossip from 5 at time 1766694447023 contents={1=15, 2=24, 3=25, 4=26, 5=28, 6=27, 7=25, 8=25}
+Dec 25, 2025 3:27:27 PM edu.yu.cs.com3800.stage5.GossipReceiverThread handleGossip
+INFO: 4: Received gossip from 6 at time 1766694447062 contents={1=15, 2=24, 3=26, 4=25, 5=26, 6=28, 7=27, 8=25}
+Dec 25, 2025 3:27:28 PM edu.yu.cs.com3800.stage5.GossipReceiverThread handleGossip
+INFO: 4: Received gossip from 7 at time 1766694448072 contents={1=15, 2=28, 3=26, 4=26, 5=29, 6=27, 7=29, 8=28}
+Dec 25, 2025 3:27:29 PM edu.yu.cs.com3800.stage5.GossipReceiverThread handleGossip
+INFO: 4: Received gossip from 2 at time 1766694449075 contents={1=15, 2=30, 3=27, 4=29, 5=30, 6=28, 7=27, 8=28}
+Dec 25, 2025 3:27:30 PM edu.yu.cs.com3800.stage5.GossipReceiverThread handleGossip
+INFO: 4: Received gossip from 5 at time 1766694450038 contents={1=15, 2=24, 3=25, 4=26, 5=31, 6=27, 7=25, 8=28}
+Dec 25, 2025 3:27:31 PM edu.yu.cs.com3800.stage5.GossipReceiverThread handleGossip
+INFO: 4: Received gossip from 2 at time 1766694451086 contents={1=15, 2=32, 3=27, 4=29, 5=30, 6=28, 7=27, 8=28}
+Dec 25, 2025 3:27:31 PM edu.yu.cs.com3800.stage5.GossipReceiverThread handleGossip
+INFO: 4: Received gossip from 8 at time 1766694451105 contents={1=15, 2=29, 3=30, 4=30, 5=29, 6=31, 7=30, 8=32}
+Dec 25, 2025 3:27:32 PM edu.yu.cs.com3800.stage5.GossipReceiverThread handleGossip
+INFO: 4: Received gossip from 5 at time 1766694452058 contents={1=15, 2=29, 3=29, 4=29, 5=33, 6=29, 7=31, 8=30}
+Dec 25, 2025 3:27:32 PM edu.yu.cs.com3800.stage5.GossipReceiverThread handleGossip
+INFO: 4: Received gossip from 3 at time 1766694452163 contents={1=15, 2=31, 3=33, 4=30, 5=30, 6=30, 7=29, 8=31}
+Dec 25, 2025 3:27:34 PM edu.yu.cs.com3800.stage5.GossipReceiverThread handleGossip
+INFO: 4: Received gossip from 7 at time 1766694454097 contents={1=15, 2=31, 3=32, 4=32, 5=32, 6=34, 7=35, 8=33}
+Dec 25, 2025 3:27:37 PM edu.yu.cs.com3800.stage5.GossipReceiverThread handleGossip
+INFO: 4: Received gossip from 5 at time 1766694457080 contents={1=15, 2=36, 3=36, 4=37, 5=38, 6=37, 7=35, 8=37}
+Dec 25, 2025 3:27:38 PM edu.yu.cs.com3800.stage5.GossipReceiverThread handleGossip
+INFO: 4: Received gossip from 3 at time 1766694458196 contents={2=37, 3=39, 4=39, 5=38, 6=37, 7=35, 8=38}
+Dec 25, 2025 3:27:39 PM edu.yu.cs.com3800.stage5.GossipReceiverThread handleGossip
+INFO: 4: Received gossip from 2 at time 1766694459119 contents={2=40, 3=39, 4=40, 5=38, 6=37, 7=35, 8=38}
+Dec 25, 2025 3:27:39 PM edu.yu.cs.com3800.stage5.GossipReceiverThread handleGossip
+INFO: 4: Received gossip from 3 at time 1766694459201 contents={2=37, 3=40, 4=39, 5=38, 6=37, 7=35, 8=38}
+Dec 25, 2025 3:27:40 PM edu.yu.cs.com3800.stage5.GossipReceiverThread handleGossip
+INFO: 4: Received gossip from 5 at time 1766694460086 contents={2=38, 3=37, 4=38, 5=41, 6=39, 7=35, 8=37}
+Dec 25, 2025 3:27:40 PM edu.yu.cs.com3800.stage5.GossipReceiverThread handleGossip
+INFO: 4: Received gossip from 3 at time 1766694460202 contents={2=39, 3=41, 4=39, 5=38, 6=41, 7=35, 8=40}
+Dec 25, 2025 3:27:43 PM edu.yu.cs.com3800.stage5.GossipReceiverThread handleGossip
+INFO: 4: Received gossip from 8 at time 1766694463140 contents={2=41, 3=42, 4=41, 5=41, 6=41, 7=35, 8=44}
+Dec 25, 2025 3:27:43 PM edu.yu.cs.com3800.stage5.GossipReceiverThread handleGossip
+INFO: 4: Received gossip from 3 at time 1766694463214 contents={2=40, 3=44, 4=43, 5=41, 6=41, 7=35, 8=40}
+Dec 25, 2025 3:27:45 PM edu.yu.cs.com3800.stage5.GossipReceiverThread handleGossip
+INFO: 4: Received gossip from 2 at time 1766694465143 contents={2=46, 3=43, 4=44, 5=45, 6=45, 7=35, 8=41}
+Dec 25, 2025 3:27:46 PM edu.yu.cs.com3800.stage5.GossipReceiverThread handleGossip
+INFO: 4: Received gossip from 8 at time 1766694466156 contents={2=44, 3=46, 4=45, 5=46, 6=46, 7=35, 8=47}
+Dec 25, 2025 3:27:47 PM edu.yu.cs.com3800.stage5.GossipReceiverThread handleGossip
+INFO: 4: Received gossip from 5 at time 1766694467134 contents={2=44, 3=43, 4=44, 5=48, 6=44, 7=35, 8=46}
+Dec 25, 2025 3:27:47 PM edu.yu.cs.com3800.stage5.GossipReceiverThread handleGossip
+INFO: 4: Received gossip from 3 at time 1766694467228 contents={2=48, 3=48, 4=48, 5=47, 6=46, 7=35, 8=47}
+Dec 25, 2025 3:27:48 PM edu.yu.cs.com3800.stage5.GossipReceiverThread handleGossip
+INFO: 4: Received gossip from 5 at time 1766694468130 contents={2=44, 3=43, 4=44, 5=49, 6=44, 7=35, 8=46}
+Dec 25, 2025 3:27:48 PM edu.yu.cs.com3800.stage5.GossipReceiverThread handleGossip
+INFO: 4: Received gossip from 2 at time 1766694468153 contents={2=49, 3=48, 4=49, 5=48, 6=48, 7=35, 8=48}
+Dec 25, 2025 3:27:48 PM edu.yu.cs.com3800.stage5.GossipReceiverThread handleGossip
+INFO: 4: Received gossip from 8 at time 1766694468182 contents={2=44, 3=46, 4=45, 5=46, 6=46, 7=35, 8=49}
+Dec 25, 2025 3:27:50 PM edu.yu.cs.com3800.stage5.GossipReceiverThread handleGossip
+INFO: 4: Received gossip from 2 at time 1766694470162 contents={2=51, 3=48, 4=49, 5=48, 6=48, 7=35, 8=48}
+Dec 25, 2025 3:27:50 PM edu.yu.cs.com3800.stage5.GossipReceiverThread handleGossip
+INFO: 4: Received gossip from 3 at time 1766694470252 contents={2=50, 3=51, 4=50, 5=51, 6=50, 7=35, 8=51}
+Dec 25, 2025 3:27:51 PM edu.yu.cs.com3800.stage5.GossipReceiverThread handleGossip
+INFO: 4: Received gossip from 2 at time 1766694471165 contents={2=52, 3=50, 4=50, 5=52, 6=51, 7=35, 8=50}
+Dec 25, 2025 3:27:54 PM edu.yu.cs.com3800.stage5.GossipReceiverThread handleGossip
+INFO: 4: Received gossip from 2 at time 1766694474177 contents={2=55, 3=54, 4=53, 5=54, 6=54, 7=35, 8=54}

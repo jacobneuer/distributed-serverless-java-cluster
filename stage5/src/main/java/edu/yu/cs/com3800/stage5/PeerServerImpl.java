@@ -1,5 +1,6 @@
 package edu.yu.cs.com3800.stage5;
 
+import com.sun.net.httpserver.HttpServer;
 import edu.yu.cs.com3800.*;
 
 import java.io.IOException;
@@ -7,6 +8,7 @@ import java.net.InetSocketAddress;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.atomic.AtomicLong;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -30,7 +32,7 @@ public class PeerServerImpl extends Thread implements PeerServer, LoggingServer 
     private ServerState state;
     private volatile boolean shutdown;
     private final Long id;
-    private long peerEpoch;
+    private AtomicLong peerEpoch;
     private volatile Vote currentLeader;
     private final Map<Long,InetSocketAddress> peerIDtoAddress;
     private final Map<Integer, Long> portToID;
@@ -51,6 +53,9 @@ public class PeerServerImpl extends Thread implements PeerServer, LoggingServer 
     private GossipSenderThread gossipSender;
     private GossipReceiverThread gossipReceiver;
     private FailureDetectorThread failureDetector;
+
+    // HTTP server for testing purposes
+    private HttpServer httpServer;
 
     static final int GOSSIP  = 1000;
     static final int FAIL    = GOSSIP * 10;   // 30s
@@ -79,7 +84,7 @@ public class PeerServerImpl extends Thread implements PeerServer, LoggingServer 
         this.incomingMessages = new LinkedBlockingQueue<>();
 
         this.id = serverID;
-        this.peerEpoch = peerEpoch;
+        this.peerEpoch = new AtomicLong(peerEpoch);
         this.currentLeader = null;
         this.peerIDtoAddress = peerIDtoAddress;
 
@@ -117,6 +122,15 @@ public class PeerServerImpl extends Thread implements PeerServer, LoggingServer 
 
     @Override
     public void run() {
+        // Start the HTTP status server
+        try {
+            startHttpStatusServer();
+        } catch (IOException e) {
+            logger.log(Level.SEVERE, "Failed to start HTTP status server", e);
+            shutdown = true;
+            return;
+        }
+
         // Start the gossip sender thread
         try {
             this.gossipSender = new GossipSenderThread(
@@ -189,8 +203,6 @@ public class PeerServerImpl extends Thread implements PeerServer, LoggingServer 
             while (!this.shutdown){
                 switch (getPeerState()){
                     case LOOKING:
-                        // Update peer epoch
-                        this.peerEpoch++;
                         // Run leader election and commit the result
                         LeaderElection leaderElection = new LeaderElection(this, this.incomingMessages, logger);
                         Vote vote = leaderElection.lookForLeader();
@@ -275,6 +287,11 @@ public class PeerServerImpl extends Thread implements PeerServer, LoggingServer 
         // Clear queues so we don't keep trying to send after shutdown
         this.outgoingMessages.clear();
         this.incomingMessages.clear();
+
+        // Stop the HTTP status server
+        if (httpServer != null) {
+            httpServer.stop(0);
+        }
 
         logger.log(Level.INFO, "Server " + this.id + " shutting down.");
     }
@@ -417,7 +434,7 @@ public class PeerServerImpl extends Thread implements PeerServer, LoggingServer 
 
     @Override
     public long getPeerEpoch() {
-        return this.peerEpoch;
+        return this.peerEpoch.get();
     }
 
     @Override
@@ -437,7 +454,19 @@ public class PeerServerImpl extends Thread implements PeerServer, LoggingServer 
 
     @Override
     public int getQuorumSize() {
-        return (this.votingPeersCount / 2) + 1;
+        int aliveVotingPeers = 0;
+
+        for (Long peerId : peerIDtoAddress.keySet()) {
+            // Skip observers
+            if (peerId.equals(gatewayID)) continue;
+
+            // Skip failed nodes
+            if (failedNodes.contains(peerId)) continue;
+
+            aliveVotingPeers++;
+        }
+
+        return (aliveVotingPeers / 2) + 1;
     }
 
     public boolean isFailed(long nodeId) {
@@ -452,6 +481,46 @@ public class PeerServerImpl extends Thread implements PeerServer, LoggingServer 
         return this.portToID.get(port);
     }
 
+    public void reportFailedNode(long failedId) {
+        // If we already know this node failed, ignore
+        if (failedNodes.contains(failedId)) return;
+
+        // Mark the node as failed
+        markFailed(failedId);
+
+        Long leaderId = getCurrentLeaderId();
+        boolean leaderFailed = (leaderId != null && leaderId == failedId);
+
+        // If a worker failed and I'm leader, handle reassignment
+        if (!leaderFailed) {
+            handleFailedWorker(failedId);
+            return;
+        }
+
+        // Leader failed: trigger re-election behavior depending on the role
+        summaryLogger.info(id + ": detected leader failure for leader=" + leaderId);
+
+        // Clear current leader
+        this.currentLeader = null;
+
+        // Stop any role-specific threads (safe even if null)
+        stopLeaderThread();
+        stopFollowerThread();
+
+        if (this.state == ServerState.OBSERVER) {
+            // Observer doesn't vote, but should re-learn leader
+            // Stay OBSERVER; main loop will run observer's lookForLeader() if leader is null
+            summaryLogger.info(id + ": observer will re-learn leader");
+            return;
+        }
+
+        // Increment peer epoch for new election
+        this.peerEpoch.incrementAndGet();
+
+        // Voting peer: re-enter LOOKING so the main loop runs election
+        setPeerState(ServerState.LOOKING);
+    }
+
     public void handleFailedWorker(long workerId) {
         // If I'm the leader, remove the worker from my leaderWorker and reassign its work
         if (leaderWorker != null) {
@@ -460,15 +529,40 @@ public class PeerServerImpl extends Thread implements PeerServer, LoggingServer 
         }
     }
 
-    // Package-private - DELETE LATER
-    RoundRobinLeader getLeaderWorker() {
-        return leaderWorker;
-    }
-
     public Long getCurrentLeaderId() {
         Vote v = this.currentLeader;
         return (v == null) ? null : v.getProposedLeaderID();
     }
 
+    private void startHttpStatusServer() throws IOException {
+        int httpPort = this.udpPort + 105; // any deterministic offset
+
+        httpServer = HttpServer.create(new InetSocketAddress(httpPort), 0);
+
+        httpServer.createContext("/leader", exchange -> {
+            Vote v = getCurrentLeader();
+            String response;
+
+            if (v == null) {
+                response = "UNKNOWN";
+            } else {
+                response = v.getProposedLeaderID() + "," + v.getPeerEpoch();
+            }
+
+            exchange.sendResponseHeaders(200, response.getBytes().length);
+            exchange.getResponseBody().write(response.getBytes());
+            exchange.close();
+        });
+
+        httpServer.createContext("/state", exchange -> {
+            String response = getPeerState().name();
+            exchange.sendResponseHeaders(200, response.length());
+            exchange.getResponseBody().write(response.getBytes());
+            exchange.close();
+        });
+
+        httpServer.start();
+        logger.info("Peer " + id + " HTTP status server started on port " + httpPort);
+    }
 
 }

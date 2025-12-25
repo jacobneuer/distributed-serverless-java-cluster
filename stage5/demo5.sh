@@ -188,7 +188,6 @@ for ((i=1; i<=REQUESTS; i++)); do
     SRC=$(cat <<EOF
 public class HW${i} {
     public String run() {
-        try { Thread.sleep(1500); } catch(Exception e) {}
         return "Recovered ${i}";
     }
 }
@@ -245,8 +244,8 @@ echo "Killing follower ${KILLED_ID} (PID ${KILLED_PID})"
 kill -9 "${KILLED_PID}"
 
 echo
-echo "Waiting for failure detection (30 seconds)..."
-sleep 30
+echo "Waiting for failure detection (20 seconds)..."
+sleep 20
 
 echo
 echo "Cluster membership after failure:"
@@ -254,6 +253,141 @@ echo "--------------------------------"
 
 curl -s "http://localhost:${GATEWAY_HTTP_PORT}/cluster"
 echo
+
+############################################
+# 9) Kill the leader and verify re-election
+############################################
+
+echo
+echo "=========================================="
+echo "Killing the LEADER and waiting for re-election"
+echo "=========================================="
+
+OLD_LEADER_ID=$(curl -s "${LEADER_ENDPOINT}")
+echo "Current leader is ${OLD_LEADER_ID}"
+
+# Find leader PID
+LEADER_PID=""
+for idx in "${!PEER_PIDS[@]}"; do
+    PEER_ID=$((idx + 1))
+    if [[ "${PEER_ID}" == "${OLD_LEADER_ID}" ]]; then
+        LEADER_PID="${PEER_PIDS[$idx]}"
+        break
+    fi
+done
+
+if [[ -z "${LEADER_PID}" ]]; then
+    echo "ERROR: Could not find PID for leader ${OLD_LEADER_ID}"
+    exit 1
+fi
+
+echo "Killing leader ${OLD_LEADER_ID} (PID ${LEADER_PID})"
+kill -9 "${LEADER_PID}"
+
+echo
+echo "Waiting for leader failure detection + re-election..."
+
+NEW_LEADER_ID=""
+RE_ELECTED=false
+
+for i in {1..40}; do
+    CANDIDATE=$(curl -sf "${LEADER_ENDPOINT}" || true)
+
+    if [[ -n "${CANDIDATE}" && "${CANDIDATE}" != "UNKNOWN" && "${CANDIDATE}" != "${OLD_LEADER_ID}" ]]; then
+        NEW_LEADER_ID="${CANDIDATE}"
+        RE_ELECTED=true
+        break
+    fi
+
+    echo "Waiting for new leader... (${i}/40)"
+    sleep 1
+done
+
+if [[ "${RE_ELECTED}" != true ]]; then
+    echo
+    echo "ERROR: No new leader elected after leader failure"
+    exit 1
+fi
+
+echo
+echo "New leader elected: ${NEW_LEADER_ID}"
+echo
+
+############################################
+# 10) Verify cluster consensus
+############################################
+
+echo "Cluster membership after leader failure:"
+echo "---------------------------------------"
+
+curl -s "http://localhost:${GATEWAY_HTTP_PORT}/cluster"
+echo
+
+echo "Old leader: ${OLD_LEADER_ID}"
+echo "New leader: ${NEW_LEADER_ID}"
+echo
+
+############################################
+# 11) Verify all peers agree on the new leader
+############################################
+
+echo
+echo "Verifying peer consensus on new leader"
+echo "--------------------------------------"
+
+CONSENSUS=true
+
+for ((i=1; i<=NUM_VOTING_PEERS; i++)); do
+    # Skip peers that were intentionally killed
+    if [[ "${i}" == "${KILLED_ID}" || "${i}" == "${OLD_LEADER_ID}" ]]; then
+        echo "Peer ${i}: skipped (intentionally killed)"
+        continue
+    fi
+
+    UDP_PORT=$((BASE_UDP_PORT + i - 1))
+    PEER_HTTP_PORT=$((UDP_PORT + 105))
+
+    PEER_LEADER_ID=""
+    ATTEMPTS=0
+
+    # Retry loop to get leader info from peer
+    while [[ ${ATTEMPTS} -lt 10 ]]; do
+        RESPONSE=$(curl -sf "http://localhost:${PEER_HTTP_PORT}/leader" || echo "UNREACHABLE")
+
+        if [[ "${RESPONSE}" != "UNREACHABLE" && "${RESPONSE}" != "UNKNOWN" ]]; then
+            PEER_LEADER_ID=$(echo "${RESPONSE}" | cut -d',' -f1)
+            PEER_EPOCH=$(echo "${RESPONSE}" | cut -d',' -f2)
+            break
+        fi
+
+        sleep 0.5
+        ((ATTEMPTS++))
+    done
+
+    if [[ -z "${PEER_LEADER_ID}" ]]; then
+        echo "Peer ${i}: no leader information (timed out)"
+        CONSENSUS=false
+        continue
+    fi
+
+    PEER_LEADER_ID=$(echo "${RESPONSE}" | cut -d',' -f1)
+    PEER_EPOCH=$(echo "${RESPONSE}" | cut -d',' -f2)
+
+    if [[ "${PEER_LEADER_ID}" != "${NEW_LEADER_ID}" ]]; then
+        echo "Peer ${i}: disagrees (leader=${PEER_LEADER_ID}, epoch=${PEER_EPOCH})"
+        CONSENSUS=false
+    else
+        echo "Peer ${i}: leader=${PEER_LEADER_ID}, epoch=${PEER_EPOCH}"
+    fi
+done
+
+echo
+if [[ "${CONSENSUS}" == true ]]; then
+    echo "All peers agree on the new leader (${NEW_LEADER_ID})"
+else
+    echo "Cluster consensus verification failed"
+    exit 1
+fi
 
 ############################################
 # Done — allow brief observation window

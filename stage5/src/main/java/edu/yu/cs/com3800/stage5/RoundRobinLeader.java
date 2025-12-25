@@ -175,8 +175,20 @@ public class RoundRobinLeader extends Thread implements LoggingServer {
 
             // Send Response back to Gateway
             // The resultMsg contents are the actual output string
+            // Re-wrap worker response as a LEADER response
+            Message leaderResponse = new Message(
+                    MessageType.COMPLETED_WORK,
+                    resultMsg.getMessageContents(),
+                    myAddress.getHostString(),
+                    myAddress.getPort() + 2,   // LEADER TCP PORT (8032)
+                    msgFromGateway.getSenderHost(),
+                    msgFromGateway.getSenderPort(),
+                    msgFromGateway.getRequestID(),
+                    resultMsg.getErrorOccurred()
+            );
+
             OutputStream gatewayOut = gatewaySocket.getOutputStream();
-            gatewayOut.write(resultMsg.getNetworkPayload());
+            gatewayOut.write(leaderResponse.getNetworkPayload());
             gatewayOut.flush();
 
             sentResponseToGateway = true;

@@ -1,0 +1,22 @@
+Dec 25, 2025 5:38:10 PM edu.yu.cs.com3800.stage5.TCPServer <init>
+INFO: TCPServer initialized.
+Dec 25, 2025 5:38:10 PM edu.yu.cs.com3800.stage5.TCPServer run
+INFO: TCPServer started. Listening on port 8018
+Dec 25, 2025 5:38:11 PM edu.yu.cs.com3800.stage5.TCPServer run
+FINE: Accepted TCP request from /127.0.0.1, queued for processing.
+Dec 25, 2025 5:38:12 PM edu.yu.cs.com3800.stage5.TCPServer run
+FINE: Accepted TCP request from /127.0.0.1, queued for processing.
+Dec 25, 2025 5:38:14 PM edu.yu.cs.com3800.stage5.TCPServer run
+FINE: Accepted TCP request from /127.0.0.1, queued for processing.
+Dec 25, 2025 5:38:16 PM edu.yu.cs.com3800.stage5.TCPServer run
+FINE: Accepted TCP request from /127.0.0.1, queued for processing.
+Dec 25, 2025 5:38:17 PM edu.yu.cs.com3800.stage5.TCPServer run
+FINE: Accepted TCP request from /127.0.0.1, queued for processing.
+Dec 25, 2025 5:38:19 PM edu.yu.cs.com3800.stage5.TCPServer run
+FINE: Accepted TCP request from /127.0.0.1, queued for processing.
+Dec 25, 2025 5:38:20 PM edu.yu.cs.com3800.stage5.TCPServer run
+FINE: Accepted TCP request from /127.0.0.1, queued for processing.
+Dec 25, 2025 5:38:21 PM edu.yu.cs.com3800.stage5.TCPServer run
+FINE: Accepted TCP request from /127.0.0.1, queued for processing.
+Dec 25, 2025 5:38:23 PM edu.yu.cs.com3800.stage5.TCPServer run
+FINE: Accepted TCP request from /127.0.0.1, queued for processing.

@@ -1,0 +1,17 @@
+Dec 25, 2025 3:25:46 PM edu.yu.cs.com3800.stage5.PeerServerImpl <init>
+INFO: PeerServer 1 constructed
+Dec 25, 2025 3:25:46 PM edu.yu.cs.com3800.stage5.PeerServerImpl run
+SEVERE: Failed to start HTTP status server
+java.net.BindException: Address already in use
+	at java.base/sun.nio.ch.Net.bind0(Native Method)
+	at java.base/sun.nio.ch.Net.bind(Net.java:565)
+	at java.base/sun.nio.ch.ServerSocketChannelImpl.netBind(ServerSocketChannelImpl.java:344)
+	at java.base/sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:301)
+	at java.base/sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:89)
+	at jdk.httpserver/sun.net.httpserver.ServerImpl.<init>(ServerImpl.java:144)
+	at jdk.httpserver/sun.net.httpserver.HttpServerImpl.<init>(HttpServerImpl.java:50)
+	at jdk.httpserver/sun.net.httpserver.DefaultHttpServerProvider.createHttpServer(DefaultHttpServerProvider.java:35)
+	at jdk.httpserver/com.sun.net.httpserver.HttpServer.create(HttpServer.java:152)
+	at edu.yu.cs.com3800.stage5.PeerServerImpl.startHttpStatusServer(PeerServerImpl.java:540)
+	at edu.yu.cs.com3800.stage5.PeerServerImpl.run(PeerServerImpl.java:127)
+

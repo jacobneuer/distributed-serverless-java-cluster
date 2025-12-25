@@ -1,0 +1,14 @@
+Dec 25, 2025 3:14:56 PM edu.yu.cs.com3800.stage5.PeerServerImpl <init>
+INFO: PeerServer 8 constructed
+Dec 25, 2025 3:14:56 PM edu.yu.cs.com3800.LeaderElection observeElectionAsGateway
+INFO: Observer: watching election traffic…
+Dec 25, 2025 3:14:59 PM edu.yu.cs.com3800.LeaderElection observeElectionAsGateway
+INFO: Observer: saw FOLLOWING message indicating leader 7
+Dec 25, 2025 3:14:59 PM edu.yu.cs.com3800.LeaderElection finalizeObserverVote
+INFO: Observer has learned the leader: 7 (epoch 0)
+Dec 25, 2025 3:15:42 PM edu.yu.cs.com3800.LeaderElection observeElectionAsGateway
+INFO: Observer: watching election traffic…
+Dec 25, 2025 3:15:47 PM edu.yu.cs.com3800.LeaderElection observeElectionAsGateway
+INFO: Observer: saw LEADING message from 6
+Dec 25, 2025 3:15:47 PM edu.yu.cs.com3800.LeaderElection finalizeObserverVote
+INFO: Observer has learned the leader: 6 (epoch 1)

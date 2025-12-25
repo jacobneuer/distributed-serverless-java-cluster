@@ -1,0 +1,52 @@
+Dec 25, 2025 3:29:58 PM edu.yu.cs.com3800.stage5.PeerServerImpl <init>
+INFO: PeerServer 3 constructed
+Dec 25, 2025 3:29:58 PM edu.yu.cs.com3800.stage5.PeerServerImpl startHttpStatusServer
+INFO: Peer 3 HTTP status server started on port 8117
+Dec 25, 2025 3:29:59 PM edu.yu.cs.com3800.LeaderElection sendNotifications
+FINE: Server 3 sending election notification: leader=3, epoch=0
+Dec 25, 2025 3:29:59 PM edu.yu.cs.com3800.LeaderElection sendNotifications
+FINE: Server 3 sending election notification: leader=6, epoch=0
+Dec 25, 2025 3:29:59 PM edu.yu.cs.com3800.LeaderElection sendNotifications
+FINE: Server 3 sending election notification: leader=7, epoch=0
+Dec 25, 2025 3:29:59 PM edu.yu.cs.com3800.LeaderElection sendNotifications
+FINE: Server 3 sending election notification: leader=7, epoch=0
+Dec 25, 2025 3:30:00 PM edu.yu.cs.com3800.LeaderElection sendNotifications
+FINE: Server 3 sending election notification: leader=7, epoch=0
+Dec 25, 2025 3:30:00 PM edu.yu.cs.com3800.LeaderElection sendNotifications
+FINE: Server 3 sending election notification: leader=7, epoch=0
+Dec 25, 2025 3:30:01 PM edu.yu.cs.com3800.LeaderElection sendNotifications
+FINE: Server 3 sending election notification: leader=7, epoch=0
+Dec 25, 2025 3:30:02 PM edu.yu.cs.com3800.LeaderElection sendNotifications
+FINE: Server 3 sending election notification: leader=7, epoch=0
+Dec 25, 2025 3:30:02 PM edu.yu.cs.com3800.LeaderElection sendNotifications
+FINE: Server 3 sending election notification: leader=7, epoch=0
+Dec 25, 2025 3:30:02 PM edu.yu.cs.com3800.LeaderElection acceptElectionWinner
+INFO: Server 3 accepted election winner: leader=7, epoch=0, state=FOLLOWING
+Dec 25, 2025 3:30:02 PM edu.yu.cs.com3800.LeaderElection sendNotifications
+FINE: Server 3 sending election notification: leader=7, epoch=0
+Dec 25, 2025 3:30:02 PM edu.yu.cs.com3800.stage5.PeerServerImpl startFollowerThread
+INFO: Server 3: Started JavaRunnerFollower thread.
+Dec 25, 2025 3:30:51 PM edu.yu.cs.com3800.stage5.PeerServerImpl stopFollowerThread
+INFO: Server 3: Stopped JavaRunnerFollower thread.
+Dec 25, 2025 3:30:51 PM edu.yu.cs.com3800.LeaderElection sendNotifications
+FINE: Server 3 sending election notification: leader=3, epoch=1
+Dec 25, 2025 3:30:51 PM edu.yu.cs.com3800.LeaderElection sendNotifications
+FINE: Server 3 sending election notification: leader=5, epoch=1
+Dec 25, 2025 3:30:51 PM edu.yu.cs.com3800.LeaderElection sendNotifications
+FINE: Server 3 sending election notification: leader=5, epoch=1
+Dec 25, 2025 3:30:51 PM edu.yu.cs.com3800.LeaderElection sendNotifications
+FINE: Server 3 sending election notification: leader=6, epoch=1
+Dec 25, 2025 3:30:51 PM edu.yu.cs.com3800.LeaderElection sendNotifications
+FINE: Server 3 sending election notification: leader=6, epoch=1
+Dec 25, 2025 3:30:52 PM edu.yu.cs.com3800.LeaderElection sendNotifications
+FINE: Server 3 sending election notification: leader=6, epoch=1
+Dec 25, 2025 3:30:52 PM edu.yu.cs.com3800.LeaderElection sendNotifications
+FINE: Server 3 sending election notification: leader=6, epoch=1
+Dec 25, 2025 3:30:52 PM edu.yu.cs.com3800.LeaderElection sendNotifications
+FINE: Server 3 sending election notification: leader=6, epoch=1
+Dec 25, 2025 3:30:53 PM edu.yu.cs.com3800.LeaderElection sendNotifications
+FINE: Server 3 sending election notification: leader=6, epoch=1
+Dec 25, 2025 3:30:53 PM edu.yu.cs.com3800.LeaderElection sendNotifications
+FINE: Server 3 sending election notification: leader=6, epoch=1
+Dec 25, 2025 3:30:53 PM edu.yu.cs.com3800.LeaderElection sendNotifications
+FINE: Server 3 sending election notification: leader=6, epoch=1

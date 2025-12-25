@@ -1,0 +1,182 @@
+Dec 25, 2025 3:58:28 PM edu.yu.cs.com3800.stage5.PeerServerImpl setPeerState
+INFO: 8: switching from LOOKING to OBSERVER
+Dec 25, 2025 3:58:31 PM edu.yu.cs.com3800.stage5.PeerServerImpl setPeerState
+INFO: 8: switching from OBSERVER to OBSERVER
+Dec 25, 2025 3:58:34 PM edu.yu.cs.com3800.stage5.GossipReceiverThread mergeHeartbeatInfo
+INFO: 8: updated 1's heartbeat sequence to 4 based on message from 6 at node time 1766696313997
+Dec 25, 2025 3:58:34 PM edu.yu.cs.com3800.stage5.GossipReceiverThread mergeHeartbeatInfo
+INFO: 8: updated 2's heartbeat sequence to 3 based on message from 6 at node time 1766696313997
+Dec 25, 2025 3:58:34 PM edu.yu.cs.com3800.stage5.GossipReceiverThread mergeHeartbeatInfo
+INFO: 8: updated 4's heartbeat sequence to 4 based on message from 6 at node time 1766696313997
+Dec 25, 2025 3:58:34 PM edu.yu.cs.com3800.stage5.GossipReceiverThread mergeHeartbeatInfo
+INFO: 8: updated 5's heartbeat sequence to 2 based on message from 6 at node time 1766696313997
+Dec 25, 2025 3:58:34 PM edu.yu.cs.com3800.stage5.GossipReceiverThread mergeHeartbeatInfo
+INFO: 8: updated 6's heartbeat sequence to 6 based on message from 6 at node time 1766696313997
+Dec 25, 2025 3:58:34 PM edu.yu.cs.com3800.stage5.GossipReceiverThread mergeHeartbeatInfo
+INFO: 8: updated 7's heartbeat sequence to 5 based on message from 6 at node time 1766696313997
+Dec 25, 2025 3:58:34 PM edu.yu.cs.com3800.stage5.GossipReceiverThread mergeHeartbeatInfo
+INFO: 8: updated 1's heartbeat sequence to 6 based on message from 2 at node time 1766696314975
+Dec 25, 2025 3:58:34 PM edu.yu.cs.com3800.stage5.GossipReceiverThread mergeHeartbeatInfo
+INFO: 8: updated 2's heartbeat sequence to 7 based on message from 2 at node time 1766696314975
+Dec 25, 2025 3:58:34 PM edu.yu.cs.com3800.stage5.GossipReceiverThread mergeHeartbeatInfo
+INFO: 8: updated 3's heartbeat sequence to 6 based on message from 2 at node time 1766696314975
+Dec 25, 2025 3:58:34 PM edu.yu.cs.com3800.stage5.GossipReceiverThread mergeHeartbeatInfo
+INFO: 8: updated 4's heartbeat sequence to 6 based on message from 2 at node time 1766696314975
+Dec 25, 2025 3:58:34 PM edu.yu.cs.com3800.stage5.GossipReceiverThread mergeHeartbeatInfo
+INFO: 8: updated 5's heartbeat sequence to 6 based on message from 2 at node time 1766696314975
+Dec 25, 2025 3:58:34 PM edu.yu.cs.com3800.stage5.GossipReceiverThread mergeHeartbeatInfo
+INFO: 8: updated 6's heartbeat sequence to 7 based on message from 2 at node time 1766696314975
+Dec 25, 2025 3:58:34 PM edu.yu.cs.com3800.stage5.GossipReceiverThread mergeHeartbeatInfo
+INFO: 8: updated 7's heartbeat sequence to 6 based on message from 2 at node time 1766696314975
+Dec 25, 2025 3:58:35 PM edu.yu.cs.com3800.stage5.GossipReceiverThread mergeHeartbeatInfo
+INFO: 8: updated 1's heartbeat sequence to 7 based on message from 1 at node time 1766696315033
+Dec 25, 2025 3:58:36 PM edu.yu.cs.com3800.stage5.GossipReceiverThread mergeHeartbeatInfo
+INFO: 8: updated 1's heartbeat sequence to 8 based on message from 1 at node time 1766696316071
+Dec 25, 2025 3:58:37 PM edu.yu.cs.com3800.stage5.GossipReceiverThread mergeHeartbeatInfo
+INFO: 8: updated 3's heartbeat sequence to 7 based on message from 5 at node time 1766696317046
+Dec 25, 2025 3:58:37 PM edu.yu.cs.com3800.stage5.GossipReceiverThread mergeHeartbeatInfo
+INFO: 8: updated 4's heartbeat sequence to 8 based on message from 5 at node time 1766696317046
+Dec 25, 2025 3:58:37 PM edu.yu.cs.com3800.stage5.GossipReceiverThread mergeHeartbeatInfo
+INFO: 8: updated 5's heartbeat sequence to 9 based on message from 5 at node time 1766696317046
+Dec 25, 2025 3:58:37 PM edu.yu.cs.com3800.stage5.GossipReceiverThread mergeHeartbeatInfo
+INFO: 8: updated 7's heartbeat sequence to 8 based on message from 5 at node time 1766696317046
+Dec 25, 2025 3:58:37 PM edu.yu.cs.com3800.stage5.GossipReceiverThread mergeHeartbeatInfo
+INFO: 8: updated 1's heartbeat sequence to 9 based on message from 3 at node time 1766696317969
+Dec 25, 2025 3:58:37 PM edu.yu.cs.com3800.stage5.GossipReceiverThread mergeHeartbeatInfo
+INFO: 8: updated 2's heartbeat sequence to 8 based on message from 3 at node time 1766696317969
+Dec 25, 2025 3:58:37 PM edu.yu.cs.com3800.stage5.GossipReceiverThread mergeHeartbeatInfo
+INFO: 8: updated 3's heartbeat sequence to 10 based on message from 3 at node time 1766696317969
+Dec 25, 2025 3:58:38 PM edu.yu.cs.com3800.stage5.GossipReceiverThread mergeHeartbeatInfo
+INFO: 8: updated 2's heartbeat sequence to 11 based on message from 2 at node time 1766696318998
+Dec 25, 2025 3:58:38 PM edu.yu.cs.com3800.stage5.GossipReceiverThread mergeHeartbeatInfo
+INFO: 8: updated 6's heartbeat sequence to 10 based on message from 2 at node time 1766696318998
+Dec 25, 2025 3:58:39 PM edu.yu.cs.com3800.stage5.GossipReceiverThread mergeHeartbeatInfo
+INFO: 8: updated 1's heartbeat sequence to 10 based on message from 6 at node time 1766696319978
+Dec 25, 2025 3:58:39 PM edu.yu.cs.com3800.stage5.GossipReceiverThread mergeHeartbeatInfo
+INFO: 8: updated 3's heartbeat sequence to 11 based on message from 6 at node time 1766696319978
+Dec 25, 2025 3:58:39 PM edu.yu.cs.com3800.stage5.GossipReceiverThread mergeHeartbeatInfo
+INFO: 8: updated 4's heartbeat sequence to 11 based on message from 6 at node time 1766696319978
+Dec 25, 2025 3:58:39 PM edu.yu.cs.com3800.stage5.GossipReceiverThread mergeHeartbeatInfo
+INFO: 8: updated 6's heartbeat sequence to 12 based on message from 6 at node time 1766696319978
+Dec 25, 2025 3:58:39 PM edu.yu.cs.com3800.stage5.GossipReceiverThread mergeHeartbeatInfo
+INFO: 8: updated 7's heartbeat sequence to 10 based on message from 6 at node time 1766696319978
+Dec 25, 2025 3:58:40 PM edu.yu.cs.com3800.stage5.GossipReceiverThread mergeHeartbeatInfo
+INFO: 8: updated 1's heartbeat sequence to 11 based on message from 5 at node time 1766696320085
+Dec 25, 2025 3:58:40 PM edu.yu.cs.com3800.stage5.GossipReceiverThread mergeHeartbeatInfo
+INFO: 8: updated 2's heartbeat sequence to 12 based on message from 5 at node time 1766696320085
+Dec 25, 2025 3:58:40 PM edu.yu.cs.com3800.stage5.GossipReceiverThread mergeHeartbeatInfo
+INFO: 8: updated 3's heartbeat sequence to 12 based on message from 5 at node time 1766696320085
+Dec 25, 2025 3:58:40 PM edu.yu.cs.com3800.stage5.GossipReceiverThread mergeHeartbeatInfo
+INFO: 8: updated 5's heartbeat sequence to 12 based on message from 5 at node time 1766696320085
+Dec 25, 2025 3:58:40 PM edu.yu.cs.com3800.stage5.GossipReceiverThread mergeHeartbeatInfo
+INFO: 8: updated 7's heartbeat sequence to 12 based on message from 5 at node time 1766696320085
+Dec 25, 2025 3:58:41 PM edu.yu.cs.com3800.stage5.GossipReceiverThread mergeHeartbeatInfo
+INFO: 8: updated 2's heartbeat sequence to 13 based on message from 2 at node time 1766696321006
+Dec 25, 2025 3:58:44 PM edu.yu.cs.com3800.stage5.GossipReceiverThread mergeHeartbeatInfo
+INFO: 8: updated 1's heartbeat sequence to 16 based on message from 1 at node time 1766696324036
+Dec 25, 2025 3:58:44 PM edu.yu.cs.com3800.stage5.GossipReceiverThread mergeHeartbeatInfo
+INFO: 8: updated 6's heartbeat sequence to 13 based on message from 1 at node time 1766696324036
+Dec 25, 2025 3:58:45 PM edu.yu.cs.com3800.stage5.GossipReceiverThread mergeHeartbeatInfo
+INFO: 8: updated 3's heartbeat sequence to 17 based on message from 3 at node time 1766696325049
+Dec 25, 2025 3:58:45 PM edu.yu.cs.com3800.stage5.GossipReceiverThread mergeHeartbeatInfo
+INFO: 8: updated 4's heartbeat sequence to 15 based on message from 3 at node time 1766696325049
+Dec 25, 2025 3:58:45 PM edu.yu.cs.com3800.stage5.GossipReceiverThread mergeHeartbeatInfo
+INFO: 8: updated 5's heartbeat sequence to 14 based on message from 3 at node time 1766696325049
+Dec 25, 2025 3:58:45 PM edu.yu.cs.com3800.stage5.GossipReceiverThread mergeHeartbeatInfo
+INFO: 8: updated 6's heartbeat sequence to 14 based on message from 3 at node time 1766696325049
+Dec 25, 2025 3:58:45 PM edu.yu.cs.com3800.stage5.GossipReceiverThread mergeHeartbeatInfo
+INFO: 8: updated 7's heartbeat sequence to 17 based on message from 3 at node time 1766696325049
+Dec 25, 2025 3:58:45 PM edu.yu.cs.com3800.stage5.GossipReceiverThread mergeHeartbeatInfo
+INFO: 8: updated 2's heartbeat sequence to 17 based on message from 2 at node time 1766696325049
+Dec 25, 2025 3:58:45 PM edu.yu.cs.com3800.stage5.GossipReceiverThread mergeHeartbeatInfo
+INFO: 8: updated 6's heartbeat sequence to 15 based on message from 2 at node time 1766696325049
+Dec 25, 2025 3:58:46 PM edu.yu.cs.com3800.stage5.GossipReceiverThread mergeHeartbeatInfo
+INFO: 8: updated 1's heartbeat sequence to 18 based on message from 1 at node time 1766696326071
+Dec 25, 2025 3:58:50 PM edu.yu.cs.com3800.stage5.GossipReceiverThread mergeHeartbeatInfo
+INFO: 8: updated 1's heartbeat sequence to 20 based on message from 2 at node time 1766696330093
+Dec 25, 2025 3:58:50 PM edu.yu.cs.com3800.stage5.GossipReceiverThread mergeHeartbeatInfo
+INFO: 8: updated 2's heartbeat sequence to 22 based on message from 2 at node time 1766696330093
+Dec 25, 2025 3:58:50 PM edu.yu.cs.com3800.stage5.GossipReceiverThread mergeHeartbeatInfo
+INFO: 8: updated 3's heartbeat sequence to 21 based on message from 2 at node time 1766696330093
+Dec 25, 2025 3:58:50 PM edu.yu.cs.com3800.stage5.GossipReceiverThread mergeHeartbeatInfo
+INFO: 8: updated 4's heartbeat sequence to 19 based on message from 2 at node time 1766696330093
+Dec 25, 2025 3:58:50 PM edu.yu.cs.com3800.stage5.GossipReceiverThread mergeHeartbeatInfo
+INFO: 8: updated 5's heartbeat sequence to 21 based on message from 2 at node time 1766696330093
+Dec 25, 2025 3:58:50 PM edu.yu.cs.com3800.stage5.GossipReceiverThread mergeHeartbeatInfo
+INFO: 8: updated 6's heartbeat sequence to 22 based on message from 2 at node time 1766696330093
+Dec 25, 2025 3:58:50 PM edu.yu.cs.com3800.stage5.GossipReceiverThread mergeHeartbeatInfo
+INFO: 8: updated 7's heartbeat sequence to 20 based on message from 2 at node time 1766696330093
+Dec 25, 2025 3:58:51 PM edu.yu.cs.com3800.stage5.GossipReceiverThread mergeHeartbeatInfo
+INFO: 8: updated 1's heartbeat sequence to 21 based on message from 6 at node time 1766696331028
+Dec 25, 2025 3:58:51 PM edu.yu.cs.com3800.stage5.GossipReceiverThread mergeHeartbeatInfo
+INFO: 8: updated 4's heartbeat sequence to 22 based on message from 6 at node time 1766696331028
+Dec 25, 2025 3:58:51 PM edu.yu.cs.com3800.stage5.GossipReceiverThread mergeHeartbeatInfo
+INFO: 8: updated 6's heartbeat sequence to 23 based on message from 6 at node time 1766696331028
+Dec 25, 2025 3:58:51 PM edu.yu.cs.com3800.stage5.GossipReceiverThread mergeHeartbeatInfo
+INFO: 8: updated 7's heartbeat sequence to 21 based on message from 6 at node time 1766696331028
+Dec 25, 2025 3:58:52 PM edu.yu.cs.com3800.stage5.GossipReceiverThread mergeHeartbeatInfo
+INFO: 8: updated 1's heartbeat sequence to 22 based on message from 7 at node time 1766696332054
+Dec 25, 2025 3:58:52 PM edu.yu.cs.com3800.stage5.GossipReceiverThread mergeHeartbeatInfo
+INFO: 8: updated 2's heartbeat sequence to 23 based on message from 7 at node time 1766696332054
+Dec 25, 2025 3:58:52 PM edu.yu.cs.com3800.stage5.GossipReceiverThread mergeHeartbeatInfo
+INFO: 8: updated 3's heartbeat sequence to 22 based on message from 7 at node time 1766696332054
+Dec 25, 2025 3:58:52 PM edu.yu.cs.com3800.stage5.GossipReceiverThread mergeHeartbeatInfo
+INFO: 8: updated 5's heartbeat sequence to 22 based on message from 7 at node time 1766696332054
+Dec 25, 2025 3:58:52 PM edu.yu.cs.com3800.stage5.GossipReceiverThread mergeHeartbeatInfo
+INFO: 8: updated 7's heartbeat sequence to 24 based on message from 7 at node time 1766696332054
+Dec 25, 2025 3:58:52 PM edu.yu.cs.com3800.stage5.GossipReceiverThread mergeHeartbeatInfo
+INFO: 8: updated 1's heartbeat sequence to 23 based on message from 5 at node time 1766696332109
+Dec 25, 2025 3:58:52 PM edu.yu.cs.com3800.stage5.GossipReceiverThread mergeHeartbeatInfo
+INFO: 8: updated 2's heartbeat sequence to 24 based on message from 5 at node time 1766696332109
+Dec 25, 2025 3:58:52 PM edu.yu.cs.com3800.stage5.GossipReceiverThread mergeHeartbeatInfo
+INFO: 8: updated 3's heartbeat sequence to 23 based on message from 5 at node time 1766696332109
+Dec 25, 2025 3:58:52 PM edu.yu.cs.com3800.stage5.GossipReceiverThread mergeHeartbeatInfo
+INFO: 8: updated 5's heartbeat sequence to 24 based on message from 5 at node time 1766696332109
+Dec 25, 2025 3:58:53 PM edu.yu.cs.com3800.stage5.GossipReceiverThread mergeHeartbeatInfo
+INFO: 8: updated 3's heartbeat sequence to 25 based on message from 3 at node time 1766696333084
+Dec 25, 2025 3:58:53 PM edu.yu.cs.com3800.stage5.GossipReceiverThread mergeHeartbeatInfo
+INFO: 8: updated 4's heartbeat sequence to 23 based on message from 3 at node time 1766696333084
+Dec 25, 2025 3:58:53 PM edu.yu.cs.com3800.stage5.GossipReceiverThread mergeHeartbeatInfo
+INFO: 8: updated 6's heartbeat sequence to 25 based on message from 6 at node time 1766696333084
+Dec 25, 2025 3:58:54 PM edu.yu.cs.com3800.stage5.GossipReceiverThread mergeHeartbeatInfo
+INFO: 8: updated 1's heartbeat sequence to 25 based on message from 3 at node time 1766696334052
+Dec 25, 2025 3:58:54 PM edu.yu.cs.com3800.stage5.GossipReceiverThread mergeHeartbeatInfo
+INFO: 8: updated 2's heartbeat sequence to 25 based on message from 3 at node time 1766696334052
+Dec 25, 2025 3:58:54 PM edu.yu.cs.com3800.stage5.GossipReceiverThread mergeHeartbeatInfo
+INFO: 8: updated 3's heartbeat sequence to 26 based on message from 3 at node time 1766696334052
+Dec 25, 2025 3:58:54 PM edu.yu.cs.com3800.stage5.GossipReceiverThread mergeHeartbeatInfo
+INFO: 8: updated 4's heartbeat sequence to 25 based on message from 3 at node time 1766696334052
+Dec 25, 2025 3:58:54 PM edu.yu.cs.com3800.stage5.GossipReceiverThread mergeHeartbeatInfo
+INFO: 8: updated 7's heartbeat sequence to 25 based on message from 3 at node time 1766696334052
+Dec 25, 2025 3:58:54 PM edu.yu.cs.com3800.stage5.GossipReceiverThread mergeHeartbeatInfo
+INFO: 8: updated 2's heartbeat sequence to 26 based on message from 2 at node time 1766696334106
+Dec 25, 2025 3:58:55 PM edu.yu.cs.com3800.stage5.GossipReceiverThread mergeHeartbeatInfo
+INFO: 8: updated 5's heartbeat sequence to 26 based on message from 7 at node time 1766696335088
+Dec 25, 2025 3:58:55 PM edu.yu.cs.com3800.stage5.GossipReceiverThread mergeHeartbeatInfo
+INFO: 8: updated 7's heartbeat sequence to 27 based on message from 7 at node time 1766696335088
+Dec 25, 2025 3:58:55 PM edu.yu.cs.com3800.stage5.GossipReceiverThread mergeHeartbeatInfo
+INFO: 8: updated 3's heartbeat sequence to 27 based on message from 3 at node time 1766696335088
+Dec 25, 2025 3:58:55 PM edu.yu.cs.com3800.stage5.GossipReceiverThread mergeHeartbeatInfo
+INFO: 8: updated 6's heartbeat sequence to 26 based on message from 3 at node time 1766696335088
+Dec 25, 2025 3:58:55 PM edu.yu.cs.com3800.stage5.GossipReceiverThread mergeHeartbeatInfo
+INFO: 8: updated 1's heartbeat sequence to 26 based on message from 2 at node time 1766696335088
+Dec 25, 2025 3:58:55 PM edu.yu.cs.com3800.stage5.GossipReceiverThread mergeHeartbeatInfo
+INFO: 8: updated 2's heartbeat sequence to 27 based on message from 2 at node time 1766696335088
+Dec 25, 2025 3:58:55 PM edu.yu.cs.com3800.stage5.GossipReceiverThread mergeHeartbeatInfo
+INFO: 8: updated 6's heartbeat sequence to 27 based on message from 2 at node time 1766696335088
+Dec 25, 2025 3:58:57 PM edu.yu.cs.com3800.stage5.GossipReceiverThread mergeHeartbeatInfo
+INFO: 8: updated 3's heartbeat sequence to 29 based on message from 3 at node time 1766696337082
+Dec 25, 2025 3:58:57 PM edu.yu.cs.com3800.stage5.GossipReceiverThread mergeHeartbeatInfo
+INFO: 8: updated 4's heartbeat sequence to 27 based on message from 3 at node time 1766696337082
+Dec 25, 2025 3:58:57 PM edu.yu.cs.com3800.stage5.GossipReceiverThread mergeHeartbeatInfo
+INFO: 8: updated 5's heartbeat sequence to 28 based on message from 3 at node time 1766696337082
+Dec 25, 2025 3:58:57 PM edu.yu.cs.com3800.stage5.GossipReceiverThread mergeHeartbeatInfo
+INFO: 8: updated 1's heartbeat sequence to 28 based on message from 4 at node time 1766696337192
+Dec 25, 2025 3:58:57 PM edu.yu.cs.com3800.stage5.GossipReceiverThread mergeHeartbeatInfo
+INFO: 8: updated 2's heartbeat sequence to 29 based on message from 4 at node time 1766696337192
+Dec 25, 2025 3:58:57 PM edu.yu.cs.com3800.stage5.GossipReceiverThread mergeHeartbeatInfo
+INFO: 8: updated 4's heartbeat sequence to 29 based on message from 4 at node time 1766696337192
+Dec 25, 2025 3:58:57 PM edu.yu.cs.com3800.stage5.GossipReceiverThread mergeHeartbeatInfo
+INFO: 8: updated 6's heartbeat sequence to 28 based on message from 4 at node time 1766696337192
+Dec 25, 2025 3:58:57 PM edu.yu.cs.com3800.stage5.GossipReceiverThread mergeHeartbeatInfo
+INFO: 8: updated 7's heartbeat sequence to 28 based on message from 4 at node time 1766696337192

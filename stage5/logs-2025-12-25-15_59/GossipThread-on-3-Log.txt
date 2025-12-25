@@ -1,0 +1,20 @@
+Dec 25, 2025 3:59:45 PM edu.yu.cs.com3800.stage5.GossipSenderThread run
+INFO: GossipThread for 3 started.
+Dec 25, 2025 3:59:45 PM edu.yu.cs.com3800.stage5.GossipSenderThread run
+INFO: 3: GOSSIP → 0 (table size = 4)
+Dec 25, 2025 3:59:46 PM edu.yu.cs.com3800.stage5.GossipSenderThread run
+INFO: 3: GOSSIP → 2 (table size = 4)
+Dec 25, 2025 3:59:47 PM edu.yu.cs.com3800.stage5.GossipSenderThread run
+INFO: 3: GOSSIP → 2 (table size = 4)
+Dec 25, 2025 3:59:48 PM edu.yu.cs.com3800.stage5.GossipSenderThread run
+INFO: 3: GOSSIP → 0 (table size = 4)
+Dec 25, 2025 3:59:49 PM edu.yu.cs.com3800.stage5.GossipSenderThread run
+INFO: 3: GOSSIP → 2 (table size = 4)
+Dec 25, 2025 3:59:50 PM edu.yu.cs.com3800.stage5.GossipSenderThread run
+INFO: 3: GOSSIP → 2 (table size = 4)
+Dec 25, 2025 3:59:51 PM edu.yu.cs.com3800.stage5.GossipSenderThread run
+INFO: 3: GOSSIP → 1 (table size = 4)
+Dec 25, 2025 3:59:52 PM edu.yu.cs.com3800.stage5.GossipSenderThread run
+INFO: 3: GOSSIP → 0 (table size = 4)
+Dec 25, 2025 3:59:53 PM edu.yu.cs.com3800.stage5.GossipSenderThread run
+INFO: GossipThread for 3 shutting down.

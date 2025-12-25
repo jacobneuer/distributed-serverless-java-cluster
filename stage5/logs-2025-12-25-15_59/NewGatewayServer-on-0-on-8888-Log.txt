@@ -1,0 +1,14 @@
+Dec 25, 2025 3:59:45 PM edu.yu.cs.com3800.stage5.NewGatewayServer run
+INFO: NewGatewayServer thread started.
+Dec 25, 2025 3:59:49 PM edu.yu.cs.com3800.stage5.NewGatewayServer markLeaderAlive
+INFO: Leader elected: 3
+Dec 25, 2025 3:59:53 PM edu.yu.cs.com3800.stage5.NewGatewayServer shutdown
+INFO: Shutting down NewGatewayServer
+Dec 25, 2025 3:59:53 PM edu.yu.cs.com3800.stage5.NewGatewayServer shutdown
+INFO: HTTP server stopped.
+Dec 25, 2025 3:59:53 PM edu.yu.cs.com3800.stage5.NewGatewayServer shutdown
+INFO: HTTP thread pool shut down.
+Dec 25, 2025 3:59:53 PM edu.yu.cs.com3800.stage5.NewGatewayServer shutdown
+INFO: GatewayPeerServerImpl shut down.
+Dec 25, 2025 3:59:53 PM edu.yu.cs.com3800.stage5.NewGatewayServer shutdown
+INFO: GatewayServer shutdown complete.

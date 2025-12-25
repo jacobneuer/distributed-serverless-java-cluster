@@ -1,0 +1,6 @@
+Dec 25, 2025 3:14:59 PM edu.yu.cs.com3800.stage5.JavaRunnerFollower run
+INFO: JavaRunnerFollower started. Listening on TCP port 8012
+Dec 25, 2025 3:15:00 PM edu.yu.cs.com3800.stage5.JavaRunnerFollower run
+FINE: Received WORK request ID 1 from Leader
+Dec 25, 2025 3:15:07 PM edu.yu.cs.com3800.stage5.JavaRunnerFollower run
+FINE: Received WORK request ID 7 from Leader

@@ -130,7 +130,7 @@ public class LeaderElection {
                     continue;
                 }
 
-                // Also ignore notifications from failed servers
+                // Ignore notifications from failed servers
                 if (this.server.isFailed(received.getSenderID())) {
                     continue;
                 }
@@ -138,6 +138,12 @@ public class LeaderElection {
                 long theirProposedLeader = received.getProposedLeaderID();
                 long theirEpoch = received.getPeerEpoch();
                 long senderID = received.getSenderID();
+
+                // Make sure the sender's epoch is at least as high as ours
+                if (theirEpoch < this.server.getPeerEpoch()) {
+                    // Stale epoch - ignore
+                    continue;
+                }
 
                 // 5. Record this sender's current vote in receivedVotes
                 this.receivedVotes.put(senderID, received);
@@ -361,6 +367,8 @@ public class LeaderElection {
 
         logger.info("Observer: watching election traffic…");
 
+        long highestEpochSeen = -1;
+
         while (!Thread.currentThread().isInterrupted()) {
 
             Message msg;
@@ -384,6 +392,17 @@ public class LeaderElection {
 
             long proposed = notif.getProposedLeaderID();
             long epoch = notif.getPeerEpoch();
+
+            // Ignore stale epochs
+            if (epoch < highestEpochSeen) {
+                continue;
+            }
+
+            // Ignore leaders we already know are dead
+            if (this.server.isFailed(proposed)) {
+                logger.info("Observer: ignoring election message for failed leader " + proposed);
+                continue;
+            }
 
             switch (notif.getState()) {
                 case LEADING:

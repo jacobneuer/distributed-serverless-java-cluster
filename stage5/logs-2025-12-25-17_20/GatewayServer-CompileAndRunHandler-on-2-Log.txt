@@ -1,0 +1,4 @@
+Dec 25, 2025 5:20:35 PM edu.yu.cs.com3800.stage5.NewCompileAndRunHandler handle
+INFO: Gateway received /compileandrun request (ID=2)
+Dec 25, 2025 5:20:35 PM edu.yu.cs.com3800.stage5.NewCompileAndRunHandler handle
+INFO: Cache MISS for request ID 2 — enqueueing

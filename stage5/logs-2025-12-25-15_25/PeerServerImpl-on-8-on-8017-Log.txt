@@ -1,0 +1,6 @@
+Dec 25, 2025 3:25:46 PM edu.yu.cs.com3800.stage5.PeerServerImpl <init>
+INFO: PeerServer 8 constructed
+Dec 25, 2025 3:25:46 PM edu.yu.cs.com3800.stage5.PeerServerImpl startHttpStatusServer
+INFO: Peer 8 HTTP status server started on port 9017
+Dec 25, 2025 3:25:46 PM edu.yu.cs.com3800.LeaderElection observeElectionAsGateway
+INFO: Observer: watching election traffic…
