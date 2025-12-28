@@ -5,9 +5,11 @@ import edu.yu.cs.com3800.*;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
+import java.net.Socket;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -57,6 +59,10 @@ public class PeerServerImpl extends Thread implements PeerServer, LoggingServer 
     // HTTP server for testing purposes
     private HttpServer httpServer;
 
+    // Completed work cache: requestID -> Message
+    private final ConcurrentHashMap<Long, Message> completedWorkCache;
+    private final AtomicBoolean recoveryComplete = new AtomicBoolean(false);
+
     static final int GOSSIP  = 1000;
     static final int FAIL    = GOSSIP * 10;   // 30s
     static final int CLEANUP = FAIL * 2;      // 60s
@@ -82,6 +88,7 @@ public class PeerServerImpl extends Thread implements PeerServer, LoggingServer 
 
         this.outgoingMessages = new LinkedBlockingQueue<>();
         this.incomingMessages = new LinkedBlockingQueue<>();
+        this.completedWorkCache = new ConcurrentHashMap<>();
 
         this.id = serverID;
         this.peerEpoch = new AtomicLong(peerEpoch);
@@ -311,9 +318,13 @@ public class PeerServerImpl extends Thread implements PeerServer, LoggingServer 
 
             logger.info("Server " + this.id + " started TCPServer.");
 
+            // Start the recovery pull phase before starting the leader worker
+            recoveryPullPhase();
+
             // Start the RoundRobinLeader to send off requests to workers
             // Pass the same queue so it can process requests from the TCPServer
             this.leaderWorker = new RoundRobinLeader(
+                    this,
                     this.tcpWorkQueue,
                     this.peerIDtoAddress,
                     this.id,
@@ -350,7 +361,8 @@ public class PeerServerImpl extends Thread implements PeerServer, LoggingServer 
         if (this.followerWorker == null) {
             this.followerWorker = new JavaRunnerFollower(
                     this.udpPort,
-                    this.myAddress
+                    this.myAddress,
+                    this
             );
             this.followerWorker.start();
             logger.info("Server " + this.id + ": Started JavaRunnerFollower thread.");
@@ -421,6 +433,11 @@ public class PeerServerImpl extends Thread implements PeerServer, LoggingServer 
     public void setPeerState(ServerState newState) {
         String msg = this.id + ": switching from " + this.state + " to " + newState;
 
+        // If we're switching to LOOKING, turn recovery mode on
+        if (newState == ServerState.LOOKING) {
+            this.recoveryComplete.set(false);
+        }
+
         System.out.println(msg);
         summaryLogger.info(msg);
 
@@ -481,6 +498,103 @@ public class PeerServerImpl extends Thread implements PeerServer, LoggingServer 
         return this.portToID.get(port);
     }
 
+    public boolean isRecoveryComplete() {
+        return this.recoveryComplete.get();
+    }
+
+    public void rememberCompletedWork(Long requestId, Message result) {
+        this.completedWorkCache.put(requestId, result);
+    }
+
+    public Map<Long, Message> getCompletedWorkCache() {
+        return this.completedWorkCache;
+    }
+
+    private void recoveryPullPhase() {
+        logger.info(id + ": starting recovery pull phase");
+
+        for (Map.Entry<Long, InetSocketAddress> entry : peerIDtoAddress.entrySet()) {
+            long peerId = entry.getKey();
+
+            // Skip myself and the gateway
+            if (peerId == id || peerId == gatewayID) continue;
+
+            // Skip known-failed nodes
+            if (failedNodes.contains(peerId)) continue;
+
+            logger.info("Attempting recovery pull from follower " + entry.getKey());
+
+            InetSocketAddress followerAddr = entry.getValue();
+            int followerTcpPort = followerAddr.getPort() + 2;
+
+            boolean recovered = false;
+
+            for (int attempt = 0; attempt < 5 && !recovered; attempt++) {
+                try (Socket s = new Socket(followerAddr.getHostString(), followerTcpPort)) {
+                    // Send NEW_LEADER_GETTING_LAST_WORK message
+                    Message req = new Message(
+                            Message.MessageType.NEW_LEADER_GETTING_LAST_WORK,
+                            // Empty contents indicate a request for completed work
+                            new byte[0],
+                            myAddress.getHostString(),
+                            tcpPort,
+                            followerAddr.getHostString(),
+                            followerTcpPort
+                    );
+
+                    s.getOutputStream().write(req.getNetworkPayload());
+                    s.getOutputStream().flush();
+                    s.shutdownOutput();
+
+                    // Time out after some reasonable period
+                    s.setSoTimeout(5000);
+
+                    // Read the response
+                    byte[] respBytes = Util.readAllBytesFromNetwork(s.getInputStream());
+                    if (respBytes.length == 0) continue;
+
+                    Message resp = new Message(respBytes);
+                    long gatewayRequestId = resp.getRequestID();
+
+                    if (resp.getMessageType() != Message.MessageType.COMPLETED_WORK) {
+                        logger.warning("Unexpected recovery response from " + peerId);
+                        continue;
+                    }
+
+                    // Check if the request is not -1 (indicates no work to recover)
+                    if (gatewayRequestId == -1) {
+                        logger.info("No completed work to recover from follower " + peerId);
+                        recovered = true;
+                        continue;
+                    }
+
+                    // Store completed work in the completed work cache
+                    Message leaderResponse = new Message(
+                            Message.MessageType.COMPLETED_WORK,
+                            resp.getMessageContents(),
+                            myAddress.getHostString(),
+                            tcpPort,
+                            null,
+                            -1,
+                            resp.getRequestID(),
+                            resp.getErrorOccurred()
+                    );
+
+                    completedWorkCache.put(gatewayRequestId, leaderResponse);
+                    recovered = true;
+                    logger.info("Recovered completed work for request " + gatewayRequestId);
+                } catch (IOException e) {
+                    logger.info("Recovery pull from follower " + peerId +
+                            " failed (attempt " + attempt + "), retrying...");
+                    try { Thread.sleep(200); } catch (InterruptedException ignored) {}
+                }
+            }
+        }
+
+        recoveryComplete.set(true);
+        logger.info(id + ": recovery pull phase complete");
+    }
+
     public void reportFailedNode(long failedId) {
         // If we already know this node failed, ignore
         if (failedNodes.contains(failedId)) return;
@@ -491,7 +605,7 @@ public class PeerServerImpl extends Thread implements PeerServer, LoggingServer 
         Long leaderId = getCurrentLeaderId();
         boolean leaderFailed = (leaderId != null && leaderId == failedId);
 
-        // If a worker failed and I'm leader, handle reassignment
+        // If a worker failed, and I'm the leader, handle reassignment
         if (!leaderFailed) {
             handleFailedWorker(failedId);
             return;

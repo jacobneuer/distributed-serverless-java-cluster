@@ -1,4 +1,0 @@
-Dec 25, 2025 3:25:47 PM edu.yu.cs.com3800.stage5.GossipReceiverThread handleGossip
-INFO: 5: Received gossip from 8 at time 1766694347576 contents={1=0, 2=0, 3=0, 4=0, 5=0, 6=0, 7=0, 8=2}
-Dec 25, 2025 3:25:56 PM edu.yu.cs.com3800.stage5.GossipReceiverThread handleGossip
-INFO: 5: Received gossip from 8 at time 1766694356612 contents={1=0, 2=0, 3=0, 4=0, 5=7, 6=0, 7=0, 8=11}

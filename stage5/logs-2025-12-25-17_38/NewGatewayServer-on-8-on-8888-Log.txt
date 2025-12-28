@@ -1,8 +1,0 @@
-Dec 25, 2025 5:38:06 PM edu.yu.cs.com3800.stage5.NewGatewayServer run
-INFO: NewGatewayServer thread started.
-Dec 25, 2025 5:38:10 PM edu.yu.cs.com3800.stage5.NewGatewayServer markLeaderAlive
-INFO: Leader elected: 7
-Dec 25, 2025 5:38:59 PM edu.yu.cs.com3800.stage5.NewGatewayServer markLeaderDead
-WARNING: Leader marked FAILED
-Dec 25, 2025 5:39:02 PM edu.yu.cs.com3800.stage5.NewGatewayServer markLeaderAlive
-INFO: Leader elected: 6

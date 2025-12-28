@@ -20,6 +20,7 @@ public class RoundRobinLeader extends Thread implements LoggingServer {
 
     private final LinkedBlockingQueue<TCPMessage> tcpWorkQueue;
     private final InetSocketAddress myAddress;
+    private final PeerServerImpl peerServer;
 
     // Thread pool for handling synchronous TCP connections to workers
     private final ExecutorService workerThreadPool;
@@ -36,6 +37,7 @@ public class RoundRobinLeader extends Thread implements LoggingServer {
     private AtomicLong requestID;
 
     public RoundRobinLeader(
+            PeerServerImpl peerServer,
             LinkedBlockingQueue<TCPMessage> tcpWorkQueue,
             Map<Long, InetSocketAddress> peerIDtoAddress,
             Long id,
@@ -46,6 +48,7 @@ public class RoundRobinLeader extends Thread implements LoggingServer {
                 "RoundRobinLeader-on-" + id + "-on-" + (myAddress.getPort() + 2));
         logger.info("RoundRobinLeader initialized.");
 
+        this.peerServer = peerServer;
         this.tcpWorkQueue = tcpWorkQueue;
         this.myAddress = myAddress;
         this.nextWorkerIndex = new AtomicInteger(0);
@@ -61,9 +64,9 @@ public class RoundRobinLeader extends Thread implements LoggingServer {
         int poolSize = Runtime.getRuntime().availableProcessors() * 2;
         this.workerThreadPool = Executors.newFixedThreadPool(poolSize);
 
-        // Build followers list (all peers except myself and the observer)
+        // Build followers list (all peers except myself and the observer and dead peers)
         for (Map.Entry<Long, InetSocketAddress> e : peerIDtoAddress.entrySet()) {
-            if (!Objects.equals(e.getKey(), id) && !Objects.equals(e.getKey(), gatewayID)) {
+            if (!Objects.equals(e.getKey(), id) && !Objects.equals(e.getKey(), gatewayID) && !peerServer.isFailed(e.getKey())) {
                 logger.info("Adding worker " + e.getKey() + " at " + e.getValue());
                 workers.add(e);
             }
@@ -74,15 +77,24 @@ public class RoundRobinLeader extends Thread implements LoggingServer {
     public void run() {
         while (!Thread.currentThread().isInterrupted()) {
             try {
+                // Ensure that the Leader is not still in recovery mode to begin taking requests
+                if (!peerServer.isRecoveryComplete()) {
+                    logger.info("Leader still in recovery mode, waiting to process requests...");
+                    Thread.sleep(100);
+                    continue;
+                }
+
                 // Wait for the next incoming work request
                 TCPMessage req = tcpWorkQueue.take();
 
                 logger.info("Leader received request from gateway at port " + req.getMessage().getSenderPort() + ".");
 
-                // Assign the request to a thread in the pool
-                // We don't process it here, or we would block the leader
-                workerThreadPool.submit(() -> processRequest(req));
-
+                // Check if the TCP message is a request for work
+                if (req.getMessage().getMessageType() == MessageType.WORK) {
+                    // Assign the request to a thread in the pool
+                    // We don't process it here, or we would block the leader
+                    workerThreadPool.submit(() -> processRequest(req));
+                }
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
                 break;
@@ -96,6 +108,13 @@ public class RoundRobinLeader extends Thread implements LoggingServer {
     }
 
     private void processRequest(TCPMessage req) {
+        // Check if the Leader has previously cached the result for this request
+        if (peerServer.getCompletedWorkCache().containsKey(req.getMessage().getRequestID())) {
+            sendCachedResult(req);
+            return;
+        }
+
+        logger.info("No cached result found. Processing new work request ID " + req.getMessage().getRequestID());
         Socket gatewaySocket = req.getSocket();
         Message msgFromGateway = req.getMessage();
 
@@ -119,7 +138,6 @@ public class RoundRobinLeader extends Thread implements LoggingServer {
         long currentReqId = -1L;
 
         boolean requeued = false;
-        boolean sentResponseToGateway = false;
 
         try {
             logger.info("Connecting to worker at " + workerHost + ":" + workerTcpPort);
@@ -128,7 +146,7 @@ public class RoundRobinLeader extends Thread implements LoggingServer {
             workerSocket = new Socket(workerHost, workerTcpPort);
 
             // Create the Message to send to the Worker
-            currentReqId = generateNextRequestID();
+            currentReqId = msgFromGateway.getRequestID();
             Message workMessage = new Message(
                     MessageType.WORK,
                     msgFromGateway.getMessageContents(),
@@ -139,7 +157,7 @@ public class RoundRobinLeader extends Thread implements LoggingServer {
                     currentReqId
             );
 
-            logger.info("Sending message from leader to " + workerHost);
+            logger.info("Sending message from leader to " + workerTcpPort);
 
             // Send Work to Worker
             OutputStream workerOut = workerSocket.getOutputStream();
@@ -180,7 +198,7 @@ public class RoundRobinLeader extends Thread implements LoggingServer {
                     MessageType.COMPLETED_WORK,
                     resultMsg.getMessageContents(),
                     myAddress.getHostString(),
-                    myAddress.getPort() + 2,   // LEADER TCP PORT (8032)
+                    myAddress.getPort() + 2,
                     msgFromGateway.getSenderHost(),
                     msgFromGateway.getSenderPort(),
                     msgFromGateway.getRequestID(),
@@ -191,18 +209,12 @@ public class RoundRobinLeader extends Thread implements LoggingServer {
             gatewayOut.write(leaderResponse.getNetworkPayload());
             gatewayOut.flush();
 
-            sentResponseToGateway = true;
-
             // Remove request from in-flight requests
             inFlight.remove(currentReqId);
         } catch (Exception e) {
-            logger.warning("Worker " + workerId + " failed mid-request, reassigning");
+            logger.warning("Temporary failure contacting worker " + workerId);
 
-            // Mark worker as failed immediately
-            failedWorkers.add(workerId);
-            workers.removeIf(w -> w.getKey().equals(workerId));
-
-            // Requeue only if this request was still in-flight
+            // Requeue only if this request was still in-flight (to avoid double-requeueing)
             if (currentReqId != -1L) {
                 InFlightRequest removed = inFlight.remove(currentReqId);
                 if (removed != null) {
@@ -220,6 +232,36 @@ public class RoundRobinLeader extends Thread implements LoggingServer {
         }
     }
 
+    private void sendCachedResult(TCPMessage req) {
+        logger.info("Old work found for request ID " + req.getMessage().getRequestID() + ". Returning cached result to Gateway.");
+
+        // Retrieve cached result
+        Message cachedResult = peerServer.getCompletedWorkCache().get(req.getMessage().getRequestID());
+        byte[] cachedBytes = cachedResult.getMessageContents();
+
+        try {
+            // Send the cached result back to Gateway
+            Message cachedResponse = new Message(
+                    MessageType.COMPLETED_WORK,
+                    cachedBytes,
+                    myAddress.getHostString(),
+                    myAddress.getPort() + 2,
+                    req.getMessage().getSenderHost(),
+                    req.getMessage().getSenderPort(),
+                    req.getMessage().getRequestID(),
+                    cachedResult.getErrorOccurred()
+            );
+
+            OutputStream gatewayOut = req.getSocket().getOutputStream();
+            gatewayOut.write(cachedResponse.getNetworkPayload());
+            gatewayOut.flush();
+
+            // Close the Gateway socket
+            closeSocket(req.getSocket());
+        } catch (IOException e) {
+            logger.warning("Error sending cached response to Gateway: " + e.getMessage());
+        }
+    }
 
     private Map.Entry<Long, InetSocketAddress> pickNextWorker() {
         // Make sure there are workers available
@@ -228,10 +270,6 @@ public class RoundRobinLeader extends Thread implements LoggingServer {
         // Pick the next worker in round-robin fashion and increment the index
         int index = Math.floorMod(nextWorkerIndex.getAndIncrement(), workers.size());
         return workers.get(index);
-    }
-
-    private long generateNextRequestID() {
-        return requestID.getAndIncrement();
     }
 
     public void removeWorker(long workerId) {
@@ -282,22 +320,6 @@ public class RoundRobinLeader extends Thread implements LoggingServer {
             this.originalRequest = req;
             this.workerId = workerId;
         }
-    }
-
-    // Package-private for testing - DELETE LATER
-    long getAssignedWorkerForRequest(long requestId) {
-        InFlightRequest r = inFlight.get(requestId);
-        return (r == null) ? -1L : r.workerId;
-    }
-
-    // Package-private for testing - DELETE LATER
-    Set<Long> getInFlightRequestIds() {
-        return new HashSet<>(inFlight.keySet());
-    }
-
-    // Package-private for testing - DELETE LATER
-    boolean isFailedWorker(long workerId) {
-        return failedWorkers.contains(workerId);
     }
 
 }

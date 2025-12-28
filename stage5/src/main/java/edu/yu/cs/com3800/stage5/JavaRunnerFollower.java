@@ -9,6 +9,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.SocketException;
 import java.nio.charset.StandardCharsets;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -16,14 +17,16 @@ public class JavaRunnerFollower extends Thread implements LoggingServer {
 
     private final int tcpPort;
     private final InetSocketAddress myAddress;
+    private final PeerServerImpl peerServer;
     private final Logger logger;
     private final JavaRunner runner;
     private ServerSocket serverSocket;
 
-    public JavaRunnerFollower(int udpPort, InetSocketAddress myAddress) throws IOException {
+    public JavaRunnerFollower(int udpPort, InetSocketAddress myAddress, PeerServerImpl peerServer) throws IOException {
         // TCP port is UDP port + 2
         this.tcpPort = udpPort + 2;
         this.myAddress = myAddress;
+        this.peerServer = peerServer;
         logger = initializeLogging("JavaRunnerFollower-on-" + myAddress.getPort());
 
         // We can reuse the same JavaRunner instance (it is stateless/thread-safe enough for this)
@@ -61,29 +64,18 @@ public class JavaRunnerFollower extends Thread implements LoggingServer {
 
                     Message msg = new Message(payload);
 
-                    // Process Logic
+                    // Process new Work Logic
                     if (msg.getMessageType() == MessageType.WORK) {
-                        logger.fine("Received WORK request ID " + msg.getRequestID() + " from Leader");
-
-                        byte[] javaCode = msg.getMessageContents();
-                        WorkResult wr = processCode(javaCode);
-
-                        // Send Response back over the SAME socket
-                        Message response = new Message(
-                                MessageType.COMPLETED_WORK,
-                                wr.output.getBytes(),
-                                myAddress.getHostString(),
-                                myAddress.getPort(),
-                                msg.getSenderHost(),
-                                msg.getSenderPort(),
-                                msg.getRequestID(),
-                                wr.error
-                        );
-
-                        OutputStream out = leaderSocket.getOutputStream();
-                        out.write(response.getNetworkPayload());
-                        out.flush();
+                        handleWork(msg, leaderSocket);
                     }
+                    // Leader is asking for old work
+                    else if (msg.getMessageType() == MessageType.NEW_LEADER_GETTING_LAST_WORK) {
+                        handleRecoveryRequest(msg, leaderSocket);
+                    }
+                    else {
+                        logger.warning("Unknown message type: " + msg.getMessageType());
+                    }
+
                 } catch (SocketException e) {
                     if (isInterrupted()) {
                         logger.fine("JavaRunnerFollower shutting down cleanly.");
@@ -103,6 +95,97 @@ public class JavaRunnerFollower extends Thread implements LoggingServer {
             }
         } catch (Exception e) {
             logger.log(Level.SEVERE, "JavaRunnerFollower server socket failed", e);
+        }
+    }
+
+    private void handleWork(Message msg, Socket leaderSocket) {
+        logger.fine("Received WORK request ID " + msg.getRequestID() + " from Leader");
+
+        byte[] javaCode = msg.getMessageContents();
+        WorkResult wr = processCode(javaCode);
+
+        Message response = new Message(
+                MessageType.COMPLETED_WORK,
+                wr.output.getBytes(StandardCharsets.UTF_8),
+                myAddress.getHostString(),
+                myAddress.getPort(),
+                msg.getSenderHost(),
+                msg.getSenderPort(),
+                msg.getRequestID(),
+                wr.error
+        );
+
+        try {
+            OutputStream out = leaderSocket.getOutputStream();
+            out.write(response.getNetworkPayload());
+            out.flush();
+
+            // Important: let leader's readAllBytesFromNetwork() return
+            leaderSocket.shutdownOutput();
+
+        } catch (IOException e) {
+            // Leader died mid-flight: queue result locally
+            logger.log(Level.WARNING, "Failed to send COMPLETED_WORK to leader, caching locally", e);
+            peerServer.rememberCompletedWork(msg.getRequestID(), response);
+        }
+    }
+
+    private void handleRecoveryRequest(Message msg, Socket leaderSocket) {
+        logger.fine("Received NEW_LEADER_GETTING_LAST_WORK on port " + this.tcpPort);
+
+        // Pick at most one cached result (your assumption)
+        Long requestId = null;
+        Message cached = null;
+
+        for (Map.Entry<Long, Message> e : peerServer.getCompletedWorkCache().entrySet()) {
+            requestId = e.getKey();
+            cached = e.getValue();
+            break;
+        }
+
+        Message response;
+        if (cached == null) {
+            // No work to recover
+            response = new Message(
+                    MessageType.COMPLETED_WORK,
+                    new byte[0],
+                    myAddress.getHostString(),
+                    myAddress.getPort(),
+                    msg.getSenderHost(),
+                    msg.getSenderPort(),
+                    -1L,
+                    false
+            );
+            logger.info("No cached work to recover for new leader at port " + this.tcpPort);
+        } else {
+            // Send the cached COMPLETED_WORK (preserve its contents/error flag)
+            response = new Message(
+                    MessageType.COMPLETED_WORK,
+                    cached.getMessageContents(),
+                    myAddress.getHostString(),
+                    myAddress.getPort(),
+                    msg.getSenderHost(),
+                    msg.getSenderPort(),
+                    requestId,
+                    cached.getErrorOccurred()
+            );
+            logger.info("Recovering cached work for request ID " + requestId + " to new leader at port " + this.tcpPort);
+        }
+
+        try {
+            OutputStream out = leaderSocket.getOutputStream();
+            out.write(response.getNetworkPayload());
+            out.flush();
+            leaderSocket.shutdownOutput();
+
+            // Only clear AFTER successful sending
+            if (cached != null) {
+                peerServer.getCompletedWorkCache().remove(requestId);
+            }
+
+        } catch (IOException e) {
+            logger.log(Level.WARNING, "Failed to respond to recovery request; keeping cached work", e);
+            // Do NOT clear cache on failure
         }
     }
 

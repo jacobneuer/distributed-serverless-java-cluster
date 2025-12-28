@@ -285,12 +285,56 @@ echo "Killing leader ${OLD_LEADER_ID} (PID ${LEADER_PID})"
 kill -9 "${LEADER_PID}"
 
 echo
-echo "Waiting for leader failure detection + re-election..."
+echo "Pausing 1000ms after leader kill..."
+sleep 1
+
+############################################
+# 10) Send 9 client requests in background (after leader kill)
+############################################
+
+echo
+echo "Sending 9 MORE client requests through Gateway (background)"
+echo "----------------------------------------------------------"
+
+POSTFAIL_REQUESTS=9
+POSTFAIL_PIDS=()
+POSTFAIL_OUTFILES=()
+
+for ((i=1; i<=POSTFAIL_REQUESTS; i++)); do
+    OUTFILE="$(mktemp -t gw_resp_${i}.XXXXXX)"
+    POSTFAIL_OUTFILES+=("${OUTFILE}")
+
+    SRC=$(cat <<EOF
+public class HW_after_${i} {
+    public String run() {
+        return "AfterLeaderKill ${i}";
+    }
+}
+EOF
+)
+
+    # Fire request in background, write response to temp file
+    (curl -s -X POST \
+        -H "Content-Type: text/x-java-source" \
+        --data-binary "${SRC}" \
+        "http://localhost:${GATEWAY_HTTP_PORT}/compileandrun" \
+        > "${OUTFILE}") &
+
+    POSTFAIL_PIDS+=($!)
+    echo "Dispatched post-failure request ${i} (pid=${POSTFAIL_PIDS[$((i-1))]})"
+done
+
+############################################
+# 11) Wait for the Gateway to have a new leader
+############################################
+
+echo
+echo "Waiting for Gateway to report a NEW leader..."
 
 NEW_LEADER_ID=""
 RE_ELECTED=false
 
-for i in {1..40}; do
+for i in {1..60}; do
     CANDIDATE=$(curl -sf "${LEADER_ENDPOINT}" || true)
 
     if [[ -n "${CANDIDATE}" && "${CANDIDATE}" != "UNKNOWN" && "${CANDIDATE}" != "${OLD_LEADER_ID}" ]]; then
@@ -299,7 +343,7 @@ for i in {1..40}; do
         break
     fi
 
-    echo "Waiting for new leader... (${i}/40)"
+    echo "Waiting for new leader... (${i}/60)"
     sleep 1
 done
 
@@ -310,25 +354,39 @@ if [[ "${RE_ELECTED}" != true ]]; then
 fi
 
 echo
-echo "New leader elected: ${NEW_LEADER_ID}"
+echo "Gateway sees new leader: ${NEW_LEADER_ID}"
 echo
 
 ############################################
-# 10) Verify cluster consensus
+# 12) Wait for all 9 background requests to finish
 ############################################
 
-echo "Cluster membership after leader failure:"
-echo "---------------------------------------"
+echo "Waiting for all ${POSTFAIL_REQUESTS} post-failure requests to receive responses..."
+for pid in "${POSTFAIL_PIDS[@]}"; do
+    wait "${pid}"
+done
 
-curl -s "http://localhost:${GATEWAY_HTTP_PORT}/cluster"
 echo
+echo "Post-failure responses from Gateway:"
+echo "-----------------------------------"
 
-echo "Old leader: ${OLD_LEADER_ID}"
-echo "New leader: ${NEW_LEADER_ID}"
+for ((i=1; i<=POSTFAIL_REQUESTS; i++)); do
+    echo
+    echo "Post-failure Response ${i}:"
+    cat "${POSTFAIL_OUTFILES[$((i-1))]}"
+done
+
+# Cleanup temp files
+for f in "${POSTFAIL_OUTFILES[@]}"; do
+    rm -f "${f}" || true
+done
+
+echo
+echo "All ${POSTFAIL_REQUESTS} post-failure requests completed."
 echo
 
 ############################################
-# 11) Verify all peers agree on the new leader
+# 13) Verify all peers agree on the new leader
 ############################################
 
 echo

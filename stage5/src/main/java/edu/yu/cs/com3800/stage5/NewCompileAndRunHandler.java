@@ -14,7 +14,7 @@ import java.util.logging.Logger;
 public class NewCompileAndRunHandler implements LoggingServer {
 
     private final HttpExchange exchange;
-    private final NewGatewayServer gateway; // NEW
+    private final NewGatewayServer gateway;
     private final ConcurrentHashMap<Integer, Message> cache;
     private final long requestID;
 
@@ -89,17 +89,6 @@ public class NewCompileAndRunHandler implements LoggingServer {
         exchange.sendResponseHeaders(code, body.length);
         try (OutputStream os = exchange.getResponseBody()) {
             os.write(body);
-        }
-    }
-
-    // You can keep sendError if you want, but only for request validation errors.
-    @SuppressWarnings("unused")
-    private void sendError(int status, String msg) throws IOException {
-        byte[] err = msg.getBytes(StandardCharsets.UTF_8);
-        exchange.getResponseHeaders().set("Content-Type", "text/plain; charset=UTF-8");
-        exchange.sendResponseHeaders(status, err.length);
-        try (OutputStream os = exchange.getResponseBody()) {
-            os.write(err);
         }
     }
 }
