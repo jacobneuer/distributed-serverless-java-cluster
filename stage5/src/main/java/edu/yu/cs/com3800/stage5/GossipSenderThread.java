@@ -100,7 +100,7 @@ public class GossipSenderThread extends Thread implements LoggingServer {
             }
         }
 
-        logger.info("GossipThread for " + myId + " shutting down.");
+        logger.info("GossipSenderThread for " + myId + " shutting down.");
     }
 
     public void shutdown() {

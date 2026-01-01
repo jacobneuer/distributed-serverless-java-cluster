@@ -1,5 +1,7 @@
 package edu.yu.cs.com3800.stage5;
 
+import edu.yu.cs.com3800.ElectionNotification;
+import edu.yu.cs.com3800.LeaderElection;
 import edu.yu.cs.com3800.Message;
 import edu.yu.cs.com3800.LoggingServer;
 
@@ -17,6 +19,7 @@ public class GossipReceiverThread extends Thread implements LoggingServer {
     private final PeerServerImpl peerServer;
     private final Long myId;
     private final LinkedBlockingQueue<Message> incomingMessages;
+    private final LinkedBlockingQueue<Message> outgoingMessages;
     private final ConcurrentHashMap<Long, HeartbeatEntry> heartbeatTable;
     private final Logger summaryLogger;
     private final Logger verboseLogger;
@@ -27,10 +30,12 @@ public class GossipReceiverThread extends Thread implements LoggingServer {
                                 Logger summaryLogger,
                                 Long myId,
                                 LinkedBlockingQueue<Message> incomingMessages,
+                                LinkedBlockingQueue<Message> outgoingMessages,
                                 ConcurrentHashMap<Long, HeartbeatEntry> heartbeatTable) throws IOException {
         this.peerServer = server;
         this.myId = myId;
         this.incomingMessages = incomingMessages;
+        this.outgoingMessages = outgoingMessages;
         this.heartbeatTable = heartbeatTable;
 
         this.summaryLogger = summaryLogger;
@@ -46,9 +51,13 @@ public class GossipReceiverThread extends Thread implements LoggingServer {
             try {
                 Message msg = incomingMessages.take();
 
-                // Only handle GOSSIP messages here
+                // Handle GOSSIP messages here
                 if (msg.getMessageType() == Message.MessageType.GOSSIP) {
                     handleGossip(msg);
+                }
+                // If the message is an election message AND leader is still alive then reply with who I think the current leader is
+                else if (msg.getMessageType() == Message.MessageType.ELECTION && peerServer.getCurrentLeaderId() != null) {
+                    sendElectionResponse(msg);
                 }
                 else {
                     // Put back non-GOSSIP messages so the main server logic can handle them
@@ -62,6 +71,32 @@ public class GossipReceiverThread extends Thread implements LoggingServer {
                         "GossipReceiver exception on node " + myId, e);
             }
         }
+        verboseLogger.info("GossipReceiverThread for " + myId + " shutting down.");
+    }
+
+    private void sendElectionResponse(Message msg) {
+        verboseLogger.info("Responding to election message from" +
+                msg.getSenderHost() + ":" + msg.getSenderPort()
+                + " with current alive leader " + peerServer.getCurrentLeaderId());
+        // Send back an ElectionNotification message
+        ElectionNotification notification = new ElectionNotification(
+                peerServer.getCurrentLeaderId(),
+                peerServer.getPeerState(),
+                peerServer.getServerId(),
+                peerServer.getPeerEpoch()
+        );
+        // Serialize the ElectionNotification
+        byte[] notificationBytes = LeaderElection.buildMsgContent(notification);
+        Message response = new Message(
+                Message.MessageType.ELECTION,
+                notificationBytes,
+                peerServer.getAddress().getHostString(),
+                peerServer.getUdpPort(),
+                msg.getSenderHost(),
+                msg.getSenderPort()
+        );
+        // Add to outgoing messages queue
+        outgoingMessages.offer(response);
     }
 
     public void shutdown() {

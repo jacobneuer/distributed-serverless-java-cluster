@@ -90,6 +90,7 @@ public class FailureDetectorThread extends Thread implements LoggingServer {
                 );
             }
         }
+        verboseLogger.info("FailureDetectorThread for " + myId + " shutting down.");
     }
 
     public void shutdown() {

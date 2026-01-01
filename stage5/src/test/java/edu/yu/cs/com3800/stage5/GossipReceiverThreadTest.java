@@ -62,6 +62,7 @@ public class GossipReceiverThreadTest {
                 Logger.getLogger("summary"),
                 1L,
                 new LinkedBlockingQueue<>(),
+                new LinkedBlockingQueue<>(),
                 table
         );
 
@@ -88,6 +89,7 @@ public class GossipReceiverThreadTest {
                 server,
                 Logger.getLogger("summary"),
                 99L,
+                new LinkedBlockingQueue<>(),
                 new LinkedBlockingQueue<>(),
                 table
         );
@@ -118,6 +120,7 @@ public class GossipReceiverThreadTest {
                 server,
                 Logger.getLogger("summary"),
                 99L,
+                new LinkedBlockingQueue<>(),
                 new LinkedBlockingQueue<>(),
                 table
         );
@@ -150,6 +153,7 @@ public class GossipReceiverThreadTest {
                 Logger.getLogger("summary"),
                 99L,
                 queue,
+                new LinkedBlockingQueue<>(),
                 table
         );
 
