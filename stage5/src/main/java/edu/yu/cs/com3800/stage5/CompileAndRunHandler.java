@@ -11,19 +11,19 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class CompileAndRunHandler {
+public class CompileAndRunHandler implements LoggingServer {
 
     private final HttpExchange exchange;
     private final GatewayPeerServerImpl gatewayPeer;
     private final ConcurrentHashMap<Integer, Message> cache;
     private final Long requestID;
 
-    private final Logger logger = Logger.getLogger(CompileAndRunHandler.class.getName());
+    private final Logger logger = initializeLogging(CompileAndRunHandler.class.getName());
 
     public CompileAndRunHandler(HttpExchange exchange,
                                 GatewayPeerServerImpl gatewayPeer,
                                 ConcurrentHashMap<Integer, Message> cache,
-                                Long requestID) {
+                                Long requestID) throws IOException {
         this.exchange = exchange;
         this.gatewayPeer = gatewayPeer;
         this.cache = cache;

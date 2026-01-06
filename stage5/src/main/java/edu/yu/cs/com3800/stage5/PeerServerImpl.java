@@ -1,11 +1,14 @@
 package edu.yu.cs.com3800.stage5;
 
+import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpServer;
 import edu.yu.cs.com3800.*;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.net.Socket;
+import java.nio.file.Files;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.LinkedBlockingQueue;
@@ -18,6 +21,8 @@ public class PeerServerImpl extends Thread implements PeerServer, LoggingServer 
 
     private Logger logger;
     private Logger summaryLogger;
+    private File summaryLogFile;
+    private File verboseLogFile;
 
     //Ports
     private final int udpPort;
@@ -63,19 +68,27 @@ public class PeerServerImpl extends Thread implements PeerServer, LoggingServer 
     private final ConcurrentHashMap<Long, Message> completedWorkCache;
     private final AtomicBoolean recoveryComplete = new AtomicBoolean(false);
 
-    static final int GOSSIP  = 1000;
+    static final int GOSSIP  = 3000;
     static final int FAIL    = GOSSIP * 10;   // 30s
     static final int CLEANUP = FAIL * 2;      // 60s
 
     public PeerServerImpl(int udpPort, long peerEpoch, Long serverID,
                           Map<Long, InetSocketAddress> peerIDtoAddress,
                           Long gatewayID, int numberOfObservers) throws IOException {
-        this.logger = initializeLogging(
-                "PeerServerImpl-on-" + serverID + "-on-" + udpPort);
+        this.logger = initializeLogging("PeerServerImpl-on-" + serverID);
         logger.info("PeerServer " + serverID + " constructed");
+        String LOG_DIR = LogDirs.LOG_DIR;
+        this.summaryLogFile = new File(
+                LogDirs.LOG_DIR,
+                "GossipSummary-on-" + serverID + "-LOG.log"
+        );
 
-        this.summaryLogger = initializeLogging(
-                "PeerServerSummary-on-" + serverID + "-on-" + udpPort);
+        this.verboseLogFile = new File(
+                LogDirs.LOG_DIR,
+                "GossipReceiverVerbose-on-" + serverID + "-LOG.log"
+        );
+
+        this.summaryLogger = initializeLogging("GossipSummary-on-" + serverID);
 
         this.udpPort = udpPort;
         this.tcpPort = udpPort + 2;
@@ -161,6 +174,7 @@ public class PeerServerImpl extends Thread implements PeerServer, LoggingServer 
                     this.summaryLogger,
                     this.id,
                     this.incomingMessages,
+                    this.outgoingMessages,
                     this.heartbeatTable
             );
         } catch (IOException e) {
@@ -648,6 +662,20 @@ public class PeerServerImpl extends Thread implements PeerServer, LoggingServer 
         return (v == null) ? null : v.getProposedLeaderID();
     }
 
+    private void serveLogFile(HttpExchange exchange, File logFile) throws IOException {
+        if (!logFile.exists()) {
+            exchange.sendResponseHeaders(404, -1);
+            exchange.close();
+            return;
+        }
+
+        byte[] data = Files.readAllBytes(logFile.toPath());
+        exchange.getResponseHeaders().set("Content-Type", "text/plain; charset=UTF-8");
+        exchange.sendResponseHeaders(200, data.length);
+        exchange.getResponseBody().write(data);
+        exchange.close();
+    }
+
     private void startHttpStatusServer() throws IOException {
         int httpPort = this.udpPort + 105; // any deterministic offset
 
@@ -673,6 +701,14 @@ public class PeerServerImpl extends Thread implements PeerServer, LoggingServer 
             exchange.sendResponseHeaders(200, response.length());
             exchange.getResponseBody().write(response.getBytes());
             exchange.close();
+        });
+
+        httpServer.createContext("/logs/summary", exchange -> {
+            serveLogFile(exchange, summaryLogFile);
+        });
+
+        httpServer.createContext("/logs/verbose", exchange -> {
+            serveLogFile(exchange, verboseLogFile);
         });
 
         httpServer.start();

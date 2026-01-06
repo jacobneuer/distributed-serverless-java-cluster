@@ -37,7 +37,7 @@ public class GossipSenderThread extends Thread implements LoggingServer {
         this.logger = initializeLogging("GossipThread-on-" + myId);
         this.GOSSIP_INTERVAL = gossipIntervalMs;
 
-        this.setName("GossipThread-" + myId);
+        this.setName("GossipSender-" + myId);
         this.setDaemon(true);
     }
 
@@ -86,7 +86,7 @@ public class GossipSenderThread extends Thread implements LoggingServer {
 
                         outgoingMessages.put(gossip);
 
-                        logger.info(myId + ": GOSSIP → " + targetId +
+                        logger.fine(myId + ": GOSSIP → " + targetId +
                                 " (table size = " + heartbeatTable.size() + ")");
                     }
                 }

@@ -32,15 +32,6 @@ GATEWAY_RUNNER="edu.yu.cs.com3800.stage5.GatewayServerRunner"
 LEADER_ENDPOINT="http://localhost:${GATEWAY_HTTP_PORT}/leader"
 
 ############################################
-# 1) Run JUnit tests (sanity check)
-############################################
-
-echo "=== Building project (skipping tests for smoke test) ==="
-mvn -q -DskipTests package
-echo "Build completed"
-echo
-
-############################################
 # Build runtime classpath
 ############################################
 
@@ -244,8 +235,8 @@ echo "Killing follower ${KILLED_ID} (PID ${KILLED_PID})"
 kill -9 "${KILLED_PID}"
 
 echo
-echo "Waiting for failure detection (20 seconds)..."
-sleep 20
+echo "Waiting for failure detection (45 seconds)..."
+sleep 45
 
 echo
 echo "Cluster membership after failure:"
@@ -334,7 +325,7 @@ echo "Waiting for Gateway to report a NEW leader..."
 NEW_LEADER_ID=""
 RE_ELECTED=false
 
-for i in {1..60}; do
+for i in {1..90}; do
     CANDIDATE=$(curl -sf "${LEADER_ENDPOINT}" || true)
 
     if [[ -n "${CANDIDATE}" && "${CANDIDATE}" != "UNKNOWN" && "${CANDIDATE}" != "${OLD_LEADER_ID}" ]]; then
@@ -343,7 +334,7 @@ for i in {1..60}; do
         break
     fi
 
-    echo "Waiting for new leader... (${i}/60)"
+    echo "Waiting for new leader... (${i}/90)"
     sleep 1
 done
 
@@ -448,10 +439,54 @@ else
 fi
 
 ############################################
-# Done — allow brief observation window
+# 14) Send ONE foreground client request (post-recovery)
 ############################################
 
 echo
-echo "=========================================="
-echo "Election smoke test complete"
-echo "=========================================="
+echo "Sending ONE foreground client request after recovery"
+echo "---------------------------------------------------"
+
+FOREGROUND_SRC=$(cat <<EOF
+public class HW_foreground {
+    public String run() {
+        return "Final foreground request";
+    }
+}
+EOF
+)
+
+echo
+echo "Foreground request source:"
+echo "${FOREGROUND_SRC}"
+echo
+
+FOREGROUND_RESPONSE=$(curl -s -X POST \
+    -H "Content-Type: text/x-java-source" \
+    --data-binary "${FOREGROUND_SRC}" \
+    "http://localhost:${GATEWAY_HTTP_PORT}/compileandrun")
+
+echo "Foreground response:"
+echo "${FOREGROUND_RESPONSE}"
+echo
+
+############################################
+# 15) Print log file locations for each node
+############################################
+
+echo
+echo "Log file locations"
+echo "------------------"
+
+for ((i=1; i<=NUM_VOTING_PEERS + 1; i++)); do
+    echo "Peer ${i}:"
+    echo "  Summary log: logs/GossipSummary-on-${i}-LOG.log"
+    echo "  Verbose log: logs/GossipReceiverVerbose-on-${i}-LOG.log"
+done
+
+############################################
+# 16) Explicit cluster shutdown
+############################################
+
+echo
+echo "Initiating explicit cluster shutdown..."
+exit 0

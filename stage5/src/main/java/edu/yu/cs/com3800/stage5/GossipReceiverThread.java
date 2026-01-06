@@ -39,7 +39,7 @@ public class GossipReceiverThread extends Thread implements LoggingServer {
         this.heartbeatTable = heartbeatTable;
 
         this.summaryLogger = summaryLogger;
-        this.verboseLogger = initializeLogging("GossipVerbose-on-" + myId);
+        this.verboseLogger = initializeLogging("GossipReceiverVerbose-on-" + myId);
 
         this.setName("GossipReceiver-" + myId);
         this.setDaemon(true);
@@ -119,7 +119,7 @@ public class GossipReceiverThread extends Thread implements LoggingServer {
         Map<Long, Long> received = deserializeHeartbeatTable(msg.getMessageContents());
 
         // Verbose logging: entire message
-        verboseLogger.info(myId + ": Received gossip from " + senderId +
+        verboseLogger.fine(myId + ": Received gossip from " + senderId +
                 " at time " + now +
                 " contents=" + received.toString());
 
