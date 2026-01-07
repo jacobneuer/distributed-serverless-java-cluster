@@ -56,11 +56,11 @@ public class FailureDetectorThread extends Thread implements LoggingServer {
                         continue;
                     }
 
-                    long age = now - hb.lastHeardTime;
+                    long age = now - hb.lastHeardTime.get();
 
                     // FAIL: mark node failed
-                    if (!hb.failed && age > FAIL) {
-                        hb.failed = true;
+                    if (!hb.failed.get() && age > FAIL) {
+                        hb.failed.set(true);
 
                         String msg = myId + ": no heartbeat from server "
                                 + peerId + " - SERVER FAILED";
@@ -72,7 +72,7 @@ public class FailureDetectorThread extends Thread implements LoggingServer {
                     }
 
                     //  CLEANUP: remove entry
-                    if (hb.failed && age > CLEANUP) {
+                    if (hb.failed.get() && age > CLEANUP) {
                         String msg = myId + ": removing server "
                                 + peerId + " from heartbeat table after cleanup";
                         verboseLogger.info(msg);

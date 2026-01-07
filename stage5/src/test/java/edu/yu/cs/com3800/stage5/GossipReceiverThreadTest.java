@@ -109,7 +109,7 @@ public class GossipReceiverThreadTest {
         long t0 = System.currentTimeMillis();
 
         HeartbeatEntry e = new HeartbeatEntry(10L, t0);
-        e.failed = true;
+        e.failed.set(true);
 
         ConcurrentHashMap<Long, HeartbeatEntry> table = new ConcurrentHashMap<>();
         table.put(3L, e);

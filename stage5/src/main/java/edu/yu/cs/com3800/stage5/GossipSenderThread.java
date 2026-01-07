@@ -52,8 +52,8 @@ public class GossipSenderThread extends Thread implements LoggingServer {
                 // Increment this node's heartbeat
                 HeartbeatEntry me = heartbeatTable.get(myId);
                 if (me != null) {
-                    me.heartbeat++;
-                    me.lastHeardTime = now;
+                    me.heartbeat.getAndIncrement();
+                    me.lastHeardTime.set(now);
                 }
 
                 // Pick a random peer that is NOT me and NOT failed
@@ -62,7 +62,7 @@ public class GossipSenderThread extends Thread implements LoggingServer {
                     Long id = entry.getKey();
                     HeartbeatEntry hb = entry.getValue();
 
-                    if (!id.equals(myId) && !hb.failed) {
+                    if (!id.equals(myId) && !hb.failed.get()) {
                         candidates.add(id);
                     }
                 }
@@ -115,7 +115,7 @@ public class GossipSenderThread extends Thread implements LoggingServer {
 
         for (Map.Entry<Long, HeartbeatEntry> e : heartbeatTable.entrySet()) {
             buf.putLong(e.getKey());
-            buf.putLong(e.getValue().heartbeat);
+            buf.putLong(e.getValue().heartbeat.get());
         }
 
         return buf.array();

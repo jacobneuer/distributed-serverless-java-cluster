@@ -173,17 +173,17 @@ public class GossipReceiverThread extends Thread implements LoggingServer {
             }
 
             // Ignore all info about failed nodes
-            if (local.failed) {
+            if (local.failed.get()) {
                 continue;
             }
 
             // Vector-clock–style merging: take max heartbeat
-            long localHB = local.heartbeat;
+            long localHB = local.heartbeat.get();
 
             if (remoteHB > localHB) {
                 // accept new info!
-                local.heartbeat = remoteHB;
-                local.lastHeardTime = now;
+                local.heartbeat.set(remoteHB);
+                local.lastHeardTime.set(now);
 
                 String msg = myId + ": updated " + peerId
                         + "'s heartbeat sequence to " + remoteHB
