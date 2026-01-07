@@ -1,6 +1,8 @@
 Using simple runtime classpath (target/classes)
 
 Running mvn test...
+I was going to run them all here but it takes extremely long and the sockets get exhausted
+so they can be run individually as needed in the JUnit classes, I just didn't want them running indefinitely.
 [INFO] Scanning for projects...
 [INFO] 
 [INFO] -------------------------< org.example:stage1 >-------------------------
@@ -8,280 +10,601 @@ Running mvn test...
 [INFO]   from pom.xml
 [INFO] --------------------------------[ jar ]---------------------------------
 [INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ stage1 ---
+[INFO] Deleting /Users/yaacovneuer/CompSci/Jacob_Neuer_800691050/com3800/stage5/target
+[INFO] 
 [INFO] --- resources:3.3.1:resources (default-resources) @ stage1 ---
 [INFO] skip non existing resourceDirectory /Users/yaacovneuer/CompSci/Jacob_Neuer_800691050/com3800/stage5/src/main/resources
 [INFO] 
 [INFO] --- compiler:3.13.0:compile (default-compile) @ stage1 ---
-[INFO] Nothing to compile - all classes are up to date.
-[INFO] 
-[INFO] --- resources:3.3.1:testResources (default-testResources) @ stage1 ---
-[INFO] skip non existing resourceDirectory /Users/yaacovneuer/CompSci/Jacob_Neuer_800691050/com3800/stage5/src/test/resources
-[INFO] 
-[INFO] --- compiler:3.13.0:testCompile (default-testCompile) @ stage1 ---
 [INFO] Recompiling the module because of changed source code.
-[INFO] Compiling 6 source files with javac [debug release 21] to target/test-classes
-[INFO] /Users/yaacovneuer/CompSci/Jacob_Neuer_800691050/com3800/stage5/src/test/java/edu/yu/cs/com3800/stage5/GatewayServerTest.java: Some input files use or override a deprecated API.
-[INFO] /Users/yaacovneuer/CompSci/Jacob_Neuer_800691050/com3800/stage5/src/test/java/edu/yu/cs/com3800/stage5/GatewayServerTest.java: Recompile with -Xlint:deprecation for details.
-[INFO] 
-[INFO] --- surefire:3.2.5:test (default-test) @ stage1 ---
-[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
-[INFO] 
-[INFO] -------------------------------------------------------
-[INFO]  T E S T S
-[INFO] -------------------------------------------------------
-[INFO] Running edu.yu.cs.com3800.stage5.NewGatewayServerTest
-Jan 07, 2026 12:22:28 AM edu.yu.cs.com3800.stage5.PeerServerImpl <init>
-INFO: PeerServer 1 constructed
-Jan 07, 2026 12:22:28 AM edu.yu.cs.com3800.stage5.PeerServerImpl <init>
+[INFO] Compiling 30 source files with javac [debug release 21] to target/classes
+[INFO] /Users/yaacovneuer/CompSci/Jacob_Neuer_800691050/com3800/stage5/src/main/java/edu/yu/cs/com3800/JavaRunner.java: /Users/yaacovneuer/CompSci/Jacob_Neuer_800691050/com3800/stage5/src/main/java/edu/yu/cs/com3800/JavaRunner.java uses unchecked or unsafe operations.
+[INFO] /Users/yaacovneuer/CompSci/Jacob_Neuer_800691050/com3800/stage5/src/main/java/edu/yu/cs/com3800/JavaRunner.java: Recompile with -Xlint:unchecked for details.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.714 s
+[INFO] Finished at: 2026-01-07T10:48:38-05:00
+[INFO] ------------------------------------------------------------------------
+=== Starting 7 voting peers ===
+Starting Peer 1 on UDP port 8010
+Starting Peer 2 on UDP port 8011
+Starting Peer 3 on UDP port 8012
+Starting Peer 4 on UDP port 8013
+Starting Peer 5 on UDP port 8014
+Starting Peer 6 on UDP port 8015
+Starting Peer 7 on UDP port 8016
+
+Starting Gateway on HTTP port 8888
+Gateway PID 93166
+
+=== Waiting for leader election ===
+Waiting... (1/30)
+Jan 07, 2026 10:48:38 AM edu.yu.cs.com3800.stage5.PeerServerImpl <init>
+INFO: PeerServer 6 constructed
+Jan 07, 2026 10:48:38 AM edu.yu.cs.com3800.stage5.PeerServerImpl <init>
+INFO: PeerServer 8 constructed
+8: switching from LOOKING to OBSERVER
+Jan 07, 2026 10:48:38 AM edu.yu.cs.com3800.stage5.PeerServerImpl setPeerState
+INFO: 8: switching from LOOKING to OBSERVER
+Jan 07, 2026 10:48:38 AM edu.yu.cs.com3800.stage5.PeerServerImpl <init>
+INFO: PeerServer 5 constructed
+Jan 07, 2026 10:48:38 AM edu.yu.cs.com3800.stage5.PeerServerImpl <init>
 INFO: PeerServer 2 constructed
-Jan 07, 2026 12:22:28 AM edu.yu.cs.com3800.stage5.PeerServerImpl <init>
-INFO: PeerServer 3 constructed
-Jan 07, 2026 12:22:28 AM edu.yu.cs.com3800.stage5.PeerServerImpl <init>
-INFO: PeerServer 0 constructed
-0: switching from LOOKING to OBSERVER
-Jan 07, 2026 12:22:28 AM edu.yu.cs.com3800.stage5.PeerServerImpl setPeerState
-INFO: 0: switching from LOOKING to OBSERVER
-Jan 07, 2026 12:22:28 AM edu.yu.cs.com3800.stage5.PeerServerImpl startHttpStatusServer
-INFO: Peer 3 HTTP status server started on port 8135
-Jan 07, 2026 12:22:28 AM edu.yu.cs.com3800.stage5.GatewayServer run
+Jan 07, 2026 10:48:38 AM edu.yu.cs.com3800.stage5.PeerServerImpl <init>
+INFO: PeerServer 1 constructed
+Jan 07, 2026 10:48:38 AM edu.yu.cs.com3800.stage5.GatewayServer run
 INFO: GatewayServer thread started.
-Jan 07, 2026 12:22:28 AM edu.yu.cs.com3800.stage5.PeerServerImpl startHttpStatusServer
-INFO: Peer 2 HTTP status server started on port 8125
-Jan 07, 2026 12:22:28 AM edu.yu.cs.com3800.stage5.PeerServerImpl startHttpStatusServer
-INFO: Peer 1 HTTP status server started on port 8115
-Jan 07, 2026 12:22:28 AM edu.yu.cs.com3800.stage5.PeerServerImpl startHttpStatusServer
-INFO: Peer 0 HTTP status server started on port 8145
-Jan 07, 2026 12:22:28 AM edu.yu.cs.com3800.stage5.GossipSenderThread run
-INFO: GossipThread for 3 started.
-Jan 07, 2026 12:22:28 AM edu.yu.cs.com3800.stage5.GossipSenderThread run
-INFO: GossipThread for 1 started.
-Jan 07, 2026 12:22:28 AM edu.yu.cs.com3800.stage5.GossipSenderThread run
+Jan 07, 2026 10:48:38 AM edu.yu.cs.com3800.stage5.PeerServerImpl <init>
+INFO: PeerServer 7 constructed
+Jan 07, 2026 10:48:38 AM edu.yu.cs.com3800.stage5.PeerServerImpl startHttpStatusServer
+INFO: Peer 6 HTTP status server started on port 8120
+Jan 07, 2026 10:48:38 AM edu.yu.cs.com3800.stage5.PeerServerImpl <init>
+INFO: PeerServer 3 constructed
+Jan 07, 2026 10:48:38 AM edu.yu.cs.com3800.stage5.PeerServerImpl startHttpStatusServer
+INFO: Peer 5 HTTP status server started on port 8119
+Jan 07, 2026 10:48:38 AM edu.yu.cs.com3800.stage5.GossipSenderThread run
+INFO: GossipThread for 6 started.
+Jan 07, 2026 10:48:38 AM edu.yu.cs.com3800.stage5.PeerServerImpl startHttpStatusServer
+INFO: Peer 8 HTTP status server started on port 8122
+Jan 07, 2026 10:48:38 AM edu.yu.cs.com3800.stage5.PeerServerImpl startHttpStatusServer
+INFO: Peer 2 HTTP status server started on port 8116
+Jan 07, 2026 10:48:38 AM edu.yu.cs.com3800.stage5.GossipSenderThread run
 INFO: GossipThread for 2 started.
-Jan 07, 2026 12:22:28 AM edu.yu.cs.com3800.stage5.GossipSenderThread run
-INFO: GossipThread for 0 started.
-Jan 07, 2026 12:22:28 AM edu.yu.cs.com3800.LeaderElection observeElectionAsGateway
+Jan 07, 2026 10:48:38 AM edu.yu.cs.com3800.stage5.GossipSenderThread run
+INFO: GossipThread for 5 started.
+Jan 07, 2026 10:48:38 AM edu.yu.cs.com3800.stage5.GossipSenderThread run
+INFO: GossipThread for 8 started.
+Jan 07, 2026 10:48:38 AM edu.yu.cs.com3800.stage5.PeerServerImpl startHttpStatusServer
+INFO: Peer 1 HTTP status server started on port 8115
+Jan 07, 2026 10:48:38 AM edu.yu.cs.com3800.stage5.GossipSenderThread run
+INFO: GossipThread for 1 started.
+Jan 07, 2026 10:48:38 AM edu.yu.cs.com3800.stage5.PeerServerImpl startHttpStatusServer
+INFO: Peer 7 HTTP status server started on port 8121
+Jan 07, 2026 10:48:38 AM edu.yu.cs.com3800.stage5.GossipSenderThread run
+INFO: GossipThread for 7 started.
+Jan 07, 2026 10:48:38 AM edu.yu.cs.com3800.LeaderElection observeElectionAsGateway
 INFO: Observer: watching election traffic…
+Jan 07, 2026 10:48:38 AM edu.yu.cs.com3800.stage5.PeerServerImpl startHttpStatusServer
+INFO: Peer 3 HTTP status server started on port 8117
+Jan 07, 2026 10:48:38 AM edu.yu.cs.com3800.stage5.GossipSenderThread run
+INFO: GossipThread for 3 started.
+Jan 07, 2026 10:48:38 AM edu.yu.cs.com3800.stage5.PeerServerImpl <init>
+INFO: PeerServer 4 constructed
+Jan 07, 2026 10:48:38 AM edu.yu.cs.com3800.stage5.PeerServerImpl startHttpStatusServer
+INFO: Peer 4 HTTP status server started on port 8118
+Jan 07, 2026 10:48:38 AM edu.yu.cs.com3800.stage5.GossipSenderThread run
+INFO: GossipThread for 4 started.
+Waiting... (2/30)
+Waiting... (3/30)
+Waiting... (4/30)
+6: switching from LOOKING to FOLLOWING
+Jan 07, 2026 10:48:41 AM edu.yu.cs.com3800.stage5.PeerServerImpl setPeerState
+INFO: 6: switching from LOOKING to FOLLOWING
+Jan 07, 2026 10:48:41 AM edu.yu.cs.com3800.LeaderElection acceptElectionWinner
+INFO: Server 6 accepted election winner: leader=7, epoch=0, state=FOLLOWING
 2: switching from LOOKING to FOLLOWING
-Jan 07, 2026 12:22:31 AM edu.yu.cs.com3800.stage5.PeerServerImpl setPeerState
+Jan 07, 2026 10:48:41 AM edu.yu.cs.com3800.stage5.PeerServerImpl setPeerState
 INFO: 2: switching from LOOKING to FOLLOWING
-Jan 07, 2026 12:22:31 AM edu.yu.cs.com3800.LeaderElection acceptElectionWinner
-INFO: Server 2 accepted election winner: leader=3, epoch=0, state=FOLLOWING
-1: switching from LOOKING to FOLLOWING
-3: switching from LOOKING to LEADING
-Jan 07, 2026 12:22:31 AM edu.yu.cs.com3800.stage5.PeerServerImpl setPeerState
-INFO: 1: switching from LOOKING to FOLLOWING
-Jan 07, 2026 12:22:31 AM edu.yu.cs.com3800.LeaderElection acceptElectionWinner
-INFO: Server 1 accepted election winner: leader=3, epoch=0, state=FOLLOWING
-Jan 07, 2026 12:22:31 AM edu.yu.cs.com3800.stage5.PeerServerImpl setPeerState
-INFO: 3: switching from LOOKING to LEADING
-Jan 07, 2026 12:22:31 AM edu.yu.cs.com3800.LeaderElection acceptElectionWinner
-INFO: Server 3 accepted election winner: leader=3, epoch=0, state=LEADING
-Jan 07, 2026 12:22:31 AM edu.yu.cs.com3800.LeaderElection observeElectionAsGateway
-INFO: Observer: saw FOLLOWING message indicating leader 3
-0: switching from OBSERVER to OBSERVER
-Jan 07, 2026 12:22:31 AM edu.yu.cs.com3800.stage5.PeerServerImpl setPeerState
-INFO: 0: switching from OBSERVER to OBSERVER
-Jan 07, 2026 12:22:31 AM edu.yu.cs.com3800.stage5.TCPServer <init>
+3: switching from LOOKING to FOLLOWING
+Jan 07, 2026 10:48:41 AM edu.yu.cs.com3800.stage5.PeerServerImpl setPeerState
+INFO: 3: switching from LOOKING to FOLLOWING
+Jan 07, 2026 10:48:41 AM edu.yu.cs.com3800.LeaderElection acceptElectionWinner
+INFO: Server 3 accepted election winner: leader=7, epoch=0, state=FOLLOWING
+7: switching from LOOKING to LEADING
+Jan 07, 2026 10:48:41 AM edu.yu.cs.com3800.stage5.PeerServerImpl setPeerState
+INFO: 7: switching from LOOKING to LEADING
+5: switching from LOOKING to FOLLOWING
+Jan 07, 2026 10:48:41 AM edu.yu.cs.com3800.LeaderElection acceptElectionWinner
+INFO: Server 7 accepted election winner: leader=7, epoch=0, state=LEADING
+Jan 07, 2026 10:48:41 AM edu.yu.cs.com3800.LeaderElection acceptElectionWinner
+INFO: Server 2 accepted election winner: leader=7, epoch=0, state=FOLLOWING
+Jan 07, 2026 10:48:41 AM edu.yu.cs.com3800.stage5.PeerServerImpl setPeerState
+INFO: 5: switching from LOOKING to FOLLOWING
+Jan 07, 2026 10:48:41 AM edu.yu.cs.com3800.LeaderElection acceptElectionWinner
+INFO: Server 5 accepted election winner: leader=7, epoch=0, state=FOLLOWING
+Jan 07, 2026 10:48:41 AM edu.yu.cs.com3800.stage5.TCPServer <init>
 INFO: TCPServer initialized.
-Jan 07, 2026 12:22:31 AM edu.yu.cs.com3800.stage5.PeerServerImpl startLeaderThread
-INFO: Server 3 started TCPServer.
-Jan 07, 2026 12:22:31 AM edu.yu.cs.com3800.LeaderElection finalizeObserverVote
-INFO: Observer has learned the leader: 3 (epoch 0)
-Jan 07, 2026 12:22:31 AM edu.yu.cs.com3800.stage5.PeerServerImpl recoveryPullPhase
-INFO: 3: starting recovery pull phase
-Jan 07, 2026 12:22:31 AM edu.yu.cs.com3800.stage5.PeerServerImpl recoveryPullPhase
-INFO: Attempting recovery pull from follower 1
-Jan 07, 2026 12:22:31 AM edu.yu.cs.com3800.stage5.TCPServer run
-INFO: TCPServer started. Listening on port 8032
-Jan 07, 2026 12:22:31 AM edu.yu.cs.com3800.stage5.PeerServerImpl recoveryPullPhase
-INFO: Recovery pull from follower 1 failed (attempt 0), retrying...
-Jan 07, 2026 12:22:31 AM edu.yu.cs.com3800.stage5.PeerServerImpl startFollowerThread
-INFO: Server 2: Started JavaRunnerFollower thread.
-Jan 07, 2026 12:22:31 AM edu.yu.cs.com3800.stage5.JavaRunnerFollower run
-INFO: JavaRunnerFollower started. Listening on TCP port 8012
-Jan 07, 2026 12:22:31 AM edu.yu.cs.com3800.stage5.PeerServerImpl startFollowerThread
-INFO: Server 1: Started JavaRunnerFollower thread.
-Jan 07, 2026 12:22:31 AM edu.yu.cs.com3800.stage5.JavaRunnerFollower run
-INFO: JavaRunnerFollower started. Listening on TCP port 8022
-Jan 07, 2026 12:22:31 AM edu.yu.cs.com3800.stage5.GatewayServer markLeaderAlive
-INFO: Leader elected: 3
-Jan 07, 2026 12:22:32 AM edu.yu.cs.com3800.stage5.JavaRunnerFollower handleRecoveryRequest
-INFO: No cached work to recover for new leader at port 8012
-Jan 07, 2026 12:22:32 AM edu.yu.cs.com3800.stage5.PeerServerImpl recoveryPullPhase
-INFO: No completed work to recover from follower 1
-Jan 07, 2026 12:22:32 AM edu.yu.cs.com3800.stage5.PeerServerImpl recoveryPullPhase
-INFO: Attempting recovery pull from follower 2
-Jan 07, 2026 12:22:33 AM edu.yu.cs.com3800.stage5.JavaRunnerFollower handleRecoveryRequest
-INFO: No cached work to recover for new leader at port 8022
-Jan 07, 2026 12:22:33 AM edu.yu.cs.com3800.stage5.PeerServerImpl recoveryPullPhase
-INFO: No completed work to recover from follower 2
-Jan 07, 2026 12:22:33 AM edu.yu.cs.com3800.stage5.PeerServerImpl recoveryPullPhase
-INFO: 3: recovery pull phase complete
-Jan 07, 2026 12:22:33 AM edu.yu.cs.com3800.stage5.RoundRobinLeader <init>
-INFO: RoundRobinLeader initialized.
-Jan 07, 2026 12:22:33 AM edu.yu.cs.com3800.stage5.RoundRobinLeader <init>
-INFO: Adding worker 1 at localhost/127.0.0.1:8010
-Jan 07, 2026 12:22:33 AM edu.yu.cs.com3800.stage5.RoundRobinLeader <init>
-INFO: Adding worker 2 at localhost/127.0.0.1:8020
-Jan 07, 2026 12:22:33 AM edu.yu.cs.com3800.stage5.PeerServerImpl startLeaderThread
-INFO: Server 3 started Leader workers (TCPServer + RoundRobinLeader)
-Jan 07, 2026 12:22:34 AM edu.yu.cs.com3800.stage5.GossipSenderThread run
-INFO: GossipSenderThread for 1 shutting down.
-Jan 07, 2026 12:22:34 AM edu.yu.cs.com3800.stage5.FailureDetectorThread run
-INFO: FailureDetectorThread for 1 shutting down.
-Jan 07, 2026 12:22:34 AM edu.yu.cs.com3800.stage5.GossipReceiverThread run
-INFO: GossipReceiverThread for 1 shutting down.
-Jan 07, 2026 12:22:34 AM edu.yu.cs.com3800.stage5.PeerServerImpl stopFollowerThread
-INFO: Server 1: Stopped JavaRunnerFollower thread.
-Jan 07, 2026 12:22:34 AM edu.yu.cs.com3800.UDPMessageSender run
-SEVERE: Exiting UDPMessageSender.run()
-Jan 07, 2026 12:22:34 AM edu.yu.cs.com3800.stage5.PeerServerImpl shutdown
-INFO: Server 1 shutting down.
-Jan 07, 2026 12:22:34 AM edu.yu.cs.com3800.stage5.GossipSenderThread run
-INFO: GossipSenderThread for 2 shutting down.
-Jan 07, 2026 12:22:34 AM edu.yu.cs.com3800.stage5.PeerServerImpl stopFollowerThread
-INFO: Server 2: Stopped JavaRunnerFollower thread.
-Jan 07, 2026 12:22:34 AM edu.yu.cs.com3800.stage5.FailureDetectorThread run
-INFO: FailureDetectorThread for 2 shutting down.
-Jan 07, 2026 12:22:34 AM edu.yu.cs.com3800.stage5.GossipReceiverThread run
-INFO: GossipReceiverThread for 2 shutting down.
-Jan 07, 2026 12:22:34 AM edu.yu.cs.com3800.UDPMessageSender run
-SEVERE: Exiting UDPMessageSender.run()
-Jan 07, 2026 12:22:34 AM edu.yu.cs.com3800.stage5.PeerServerImpl shutdown
-INFO: Server 2 shutting down.
-Jan 07, 2026 12:22:34 AM edu.yu.cs.com3800.stage5.FailureDetectorThread run
-INFO: FailureDetectorThread for 3 shutting down.
-Jan 07, 2026 12:22:34 AM edu.yu.cs.com3800.stage5.GossipSenderThread run
-INFO: GossipSenderThread for 3 shutting down.
-Jan 07, 2026 12:22:34 AM edu.yu.cs.com3800.stage5.GossipReceiverThread run
-INFO: GossipReceiverThread for 3 shutting down.
-Jan 07, 2026 12:22:34 AM edu.yu.cs.com3800.stage5.PeerServerImpl stopLeaderThread
-INFO: Server 3: Stopped RoundRobinLeader thread.
-Jan 07, 2026 12:22:34 AM edu.yu.cs.com3800.UDPMessageSender run
-SEVERE: Exiting UDPMessageSender.run()
-Jan 07, 2026 12:22:34 AM edu.yu.cs.com3800.stage5.PeerServerImpl shutdown
-INFO: Server 3 shutting down.
-Jan 07, 2026 12:22:34 AM edu.yu.cs.com3800.stage5.GatewayServer shutdown
-INFO: Shutting down NewGatewayServer
-Jan 07, 2026 12:22:34 AM edu.yu.cs.com3800.stage5.GatewayServer shutdown
-INFO: HTTP server stopped.
-Jan 07, 2026 12:22:34 AM edu.yu.cs.com3800.stage5.GatewayServer shutdown
-INFO: HTTP thread pool shut down.
-Jan 07, 2026 12:22:34 AM edu.yu.cs.com3800.UDPMessageSender run
-SEVERE: Exiting UDPMessageSender.run()
-Jan 07, 2026 12:22:34 AM edu.yu.cs.com3800.stage5.GossipReceiverThread run
-INFO: GossipReceiverThread for 0 shutting down.
-Jan 07, 2026 12:22:34 AM edu.yu.cs.com3800.stage5.GossipSenderThread run
-INFO: GossipSenderThread for 0 shutting down.
-Jan 07, 2026 12:22:34 AM edu.yu.cs.com3800.stage5.PeerServerImpl shutdown
-INFO: Server 0 shutting down.
-Jan 07, 2026 12:22:34 AM edu.yu.cs.com3800.stage5.FailureDetectorThread run
-INFO: FailureDetectorThread for 0 shutting down.
-Jan 07, 2026 12:22:34 AM edu.yu.cs.com3800.stage5.GatewayServer shutdown
-INFO: GatewayPeerServerImpl shut down.
-Jan 07, 2026 12:22:34 AM edu.yu.cs.com3800.stage5.GatewayServer shutdown
-INFO: GatewayServer shutdown complete.
-Jan 07, 2026 12:22:34 AM edu.yu.cs.com3800.stage5.PeerServerImpl shutdown
-INFO: Server 0 shutting down.
-Jan 07, 2026 12:22:34 AM edu.yu.cs.com3800.stage5.PeerServerImpl shutdown
-INFO: Server 3 shutting down.
-Jan 07, 2026 12:22:34 AM edu.yu.cs.com3800.stage5.PeerServerImpl <init>
-INFO: PeerServer 1 constructed
-Jan 07, 2026 12:22:34 AM edu.yu.cs.com3800.stage5.PeerServerImpl <init>
-INFO: PeerServer 2 constructed
-Jan 07, 2026 12:22:34 AM edu.yu.cs.com3800.stage5.PeerServerImpl <init>
-INFO: PeerServer 3 constructed
-Jan 07, 2026 12:22:34 AM edu.yu.cs.com3800.stage5.PeerServerImpl startHttpStatusServer
-INFO: Peer 2 HTTP status server started on port 8125
-Jan 07, 2026 12:22:34 AM edu.yu.cs.com3800.stage5.PeerServerImpl startHttpStatusServer
-INFO: Peer 1 HTTP status server started on port 8115
-Jan 07, 2026 12:22:34 AM edu.yu.cs.com3800.stage5.PeerServerImpl startHttpStatusServer
-INFO: Peer 3 HTTP status server started on port 8135
-Jan 07, 2026 12:22:34 AM edu.yu.cs.com3800.stage5.PeerServerImpl <init>
-INFO: PeerServer 0 constructed
-0: switching from LOOKING to OBSERVER
-Jan 07, 2026 12:22:34 AM edu.yu.cs.com3800.stage5.GossipSenderThread run
-INFO: GossipThread for 2 started.
-Jan 07, 2026 12:22:34 AM edu.yu.cs.com3800.stage5.PeerServerImpl setPeerState
-INFO: 0: switching from LOOKING to OBSERVER
-Jan 07, 2026 12:22:34 AM edu.yu.cs.com3800.stage5.GossipSenderThread run
-INFO: GossipThread for 3 started.
-Jan 07, 2026 12:22:34 AM edu.yu.cs.com3800.stage5.GatewayServer run
-INFO: GatewayServer thread started.
-Jan 07, 2026 12:22:34 AM edu.yu.cs.com3800.stage5.GossipSenderThread run
-INFO: GossipThread for 1 started.
-Jan 07, 2026 12:22:34 AM edu.yu.cs.com3800.stage5.PeerServerImpl startHttpStatusServer
-INFO: Peer 0 HTTP status server started on port 8145
-Jan 07, 2026 12:22:34 AM edu.yu.cs.com3800.stage5.GossipSenderThread run
-INFO: GossipThread for 0 started.
-Jan 07, 2026 12:22:34 AM edu.yu.cs.com3800.UDPMessageReceiver run
-SEVERE: Exiting UDPMessageReceiver.run()
-Jan 07, 2026 12:22:34 AM edu.yu.cs.com3800.UDPMessageReceiver run
-SEVERE: Exiting UDPMessageReceiver.run()
-Jan 07, 2026 12:22:34 AM edu.yu.cs.com3800.UDPMessageReceiver run
-SEVERE: failed to create receiving socket on 8030
-java.net.BindException: Address already in use
-	at java.base/sun.nio.ch.Net.bind0(Native Method)
-	at java.base/sun.nio.ch.Net.bind(Net.java:565)
-	at java.base/sun.nio.ch.DatagramChannelImpl.bindInternal(DatagramChannelImpl.java:1329)
-	at java.base/sun.nio.ch.DatagramChannelImpl.bind(DatagramChannelImpl.java:1299)
-	at java.base/sun.nio.ch.DatagramSocketAdaptor.bind(DatagramSocketAdaptor.java:108)
-	at java.base/java.net.DatagramSocket.createDelegate(DatagramSocket.java:1425)
-	at java.base/java.net.DatagramSocket.<init>(DatagramSocket.java:328)
-	at edu.yu.cs.com3800.UDPMessageReceiver.run(UDPMessageReceiver.java:37)
-
-Jan 07, 2026 12:22:34 AM edu.yu.cs.com3800.UDPMessageReceiver run
-SEVERE: Exiting UDPMessageReceiver.run()
-Jan 07, 2026 12:22:34 AM edu.yu.cs.com3800.UDPMessageReceiver run
-SEVERE: failed to create receiving socket on 8020
-java.net.BindException: Address already in use
-	at java.base/sun.nio.ch.Net.bind0(Native Method)
-	at java.base/sun.nio.ch.Net.bind(Net.java:565)
-	at java.base/sun.nio.ch.DatagramChannelImpl.bindInternal(DatagramChannelImpl.java:1329)
-	at java.base/sun.nio.ch.DatagramChannelImpl.bind(DatagramChannelImpl.java:1299)
-	at java.base/sun.nio.ch.DatagramSocketAdaptor.bind(DatagramSocketAdaptor.java:108)
-	at java.base/java.net.DatagramSocket.createDelegate(DatagramSocket.java:1425)
-	at java.base/java.net.DatagramSocket.<init>(DatagramSocket.java:328)
-	at edu.yu.cs.com3800.UDPMessageReceiver.run(UDPMessageReceiver.java:37)
-
-Jan 07, 2026 12:22:34 AM edu.yu.cs.com3800.UDPMessageReceiver run
-SEVERE: Exiting UDPMessageReceiver.run()
-Jan 07, 2026 12:22:34 AM edu.yu.cs.com3800.stage5.PeerServerImpl shutdown
-INFO: Server 2 shutting down.
-Jan 07, 2026 12:22:34 AM edu.yu.cs.com3800.LeaderElection observeElectionAsGateway
-INFO: Observer: watching election traffic…
-Jan 07, 2026 12:22:34 AM edu.yu.cs.com3800.stage5.PeerServerImpl shutdown
-INFO: Server 1 shutting down.
 1: switching from LOOKING to FOLLOWING
-Jan 07, 2026 12:22:37 AM edu.yu.cs.com3800.stage5.PeerServerImpl setPeerState
+Jan 07, 2026 10:48:41 AM edu.yu.cs.com3800.stage5.PeerServerImpl setPeerState
 INFO: 1: switching from LOOKING to FOLLOWING
-Jan 07, 2026 12:22:37 AM edu.yu.cs.com3800.LeaderElection acceptElectionWinner
-INFO: Server 1 accepted election winner: leader=3, epoch=0, state=FOLLOWING
-Jan 07, 2026 12:22:37 AM edu.yu.cs.com3800.LeaderElection observeElectionAsGateway
-INFO: Observer: saw FOLLOWING message indicating leader 3
-0: switching from OBSERVER to OBSERVER
-Jan 07, 2026 12:22:37 AM edu.yu.cs.com3800.stage5.PeerServerImpl setPeerState
-INFO: 0: switching from OBSERVER to OBSERVER
-Jan 07, 2026 12:22:37 AM edu.yu.cs.com3800.LeaderElection finalizeObserverVote
-INFO: Observer has learned the leader: 3 (epoch 0)
-Jan 07, 2026 12:22:37 AM edu.yu.cs.com3800.stage5.PeerServerImpl startFollowerThread
+Jan 07, 2026 10:48:41 AM edu.yu.cs.com3800.LeaderElection acceptElectionWinner
+INFO: Server 1 accepted election winner: leader=7, epoch=0, state=FOLLOWING
+Jan 07, 2026 10:48:41 AM edu.yu.cs.com3800.stage5.PeerServerImpl startLeaderThread
+INFO: Server 7 started TCPServer.
+Jan 07, 2026 10:48:41 AM edu.yu.cs.com3800.stage5.PeerServerImpl recoveryPullPhase
+INFO: 7: starting recovery pull phase
+Jan 07, 2026 10:48:41 AM edu.yu.cs.com3800.stage5.PeerServerImpl recoveryPullPhase
+INFO: Attempting recovery pull from follower 1
+Jan 07, 2026 10:48:41 AM edu.yu.cs.com3800.stage5.TCPServer run
+INFO: TCPServer started. Listening on port 8018
+Jan 07, 2026 10:48:41 AM edu.yu.cs.com3800.LeaderElection observeElectionAsGateway
+INFO: Observer: saw FOLLOWING message indicating leader 7
+Jan 07, 2026 10:48:41 AM edu.yu.cs.com3800.stage5.PeerServerImpl recoveryPullPhase
+INFO: Recovery pull from follower 1 failed (attempt 0), retrying...
+8: switching from OBSERVER to OBSERVER
+Jan 07, 2026 10:48:41 AM edu.yu.cs.com3800.stage5.PeerServerImpl setPeerState
+INFO: 8: switching from OBSERVER to OBSERVER
+Jan 07, 2026 10:48:41 AM edu.yu.cs.com3800.LeaderElection finalizeObserverVote
+INFO: Observer has learned the leader: 7 (epoch 0)
+Jan 07, 2026 10:48:41 AM edu.yu.cs.com3800.stage5.PeerServerImpl startFollowerThread
+INFO: Server 2: Started JavaRunnerFollower thread.
+Jan 07, 2026 10:48:41 AM edu.yu.cs.com3800.stage5.PeerServerImpl startFollowerThread
+INFO: Server 6: Started JavaRunnerFollower thread.
+Jan 07, 2026 10:48:41 AM edu.yu.cs.com3800.stage5.JavaRunnerFollower run
+INFO: JavaRunnerFollower started. Listening on TCP port 8017
+Jan 07, 2026 10:48:41 AM edu.yu.cs.com3800.stage5.JavaRunnerFollower run
+INFO: JavaRunnerFollower started. Listening on TCP port 8013
+Jan 07, 2026 10:48:41 AM edu.yu.cs.com3800.stage5.PeerServerImpl startFollowerThread
+INFO: Server 5: Started JavaRunnerFollower thread.
+Jan 07, 2026 10:48:41 AM edu.yu.cs.com3800.stage5.JavaRunnerFollower run
+INFO: JavaRunnerFollower started. Listening on TCP port 8016
+Jan 07, 2026 10:48:41 AM edu.yu.cs.com3800.stage5.PeerServerImpl startFollowerThread
 INFO: Server 1: Started JavaRunnerFollower thread.
-Jan 07, 2026 12:22:37 AM edu.yu.cs.com3800.stage5.JavaRunnerFollower run
+Jan 07, 2026 10:48:41 AM edu.yu.cs.com3800.stage5.JavaRunnerFollower run
 INFO: JavaRunnerFollower started. Listening on TCP port 8012
-Jan 07, 2026 12:22:37 AM edu.yu.cs.com3800.stage5.GatewayServer markLeaderAlive
-INFO: Leader elected: 3
-Jan 07, 2026 12:22:40 AM edu.yu.cs.com3800.stage5.CompileAndRunHandler handle
+Jan 07, 2026 10:48:41 AM edu.yu.cs.com3800.stage5.JavaRunnerFollower run
+INFO: JavaRunnerFollower started. Listening on TCP port 8014
+Jan 07, 2026 10:48:41 AM edu.yu.cs.com3800.stage5.PeerServerImpl startFollowerThread
+INFO: Server 3: Started JavaRunnerFollower thread.
+Jan 07, 2026 10:48:41 AM edu.yu.cs.com3800.stage5.GatewayServer markLeaderAlive
+INFO: Leader elected: 7
+4: switching from LOOKING to FOLLOWING
+Jan 07, 2026 10:48:41 AM edu.yu.cs.com3800.stage5.PeerServerImpl setPeerState
+INFO: 4: switching from LOOKING to FOLLOWING
+Jan 07, 2026 10:48:41 AM edu.yu.cs.com3800.LeaderElection acceptElectionWinner
+INFO: Server 4 accepted election winner: leader=7, epoch=0, state=FOLLOWING
+Jan 07, 2026 10:48:41 AM edu.yu.cs.com3800.stage5.PeerServerImpl startFollowerThread
+INFO: Server 4: Started JavaRunnerFollower thread.
+Jan 07, 2026 10:48:41 AM edu.yu.cs.com3800.stage5.JavaRunnerFollower run
+INFO: JavaRunnerFollower started. Listening on TCP port 8015
+Jan 07, 2026 10:48:42 AM edu.yu.cs.com3800.stage5.JavaRunnerFollower handleRecoveryRequest
+INFO: No cached work to recover for new leader at port 8012
+
+Leader elected: 7
+
+Election successful.
+
+Cluster roles:
+--------------
+Server 1: FOLLOWING
+Server 2: FOLLOWING
+Server 3: FOLLOWING
+Server 4: FOLLOWING
+Server 5: FOLLOWING
+Server 6: FOLLOWING
+Server 7: LEADING
+Gateway: OBSERVER
+
+
+Sending 9 client requests through Gateway
+-----------------------------------------
+
+Request 1:
+public class HW1 {
+    public String run() {
+        return "Recovered 1";
+    }
+}
+
+Jan 07, 2026 10:48:42 AM edu.yu.cs.com3800.stage5.CompileAndRunHandler handle
 INFO: Gateway received /compileandrun request (ID=1)
-Jan 07, 2026 12:22:40 AM edu.yu.cs.com3800.stage5.CompileAndRunHandler handle
+Jan 07, 2026 10:48:42 AM edu.yu.cs.com3800.stage5.CompileAndRunHandler handle
 INFO: Cache MISS for request ID 1 — enqueueing
-Jan 07, 2026 12:22:40 AM edu.yu.cs.com3800.stage5.TCPServer run
-WARNING: Received empty TCP request from /127.0.0.1. Closing connection.
-Jan 07, 2026 12:22:40 AM edu.yu.cs.com3800.stage5.TCPServer run
-INFO: TCPServer shutting down.
-Jan 07, 2026 12:22:45 AM edu.yu.cs.com3800.stage5.GatewayServer sendToLeader
+Jan 07, 2026 10:48:42 AM edu.yu.cs.com3800.stage5.PeerServerImpl recoveryPullPhase
+INFO: No completed work to recover from follower 1
+Jan 07, 2026 10:48:42 AM edu.yu.cs.com3800.stage5.PeerServerImpl recoveryPullPhase
+INFO: Attempting recovery pull from follower 2
+Jan 07, 2026 10:48:42 AM edu.yu.cs.com3800.stage5.JavaRunnerFollower handleRecoveryRequest
+INFO: No cached work to recover for new leader at port 8013
+Jan 07, 2026 10:48:43 AM edu.yu.cs.com3800.stage5.PeerServerImpl recoveryPullPhase
+INFO: No completed work to recover from follower 2
+Jan 07, 2026 10:48:43 AM edu.yu.cs.com3800.stage5.PeerServerImpl recoveryPullPhase
+INFO: Attempting recovery pull from follower 3
+Jan 07, 2026 10:48:43 AM edu.yu.cs.com3800.stage5.JavaRunnerFollower handleRecoveryRequest
+INFO: No cached work to recover for new leader at port 8014
+Jan 07, 2026 10:48:43 AM edu.yu.cs.com3800.stage5.PeerServerImpl recoveryPullPhase
+INFO: No completed work to recover from follower 3
+Jan 07, 2026 10:48:43 AM edu.yu.cs.com3800.stage5.PeerServerImpl recoveryPullPhase
+INFO: Attempting recovery pull from follower 4
+Jan 07, 2026 10:48:43 AM edu.yu.cs.com3800.stage5.JavaRunnerFollower handleRecoveryRequest
+INFO: No cached work to recover for new leader at port 8015
+Jan 07, 2026 10:48:44 AM edu.yu.cs.com3800.stage5.PeerServerImpl recoveryPullPhase
+INFO: No completed work to recover from follower 4
+Jan 07, 2026 10:48:44 AM edu.yu.cs.com3800.stage5.PeerServerImpl recoveryPullPhase
+INFO: Attempting recovery pull from follower 5
+Jan 07, 2026 10:48:44 AM edu.yu.cs.com3800.stage5.JavaRunnerFollower handleRecoveryRequest
+INFO: No cached work to recover for new leader at port 8016
+Jan 07, 2026 10:48:44 AM edu.yu.cs.com3800.stage5.PeerServerImpl recoveryPullPhase
+INFO: No completed work to recover from follower 5
+Jan 07, 2026 10:48:44 AM edu.yu.cs.com3800.stage5.PeerServerImpl recoveryPullPhase
+INFO: Attempting recovery pull from follower 6
+Jan 07, 2026 10:48:44 AM edu.yu.cs.com3800.stage5.JavaRunnerFollower handleRecoveryRequest
+INFO: No cached work to recover for new leader at port 8017
+Jan 07, 2026 10:48:45 AM edu.yu.cs.com3800.stage5.PeerServerImpl recoveryPullPhase
+INFO: No completed work to recover from follower 6
+Jan 07, 2026 10:48:45 AM edu.yu.cs.com3800.stage5.PeerServerImpl recoveryPullPhase
+INFO: 7: recovery pull phase complete
+Jan 07, 2026 10:48:45 AM edu.yu.cs.com3800.stage5.RoundRobinLeader <init>
+INFO: RoundRobinLeader initialized.
+Jan 07, 2026 10:48:45 AM edu.yu.cs.com3800.stage5.RoundRobinLeader <init>
+INFO: Adding worker 1 at localhost/127.0.0.1:8010
+Jan 07, 2026 10:48:45 AM edu.yu.cs.com3800.stage5.RoundRobinLeader <init>
+INFO: Adding worker 2 at localhost/127.0.0.1:8011
+Jan 07, 2026 10:48:45 AM edu.yu.cs.com3800.stage5.RoundRobinLeader <init>
+INFO: Adding worker 3 at localhost/127.0.0.1:8012
+Jan 07, 2026 10:48:45 AM edu.yu.cs.com3800.stage5.RoundRobinLeader <init>
+INFO: Adding worker 4 at localhost/127.0.0.1:8013
+Jan 07, 2026 10:48:45 AM edu.yu.cs.com3800.stage5.RoundRobinLeader <init>
+INFO: Adding worker 5 at localhost/127.0.0.1:8014
+Jan 07, 2026 10:48:45 AM edu.yu.cs.com3800.stage5.RoundRobinLeader <init>
+INFO: Adding worker 6 at localhost/127.0.0.1:8015
+Jan 07, 2026 10:48:45 AM edu.yu.cs.com3800.stage5.PeerServerImpl startLeaderThread
+INFO: Server 7 started Leader workers (TCPServer + RoundRobinLeader)
+Jan 07, 2026 10:48:45 AM edu.yu.cs.com3800.stage5.RoundRobinLeader run
+INFO: Leader received request from gateway at port 8888.
+Jan 07, 2026 10:48:45 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: No cached result found. Processing new work request ID 1
+Jan 07, 2026 10:48:45 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Picked worker localhost:8012
+Jan 07, 2026 10:48:45 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Connecting to worker at localhost:8012
+Jan 07, 2026 10:48:45 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Sending message from leader to 8012
+Jan 07, 2026 10:48:45 AM edu.yu.cs.com3800.stage5.JavaRunnerFollower handleWork
+INFO: Received WORK request ID 1 from Leader at port 8018
+Jan 07, 2026 10:48:46 AM edu.yu.cs.com3800.stage5.JavaRunnerFollower handleWork
+INFO: Successfully sent work from worker 8012 back to 8018
+Jan 07, 2026 10:48:46 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Received result from worker. Sending to Gateway.
+
+Request 2:
+public class HW2 {
+    public String run() {
+        return "Recovered 2";
+    }
+}
+
+Jan 07, 2026 10:48:46 AM edu.yu.cs.com3800.stage5.CompileAndRunHandler handle
+INFO: Gateway received /compileandrun request (ID=2)
+Jan 07, 2026 10:48:46 AM edu.yu.cs.com3800.stage5.CompileAndRunHandler handle
+INFO: Cache MISS for request ID 2 — enqueueing
+Jan 07, 2026 10:48:47 AM edu.yu.cs.com3800.stage5.RoundRobinLeader run
+INFO: Leader received request from gateway at port 8888.
+Jan 07, 2026 10:48:47 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: No cached result found. Processing new work request ID 2
+Jan 07, 2026 10:48:47 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Picked worker localhost:8013
+Jan 07, 2026 10:48:47 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Connecting to worker at localhost:8013
+Jan 07, 2026 10:48:47 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Sending message from leader to 8013
+Jan 07, 2026 10:48:47 AM edu.yu.cs.com3800.stage5.JavaRunnerFollower handleWork
+INFO: Received WORK request ID 2 from Leader at port 8018
+Jan 07, 2026 10:48:48 AM edu.yu.cs.com3800.stage5.JavaRunnerFollower handleWork
+INFO: Successfully sent work from worker 8013 back to 8018
+Jan 07, 2026 10:48:48 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Received result from worker. Sending to Gateway.
+
+Request 3:
+public class HW3 {
+    public String run() {
+        return "Recovered 3";
+    }
+}
+
+Jan 07, 2026 10:48:48 AM edu.yu.cs.com3800.stage5.CompileAndRunHandler handle
+INFO: Gateway received /compileandrun request (ID=3)
+Jan 07, 2026 10:48:48 AM edu.yu.cs.com3800.stage5.CompileAndRunHandler handle
+INFO: Cache MISS for request ID 3 — enqueueing
+Jan 07, 2026 10:48:49 AM edu.yu.cs.com3800.stage5.RoundRobinLeader run
+INFO: Leader received request from gateway at port 8888.
+Jan 07, 2026 10:48:49 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: No cached result found. Processing new work request ID 3
+Jan 07, 2026 10:48:49 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Picked worker localhost:8014
+Jan 07, 2026 10:48:49 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Connecting to worker at localhost:8014
+Jan 07, 2026 10:48:49 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Sending message from leader to 8014
+Jan 07, 2026 10:48:50 AM edu.yu.cs.com3800.stage5.JavaRunnerFollower handleWork
+INFO: Received WORK request ID 3 from Leader at port 8018
+Jan 07, 2026 10:48:50 AM edu.yu.cs.com3800.stage5.JavaRunnerFollower handleWork
+INFO: Successfully sent work from worker 8014 back to 8018
+Jan 07, 2026 10:48:50 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Received result from worker. Sending to Gateway.
+
+Request 4:
+public class HW4 {
+    public String run() {
+        return "Recovered 4";
+    }
+}
+
+Jan 07, 2026 10:48:51 AM edu.yu.cs.com3800.stage5.CompileAndRunHandler handle
+INFO: Gateway received /compileandrun request (ID=4)
+Jan 07, 2026 10:48:51 AM edu.yu.cs.com3800.stage5.CompileAndRunHandler handle
+INFO: Cache MISS for request ID 4 — enqueueing
+Jan 07, 2026 10:48:51 AM edu.yu.cs.com3800.stage5.RoundRobinLeader run
+INFO: Leader received request from gateway at port 8888.
+Jan 07, 2026 10:48:51 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: No cached result found. Processing new work request ID 4
+Jan 07, 2026 10:48:51 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Picked worker localhost:8015
+Jan 07, 2026 10:48:51 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Connecting to worker at localhost:8015
+Jan 07, 2026 10:48:51 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Sending message from leader to 8015
+Jan 07, 2026 10:48:51 AM edu.yu.cs.com3800.stage5.JavaRunnerFollower handleWork
+INFO: Received WORK request ID 4 from Leader at port 8018
+Jan 07, 2026 10:48:51 AM edu.yu.cs.com3800.stage5.JavaRunnerFollower handleWork
+INFO: Successfully sent work from worker 8015 back to 8018
+Jan 07, 2026 10:48:52 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Received result from worker. Sending to Gateway.
+
+Request 5:
+public class HW5 {
+    public String run() {
+        return "Recovered 5";
+    }
+}
+
+Jan 07, 2026 10:48:52 AM edu.yu.cs.com3800.stage5.CompileAndRunHandler handle
+INFO: Gateway received /compileandrun request (ID=5)
+Jan 07, 2026 10:48:52 AM edu.yu.cs.com3800.stage5.CompileAndRunHandler handle
+INFO: Cache MISS for request ID 5 — enqueueing
+Jan 07, 2026 10:48:53 AM edu.yu.cs.com3800.stage5.RoundRobinLeader run
+INFO: Leader received request from gateway at port 8888.
+Jan 07, 2026 10:48:53 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: No cached result found. Processing new work request ID 5
+Jan 07, 2026 10:48:53 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Picked worker localhost:8016
+Jan 07, 2026 10:48:53 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Connecting to worker at localhost:8016
+Jan 07, 2026 10:48:53 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Sending message from leader to 8016
+Jan 07, 2026 10:48:53 AM edu.yu.cs.com3800.stage5.JavaRunnerFollower handleWork
+INFO: Received WORK request ID 5 from Leader at port 8018
+Jan 07, 2026 10:48:53 AM edu.yu.cs.com3800.stage5.JavaRunnerFollower handleWork
+INFO: Successfully sent work from worker 8016 back to 8018
+Jan 07, 2026 10:48:54 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Received result from worker. Sending to Gateway.
+
+Request 6:
+public class HW6 {
+    public String run() {
+        return "Recovered 6";
+    }
+}
+
+Jan 07, 2026 10:48:54 AM edu.yu.cs.com3800.stage5.CompileAndRunHandler handle
+INFO: Gateway received /compileandrun request (ID=6)
+Jan 07, 2026 10:48:54 AM edu.yu.cs.com3800.stage5.CompileAndRunHandler handle
+INFO: Cache MISS for request ID 6 — enqueueing
+Jan 07, 2026 10:48:54 AM edu.yu.cs.com3800.stage5.RoundRobinLeader run
+INFO: Leader received request from gateway at port 8888.
+Jan 07, 2026 10:48:54 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: No cached result found. Processing new work request ID 6
+Jan 07, 2026 10:48:54 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Picked worker localhost:8017
+Jan 07, 2026 10:48:54 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Connecting to worker at localhost:8017
+Jan 07, 2026 10:48:54 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Sending message from leader to 8017
+Jan 07, 2026 10:48:55 AM edu.yu.cs.com3800.stage5.JavaRunnerFollower handleWork
+INFO: Received WORK request ID 6 from Leader at port 8018
+Jan 07, 2026 10:48:55 AM edu.yu.cs.com3800.stage5.JavaRunnerFollower handleWork
+INFO: Successfully sent work from worker 8017 back to 8018
+Jan 07, 2026 10:48:55 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Received result from worker. Sending to Gateway.
+
+Request 7:
+public class HW7 {
+    public String run() {
+        return "Recovered 7";
+    }
+}
+
+Jan 07, 2026 10:48:56 AM edu.yu.cs.com3800.stage5.CompileAndRunHandler handle
+INFO: Gateway received /compileandrun request (ID=7)
+Jan 07, 2026 10:48:56 AM edu.yu.cs.com3800.stage5.CompileAndRunHandler handle
+INFO: Cache MISS for request ID 7 — enqueueing
+Jan 07, 2026 10:48:56 AM edu.yu.cs.com3800.stage5.RoundRobinLeader run
+INFO: Leader received request from gateway at port 8888.
+Jan 07, 2026 10:48:56 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: No cached result found. Processing new work request ID 7
+Jan 07, 2026 10:48:56 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Picked worker localhost:8012
+Jan 07, 2026 10:48:56 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Connecting to worker at localhost:8012
+Jan 07, 2026 10:48:56 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Sending message from leader to 8012
+Jan 07, 2026 10:48:57 AM edu.yu.cs.com3800.stage5.JavaRunnerFollower handleWork
+INFO: Received WORK request ID 7 from Leader at port 8018
+Jan 07, 2026 10:48:57 AM edu.yu.cs.com3800.stage5.JavaRunnerFollower handleWork
+INFO: Successfully sent work from worker 8012 back to 8018
+Jan 07, 2026 10:48:57 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Received result from worker. Sending to Gateway.
+
+Request 8:
+public class HW8 {
+    public String run() {
+        return "Recovered 8";
+    }
+}
+
+Jan 07, 2026 10:48:58 AM edu.yu.cs.com3800.stage5.CompileAndRunHandler handle
+INFO: Gateway received /compileandrun request (ID=8)
+Jan 07, 2026 10:48:58 AM edu.yu.cs.com3800.stage5.CompileAndRunHandler handle
+INFO: Cache MISS for request ID 8 — enqueueing
+Jan 07, 2026 10:48:58 AM edu.yu.cs.com3800.stage5.RoundRobinLeader run
+INFO: Leader received request from gateway at port 8888.
+Jan 07, 2026 10:48:58 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: No cached result found. Processing new work request ID 8
+Jan 07, 2026 10:48:58 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Picked worker localhost:8013
+Jan 07, 2026 10:48:58 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Connecting to worker at localhost:8013
+Jan 07, 2026 10:48:58 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Sending message from leader to 8013
+Jan 07, 2026 10:48:58 AM edu.yu.cs.com3800.stage5.JavaRunnerFollower handleWork
+INFO: Received WORK request ID 8 from Leader at port 8018
+Jan 07, 2026 10:48:58 AM edu.yu.cs.com3800.stage5.JavaRunnerFollower handleWork
+INFO: Successfully sent work from worker 8013 back to 8018
+Jan 07, 2026 10:48:59 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Received result from worker. Sending to Gateway.
+
+Request 9:
+public class HW9 {
+    public String run() {
+        return "Recovered 9";
+    }
+}
+
+Jan 07, 2026 10:48:59 AM edu.yu.cs.com3800.stage5.CompileAndRunHandler handle
+INFO: Gateway received /compileandrun request (ID=9)
+Jan 07, 2026 10:48:59 AM edu.yu.cs.com3800.stage5.CompileAndRunHandler handle
+INFO: Cache MISS for request ID 9 — enqueueing
+Jan 07, 2026 10:49:00 AM edu.yu.cs.com3800.stage5.RoundRobinLeader run
+INFO: Leader received request from gateway at port 8888.
+Jan 07, 2026 10:49:00 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: No cached result found. Processing new work request ID 9
+Jan 07, 2026 10:49:00 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Picked worker localhost:8014
+Jan 07, 2026 10:49:00 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Connecting to worker at localhost:8014
+Jan 07, 2026 10:49:00 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Sending message from leader to 8014
+Jan 07, 2026 10:49:00 AM edu.yu.cs.com3800.stage5.JavaRunnerFollower handleWork
+INFO: Received WORK request ID 9 from Leader at port 8018
+Jan 07, 2026 10:49:00 AM edu.yu.cs.com3800.stage5.JavaRunnerFollower handleWork
+INFO: Successfully sent work from worker 8014 back to 8018
+Jan 07, 2026 10:49:01 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Received result from worker. Sending to Gateway.
+
+Cluster responses:
+------------------
+
+Response 1:
+Recovered 1
+
+Response 2:
+Recovered 2
+
+Response 3:
+Recovered 3
+
+Response 4:
+Recovered 4
+
+Response 5:
+Recovered 5
+
+Response 6:
+Recovered 6
+
+Response 7:
+Recovered 7
+
+Response 8:
+Recovered 8
+
+Response 9:
+Recovered 9
+
+Killing a follower JVM...
+Killing follower 1 (PID 93159)
+
+Waiting for failure detection (45 seconds)...
+2: no heartbeat from server 1 - SERVER FAILED
+Jan 07, 2026 10:49:32 AM edu.yu.cs.com3800.stage5.FailureDetectorThread run
+INFO: 2: no heartbeat from server 1 - SERVER FAILED
+6: no heartbeat from server 1 - SERVER FAILED
+Jan 07, 2026 10:49:38 AM edu.yu.cs.com3800.stage5.FailureDetectorThread run
+INFO: 6: no heartbeat from server 1 - SERVER FAILED
+5: no heartbeat from server 1 - SERVER FAILED
+Jan 07, 2026 10:49:38 AM edu.yu.cs.com3800.stage5.FailureDetectorThread run
+INFO: 5: no heartbeat from server 1 - SERVER FAILED
+7: no heartbeat from server 1 - SERVER FAILED
+Jan 07, 2026 10:49:38 AM edu.yu.cs.com3800.stage5.FailureDetectorThread run
+INFO: 7: no heartbeat from server 1 - SERVER FAILED
+Jan 07, 2026 10:49:38 AM edu.yu.cs.com3800.stage5.RoundRobinLeader removeWorker
+INFO: Removed failed worker 1
+4: no heartbeat from server 1 - SERVER FAILED
+Jan 07, 2026 10:49:38 AM edu.yu.cs.com3800.stage5.FailureDetectorThread run
+INFO: 4: no heartbeat from server 1 - SERVER FAILED
+8: no heartbeat from server 1 - SERVER FAILED
+Jan 07, 2026 10:49:44 AM edu.yu.cs.com3800.stage5.FailureDetectorThread run
+INFO: 8: no heartbeat from server 1 - SERVER FAILED
+3: no heartbeat from server 1 - SERVER FAILED
+Jan 07, 2026 10:49:44 AM edu.yu.cs.com3800.stage5.FailureDetectorThread run
+INFO: 3: no heartbeat from server 1 - SERVER FAILED
+./demo5.sh: line 244: 93159 Killed: 9               java ${JAVA_OPTS} -cp "${CLASSPATH}" ${PEER_RUNNER} ${i} ${NUM_VOTING_PEERS} ${BASE_UDP_PORT} ${UDP_PORT}
+
+Cluster membership after failure:
+--------------------------------
+Leader: 7
+Live nodes:
+2
+3
+4
+5
+6
+7
+8
+
+
+==========================================
+Killing the LEADER and waiting for re-election
+==========================================
+Current leader is 7
+Killing leader 7 (PID 93165)
+
+Pausing 1000ms after leader kill...
+./demo5.sh: line 285: 93165 Killed: 9               java ${JAVA_OPTS} -cp "${CLASSPATH}" ${PEER_RUNNER} ${i} ${NUM_VOTING_PEERS} ${BASE_UDP_PORT} ${UDP_PORT}
+
+Sending 9 MORE client requests through Gateway (background)
+----------------------------------------------------------
+Dispatched post-failure request 1 (pid=93236)
+Jan 07, 2026 10:49:48 AM edu.yu.cs.com3800.stage5.CompileAndRunHandler handle
+INFO: Gateway received /compileandrun request (ID=10)
+Jan 07, 2026 10:49:48 AM edu.yu.cs.com3800.stage5.CompileAndRunHandler handle
+INFO: Cache MISS for request ID 10 — enqueueing
+Dispatched post-failure request 2 (pid=93240)
+Jan 07, 2026 10:49:48 AM edu.yu.cs.com3800.stage5.GatewayServer sendToLeader
 WARNING: Error sending to leader, requeueing
-java.io.IOException: Empty response from leader
-	at edu.yu.cs.com3800.stage5.GatewayServer.sendToLeader(GatewayServer.java:217)
+java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.Net.connect0(Native Method)
+	at java.base/sun.nio.ch.Net.connect(Net.java:589)
+	at java.base/sun.nio.ch.Net.connect(Net.java:578)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:583)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+	at java.base/java.net.Socket.connect(Socket.java:751)
+	at java.base/java.net.Socket.connect(Socket.java:686)
+	at java.base/java.net.Socket.<init>(Socket.java:555)
+	at java.base/java.net.Socket.<init>(Socket.java:324)
+	at edu.yu.cs.com3800.stage5.GatewayServer.sendToLeader(GatewayServer.java:199)
 	at edu.yu.cs.com3800.stage5.GatewayServer.enqueueRequest(GatewayServer.java:153)
 	at edu.yu.cs.com3800.stage5.CompileAndRunHandler.handle(CompileAndRunHandler.java:80)
 	at edu.yu.cs.com3800.stage5.GatewayServer.lambda$new$0(GatewayServer.java:82)
@@ -295,98 +618,718 @@ java.io.IOException: Empty response from leader
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
 	at java.base/java.lang.Thread.run(Thread.java:1583)
 
-3: no heartbeat from server 0 - SERVER FAILED
-2: no heartbeat from server 0 - SERVER FAILED
-Jan 07, 2026 12:23:04 AM edu.yu.cs.com3800.stage5.FailureDetectorThread run
-INFO: 3: no heartbeat from server 0 - SERVER FAILED
-3: no heartbeat from server 1 - SERVER FAILED
-Jan 07, 2026 12:23:04 AM edu.yu.cs.com3800.stage5.FailureDetectorThread run
-INFO: 3: no heartbeat from server 1 - SERVER FAILED
-3: no heartbeat from server 2 - SERVER FAILED
-Jan 07, 2026 12:23:04 AM edu.yu.cs.com3800.stage5.FailureDetectorThread run
-INFO: 3: no heartbeat from server 2 - SERVER FAILED
-Jan 07, 2026 12:23:04 AM edu.yu.cs.com3800.stage5.FailureDetectorThread run
-INFO: 2: no heartbeat from server 0 - SERVER FAILED
-2: no heartbeat from server 1 - SERVER FAILED
-Jan 07, 2026 12:23:04 AM edu.yu.cs.com3800.stage5.FailureDetectorThread run
-INFO: 2: no heartbeat from server 1 - SERVER FAILED
-2: no heartbeat from server 3 - SERVER FAILED
-Jan 07, 2026 12:23:04 AM edu.yu.cs.com3800.stage5.FailureDetectorThread run
-INFO: 2: no heartbeat from server 3 - SERVER FAILED
-0: no heartbeat from server 3 - SERVER FAILED
-Jan 07, 2026 12:23:34 AM edu.yu.cs.com3800.stage5.FailureDetectorThread run
-INFO: 0: no heartbeat from server 3 - SERVER FAILED
-Jan 07, 2026 12:23:34 AM edu.yu.cs.com3800.stage5.PeerServerImpl reportFailedNode
-INFO: 0: detected leader failure for leader=3
-Jan 07, 2026 12:23:34 AM edu.yu.cs.com3800.stage5.PeerServerImpl reportFailedNode
-INFO: 0: observer will re-learn leader
-1: no heartbeat from server 2 - SERVER FAILED
-Jan 07, 2026 12:23:34 AM edu.yu.cs.com3800.stage5.FailureDetectorThread run
-INFO: 1: no heartbeat from server 2 - SERVER FAILED
-Jan 07, 2026 12:23:34 AM edu.yu.cs.com3800.stage5.FailureDetectorThread run
-INFO: 3: removing server 0 from heartbeat table after cleanup
-Jan 07, 2026 12:23:34 AM edu.yu.cs.com3800.stage5.FailureDetectorThread run
-INFO: 3: removing server 1 from heartbeat table after cleanup
-Jan 07, 2026 12:23:34 AM edu.yu.cs.com3800.stage5.FailureDetectorThread run
-INFO: 3: removing server 2 from heartbeat table after cleanup
-Jan 07, 2026 12:23:34 AM edu.yu.cs.com3800.stage5.FailureDetectorThread run
-INFO: 2: removing server 0 from heartbeat table after cleanup
-Jan 07, 2026 12:23:34 AM edu.yu.cs.com3800.stage5.FailureDetectorThread run
+Dispatched post-failure request 3 (pid=93244)
+Jan 07, 2026 10:49:48 AM edu.yu.cs.com3800.stage5.CompileAndRunHandler handle
+INFO: Gateway received /compileandrun request (ID=11)
+Jan 07, 2026 10:49:48 AM edu.yu.cs.com3800.stage5.CompileAndRunHandler handle
+INFO: Cache MISS for request ID 11 — enqueueing
+Jan 07, 2026 10:49:48 AM edu.yu.cs.com3800.stage5.GatewayServer sendToLeader
+WARNING: Error sending to leader, requeueing
+java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.Net.connect0(Native Method)
+	at java.base/sun.nio.ch.Net.connect(Net.java:589)
+	at java.base/sun.nio.ch.Net.connect(Net.java:578)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:583)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+	at java.base/java.net.Socket.connect(Socket.java:751)
+	at java.base/java.net.Socket.connect(Socket.java:686)
+	at java.base/java.net.Socket.<init>(Socket.java:555)
+	at java.base/java.net.Socket.<init>(Socket.java:324)
+	at edu.yu.cs.com3800.stage5.GatewayServer.sendToLeader(GatewayServer.java:199)
+	at edu.yu.cs.com3800.stage5.GatewayServer.enqueueRequest(GatewayServer.java:153)
+	at edu.yu.cs.com3800.stage5.CompileAndRunHandler.handle(CompileAndRunHandler.java:80)
+	at edu.yu.cs.com3800.stage5.GatewayServer.lambda$new$0(GatewayServer.java:82)
+	at jdk.httpserver/com.sun.net.httpserver.Filter$Chain.doFilter(Filter.java:98)
+	at jdk.httpserver/sun.net.httpserver.AuthFilter.doFilter(AuthFilter.java:82)
+	at jdk.httpserver/com.sun.net.httpserver.Filter$Chain.doFilter(Filter.java:101)
+	at jdk.httpserver/sun.net.httpserver.ServerImpl$Exchange$LinkHandler.handle(ServerImpl.java:871)
+	at jdk.httpserver/com.sun.net.httpserver.Filter$Chain.doFilter(Filter.java:98)
+	at jdk.httpserver/sun.net.httpserver.ServerImpl$Exchange.run(ServerImpl.java:847)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+Dispatched post-failure request 4 (pid=93248)
+Jan 07, 2026 10:49:48 AM edu.yu.cs.com3800.stage5.CompileAndRunHandler handle
+INFO: Gateway received /compileandrun request (ID=12)
+Jan 07, 2026 10:49:48 AM edu.yu.cs.com3800.stage5.CompileAndRunHandler handle
+INFO: Cache MISS for request ID 12 — enqueueing
+Jan 07, 2026 10:49:48 AM edu.yu.cs.com3800.stage5.GatewayServer sendToLeader
+WARNING: Error sending to leader, requeueing
+java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.Net.connect0(Native Method)
+	at java.base/sun.nio.ch.Net.connect(Net.java:589)
+	at java.base/sun.nio.ch.Net.connect(Net.java:578)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:583)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+	at java.base/java.net.Socket.connect(Socket.java:751)
+	at java.base/java.net.Socket.connect(Socket.java:686)
+	at java.base/java.net.Socket.<init>(Socket.java:555)
+	at java.base/java.net.Socket.<init>(Socket.java:324)
+	at edu.yu.cs.com3800.stage5.GatewayServer.sendToLeader(GatewayServer.java:199)
+	at edu.yu.cs.com3800.stage5.GatewayServer.enqueueRequest(GatewayServer.java:153)
+	at edu.yu.cs.com3800.stage5.CompileAndRunHandler.handle(CompileAndRunHandler.java:80)
+	at edu.yu.cs.com3800.stage5.GatewayServer.lambda$new$0(GatewayServer.java:82)
+	at jdk.httpserver/com.sun.net.httpserver.Filter$Chain.doFilter(Filter.java:98)
+	at jdk.httpserver/sun.net.httpserver.AuthFilter.doFilter(AuthFilter.java:82)
+	at jdk.httpserver/com.sun.net.httpserver.Filter$Chain.doFilter(Filter.java:101)
+	at jdk.httpserver/sun.net.httpserver.ServerImpl$Exchange$LinkHandler.handle(ServerImpl.java:871)
+	at jdk.httpserver/com.sun.net.httpserver.Filter$Chain.doFilter(Filter.java:98)
+	at jdk.httpserver/sun.net.httpserver.ServerImpl$Exchange.run(ServerImpl.java:847)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+Dispatched post-failure request 5 (pid=93252)
+Jan 07, 2026 10:49:48 AM edu.yu.cs.com3800.stage5.CompileAndRunHandler handle
+INFO: Gateway received /compileandrun request (ID=13)
+Jan 07, 2026 10:49:48 AM edu.yu.cs.com3800.stage5.CompileAndRunHandler handle
+INFO: Cache MISS for request ID 13 — enqueueing
+Jan 07, 2026 10:49:48 AM edu.yu.cs.com3800.stage5.GatewayServer sendToLeader
+WARNING: Error sending to leader, requeueing
+java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.Net.connect0(Native Method)
+	at java.base/sun.nio.ch.Net.connect(Net.java:589)
+	at java.base/sun.nio.ch.Net.connect(Net.java:578)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:583)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+	at java.base/java.net.Socket.connect(Socket.java:751)
+	at java.base/java.net.Socket.connect(Socket.java:686)
+	at java.base/java.net.Socket.<init>(Socket.java:555)
+	at java.base/java.net.Socket.<init>(Socket.java:324)
+	at edu.yu.cs.com3800.stage5.GatewayServer.sendToLeader(GatewayServer.java:199)
+	at edu.yu.cs.com3800.stage5.GatewayServer.enqueueRequest(GatewayServer.java:153)
+	at edu.yu.cs.com3800.stage5.CompileAndRunHandler.handle(CompileAndRunHandler.java:80)
+	at edu.yu.cs.com3800.stage5.GatewayServer.lambda$new$0(GatewayServer.java:82)
+	at jdk.httpserver/com.sun.net.httpserver.Filter$Chain.doFilter(Filter.java:98)
+	at jdk.httpserver/sun.net.httpserver.AuthFilter.doFilter(AuthFilter.java:82)
+	at jdk.httpserver/com.sun.net.httpserver.Filter$Chain.doFilter(Filter.java:101)
+	at jdk.httpserver/sun.net.httpserver.ServerImpl$Exchange$LinkHandler.handle(ServerImpl.java:871)
+	at jdk.httpserver/com.sun.net.httpserver.Filter$Chain.doFilter(Filter.java:98)
+	at jdk.httpserver/sun.net.httpserver.ServerImpl$Exchange.run(ServerImpl.java:847)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+Dispatched post-failure request 6 (pid=93256)
+Jan 07, 2026 10:49:48 AM edu.yu.cs.com3800.stage5.CompileAndRunHandler handle
+INFO: Gateway received /compileandrun request (ID=14)
+Jan 07, 2026 10:49:48 AM edu.yu.cs.com3800.stage5.CompileAndRunHandler handle
+INFO: Cache MISS for request ID 14 — enqueueing
+Jan 07, 2026 10:49:48 AM edu.yu.cs.com3800.stage5.GatewayServer sendToLeader
+WARNING: Error sending to leader, requeueing
+java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.Net.connect0(Native Method)
+	at java.base/sun.nio.ch.Net.connect(Net.java:589)
+	at java.base/sun.nio.ch.Net.connect(Net.java:578)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:583)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+	at java.base/java.net.Socket.connect(Socket.java:751)
+	at java.base/java.net.Socket.connect(Socket.java:686)
+	at java.base/java.net.Socket.<init>(Socket.java:555)
+	at java.base/java.net.Socket.<init>(Socket.java:324)
+	at edu.yu.cs.com3800.stage5.GatewayServer.sendToLeader(GatewayServer.java:199)
+	at edu.yu.cs.com3800.stage5.GatewayServer.enqueueRequest(GatewayServer.java:153)
+	at edu.yu.cs.com3800.stage5.CompileAndRunHandler.handle(CompileAndRunHandler.java:80)
+	at edu.yu.cs.com3800.stage5.GatewayServer.lambda$new$0(GatewayServer.java:82)
+	at jdk.httpserver/com.sun.net.httpserver.Filter$Chain.doFilter(Filter.java:98)
+	at jdk.httpserver/sun.net.httpserver.AuthFilter.doFilter(AuthFilter.java:82)
+	at jdk.httpserver/com.sun.net.httpserver.Filter$Chain.doFilter(Filter.java:101)
+	at jdk.httpserver/sun.net.httpserver.ServerImpl$Exchange$LinkHandler.handle(ServerImpl.java:871)
+	at jdk.httpserver/com.sun.net.httpserver.Filter$Chain.doFilter(Filter.java:98)
+	at jdk.httpserver/sun.net.httpserver.ServerImpl$Exchange.run(ServerImpl.java:847)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+Dispatched post-failure request 7 (pid=93260)
+Jan 07, 2026 10:49:48 AM edu.yu.cs.com3800.stage5.CompileAndRunHandler handle
+INFO: Gateway received /compileandrun request (ID=15)
+Jan 07, 2026 10:49:48 AM edu.yu.cs.com3800.stage5.CompileAndRunHandler handle
+INFO: Cache MISS for request ID 15 — enqueueing
+Dispatched post-failure request 8 (pid=93264)
+Jan 07, 2026 10:49:48 AM edu.yu.cs.com3800.stage5.GatewayServer sendToLeader
+WARNING: Error sending to leader, requeueing
+java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.Net.connect0(Native Method)
+	at java.base/sun.nio.ch.Net.connect(Net.java:589)
+	at java.base/sun.nio.ch.Net.connect(Net.java:578)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:583)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+	at java.base/java.net.Socket.connect(Socket.java:751)
+	at java.base/java.net.Socket.connect(Socket.java:686)
+	at java.base/java.net.Socket.<init>(Socket.java:555)
+	at java.base/java.net.Socket.<init>(Socket.java:324)
+	at edu.yu.cs.com3800.stage5.GatewayServer.sendToLeader(GatewayServer.java:199)
+	at edu.yu.cs.com3800.stage5.GatewayServer.enqueueRequest(GatewayServer.java:153)
+	at edu.yu.cs.com3800.stage5.CompileAndRunHandler.handle(CompileAndRunHandler.java:80)
+	at edu.yu.cs.com3800.stage5.GatewayServer.lambda$new$0(GatewayServer.java:82)
+	at jdk.httpserver/com.sun.net.httpserver.Filter$Chain.doFilter(Filter.java:98)
+	at jdk.httpserver/sun.net.httpserver.AuthFilter.doFilter(AuthFilter.java:82)
+	at jdk.httpserver/com.sun.net.httpserver.Filter$Chain.doFilter(Filter.java:101)
+	at jdk.httpserver/sun.net.httpserver.ServerImpl$Exchange$LinkHandler.handle(ServerImpl.java:871)
+	at jdk.httpserver/com.sun.net.httpserver.Filter$Chain.doFilter(Filter.java:98)
+	at jdk.httpserver/sun.net.httpserver.ServerImpl$Exchange.run(ServerImpl.java:847)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+Dispatched post-failure request 9 (pid=93268)
+Jan 07, 2026 10:49:48 AM edu.yu.cs.com3800.stage5.CompileAndRunHandler handle
+INFO: Gateway received /compileandrun request (ID=16)
+Jan 07, 2026 10:49:48 AM edu.yu.cs.com3800.stage5.CompileAndRunHandler handle
+INFO: Cache MISS for request ID 16 — enqueueing
+
+Waiting for Gateway to report a NEW leader...
+Jan 07, 2026 10:49:48 AM edu.yu.cs.com3800.stage5.GatewayServer sendToLeader
+WARNING: Error sending to leader, requeueing
+java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.Net.connect0(Native Method)
+	at java.base/sun.nio.ch.Net.connect(Net.java:589)
+	at java.base/sun.nio.ch.Net.connect(Net.java:578)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:583)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+	at java.base/java.net.Socket.connect(Socket.java:751)
+	at java.base/java.net.Socket.connect(Socket.java:686)
+	at java.base/java.net.Socket.<init>(Socket.java:555)
+	at java.base/java.net.Socket.<init>(Socket.java:324)
+	at edu.yu.cs.com3800.stage5.GatewayServer.sendToLeader(GatewayServer.java:199)
+	at edu.yu.cs.com3800.stage5.GatewayServer.enqueueRequest(GatewayServer.java:153)
+	at edu.yu.cs.com3800.stage5.CompileAndRunHandler.handle(CompileAndRunHandler.java:80)
+	at edu.yu.cs.com3800.stage5.GatewayServer.lambda$new$0(GatewayServer.java:82)
+	at jdk.httpserver/com.sun.net.httpserver.Filter$Chain.doFilter(Filter.java:98)
+	at jdk.httpserver/sun.net.httpserver.AuthFilter.doFilter(AuthFilter.java:82)
+	at jdk.httpserver/com.sun.net.httpserver.Filter$Chain.doFilter(Filter.java:101)
+	at jdk.httpserver/sun.net.httpserver.ServerImpl$Exchange$LinkHandler.handle(ServerImpl.java:871)
+	at jdk.httpserver/com.sun.net.httpserver.Filter$Chain.doFilter(Filter.java:98)
+	at jdk.httpserver/sun.net.httpserver.ServerImpl$Exchange.run(ServerImpl.java:847)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+Jan 07, 2026 10:49:48 AM edu.yu.cs.com3800.stage5.CompileAndRunHandler handle
+INFO: Gateway received /compileandrun request (ID=17)
+Jan 07, 2026 10:49:48 AM edu.yu.cs.com3800.stage5.CompileAndRunHandler handle
+INFO: Cache MISS for request ID 17 — enqueueing
+Jan 07, 2026 10:49:48 AM edu.yu.cs.com3800.stage5.GatewayServer sendToLeader
+WARNING: Error sending to leader, requeueing
+java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.Net.connect0(Native Method)
+	at java.base/sun.nio.ch.Net.connect(Net.java:589)
+	at java.base/sun.nio.ch.Net.connect(Net.java:578)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:583)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+	at java.base/java.net.Socket.connect(Socket.java:751)
+	at java.base/java.net.Socket.connect(Socket.java:686)
+	at java.base/java.net.Socket.<init>(Socket.java:555)
+	at java.base/java.net.Socket.<init>(Socket.java:324)
+	at edu.yu.cs.com3800.stage5.GatewayServer.sendToLeader(GatewayServer.java:199)
+	at edu.yu.cs.com3800.stage5.GatewayServer.enqueueRequest(GatewayServer.java:153)
+	at edu.yu.cs.com3800.stage5.CompileAndRunHandler.handle(CompileAndRunHandler.java:80)
+	at edu.yu.cs.com3800.stage5.GatewayServer.lambda$new$0(GatewayServer.java:82)
+	at jdk.httpserver/com.sun.net.httpserver.Filter$Chain.doFilter(Filter.java:98)
+	at jdk.httpserver/sun.net.httpserver.AuthFilter.doFilter(AuthFilter.java:82)
+	at jdk.httpserver/com.sun.net.httpserver.Filter$Chain.doFilter(Filter.java:101)
+	at jdk.httpserver/sun.net.httpserver.ServerImpl$Exchange$LinkHandler.handle(ServerImpl.java:871)
+	at jdk.httpserver/com.sun.net.httpserver.Filter$Chain.doFilter(Filter.java:98)
+	at jdk.httpserver/sun.net.httpserver.ServerImpl$Exchange.run(ServerImpl.java:847)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+Jan 07, 2026 10:49:48 AM edu.yu.cs.com3800.stage5.CompileAndRunHandler handle
+INFO: Gateway received /compileandrun request (ID=18)
+Jan 07, 2026 10:49:48 AM edu.yu.cs.com3800.stage5.CompileAndRunHandler handle
+INFO: Cache MISS for request ID 18 — enqueueing
+Jan 07, 2026 10:49:48 AM edu.yu.cs.com3800.stage5.GatewayServer sendToLeader
+WARNING: Error sending to leader, requeueing
+java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.Net.connect0(Native Method)
+	at java.base/sun.nio.ch.Net.connect(Net.java:589)
+	at java.base/sun.nio.ch.Net.connect(Net.java:578)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:583)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+	at java.base/java.net.Socket.connect(Socket.java:751)
+	at java.base/java.net.Socket.connect(Socket.java:686)
+	at java.base/java.net.Socket.<init>(Socket.java:555)
+	at java.base/java.net.Socket.<init>(Socket.java:324)
+	at edu.yu.cs.com3800.stage5.GatewayServer.sendToLeader(GatewayServer.java:199)
+	at edu.yu.cs.com3800.stage5.GatewayServer.enqueueRequest(GatewayServer.java:153)
+	at edu.yu.cs.com3800.stage5.CompileAndRunHandler.handle(CompileAndRunHandler.java:80)
+	at edu.yu.cs.com3800.stage5.GatewayServer.lambda$new$0(GatewayServer.java:82)
+	at jdk.httpserver/com.sun.net.httpserver.Filter$Chain.doFilter(Filter.java:98)
+	at jdk.httpserver/sun.net.httpserver.AuthFilter.doFilter(AuthFilter.java:82)
+	at jdk.httpserver/com.sun.net.httpserver.Filter$Chain.doFilter(Filter.java:101)
+	at jdk.httpserver/sun.net.httpserver.ServerImpl$Exchange$LinkHandler.handle(ServerImpl.java:871)
+	at jdk.httpserver/com.sun.net.httpserver.Filter$Chain.doFilter(Filter.java:98)
+	at jdk.httpserver/sun.net.httpserver.ServerImpl$Exchange.run(ServerImpl.java:847)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+Waiting for new leader... (1/90)
+Waiting for new leader... (2/90)
+Waiting for new leader... (3/90)
+Waiting for new leader... (4/90)
+Waiting for new leader... (5/90)
+Waiting for new leader... (6/90)
+Waiting for new leader... (7/90)
+Waiting for new leader... (8/90)
+Waiting for new leader... (9/90)
+Waiting for new leader... (10/90)
+Waiting for new leader... (11/90)
+Waiting for new leader... (12/90)
+Waiting for new leader... (13/90)
+Waiting for new leader... (14/90)
+Jan 07, 2026 10:50:02 AM edu.yu.cs.com3800.stage5.FailureDetectorThread run
 INFO: 2: removing server 1 from heartbeat table after cleanup
-Jan 07, 2026 12:23:34 AM edu.yu.cs.com3800.stage5.FailureDetectorThread run
-INFO: 2: removing server 3 from heartbeat table after cleanup
-Jan 07, 2026 12:23:34 AM edu.yu.cs.com3800.LeaderElection observeElectionAsGateway
+Waiting for new leader... (15/90)
+Waiting for new leader... (16/90)
+Waiting for new leader... (17/90)
+Waiting for new leader... (18/90)
+Waiting for new leader... (19/90)
+Waiting for new leader... (20/90)
+Jan 07, 2026 10:50:08 AM edu.yu.cs.com3800.stage5.FailureDetectorThread run
+INFO: 6: removing server 1 from heartbeat table after cleanup
+Jan 07, 2026 10:50:08 AM edu.yu.cs.com3800.stage5.FailureDetectorThread run
+INFO: 5: removing server 1 from heartbeat table after cleanup
+Jan 07, 2026 10:50:08 AM edu.yu.cs.com3800.stage5.FailureDetectorThread run
+INFO: 3: removing server 1 from heartbeat table after cleanup
+Jan 07, 2026 10:50:08 AM edu.yu.cs.com3800.stage5.FailureDetectorThread run
+INFO: 4: removing server 1 from heartbeat table after cleanup
+Waiting for new leader... (21/90)
+Waiting for new leader... (22/90)
+Waiting for new leader... (23/90)
+Waiting for new leader... (24/90)
+Waiting for new leader... (25/90)
+Waiting for new leader... (26/90)
+Jan 07, 2026 10:50:14 AM edu.yu.cs.com3800.stage5.FailureDetectorThread run
+INFO: 8: removing server 1 from heartbeat table after cleanup
+Waiting for new leader... (27/90)
+Waiting for new leader... (28/90)
+Waiting for new leader... (29/90)
+Waiting for new leader... (30/90)
+Waiting for new leader... (31/90)
+Waiting for new leader... (32/90)
+6: no heartbeat from server 7 - SERVER FAILED
+Jan 07, 2026 10:50:20 AM edu.yu.cs.com3800.stage5.FailureDetectorThread run
+INFO: 6: no heartbeat from server 7 - SERVER FAILED
+Jan 07, 2026 10:50:20 AM edu.yu.cs.com3800.stage5.PeerServerImpl reportFailedNode
+INFO: 6: detected leader failure for leader=7
+Jan 07, 2026 10:50:20 AM edu.yu.cs.com3800.stage5.PeerServerImpl stopFollowerThread
+INFO: Server 6: Stopped JavaRunnerFollower thread.
+6: switching from FOLLOWING to LOOKING
+Jan 07, 2026 10:50:20 AM edu.yu.cs.com3800.stage5.PeerServerImpl setPeerState
+INFO: 6: switching from FOLLOWING to LOOKING
+2: no heartbeat from server 7 - SERVER FAILED
+Jan 07, 2026 10:50:20 AM edu.yu.cs.com3800.stage5.FailureDetectorThread run
+INFO: 2: no heartbeat from server 7 - SERVER FAILED
+Jan 07, 2026 10:50:20 AM edu.yu.cs.com3800.stage5.PeerServerImpl reportFailedNode
+INFO: 2: detected leader failure for leader=7
+Jan 07, 2026 10:50:20 AM edu.yu.cs.com3800.stage5.PeerServerImpl stopFollowerThread
+INFO: Server 2: Stopped JavaRunnerFollower thread.
+2: switching from FOLLOWING to LOOKING
+Jan 07, 2026 10:50:20 AM edu.yu.cs.com3800.stage5.PeerServerImpl setPeerState
+INFO: 2: switching from FOLLOWING to LOOKING
+3: no heartbeat from server 7 - SERVER FAILED
+Jan 07, 2026 10:50:20 AM edu.yu.cs.com3800.stage5.FailureDetectorThread run
+INFO: 3: no heartbeat from server 7 - SERVER FAILED
+Jan 07, 2026 10:50:20 AM edu.yu.cs.com3800.stage5.PeerServerImpl reportFailedNode
+INFO: 3: detected leader failure for leader=7
+Jan 07, 2026 10:50:20 AM edu.yu.cs.com3800.stage5.PeerServerImpl stopFollowerThread
+INFO: Server 3: Stopped JavaRunnerFollower thread.
+3: switching from FOLLOWING to LOOKING
+Jan 07, 2026 10:50:20 AM edu.yu.cs.com3800.stage5.PeerServerImpl setPeerState
+INFO: 3: switching from FOLLOWING to LOOKING
+4: no heartbeat from server 7 - SERVER FAILED
+Jan 07, 2026 10:50:20 AM edu.yu.cs.com3800.stage5.FailureDetectorThread run
+INFO: 4: no heartbeat from server 7 - SERVER FAILED
+Jan 07, 2026 10:50:20 AM edu.yu.cs.com3800.stage5.PeerServerImpl reportFailedNode
+INFO: 4: detected leader failure for leader=7
+Jan 07, 2026 10:50:20 AM edu.yu.cs.com3800.stage5.PeerServerImpl stopFollowerThread
+INFO: Server 4: Stopped JavaRunnerFollower thread.
+4: switching from FOLLOWING to LOOKING
+Jan 07, 2026 10:50:20 AM edu.yu.cs.com3800.stage5.PeerServerImpl setPeerState
+INFO: 4: switching from FOLLOWING to LOOKING
+Waiting for new leader... (33/90)
+Waiting for new leader... (34/90)
+Waiting for new leader... (35/90)
+Waiting for new leader... (36/90)
+2: switching from LOOKING to FOLLOWING
+4: switching from LOOKING to FOLLOWING
+Jan 07, 2026 10:50:24 AM edu.yu.cs.com3800.stage5.PeerServerImpl setPeerState
+INFO: 4: switching from LOOKING to FOLLOWING
+Jan 07, 2026 10:50:24 AM edu.yu.cs.com3800.LeaderElection acceptElectionWinner
+INFO: Server 4 accepted election winner: leader=6, epoch=1, state=FOLLOWING
+3: switching from LOOKING to FOLLOWING
+Jan 07, 2026 10:50:24 AM edu.yu.cs.com3800.stage5.PeerServerImpl setPeerState
+INFO: 3: switching from LOOKING to FOLLOWING
+Jan 07, 2026 10:50:24 AM edu.yu.cs.com3800.stage5.PeerServerImpl setPeerState
+INFO: 2: switching from LOOKING to FOLLOWING
+Jan 07, 2026 10:50:24 AM edu.yu.cs.com3800.LeaderElection acceptElectionWinner
+INFO: Server 2 accepted election winner: leader=6, epoch=1, state=FOLLOWING
+Jan 07, 2026 10:50:24 AM edu.yu.cs.com3800.LeaderElection acceptElectionWinner
+INFO: Server 3 accepted election winner: leader=6, epoch=1, state=FOLLOWING
+6: switching from LOOKING to LEADING
+Jan 07, 2026 10:50:24 AM edu.yu.cs.com3800.stage5.PeerServerImpl setPeerState
+INFO: 6: switching from LOOKING to LEADING
+Jan 07, 2026 10:50:24 AM edu.yu.cs.com3800.LeaderElection acceptElectionWinner
+INFO: Server 6 accepted election winner: leader=6, epoch=1, state=LEADING
+Jan 07, 2026 10:50:24 AM edu.yu.cs.com3800.stage5.TCPServer <init>
+INFO: TCPServer initialized.
+Jan 07, 2026 10:50:24 AM edu.yu.cs.com3800.stage5.PeerServerImpl startFollowerThread
+INFO: Server 3: Started JavaRunnerFollower thread.
+Jan 07, 2026 10:50:24 AM edu.yu.cs.com3800.stage5.PeerServerImpl startFollowerThread
+INFO: Server 2: Started JavaRunnerFollower thread.
+Jan 07, 2026 10:50:24 AM edu.yu.cs.com3800.stage5.PeerServerImpl startFollowerThread
+INFO: Server 4: Started JavaRunnerFollower thread.
+Jan 07, 2026 10:50:24 AM edu.yu.cs.com3800.stage5.JavaRunnerFollower run
+INFO: JavaRunnerFollower started. Listening on TCP port 8013
+Jan 07, 2026 10:50:24 AM edu.yu.cs.com3800.stage5.PeerServerImpl startLeaderThread
+INFO: Server 6 started TCPServer.
+Jan 07, 2026 10:50:24 AM edu.yu.cs.com3800.stage5.PeerServerImpl recoveryPullPhase
+INFO: 6: starting recovery pull phase
+Jan 07, 2026 10:50:24 AM edu.yu.cs.com3800.stage5.PeerServerImpl recoveryPullPhase
+INFO: Attempting recovery pull from follower 2
+Jan 07, 2026 10:50:24 AM edu.yu.cs.com3800.stage5.JavaRunnerFollower run
+INFO: JavaRunnerFollower started. Listening on TCP port 8015
+Jan 07, 2026 10:50:24 AM edu.yu.cs.com3800.stage5.JavaRunnerFollower run
+INFO: JavaRunnerFollower started. Listening on TCP port 8014
+Jan 07, 2026 10:50:24 AM edu.yu.cs.com3800.stage5.TCPServer run
+INFO: TCPServer started. Listening on port 8017
+Jan 07, 2026 10:50:24 AM edu.yu.cs.com3800.stage5.JavaRunnerFollower handleRecoveryRequest
+INFO: No cached work to recover for new leader at port 8013
+Waiting for new leader... (37/90)
+Jan 07, 2026 10:50:25 AM edu.yu.cs.com3800.stage5.PeerServerImpl recoveryPullPhase
+INFO: No completed work to recover from follower 2
+Jan 07, 2026 10:50:25 AM edu.yu.cs.com3800.stage5.PeerServerImpl recoveryPullPhase
+INFO: Attempting recovery pull from follower 3
+Jan 07, 2026 10:50:25 AM edu.yu.cs.com3800.stage5.JavaRunnerFollower handleRecoveryRequest
+INFO: No cached work to recover for new leader at port 8014
+Waiting for new leader... (38/90)
+Jan 07, 2026 10:50:26 AM edu.yu.cs.com3800.stage5.PeerServerImpl recoveryPullPhase
+INFO: No completed work to recover from follower 3
+Jan 07, 2026 10:50:26 AM edu.yu.cs.com3800.stage5.PeerServerImpl recoveryPullPhase
+INFO: Attempting recovery pull from follower 4
+8: no heartbeat from server 7 - SERVER FAILED
+Jan 07, 2026 10:50:26 AM edu.yu.cs.com3800.stage5.FailureDetectorThread run
+INFO: 8: no heartbeat from server 7 - SERVER FAILED
+Jan 07, 2026 10:50:26 AM edu.yu.cs.com3800.stage5.PeerServerImpl reportFailedNode
+INFO: 8: detected leader failure for leader=7
+Jan 07, 2026 10:50:26 AM edu.yu.cs.com3800.stage5.PeerServerImpl reportFailedNode
+INFO: 8: observer will re-learn leader
+5: no heartbeat from server 7 - SERVER FAILED
+Jan 07, 2026 10:50:26 AM edu.yu.cs.com3800.stage5.FailureDetectorThread run
+INFO: 5: no heartbeat from server 7 - SERVER FAILED
+Jan 07, 2026 10:50:26 AM edu.yu.cs.com3800.stage5.PeerServerImpl reportFailedNode
+INFO: 5: detected leader failure for leader=7
+Jan 07, 2026 10:50:26 AM edu.yu.cs.com3800.stage5.PeerServerImpl stopFollowerThread
+INFO: Server 5: Stopped JavaRunnerFollower thread.
+5: switching from FOLLOWING to LOOKING
+Jan 07, 2026 10:50:26 AM edu.yu.cs.com3800.stage5.PeerServerImpl setPeerState
+INFO: 5: switching from FOLLOWING to LOOKING
+Jan 07, 2026 10:50:26 AM edu.yu.cs.com3800.LeaderElection observeElectionAsGateway
 INFO: Observer: watching election traffic…
-Jan 07, 2026 12:23:34 AM edu.yu.cs.com3800.stage5.GatewayServer markLeaderDead
+Jan 07, 2026 10:50:26 AM edu.yu.cs.com3800.stage5.GatewayServer markLeaderDead
 WARNING: Leader marked FAILED
-0: no heartbeat from server 2 - SERVER FAILED
-Jan 07, 2026 12:23:46 AM edu.yu.cs.com3800.stage5.FailureDetectorThread run
-INFO: 0: no heartbeat from server 2 - SERVER FAILED
-1: no heartbeat from server 3 - SERVER FAILED
-Jan 07, 2026 12:23:46 AM edu.yu.cs.com3800.stage5.FailureDetectorThread run
-INFO: 1: no heartbeat from server 3 - SERVER FAILED
-Jan 07, 2026 12:23:46 AM edu.yu.cs.com3800.stage5.PeerServerImpl reportFailedNode
-INFO: 1: detected leader failure for leader=3
-Jan 07, 2026 12:23:46 AM edu.yu.cs.com3800.stage5.PeerServerImpl stopFollowerThread
-INFO: Server 1: Stopped JavaRunnerFollower thread.
-1: switching from FOLLOWING to LOOKING
-Jan 07, 2026 12:23:46 AM edu.yu.cs.com3800.stage5.PeerServerImpl setPeerState
-INFO: 1: switching from FOLLOWING to LOOKING
-Jan 07, 2026 12:23:55 AM edu.yu.cs.com3800.LeaderElection observeElectionAsGateway
-INFO: Observer: ignoring election message for failed leader 3
-Jan 07, 2026 12:23:55 AM edu.yu.cs.com3800.LeaderElection observeElectionAsGateway
-INFO: Observer: ignoring election message for failed leader 2
-Jan 07, 2026 12:24:04 AM edu.yu.cs.com3800.stage5.FailureDetectorThread run
-INFO: 0: removing server 3 from heartbeat table after cleanup
-Jan 07, 2026 12:24:04 AM edu.yu.cs.com3800.stage5.FailureDetectorThread run
-INFO: 1: removing server 2 from heartbeat table after cleanup
-Jan 07, 2026 12:24:16 AM edu.yu.cs.com3800.stage5.FailureDetectorThread run
-INFO: 0: removing server 2 from heartbeat table after cleanup
-Jan 07, 2026 12:24:16 AM edu.yu.cs.com3800.stage5.FailureDetectorThread run
-INFO: 1: removing server 3 from heartbeat table after cleanup
-Jan 07, 2026 12:24:25 AM edu.yu.cs.com3800.LeaderElection observeElectionAsGateway
-INFO: Observer: ignoring election message for failed leader 3
-Jan 07, 2026 12:24:25 AM edu.yu.cs.com3800.LeaderElection observeElectionAsGateway
-INFO: Observer: ignoring election message for failed leader 2
-Jan 07, 2026 12:24:55 AM edu.yu.cs.com3800.LeaderElection observeElectionAsGateway
-INFO: Observer: ignoring election message for failed leader 3
-Jan 07, 2026 12:24:55 AM edu.yu.cs.com3800.LeaderElection observeElectionAsGateway
-INFO: Observer: ignoring election message for failed leader 2
-Jan 07, 2026 12:25:25 AM edu.yu.cs.com3800.LeaderElection observeElectionAsGateway
-INFO: Observer: ignoring election message for failed leader 2
-Jan 07, 2026 12:25:25 AM edu.yu.cs.com3800.LeaderElection observeElectionAsGateway
-INFO: Observer: ignoring election message for failed leader 3
-Jan 07, 2026 12:25:55 AM edu.yu.cs.com3800.LeaderElection observeElectionAsGateway
-INFO: Observer: ignoring election message for failed leader 2
-Jan 07, 2026 12:25:55 AM edu.yu.cs.com3800.LeaderElection observeElectionAsGateway
-INFO: Observer: ignoring election message for failed leader 3
-Jan 07, 2026 12:26:25 AM edu.yu.cs.com3800.LeaderElection observeElectionAsGateway
-INFO: Observer: ignoring election message for failed leader 2
-Jan 07, 2026 12:26:25 AM edu.yu.cs.com3800.LeaderElection observeElectionAsGateway
-INFO: Observer: ignoring election message for failed leader 3
-[INFO] 
-[INFO] Results:
-[INFO] 
+Jan 07, 2026 10:50:26 AM edu.yu.cs.com3800.stage5.JavaRunnerFollower handleRecoveryRequest
+INFO: No cached work to recover for new leader at port 8015
+Waiting for new leader... (39/90)
+Jan 07, 2026 10:50:27 AM edu.yu.cs.com3800.stage5.PeerServerImpl recoveryPullPhase
+INFO: No completed work to recover from follower 4
+Jan 07, 2026 10:50:27 AM edu.yu.cs.com3800.stage5.PeerServerImpl recoveryPullPhase
+INFO: Attempting recovery pull from follower 5
+Jan 07, 2026 10:50:27 AM edu.yu.cs.com3800.stage5.PeerServerImpl recoveryPullPhase
+INFO: Recovery pull from follower 5 failed (attempt 0), retrying...
+Jan 07, 2026 10:50:27 AM edu.yu.cs.com3800.stage5.PeerServerImpl recoveryPullPhase
+INFO: Recovery pull from follower 5 failed (attempt 1), retrying...
+Jan 07, 2026 10:50:27 AM edu.yu.cs.com3800.stage5.PeerServerImpl recoveryPullPhase
+INFO: Recovery pull from follower 5 failed (attempt 2), retrying...
+Jan 07, 2026 10:50:27 AM edu.yu.cs.com3800.stage5.PeerServerImpl recoveryPullPhase
+INFO: Recovery pull from follower 5 failed (attempt 3), retrying...
+Jan 07, 2026 10:50:27 AM edu.yu.cs.com3800.stage5.PeerServerImpl recoveryPullPhase
+INFO: Recovery pull from follower 5 failed (attempt 4), retrying...
+Waiting for new leader... (40/90)
+Jan 07, 2026 10:50:28 AM edu.yu.cs.com3800.stage5.PeerServerImpl recoveryPullPhase
+INFO: 6: recovery pull phase complete
+Jan 07, 2026 10:50:28 AM edu.yu.cs.com3800.stage5.RoundRobinLeader <init>
+INFO: RoundRobinLeader initialized.
+Jan 07, 2026 10:50:28 AM edu.yu.cs.com3800.stage5.RoundRobinLeader <init>
+INFO: Adding worker 2 at localhost/127.0.0.1:8011
+Jan 07, 2026 10:50:28 AM edu.yu.cs.com3800.stage5.RoundRobinLeader <init>
+INFO: Adding worker 3 at localhost/127.0.0.1:8012
+Jan 07, 2026 10:50:28 AM edu.yu.cs.com3800.stage5.RoundRobinLeader <init>
+INFO: Adding worker 4 at localhost/127.0.0.1:8013
+Jan 07, 2026 10:50:28 AM edu.yu.cs.com3800.stage5.RoundRobinLeader <init>
+INFO: Adding worker 5 at localhost/127.0.0.1:8014
+Jan 07, 2026 10:50:28 AM edu.yu.cs.com3800.stage5.PeerServerImpl startLeaderThread
+INFO: Server 6 started Leader workers (TCPServer + RoundRobinLeader)
+Waiting for new leader... (41/90)
+5: switching from LOOKING to FOLLOWING
+Jan 07, 2026 10:50:29 AM edu.yu.cs.com3800.stage5.PeerServerImpl setPeerState
+INFO: 5: switching from LOOKING to FOLLOWING
+Jan 07, 2026 10:50:29 AM edu.yu.cs.com3800.LeaderElection acceptElectionWinner
+INFO: Server 5 accepted election winner: leader=6, epoch=1, state=FOLLOWING
+Jan 07, 2026 10:50:29 AM edu.yu.cs.com3800.LeaderElection observeElectionAsGateway
+INFO: Observer: saw FOLLOWING message indicating leader 6
+8: switching from OBSERVER to OBSERVER
+Jan 07, 2026 10:50:29 AM edu.yu.cs.com3800.stage5.PeerServerImpl setPeerState
+INFO: 8: switching from OBSERVER to OBSERVER
+Jan 07, 2026 10:50:29 AM edu.yu.cs.com3800.LeaderElection finalizeObserverVote
+INFO: Observer has learned the leader: 6 (epoch 1)
+Jan 07, 2026 10:50:29 AM edu.yu.cs.com3800.stage5.PeerServerImpl startFollowerThread
+INFO: Server 5: Started JavaRunnerFollower thread.
+Jan 07, 2026 10:50:29 AM edu.yu.cs.com3800.stage5.JavaRunnerFollower run
+INFO: JavaRunnerFollower started. Listening on TCP port 8016
+Jan 07, 2026 10:50:30 AM edu.yu.cs.com3800.stage5.GatewayServer markLeaderAlive
+INFO: Leader elected: 6
+
+Gateway sees new leader: 6
+
+Waiting for all 9 post-failure requests to receive responses...
+Jan 07, 2026 10:50:30 AM edu.yu.cs.com3800.stage5.RoundRobinLeader run
+INFO: Leader received request from gateway at port 8888.
+Jan 07, 2026 10:50:30 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: No cached result found. Processing new work request ID 10
+Jan 07, 2026 10:50:30 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Picked worker localhost:8013
+Jan 07, 2026 10:50:30 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Connecting to worker at localhost:8013
+Jan 07, 2026 10:50:30 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Sending message from leader to 8013
+Jan 07, 2026 10:50:30 AM edu.yu.cs.com3800.stage5.JavaRunnerFollower handleWork
+INFO: Received WORK request ID 10 from Leader at port 8017
+Jan 07, 2026 10:50:30 AM edu.yu.cs.com3800.stage5.JavaRunnerFollower handleWork
+INFO: Successfully sent work from worker 8013 back to 8017
+Jan 07, 2026 10:50:31 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Received result from worker. Sending to Gateway.
+Jan 07, 2026 10:50:31 AM edu.yu.cs.com3800.stage5.RoundRobinLeader run
+INFO: Leader received request from gateway at port 8888.
+Jan 07, 2026 10:50:31 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: No cached result found. Processing new work request ID 11
+Jan 07, 2026 10:50:31 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Picked worker localhost:8014
+Jan 07, 2026 10:50:31 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Connecting to worker at localhost:8014
+Jan 07, 2026 10:50:31 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Sending message from leader to 8014
+Jan 07, 2026 10:50:32 AM edu.yu.cs.com3800.stage5.JavaRunnerFollower handleWork
+INFO: Received WORK request ID 11 from Leader at port 8017
+Jan 07, 2026 10:50:32 AM edu.yu.cs.com3800.stage5.JavaRunnerFollower handleWork
+INFO: Successfully sent work from worker 8014 back to 8017
+Jan 07, 2026 10:50:32 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Received result from worker. Sending to Gateway.
+Jan 07, 2026 10:50:33 AM edu.yu.cs.com3800.stage5.RoundRobinLeader run
+INFO: Leader received request from gateway at port 8888.
+Jan 07, 2026 10:50:33 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: No cached result found. Processing new work request ID 12
+Jan 07, 2026 10:50:33 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Picked worker localhost:8015
+Jan 07, 2026 10:50:33 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Connecting to worker at localhost:8015
+Jan 07, 2026 10:50:33 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Sending message from leader to 8015
+Jan 07, 2026 10:50:33 AM edu.yu.cs.com3800.stage5.JavaRunnerFollower handleWork
+INFO: Received WORK request ID 12 from Leader at port 8017
+Jan 07, 2026 10:50:33 AM edu.yu.cs.com3800.stage5.JavaRunnerFollower handleWork
+INFO: Successfully sent work from worker 8015 back to 8017
+Jan 07, 2026 10:50:34 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Received result from worker. Sending to Gateway.
+Jan 07, 2026 10:50:34 AM edu.yu.cs.com3800.stage5.RoundRobinLeader run
+INFO: Leader received request from gateway at port 8888.
+Jan 07, 2026 10:50:34 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: No cached result found. Processing new work request ID 13
+Jan 07, 2026 10:50:34 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Picked worker localhost:8016
+Jan 07, 2026 10:50:34 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Connecting to worker at localhost:8016
+Jan 07, 2026 10:50:34 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Sending message from leader to 8016
+Jan 07, 2026 10:50:35 AM edu.yu.cs.com3800.stage5.JavaRunnerFollower handleWork
+INFO: Received WORK request ID 13 from Leader at port 8017
+Jan 07, 2026 10:50:35 AM edu.yu.cs.com3800.stage5.JavaRunnerFollower handleWork
+INFO: Successfully sent work from worker 8016 back to 8017
+Jan 07, 2026 10:50:35 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Received result from worker. Sending to Gateway.
+Jan 07, 2026 10:50:36 AM edu.yu.cs.com3800.stage5.RoundRobinLeader run
+INFO: Leader received request from gateway at port 8888.
+Jan 07, 2026 10:50:36 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: No cached result found. Processing new work request ID 14
+Jan 07, 2026 10:50:36 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Picked worker localhost:8013
+Jan 07, 2026 10:50:36 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Connecting to worker at localhost:8013
+Jan 07, 2026 10:50:36 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Sending message from leader to 8013
+Jan 07, 2026 10:50:36 AM edu.yu.cs.com3800.stage5.JavaRunnerFollower handleWork
+INFO: Received WORK request ID 14 from Leader at port 8017
+Jan 07, 2026 10:50:36 AM edu.yu.cs.com3800.stage5.JavaRunnerFollower handleWork
+INFO: Successfully sent work from worker 8013 back to 8017
+Jan 07, 2026 10:50:37 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Received result from worker. Sending to Gateway.
+Jan 07, 2026 10:50:38 AM edu.yu.cs.com3800.stage5.RoundRobinLeader run
+INFO: Leader received request from gateway at port 8888.
+Jan 07, 2026 10:50:38 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: No cached result found. Processing new work request ID 15
+Jan 07, 2026 10:50:38 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Picked worker localhost:8014
+Jan 07, 2026 10:50:38 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Connecting to worker at localhost:8014
+Jan 07, 2026 10:50:38 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Sending message from leader to 8014
+Jan 07, 2026 10:50:38 AM edu.yu.cs.com3800.stage5.JavaRunnerFollower handleWork
+INFO: Received WORK request ID 15 from Leader at port 8017
+Jan 07, 2026 10:50:38 AM edu.yu.cs.com3800.stage5.JavaRunnerFollower handleWork
+INFO: Successfully sent work from worker 8014 back to 8017
+Jan 07, 2026 10:50:39 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Received result from worker. Sending to Gateway.
+Jan 07, 2026 10:50:39 AM edu.yu.cs.com3800.stage5.RoundRobinLeader run
+INFO: Leader received request from gateway at port 8888.
+Jan 07, 2026 10:50:39 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: No cached result found. Processing new work request ID 16
+Jan 07, 2026 10:50:39 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Picked worker localhost:8015
+Jan 07, 2026 10:50:39 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Connecting to worker at localhost:8015
+Jan 07, 2026 10:50:39 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Sending message from leader to 8015
+Jan 07, 2026 10:50:40 AM edu.yu.cs.com3800.stage5.JavaRunnerFollower handleWork
+INFO: Received WORK request ID 16 from Leader at port 8017
+Jan 07, 2026 10:50:40 AM edu.yu.cs.com3800.stage5.JavaRunnerFollower handleWork
+INFO: Successfully sent work from worker 8015 back to 8017
+Jan 07, 2026 10:50:40 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Received result from worker. Sending to Gateway.
+Jan 07, 2026 10:50:41 AM edu.yu.cs.com3800.stage5.RoundRobinLeader run
+INFO: Leader received request from gateway at port 8888.
+Jan 07, 2026 10:50:41 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: No cached result found. Processing new work request ID 17
+Jan 07, 2026 10:50:41 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Picked worker localhost:8016
+Jan 07, 2026 10:50:41 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Connecting to worker at localhost:8016
+Jan 07, 2026 10:50:41 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Sending message from leader to 8016
+Jan 07, 2026 10:50:41 AM edu.yu.cs.com3800.stage5.JavaRunnerFollower handleWork
+INFO: Received WORK request ID 17 from Leader at port 8017
+Jan 07, 2026 10:50:41 AM edu.yu.cs.com3800.stage5.JavaRunnerFollower handleWork
+INFO: Successfully sent work from worker 8016 back to 8017
+Jan 07, 2026 10:50:42 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Received result from worker. Sending to Gateway.
+Jan 07, 2026 10:50:42 AM edu.yu.cs.com3800.stage5.RoundRobinLeader run
+INFO: Leader received request from gateway at port 8888.
+Jan 07, 2026 10:50:42 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: No cached result found. Processing new work request ID 18
+Jan 07, 2026 10:50:42 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Picked worker localhost:8013
+Jan 07, 2026 10:50:42 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Connecting to worker at localhost:8013
+Jan 07, 2026 10:50:42 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Sending message from leader to 8013
+Jan 07, 2026 10:50:43 AM edu.yu.cs.com3800.stage5.JavaRunnerFollower handleWork
+INFO: Received WORK request ID 18 from Leader at port 8017
+Jan 07, 2026 10:50:43 AM edu.yu.cs.com3800.stage5.JavaRunnerFollower handleWork
+INFO: Successfully sent work from worker 8013 back to 8017
+Jan 07, 2026 10:50:43 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Received result from worker. Sending to Gateway.
+
+Post-failure responses from Gateway:
+-----------------------------------
+
+Post-failure Response 1:
+AfterLeaderKill 1
+Post-failure Response 2:
+AfterLeaderKill 2
+Post-failure Response 3:
+AfterLeaderKill 3
+Post-failure Response 4:
+AfterLeaderKill 4
+Post-failure Response 5:
+AfterLeaderKill 5
+Post-failure Response 6:
+AfterLeaderKill 6
+Post-failure Response 7:
+AfterLeaderKill 7
+Post-failure Response 8:
+AfterLeaderKill 8
+Post-failure Response 9:
+AfterLeaderKill 9
+All 9 post-failure requests completed.
+
+
+Verifying peer consensus on new leader
+--------------------------------------
+Peer 1: skipped (intentionally killed)
+Peer 2: leader=6, epoch=1
+Peer 3: leader=6, epoch=1
+Peer 4: leader=6, epoch=1
+Peer 5: leader=6, epoch=1
+Peer 6: leader=6, epoch=1
+Peer 7: skipped (intentionally killed)
+
+All peers agree on the new leader (6)
+
+Sending ONE foreground client request after recovery
+---------------------------------------------------
+
+Foreground request source:
+public class HW_foreground {
+    public String run() {
+        return "Final foreground request";
+    }
+}
+
+Jan 07, 2026 10:50:44 AM edu.yu.cs.com3800.stage5.CompileAndRunHandler handle
+INFO: Gateway received /compileandrun request (ID=19)
+Jan 07, 2026 10:50:44 AM edu.yu.cs.com3800.stage5.CompileAndRunHandler handle
+INFO: Cache MISS for request ID 19 — enqueueing
+Jan 07, 2026 10:50:44 AM edu.yu.cs.com3800.stage5.RoundRobinLeader run
+INFO: Leader received request from gateway at port 8888.
+Jan 07, 2026 10:50:44 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: No cached result found. Processing new work request ID 19
+Jan 07, 2026 10:50:44 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Picked worker localhost:8014
+Jan 07, 2026 10:50:44 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Connecting to worker at localhost:8014
+Jan 07, 2026 10:50:44 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Sending message from leader to 8014
+Jan 07, 2026 10:50:45 AM edu.yu.cs.com3800.stage5.JavaRunnerFollower handleWork
+INFO: Received WORK request ID 19 from Leader at port 8017
+Jan 07, 2026 10:50:45 AM edu.yu.cs.com3800.stage5.JavaRunnerFollower handleWork
+INFO: Successfully sent work from worker 8014 back to 8017
+Jan 07, 2026 10:50:45 AM edu.yu.cs.com3800.stage5.RoundRobinLeader processRequest
+INFO: Received result from worker. Sending to Gateway.
+Foreground response:
+Final foreground request
+
+
+Log file locations
+------------------
+Peer 1:
+  Summary log: logs/GossipSummary-on-1-LOG.log
+  Verbose log: logs/GossipReceiverVerbose-on-1-LOG.log
+Peer 2:
+  Summary log: logs/GossipSummary-on-2-LOG.log
+  Verbose log: logs/GossipReceiverVerbose-on-2-LOG.log
+Peer 3:
+  Summary log: logs/GossipSummary-on-3-LOG.log
+  Verbose log: logs/GossipReceiverVerbose-on-3-LOG.log
+Peer 4:
+  Summary log: logs/GossipSummary-on-4-LOG.log
+  Verbose log: logs/GossipReceiverVerbose-on-4-LOG.log
+Peer 5:
+  Summary log: logs/GossipSummary-on-5-LOG.log
+  Verbose log: logs/GossipReceiverVerbose-on-5-LOG.log
+Peer 6:
+  Summary log: logs/GossipSummary-on-6-LOG.log
+  Verbose log: logs/GossipReceiverVerbose-on-6-LOG.log
+Peer 7:
+  Summary log: logs/GossipSummary-on-7-LOG.log
+  Verbose log: logs/GossipReceiverVerbose-on-7-LOG.log
+Peer 8:
+  Summary log: logs/GossipSummary-on-8-LOG.log
+  Verbose log: logs/GossipReceiverVerbose-on-8-LOG.log
+
+Initiating explicit cluster shutdown...
 
 === Shutting down cluster ===
-./demo5.sh: line 44: PEER_PIDS[@]: unbound variable
+Cluster shut down

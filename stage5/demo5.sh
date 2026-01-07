@@ -76,6 +76,8 @@ echo "Running mvn test..."
 echo "I was going to run them all here but it takes extremely long and the sockets get exhausted
 so they can be run individually as needed in the JUnit classes, I just didn't want them running indefinitely."
 
+mvn clean compile
+
 ############################################
 # 2) Start voting peers
 ############################################

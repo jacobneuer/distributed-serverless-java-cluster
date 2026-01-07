@@ -4,10 +4,7 @@ import edu.yu.cs.com3800.*;
 import edu.yu.cs.com3800.Message.MessageType;
 
 import java.io.*;
-import java.net.InetSocketAddress;
-import java.net.ServerSocket;
-import java.net.Socket;
-import java.net.SocketException;
+import java.net.*;
 import java.nio.charset.StandardCharsets;
 import java.util.Map;
 import java.util.logging.Level;
@@ -101,7 +98,7 @@ public class JavaRunnerFollower extends Thread implements LoggingServer {
     }
 
     private void handleWork(Message msg, Socket leaderSocket) {
-        logger.info("Received WORK request ID " + msg.getRequestID() + " from Leader");
+        logger.info("Received WORK request ID " + msg.getRequestID() + " from Leader at port " + (msg.getSenderPort() + 2));
 
         byte[] javaCode = msg.getMessageContents();
         WorkResult wr = processCode(javaCode);
@@ -121,11 +118,9 @@ public class JavaRunnerFollower extends Thread implements LoggingServer {
             OutputStream out = leaderSocket.getOutputStream();
             out.write(response.getNetworkPayload());
             out.flush();
-            logger.info("Successfully sent work from worker " + tcpPort + " back to " + msg.getSenderPort());
-
-            // Important: let leader's readAllBytesFromNetwork() return
             leaderSocket.shutdownOutput();
 
+            logger.info("Successfully sent work from worker " + tcpPort + " back to " + (msg.getSenderPort() + 2));
         } catch (Exception e) {
             // Leader died mid-flight: queue result locally
             logger.info("Leader appears to have failed mid-flight; caching completed work locally for request ID " + msg.getRequestID());
