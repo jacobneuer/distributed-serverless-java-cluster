@@ -77,8 +77,10 @@ public class JavaRunnerFollower extends Thread implements LoggingServer {
                     }
 
                 } catch (SocketException e) {
-                    if (isInterrupted()) {
+                    // Server socket closed during shutdown
+                    if (serverSocket.isClosed() || isInterrupted()) {
                         logger.fine("JavaRunnerFollower shutting down cleanly.");
+                        break;
                     } else {
                         logger.log(Level.WARNING, "Socket error", e);
                     }
@@ -99,7 +101,7 @@ public class JavaRunnerFollower extends Thread implements LoggingServer {
     }
 
     private void handleWork(Message msg, Socket leaderSocket) {
-        logger.fine("Received WORK request ID " + msg.getRequestID() + " from Leader");
+        logger.info("Received WORK request ID " + msg.getRequestID() + " from Leader");
 
         byte[] javaCode = msg.getMessageContents();
         WorkResult wr = processCode(javaCode);
@@ -110,7 +112,7 @@ public class JavaRunnerFollower extends Thread implements LoggingServer {
                 myAddress.getHostString(),
                 myAddress.getPort(),
                 msg.getSenderHost(),
-                msg.getSenderPort(),
+                msg.getSenderPort() + 2,
                 msg.getRequestID(),
                 wr.error
         );
@@ -119,12 +121,14 @@ public class JavaRunnerFollower extends Thread implements LoggingServer {
             OutputStream out = leaderSocket.getOutputStream();
             out.write(response.getNetworkPayload());
             out.flush();
+            logger.info("Successfully sent work from worker " + tcpPort + " back to " + msg.getSenderPort());
 
             // Important: let leader's readAllBytesFromNetwork() return
             leaderSocket.shutdownOutput();
 
-        } catch (IOException e) {
+        } catch (Exception e) {
             // Leader died mid-flight: queue result locally
+            logger.info("Leader appears to have failed mid-flight; caching completed work locally for request ID " + msg.getRequestID());
             logger.log(Level.WARNING, "Failed to send COMPLETED_WORK to leader, caching locally", e);
             peerServer.rememberCompletedWork(msg.getRequestID(), response);
         }

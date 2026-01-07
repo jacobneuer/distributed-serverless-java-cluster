@@ -75,7 +75,7 @@ public class GossipReceiverThread extends Thread implements LoggingServer {
     }
 
     private void sendElectionResponse(Message msg) {
-        verboseLogger.info("Responding to election message from" +
+        verboseLogger.fine("Responding to election message from" +
                 msg.getSenderHost() + ":" + msg.getSenderPort()
                 + " with current alive leader " + peerServer.getCurrentLeaderId());
         // Send back an ElectionNotification message
@@ -168,7 +168,7 @@ public class GossipReceiverThread extends Thread implements LoggingServer {
                         + " based on message from " + senderId
                         + " at node time " + now;
 
-                summaryLogger.info(msg);
+                summaryLogger.fine(msg);
                 continue;
             }
 
@@ -190,7 +190,7 @@ public class GossipReceiverThread extends Thread implements LoggingServer {
                         + " based on message from " + senderId
                         + " at node time " + now;
 
-                summaryLogger.info(msg);
+                summaryLogger.fine(msg);
             }
         }
     }

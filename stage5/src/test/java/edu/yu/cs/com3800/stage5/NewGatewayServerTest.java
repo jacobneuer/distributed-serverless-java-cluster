@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class NewGatewayServerTest {
 
-    private NewGatewayServer gateway;
+    private GatewayServer gateway;
     private final int httpPort = 8888;
 
     private PeerServerImpl s1, s2, s3;
@@ -37,7 +37,7 @@ public class NewGatewayServerTest {
         s2.start();
         s3.start();
 
-        gateway = new NewGatewayServer(
+        gateway = new GatewayServer(
                 httpPort,
                 8040,
                 0,

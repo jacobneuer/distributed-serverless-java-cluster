@@ -1,15 +1,14 @@
 package edu.yu.cs.com3800.stage5;
 
 import com.sun.net.httpserver.HttpServer;
-import edu.yu.cs.com3800.LoggingServer;
-import edu.yu.cs.com3800.Message;
-import edu.yu.cs.com3800.Vote;
+import edu.yu.cs.com3800.*;
+import com.sun.net.httpserver.HttpExchange;
 
 import java.io.IOException;
+import java.io.OutputStream;
 import java.net.InetSocketAddress;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.net.Socket;
+import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -31,10 +30,21 @@ public class GatewayServer extends Thread implements LoggingServer {
 
     private final AtomicLong requestID = new AtomicLong(1);
 
-    // Shared cache: hash(requestBody) -> Message returned
+    // Cache: requestHash → Message
     private final ConcurrentHashMap<Integer, Message> cache = new ConcurrentHashMap<>();
 
-    public GatewayServer(int httpPort, int peerPort, long peerEpoch, Long serverID,
+    // Stage 5 state
+    private final BlockingQueue<ClientRequest> pending = new LinkedBlockingQueue<>();
+    private final ConcurrentHashMap<Long, ClientRequest> inFlight = new ConcurrentHashMap<>();
+
+    private volatile Long currentLeaderID = null;
+    private volatile long currentLeaderEpoch = -1;
+    private volatile boolean leaderAlive = false;
+
+    public GatewayServer(int httpPort,
+                         int peerPort,
+                         long peerEpoch,
+                         Long serverID,
                          ConcurrentHashMap<Long, InetSocketAddress> peerIDtoAddress,
                          int numberOfObservers) throws IOException {
 
@@ -46,9 +56,7 @@ public class GatewayServer extends Thread implements LoggingServer {
         this.numberOfObservers = numberOfObservers;
 
         this.logger = initializeLogging(
-                "GatewayServer-on-" + serverID + "-on-" + httpPort);
-
-        logger.info("Constructing GatewayServer...");
+                "NewGatewayServer-on-" + serverID + "-on-" + httpPort);
 
         gatewayPeer = new GatewayPeerServerImpl(
                 peerPort,
@@ -58,22 +66,19 @@ public class GatewayServer extends Thread implements LoggingServer {
                 serverID,
                 numberOfObservers
         );
-
         gatewayPeer.setName("GatewayPeerServerImpl-" + serverID);
 
         httpServer = HttpServer.create(new InetSocketAddress(httpPort), 0);
-
         httpThreadPool = Executors.newFixedThreadPool(
                 Runtime.getRuntime().availableProcessors() * 2);
-
         httpServer.setExecutor(httpThreadPool);
 
         httpServer.createContext("/compileandrun", exchange -> {
             new CompileAndRunHandler(
                     exchange,
-                    gatewayPeer,
+                    this,
                     cache,
-                    requestID.get()
+                    requestID.getAndIncrement()
             ).handle();
         });
 
@@ -123,44 +128,155 @@ public class GatewayServer extends Thread implements LoggingServer {
         });
     }
 
-    /**
-     * The main thread lifecycle.
-     * When gateway.start() is called, THIS method runs in its own thread.
-     */
     @Override
     public void run() {
         logger.info("GatewayServer thread started.");
 
-        // Start observer peer server (thread)
         gatewayPeer.start();
-        logger.info("Started GatewayPeerServerImpl.");
-
-        // Start HTTP server (non-blocking)
         httpServer.start();
-        logger.info("HTTP Server listening on port " + httpPort);
 
-        // Run until interrupted
         try {
             while (!Thread.currentThread().isInterrupted()) {
+                monitorLeader();
                 Thread.sleep(200);
             }
+        } catch (InterruptedException ignored) {
+        } finally {
+            shutdown();
         }
-        catch (InterruptedException e) {
-            logger.info("GatewayServer thread interrupted.");
+    }
+
+    public void enqueueRequest(ClientRequest req) {
+        if (!leaderAlive) {
+            pending.add(req);
+        } else {
+            sendToLeader(req);
+        }
+    }
+
+    private void monitorLeader() {
+        Vote leader = gatewayPeer.getCurrentLeader();
+
+        if (leader == null || gatewayPeer.isFailed(leader.getProposedLeaderID())) {
+            if (leaderAlive) {
+                markLeaderDead();
+            }
+        } else {
+            if (!leaderAlive) {
+                markLeaderAlive(leader);
+            }
+        }
+    }
+
+    private void markLeaderDead() {
+        logger.warning("Leader marked FAILED");
+        leaderAlive = false;
+        currentLeaderID = null;
+    }
+
+    private void markLeaderAlive(Vote leader) {
+        currentLeaderID = leader.getProposedLeaderID();
+        currentLeaderEpoch = leader.getPeerEpoch();
+        leaderAlive = true;
+
+        logger.info("Leader elected: " + currentLeaderID);
+        drainPending();
+    }
+
+    private void drainPending() {
+        ClientRequest req;
+        while ((req = pending.poll()) != null) {
+            sendToLeader(req);
+        }
+    }
+
+    private void sendToLeader(ClientRequest req) {
+        inFlight.put(req.requestID, req);
+
+        InetSocketAddress leaderAddr = peerIDtoAddress.get(currentLeaderID);
+        int leaderTcpPort = leaderAddr.getPort() + 2;
+
+        try (Socket socket = new Socket(leaderAddr.getHostName(), leaderTcpPort)) {
+
+            Message work = new Message(
+                    Message.MessageType.WORK,
+                    req.body,
+                    httpPort + "",
+                    httpPort,
+                    leaderAddr.getHostString(),
+                    leaderAddr.getPort(),
+                    req.requestID
+            );
+
+            socket.getOutputStream().write(work.getNetworkPayload());
+            socket.shutdownOutput();
+
+            byte[] respBytes = Util.readAllBytesFromNetwork(socket.getInputStream());
+            // Validate response
+            if (respBytes.length == 0) {
+                throw new IOException("Empty response from leader");
+            }
+            Message resp = new Message(respBytes);
+
+            handleLeaderResponse(resp);
+
+        } catch (Exception e) {
+            logger.log(Level.WARNING, "Error sending to leader, requeueing", e);
+            inFlight.remove(req.requestID);
+            pending.add(req);
+        }
+    }
+
+    private void handleLeaderResponse(Message resp) {
+        ClientRequest req = inFlight.remove(resp.getRequestID());
+        if (req == null) return;
+
+        // Validate response is from the current leader
+        InetSocketAddress leaderPeerAddr = peerIDtoAddress.get(currentLeaderID);
+        int leaderTcpPort = leaderPeerAddr.getPort() + 2;
+        boolean fromLeader = resp.getSenderPort() == leaderTcpPort;
+
+        if (!leaderAlive) {
+            logger.warning("Ignoring response from invalid leader - no leader alive");
+            pending.add(req);
+            return;
+        }
+        if (!fromLeader) {
+            logger.warning("Ignoring response from invalid leader - wrong leader sending");
+            logger.warning("Expected leader ID: " + currentLeaderID + ", but got response from port: " + resp.getSenderPort());
+            pending.add(req);
+            return;
         }
 
-        shutdown();  // perform clean shutdown
+        // Valid response
+        cache.put(req.requestHash, resp);
+        respondToClient(req, resp);
+    }
+
+    private void respondToClient(ClientRequest req, Message resp) {
+        try {
+            HttpExchange ex = req.exchange;
+            byte[] body = resp.getMessageContents();
+            int status = resp.getErrorOccurred() ? 400 : 200;
+
+            ex.getResponseHeaders().set("Content-Type", "text/plain; charset=UTF-8");
+            ex.getResponseHeaders().add("Cached-Response", "false");
+            ex.sendResponseHeaders(status, body.length);
+
+            try (OutputStream os = ex.getResponseBody()) {
+                os.write(body);
+            }
+        } catch (IOException e) {
+            logger.log(Level.WARNING, "Failed to respond to client", e);
+        }
     }
 
     public GatewayPeerServerImpl getPeerServer() {
         return gatewayPeer;
     }
 
-    /**
-     * Cleanly shut down both HTTP and PeerServer threads.
-     */
     public void shutdown() {
-        logger.info("Shutting down GatewayServer...");
+        logger.info("Shutting down NewGatewayServer");
 
         try {
             httpServer.stop(0);

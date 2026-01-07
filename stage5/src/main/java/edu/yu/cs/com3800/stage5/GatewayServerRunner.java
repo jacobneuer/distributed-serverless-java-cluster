@@ -1,7 +1,6 @@
 package edu.yu.cs.com3800.stage5;
 
 import java.net.InetSocketAddress;
-import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class GatewayServerRunner {
@@ -23,7 +22,7 @@ public class GatewayServerRunner {
 
         long gatewayId = ClusterConfig.gatewayId(numVotingPeers);
 
-        NewGatewayServer gateway = new NewGatewayServer(
+        GatewayServer gateway = new GatewayServer(
                 httpPort,
                 membership.get(gatewayId).getPort(), // gateway UDP port
                 0L,
