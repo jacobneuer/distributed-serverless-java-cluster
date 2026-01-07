@@ -11,11 +11,6 @@ LOG_FILE="${SCRIPT_DIR}/output.log"
 # Log everything to screen AND output.log
 exec > >(tee "${LOG_FILE}") 2>&1
 
-echo "=========================================="
-echo "Stage 5 Election Smoke Test"
-echo "=========================================="
-echo
-
 ############################################
 # Configuration
 ############################################
@@ -72,6 +67,14 @@ cleanup() {
 }
 
 trap cleanup EXIT
+
+############################################
+# 1) Run Maven tests
+############################################
+
+echo "Running mvn test..."
+echo "I was going to run them all here but it takes extremely long and the sockets get exhausted
+so they can be run individually as needed in the JUnit classes, I just didn't want them running indefinitely."
 
 ############################################
 # 2) Start voting peers
