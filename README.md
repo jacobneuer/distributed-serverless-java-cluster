@@ -102,25 +102,6 @@ The repository includes both JUnit tests and shell demos, especially in `fault-t
 - `WorkerFailureReassignmentTest`: verifies that killing a worker mid-flight does not lose the client request.
 - `GatewayServerTest` / `NewGatewayServerTest`: validate compile-and-run behavior, caching, concurrency, and observer behavior.
 
-## Publishing Notes
-
-Before making this repository public, it is worth cleaning a few items that are local or school-specific:
-
-- Remove generated files such as `.DS_Store`, `target/`, and log output from version control if they are currently tracked.
-- If the original school repository contained starter code or policy-restricted material, confirm that your class allows public publication.
-
-## What This Project Demonstrates
-
-This project shows incremental construction of a distributed system:
-
-- request validation and dynamic Java execution
-- leader election and quorum logic
-- multi-node request routing
-- observer/gateway design
-- caching and concurrency control
-- heartbeat gossip and failure detection
-- failover and recovery under partial node failure
-
 ## Author
 
 Jacob Neuer
