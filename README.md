@@ -2,13 +2,13 @@
 
 A five-stage Java distributed-systems project that evolves from a single-node compile-and-run HTTP server into a fault-tolerant cluster with leader election, a gateway/observer node, request caching, gossip-based failure detection, and recovery of in-flight work.
 
-This repository is organized by assignment stage so the progression is easy to follow:
+This repository is organized by capability so the progression is easy to follow:
 
-- `stage1`: single-node HTTP server that compiles Java source sent to `/compileandrun` and executes its `run()` method.
-- `stage2`: UDP-based peer discovery and leader election with quorum handling.
-- `stage3`: distributed work execution with a leader delegating requests to followers.
-- `stage4`: gateway/observer architecture, TCP work forwarding, HTTP entrypoint, and cached responses.
-- `stage5`: gossip heartbeats, failure detection, leader failover, worker failure reassignment, and recovery of in-flight requests.
+- `compile-run-server`: single-node HTTP server that compiles Java source sent to `/compileandrun` and executes its `run()` method.
+- `leader-election-cluster`: UDP-based peer discovery and leader election with quorum handling.
+- `distributed-work-routing`: distributed work execution with a leader delegating requests to followers.
+- `gateway-observer-cluster`: gateway/observer architecture, TCP work forwarding, HTTP entrypoint, and cached responses.
+- `fault-tolerant-cluster`: gossip heartbeats, failure detection, leader failover, worker failure reassignment, and recovery of in-flight requests.
 
 ## Highlights
 
@@ -33,17 +33,17 @@ This repository is organized by assignment stage so the progression is easy to f
 ## Repository Layout
 
 ```text
-com3800/
-├── stage1/
-├── stage2/
-├── stage3/
-├── stage4/
-└── stage5/
+distributed-serverless-java-cluster/
+├── compile-run-server/
+├── leader-election-cluster/
+├── distributed-work-routing/
+├── gateway-observer-cluster/
+└── fault-tolerant-cluster/
 ```
 
 Each stage is self-contained with its own `pom.xml`, source tree, and tests.
 
-## Stage 5 Architecture
+## Fault-Tolerant Cluster Architecture
 
 The final stage is the most complete version of the system:
 
@@ -55,7 +55,7 @@ The final stage is the most complete version of the system:
 6. Gossip and heartbeat threads continuously detect failed peers.
 7. If a worker or leader dies, the cluster reassigns or recovers pending work and elects a new leader when needed.
 
-Useful stage-5 endpoints:
+Useful final-stage endpoints:
 
 - `POST /compileandrun`: submit Java source
 - `GET /leader`: ask the gateway which leader it currently sees
@@ -64,24 +64,24 @@ Useful stage-5 endpoints:
 
 ## Running A Stage
 
-Each stage can be built independently. For example, to build and test stage 5:
+Each module can be built independently. For example, to build and test the final fault-tolerant cluster:
 
 ```bash
-cd stage5
+cd fault-tolerant-cluster
 mvn test
 ```
 
-If you want to start the stage-5 cluster manually:
+If you want to start the final cluster manually:
 
 ```bash
-cd stage5
+cd fault-tolerant-cluster
 mvn clean compile
-java -cp target/classes edu.yu.cs.com3800.stage5.PeerServerRunner 1 5 8010 8010
-java -cp target/classes edu.yu.cs.com3800.stage5.PeerServerRunner 2 5 8010 8011
-java -cp target/classes edu.yu.cs.com3800.stage5.PeerServerRunner 3 5 8010 8012
-java -cp target/classes edu.yu.cs.com3800.stage5.PeerServerRunner 4 5 8010 8013
-java -cp target/classes edu.yu.cs.com3800.stage5.PeerServerRunner 5 5 8010 8014
-java -cp target/classes edu.yu.cs.com3800.stage5.GatewayServerRunner 8888 5 8010
+java -cp target/classes edu.yu.cs.com3800.faulttolerance.PeerServerRunner 1 5 8010 8010
+java -cp target/classes edu.yu.cs.com3800.faulttolerance.PeerServerRunner 2 5 8010 8011
+java -cp target/classes edu.yu.cs.com3800.faulttolerance.PeerServerRunner 3 5 8010 8012
+java -cp target/classes edu.yu.cs.com3800.faulttolerance.PeerServerRunner 4 5 8010 8013
+java -cp target/classes edu.yu.cs.com3800.faulttolerance.PeerServerRunner 5 5 8010 8014
+java -cp target/classes edu.yu.cs.com3800.faulttolerance.GatewayServerRunner 8888 5 8010
 ```
 
 Then submit a request:
@@ -95,7 +95,7 @@ curl -X POST \
 
 ## Demo Scripts And Tests
 
-The repository includes both JUnit tests and shell demos, especially in `stage5`:
+The repository includes both JUnit tests and shell demos, especially in `fault-tolerant-cluster`:
 
 - `demo5.sh`: brings up a larger cluster, exercises request handling, kills a follower, kills the leader, and verifies re-election.
 - `test_inflight_recovery.sh`: validates that a long-running request still completes after a leader failure.
@@ -106,9 +106,7 @@ The repository includes both JUnit tests and shell demos, especially in `stage5`
 
 Before making this repository public, it is worth cleaning a few items that are local or school-specific:
 
-- Replace the current `origin` remote with your personal GitHub repository.
 - Remove generated files such as `.DS_Store`, `target/`, and log output from version control if they are currently tracked.
-- Decide whether you want to keep the folder name `Jacob_Neuer_800691050` in the public history or rename the repository root for privacy/presentation.
 - If the original school repository contained starter code or policy-restricted material, confirm that your class allows public publication.
 
 ## What This Project Demonstrates
