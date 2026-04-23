@@ -1,0 +1,10 @@
+.DS_Store
+
+**/target/
+**/logs/
+**/logs-*/
+**/*.log
+*.class
+
+.idea/
+.vscode/
